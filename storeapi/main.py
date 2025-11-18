@@ -11,7 +11,7 @@ class UserPostIn(BaseModel):
 class UserPost(UserPostIn):
     id: int
 
-
+"installing Linux as professional"
 post_table = {}
 
 
