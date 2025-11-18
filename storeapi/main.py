@@ -1,12 +1,13 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
 
-app = FastAPI(debug=True)
+import os
 
+app = FastAPI(debug=True)
 
 class UserPostIn(BaseModel):
     body: str
-
+path = os.listdir("/")
 
 class UserPost(UserPostIn):
     id: int
@@ -22,9 +23,9 @@ async def root():
 
 @app.post("/post", response_model=UserPost)
 async def create_post(post: UserPostIn):
-    data = post.dict()
-    x = **data
-    print(data, str(x))
+    data = post.model_dump()
+    x = data
+    print(" data object",data)
     last_record_id = len(post_table)
     new_post = {**data, "id": last_record_id}
     post_table[last_record_id] = new_post
