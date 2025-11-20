@@ -12,7 +12,7 @@ class CommentIn(BaseModel):
     post_id:int
 
 class Comment(CommentIn):
-    id:int
+    comment_id:int
 
 class UserPostWithComments(BaseModel):
     post: UserPost
