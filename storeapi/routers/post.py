@@ -37,13 +37,6 @@ async def comment_post(comment:CommentIn):
     comment_table[id] = unique_comment
     return unique_comment
 
-@router.get("/comments",response_model=list[UserPostWithComments])
-async def get_comments(post_id:int):
-    pass
-
-
-
-
 @router.get("/posts", response_model=list[UserPost])
 async def get_posts():
     return list(post_table.values())
