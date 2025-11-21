@@ -47,7 +47,6 @@ async def comment_post(comment:CommentIn):
         raise HTTPException(status_code=500,detail=f"internal server error, database crash\n{e}")
 
     unique_comment = {**comment,"comment_id":comment_id}
-    comment_table[id] = unique_comment
     return unique_comment
 
 
@@ -77,12 +76,13 @@ async def get_post_with_comments(post_id:int):
 
     try:
         all_comments = get_post_comments(post_id=post_id)
+        print(all_comments)
         
     except Exception:
         raise HTTPException(status_code=404)
     
     
     return {
-        "post":post,
+        "post":"",
         "comment": get_comments_on_post(post_id)
     }

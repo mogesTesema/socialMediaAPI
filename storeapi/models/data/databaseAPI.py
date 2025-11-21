@@ -1,4 +1,4 @@
-from db_connection import DatabaseConnection
+from storeapi.models.data.db_connection import DatabaseConnection
 
 host_store = "database.db"
 def create_post_table():
