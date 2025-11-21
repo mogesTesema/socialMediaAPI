@@ -22,8 +22,28 @@ async def create_post(post_text:str)-> int:
         cursor = db_connect.cursor()
         post_text_sql = "INSERT INTO posts(post_text) VALUES(?)"
         cursor.execute(post_text_sql,(post_text,))
-        cursor.execute("SELECT post_id FROM posts where post_text=?",(post_text,))
-        created_post_id = cursor.fetchone()[0]
+        # cursor.execute("SELECT post_id FROM posts where post_text=?",(post_text,)) # wrong id retrieve method
+        created_post_id = cursor.lastrowid
     return created_post_id
+
+
+async def create_comment(post_id:int,comment_text:str):
+    with DatabaseConnection(host_store) as db_connect:
+        cursor = db_connect.cursor()
+        comment_sql = "INSERT INTO comments(comment_text,post_id) VALUES(?,?)"
+        post_id_sql = "SELECT post_id FROM posts where post_id=?"
+        cursor.execute(post_id_sql,(post_id,))
+        (db_post_id,) = cursor.fetchone() # unpack post_id since cursor.fetchone() returns (post_id,)
+        if db_post_id == post_id:
+            cursor.execute(comment_sql,(comment_text,post_id))
+            comment_id = cursor.lastrowid
+    if not db_post_id:
+        raise FileNotFoundError
+    return comment_id
+
+
+
+
+
     
 
