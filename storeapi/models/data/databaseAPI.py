@@ -1,4 +1,4 @@
-from storeapi.models.data.db_connection import DatabaseConnection
+from db_connection import DatabaseConnection
 
 host_store = "database.db"
 def create_post_table():
@@ -42,8 +42,13 @@ async def create_comment(post_id:int,comment_text:str):
     return comment_id
 
 
-
-
-
+def get_post_comments(post_id:int):
+    with DatabaseConnection(host_storage=host_store) as db_connect:
+        cursor = db_connect.cursor()
+        all_comments_sql = "SELECT comment_id,comment_text FROM comments where post_id=?"
+        cursor.execute(all_comments_sql,(post_id,))
+        all_comment = cursor.fetchall()
+    return all_comment
     
 
+get_post_comments(11)

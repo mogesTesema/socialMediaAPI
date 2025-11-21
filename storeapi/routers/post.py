@@ -1,6 +1,6 @@
 from fastapi import APIRouter,HTTPException
 from storeapi.models.post import (UserPost,UserPostIn,Comment,CommentIn,UserPostWithComments)
-from storeapi.models.data.databaseAPI import create_post as db_create_post,create_comment
+from storeapi.models.data.databaseAPI import create_post as db_create_post,create_comment,get_post_comments
 
 
 router = APIRouter()
@@ -33,6 +33,9 @@ async def create_post(post: UserPostIn):
 
 @router.post("/comment",response_model=Comment)
 async def comment_post(comment:CommentIn):
+    """
+    this endpoint is ganna insert comment into database
+    """
     post_id = comment.post_id
     comment_text = comment.body
     comment = comment.model_dump()
@@ -45,9 +48,6 @@ async def comment_post(comment:CommentIn):
 
     unique_comment = {**comment,"comment_id":comment_id}
     comment_table[id] = unique_comment
-    """
-    this endpoint is ganna insert comment into database
-    """
     return unique_comment
 
 
@@ -70,12 +70,17 @@ def get_comments_on_post(post_id:int):
 
 @router.get("/post/{post_id}",response_model=UserPostWithComments)
 async def get_post_with_comments(post_id:int):
-    post = find_post(post_id=post_id)
+
     """
     this endpoint is unique, it combines post and comment property that leads to foreigh relation between those tables
     """
-    if not post:
-        raise HTTPException(status_code=404,detail="comment not found")
+
+    try:
+        all_comments = get_post_comments(post_id=post_id)
+        
+    except Exception:
+        raise HTTPException(status_code=404)
+    
     
     return {
         "post":post,
