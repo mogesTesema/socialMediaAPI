@@ -5,12 +5,11 @@ def create_post_table():
     with DatabaseConnection(host_storage=host_store) as db_connect:
         post_table_sql = "CREATE TABLE IF NOT EXISTS posts(post_id INTEGER PRIMARY KEY AUTOINCREMENT,post_text TEXT NOT NULL)"
         cursor = db_connect.cursor()
-
         cursor.execute(post_table_sql)
 
 def creat_comment_table():
     with DatabaseConnection(host_store) as db_connect:
-        comment_table_sql = "CREATE TABLE IF NOT EXISTS comments(comment_id INTEGER PRIMARY KEY AUTOINCREMENT,comment_text TEXT,post_id INTEGER NOT NULL,FOREIGN KEY(post_id) REFERENCES posts(post_id))"
+        comment_table_sql = "CREATE TABLE IF NOT EXISTS comments(comment_id INTEGER PRIMARY KEY AUTOINCREMENT,comment_text TEXT NOT NULL,post_id INTEGER NOT NULL,FOREIGN KEY(post_id) REFERENCES posts(post_id))"
         cursor = db_connect.cursor()
         cursor.execute(comment_table_sql)
 
@@ -42,7 +41,7 @@ async def create_comment(post_id:int,comment_text:str):
     return comment_id
 
 
-def get_post_comments(post_id:int):
+async def get_post_comments(post_id:int):
     with DatabaseConnection(host_storage=host_store) as db_connect:
         cursor = db_connect.cursor()
         all_comments_sql = "SELECT comment_id,comment_text FROM comments where post_id=?"
@@ -50,5 +49,19 @@ def get_post_comments(post_id:int):
         all_comment = cursor.fetchall()
     return all_comment
     
+async def get_post(post_id:int):
+    with DatabaseConnection(host_storage=host_store) as db_connect:
+        cursor = db_connect.cursor()
+        post_query_sql = "SELECT post_text FROM posts where post_id=(?)"
+        cursor.execute(post_query_sql,(post_id,))
+        (post_text,)= cursor.fetchone()
+    return post_text
 
-get_post_comments(11)
+
+async def get_all_posts():
+    with DatabaseConnection(host_storage=host_store) as db_connect:
+        cursor = db_connect.cursor()
+        all_posts_sql = "SELECT post_id,post_text FROM posts LIMIT 50"
+        cursor.execute(all_posts_sql)
+        all_posts = cursor.fetchall()
+    return all_posts
