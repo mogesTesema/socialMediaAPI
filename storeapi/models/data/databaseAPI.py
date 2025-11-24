@@ -1,13 +1,13 @@
 from storeapi.models.data.db_connection import DatabaseConnection
 
 host_store = "database.db"
-def create_post_table():
+def create_post_table(host_store=host_store):
     with DatabaseConnection(host_storage=host_store) as db_connect:
         post_table_sql = "CREATE TABLE IF NOT EXISTS posts(post_id INTEGER PRIMARY KEY AUTOINCREMENT,post_text TEXT NOT NULL)"
         cursor = db_connect.cursor()
         cursor.execute(post_table_sql)
 
-def creat_comment_table():
+def creat_comment_table(host_store=host_store):
     with DatabaseConnection(host_store) as db_connect:
         comment_table_sql = "CREATE TABLE IF NOT EXISTS comments(comment_id INTEGER PRIMARY KEY AUTOINCREMENT,comment_text TEXT NOT NULL,post_id INTEGER NOT NULL,FOREIGN KEY(post_id) REFERENCES posts(post_id))"
         cursor = db_connect.cursor()
@@ -65,3 +65,9 @@ async def get_all_posts():
         cursor.execute(all_posts_sql)
         all_posts = cursor.fetchall()
     return all_posts
+
+async def delete_post(post_id:int):
+    with DatabaseConnection(host_storage=host_store) as db_connect:
+        cursor = db_connect.cursor()
+        delete_post_sql = "Drop table posts"
+        cursor.execute(delete_post_sql)

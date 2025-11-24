@@ -9,15 +9,12 @@ from storeapi.models.data.databaseAPI import (create_post as db_create_post,
                                               create_comment,
                                               get_post_comments,
                                               get_post as db_get_post,
-                                              get_all_posts)
+                                              get_all_posts,
+                                              delete_post as db_delete_post)
 
 
 router = APIRouter()
 
-post_table = {}
-comment_table = {}
-def find_post(post_id:int):
-    return post_table.get(post_id)
 
 
 @router.get("/")
@@ -106,3 +103,7 @@ async def get_post_with_comments(post_id:int):
         "post":post_detail,
         "comment": comment_lists
     }
+
+@router.delete("/post/{post_id}")
+async def delete_post(post_id:int):
+    await db_delete_post(post_id=post_id)
