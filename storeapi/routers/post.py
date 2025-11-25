@@ -16,7 +16,8 @@ from storeapi.models.data.databaseAPI import (create_post as db_create_post,
 
 router = APIRouter()
 
-
+comment_table = {}
+post_table = {}
 
 @router.get("/")
 async def root():

@@ -5,3 +5,10 @@ def test_add_two():
 
 def new_func():
     return 3
+
+def test_dict_contains():
+    x  = {"a":1,"b":2}
+
+    expected = {"a":1}
+
+    assert expected.items() <= x.items()
