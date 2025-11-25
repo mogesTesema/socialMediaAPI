@@ -1,14 +1,23 @@
-from fastapi import APIRouter,HTTPException,File, UploadFile,WebSocketException
-from storeapi.videochats.videostore import store_video_file
+from fastapi import APIRouter, WebSocket
+from storeapi.videochats.videostore import start_ffmpeg_writer
 
 router = APIRouter()
 
-@router.post("/video")
-async def upload_video(file:UploadFile=File(...)):
+@router.websocket("/ws/stream")
+async def video_stream(ws: WebSocket):
+    await ws.accept()
+
+    ffmpeg_proc, output_path = start_ffmpeg_writer()
+
     try:
-        await store_video_file(file,file.filename)
-    except HTTPException:
-        raise HTTPException()
+        while True:
+            chunk = await ws.receive_bytes()
+            ffmpeg_proc.stdin.write(chunk)
+
     except Exception:
-        raise WebSocketException(code=1,reason="unknown error during uploaded video file storing")
-# ws = WebSocket(scope=None,receive=None,send=None)
+        ffmpeg_proc.stdin.close()
+        ffmpeg_proc.wait()
+
+        await ws.close()
+
+    return {"saved_to": output_path}

@@ -1,12 +1,21 @@
+import subprocess
+import uuid
 import os
 
+VIDEO_DIR = "videos"
+os.makedirs(VIDEO_DIR, exist_ok=True)
 
-video_root_dir = "uploaded-videos"
-root_dir = os.path.join(os.getcwd(),video_root_dir)
-os.makedirs(root_dir,exist_ok=True)
+def start_ffmpeg_writer():
+    video_id = str(uuid.uuid4())
+    output_file = f"{VIDEO_DIR}/{video_id}.mp4"
 
-async def store_video_file(video_file,video_filename:str):
-    video_store_dir = os.path.join(root_dir,video_filename)
+    process = subprocess.Popen(
+        [
+            "ffmpeg", "-y",
+            "-f", "mpegts", "-i", "-",
+            "-vcodec", "libx264", output_file
+        ],
+        stdin=subprocess.PIPE
+    )
 
-    with open(video_store_dir,"wb") as video_buffer:
-        video_buffer.write(await video_file.read())
+    return process, output_file
