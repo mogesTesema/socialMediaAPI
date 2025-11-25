@@ -90,7 +90,6 @@ async def get_post_with_comments(post_id:int):
     """
     try:
         all_comments = await get_post_comments(post_id=post_id)
-        print(all_comments)
         
     except Exception:
         raise HTTPException(status_code=404)
