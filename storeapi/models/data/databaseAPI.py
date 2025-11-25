@@ -9,7 +9,10 @@ def create_post_table(host_store=host_store):
 
 def creat_comment_table(host_store=host_store):
     with DatabaseConnection(host_store) as db_connect:
-        comment_table_sql = "CREATE TABLE IF NOT EXISTS comments(comment_id INTEGER PRIMARY KEY AUTOINCREMENT,comment_text TEXT NOT NULL,post_id INTEGER NOT NULL,FOREIGN KEY(post_id) REFERENCES posts(post_id))"
+        comment_table_sql = "CREATE TABLE IF NOT EXISTS comments(" \
+        "comment_id INTEGER PRIMARY KEY AUTOINCREMENT," \
+        "comment_text TEXT NOT NULL,post_id INTEGER NOT NULL," \
+        "FOREIGN KEY(post_id) REFERENCES posts(post_id) ON DELETE CASCADE)"
         cursor = db_connect.cursor()
         cursor.execute(comment_table_sql)
 
@@ -54,7 +57,10 @@ async def get_post(post_id:int):
         cursor = db_connect.cursor()
         post_query_sql = "SELECT post_text FROM posts where post_id=(?)"
         cursor.execute(post_query_sql,(post_id,))
-        (post_text,)= cursor.fetchone()
+        try:
+            (post_text,)= cursor.fetchone()
+        except Exception:
+            return ""
     return post_text
 
 
@@ -69,5 +75,12 @@ async def get_all_posts():
 async def delete_post(post_id:int):
     with DatabaseConnection(host_storage=host_store) as db_connect:
         cursor = db_connect.cursor()
-        delete_post_sql = "Drop table posts"
-        cursor.execute(delete_post_sql)
+        delete_post_sql = "DELETE FROM posts where post_id=?"
+        cursor.execute(delete_post_sql,(post_id,))
+
+    
+async def update_comment(comment_id,comment_text,post_id=0):
+    with DatabaseConnection(host_storage=host_store) as db_connect:
+        cursor = db_connect.cursor()
+        update_comment_sql = "UPDATE comments SET comment_text=? where comment_id=?"
+        cursor.execute(update_comment_sql,(comment_text,comment_id))

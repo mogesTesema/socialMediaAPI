@@ -10,7 +10,8 @@ from storeapi.models.data.databaseAPI import (create_post as db_create_post,
                                               get_post_comments,
                                               get_post as db_get_post,
                                               get_all_posts,
-                                              delete_post as db_delete_post)
+                                              delete_post as db_delete_post,
+                                              update_comment as db_update_comment)
 
 
 router = APIRouter()
@@ -58,7 +59,10 @@ async def comment_post(comment:CommentIn):
 @router.get("/post/{post_id}",response_model=UserPost)
 async def get_post(post_id:int):
     post_text = await db_get_post(post_id=post_id)
-    return {"body":post_text,"id":post_id}
+    if post_text:
+        return {"body":post_text,"id":post_id}
+    else:
+        raise HTTPException(status_code=404,detail=f"post with post_id:{post_id} doesn't exist")
 
 
 @router.get("/posts",response_model=list[UserPost])
@@ -107,3 +111,14 @@ async def get_post_with_comments(post_id:int):
 @router.delete("/post/{post_id}")
 async def delete_post(post_id:int):
     await db_delete_post(post_id=post_id)
+
+
+@router.put("/comment")
+async def update_comment(comment:Comment):
+    post_id = comment.post_id
+    comment_id = comment.comment_id
+    comment_text = comment.body
+    try:
+        await db_update_comment(comment_id,comment_text,post_id)
+    except Exception:
+        raise HTTPException(status_code=404,detail="comment with comment_id:{comment_id},post_id:{post_id} and comment:{comment_text} don't exist")
