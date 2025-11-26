@@ -1,5 +1,6 @@
 from pydantic_settings import BaseSettings
 from typing import Optional
+from functools import lru_cache
 
 class BaseConfig(BaseSettings):
     ENV_STATE: Optional[str] = None
@@ -26,3 +27,10 @@ class TestConfig(GlobalConfig):
     
     class Config:
         env_prefix: str = "TEST_"
+
+@lru_cache() 
+def get_config(env_state:str):
+      configs = {"dev":DevConfig, "prod":ProdConfig, "test":TestConfig}
+      return configs[env_state]()
+
+config = get_config(BaseConfig().ENV_STATE)
