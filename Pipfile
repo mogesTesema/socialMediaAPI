@@ -9,6 +9,10 @@ uvicorn = {extras = ["standard"], version = "*"}
 python-multipart = "*"
 pytest = "*"
 httpx = "*"
+sqlalchemy = "*"
+databases = {extras = ["aiosqlite"], version = "*"}
+python-dotenv = "*"
+pydantic-settings = "*"
 
 [dev-packages]
 pytest = "*"
