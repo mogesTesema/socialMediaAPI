@@ -13,6 +13,7 @@ sqlalchemy = "*"
 databases = {extras = ["aiosqlite"], version = "*"}
 python-dotenv = "*"
 pydantic-settings = "*"
+rich = "*"
 
 [dev-packages]
 pytest = "*"
