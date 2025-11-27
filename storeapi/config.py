@@ -26,7 +26,6 @@ class TestConfig(GlobalConfig):
 @lru_cache() 
 def get_config(env_state:str):
       configs = {"dev":DevConfig, "prod":ProdConfig, "test":TestConfig}
-      return configs[env_state]()
+      return configs.get(env_state,DevConfig)()
 
 config = get_config(BaseConfig().ENV_STATE)
- 

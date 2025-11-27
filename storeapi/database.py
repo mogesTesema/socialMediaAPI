@@ -1,6 +1,6 @@
 import databases
 import sqlalchemy
-from config import config
+from storeapi.config import config
 
 DATABASE_URL = config.DATABASE_URL
 metadata = sqlalchemy.MetaData()
@@ -8,16 +8,16 @@ metadata = sqlalchemy.MetaData()
 post_table = sqlalchemy.Table(
     "posts",
     metadata,
-    sqlalchemy.column("id",sqlalchemy.Integer,primary_key=True),
-    sqlalchemy.column("body",sqlalchemy.String)
+    sqlalchemy.Column("id",sqlalchemy.Integer,primary_key=True),
+    sqlalchemy.Column("body",sqlalchemy.String)
 )
 
 comment_table = sqlalchemy.Table(
     "comments",
     metadata,
-    sqlalchemy.column("id",sqlalchemy.Integer,primary_key=True),
-    sqlalchemy.column("body",sqlalchemy.String),
-    sqlalchemy.column("post_id",sqlalchemy.ForeignKey("posts.id"),nullable=False)
+    sqlalchemy.Column("id",sqlalchemy.Integer,primary_key=True),
+    sqlalchemy.Column("body",sqlalchemy.String),
+    sqlalchemy.Column("post_id",sqlalchemy.ForeignKey("posts.id"),nullable=False)
 )
 
 engine = sqlalchemy.create_engine(
@@ -26,4 +26,4 @@ engine = sqlalchemy.create_engine(
     )
 
 metadata.create_all(engine)
-database = databases.Database(DATABASE_URL, force_rollback=config.FORCE_ROLL_BACK)
+database = databases.Database(DATABASE_URL, force_rollback=config.DB_FORCE_ROLL_BACK)
