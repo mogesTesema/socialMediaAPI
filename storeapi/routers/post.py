@@ -25,7 +25,7 @@ async def root():
 
 
 async def find_post(post_id:int):
-    query = post_table.select().where(post_table.c.id == post_id)
+    query = post_table.select(post_table.c.id).where(post_table.c.id == post_id)
     return await database.fetch_one(query=query)
 
 
@@ -75,7 +75,7 @@ async def get_post(post_id:int):
     query = post_table.select().where(post_table.c.id==post_id)
     post_content = await database.fetch_one(query)
     if post_content:
-        return post_content
+        return UserPost(**post_content)
     else:
         raise HTTPException(status_code=404,detail=f"post with post_id:{post_id} doesn't exist")
 
@@ -110,7 +110,7 @@ async def get_post_with_comments(post_id:int):
     except Exception:
         raise HTTPException(status_code=404)
     try:
-        post_detail = await find_post(post_id=post_id)
+        post_detail = await database.fetch_one(post_table.select().where(post_table.c.id==post_id))
     except Exception:
         raise HTTPException(status_code=500,detail="inernal server error due to database crash when fetching post_text")
     if not post_detail:
