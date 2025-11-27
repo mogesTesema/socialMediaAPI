@@ -8,8 +8,14 @@ from storeapi.database import database
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
+    # ---- SETUP (start server) ----
+    print("📡 Connecting database...")
     await database.connect()
-    yield
+
+    yield  # ⛔ Pause here — FastAPI runs routes now
+
+    # ---- TEARDOWN (stop server) ----
+    print("🔌 Disconnecting database...")
     await database.disconnect()
 
     

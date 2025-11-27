@@ -4,31 +4,22 @@ from storeapi.models.post import (UserPost,
                                   Comment,
                                   CommentIn,
                                   UserPostWithComments)
-from storeapi.database import database,post_table,comment_table
-                                            
 
-
-
-
+from storeapi.models.data.databaseAPI import (create_post as db_create_post,
+                                              create_comment,
+                                              get_post_comments,
+                                              get_post as db_get_post,
+                                              get_all_posts,
+                                              delete_post as db_delete_post,
+                                              update_comment as db_update_comment)
 
 
 router = APIRouter()
 
 
-
-
 @router.get("/")
 async def root():
     return {"message": "well come!"}
-
-
-
-
-async def find_post(post_id:int):
-    query = post_table.select().where(post_table.c.id == post_id)
-    return await database.fetch_one(query=query)
-
-
 
 
 @router.post("/post", response_model=UserPost)
@@ -37,49 +28,40 @@ async def create_post(post: UserPostIn):
     this post endpoint is going to insert posts into database from clients post request
     """
     data = post.model_dump()
-    query = post_table.insert().values(data)
+    post_text = post.body
     try:   
-        post_id = await database.execute(query=query)
+        post_id = await db_create_post(post_text=post_text)
     except Exception:
         raise HTTPException(status_code=500,detail="internal server error due to database crash")
     new_post = {**data, "id": post_id}
     return new_post
-
-
-
 
 @router.post("/comment",response_model=Comment)
 async def comment_post(comment:CommentIn):
     """
     this endpoint is ganna insert comment into database
     """
-    post= await find_post(comment.post_id)
-    if not post:
-        raise HTTPException(status_code=404,detail="post doesn't exist")
+    post_id = comment.post_id
+    comment_text = comment.body
     comment = comment.model_dump()
-    query = comment_table.insert().values(comment)
     try:
-        comment_id = await database.execute(query)
+        comment_id = await create_comment(post_id=post_id,comment_text=comment_text)
+    except HTTPException:
+        raise HTTPException(status_code=404,detail=f"post with {post_id} not found")
     except Exception as e:
-        raise HTTPException(status_code=500,detail=f"internal server error, database crash\n{str(e)}")
+        raise HTTPException(status_code=500,detail=f"internal server error, database crash\n{e}")
 
-    unique_comment = {**comment,"id":comment_id}
+    unique_comment = {**comment,"comment_id":comment_id}
     return unique_comment
-
-
-
 
 
 @router.get("/post/{post_id}",response_model=UserPost)
 async def get_post(post_id:int):
-    query = post_table.select().where(post_table.c.id==post_id)
-    post_content = await database.fetch_one(query)
-    if post_content:
-        return post_content
+    post_text = await db_get_post(post_id=post_id)
+    if post_text:
+        return {"body":post_text,"id":post_id}
     else:
         raise HTTPException(status_code=404,detail=f"post with post_id:{post_id} doesn't exist")
-
-
 
 
 @router.get("/posts",response_model=list[UserPost])
@@ -87,12 +69,14 @@ async def get_posts():
     """
     this endpoint gonna retrive data from database and then send those retrieved data back to client
     """
-    query = post_table.select()
     try:
-        all_posts = await database.fetch_all(query=query)
+        all_posts = await get_all_posts()
     except Exception:
         raise HTTPException(status_code=500,detail="insternal server crash")
-    return all_posts
+    filtered_all_posts = []
+    for post_id,post_text in all_posts:
+        filtered_all_posts.append({"id":post_id,"body":post_text})
+    return filtered_all_posts
     
 
 
@@ -103,50 +87,36 @@ async def get_post_with_comments(post_id:int):
     """
     this endpoint is unique, it combines post and comment property that leads to foreign relation between those tables
     """
-    query = comment_table.select().where(comment_table.c.post_id==post_id)
     try:
-        all_comments = await database.fetch_all(query)
+        all_comments = await get_post_comments(post_id=post_id)
         
     except Exception:
         raise HTTPException(status_code=404)
     try:
-        post_detail = await find_post(post_id=post_id)
+        post_detail = await get_post(post_id=post_id)
     except Exception:
         raise HTTPException(status_code=500,detail="inernal server error due to database crash when fetching post_text")
-    if not post_detail:
-        raise HTTPException(status_code=404, detail="Post not found")
-    all_comments = [Comment(**c) for c in all_comments]
+    comment_lists = []
+    for comment_id,comment_text in all_comments:
+        comment_dict = {"body":comment_text,"comment_id":comment_id,"post_id":post_id}
+        comment_lists.append(comment_dict)
 
     return {
-        "post":UserPost(**post_detail),
-        "comment": all_comments
+        "post":post_detail,
+        "comment": comment_lists
     }
-
-
-
-
 
 @router.delete("/post/{post_id}")
 async def delete_post(post_id:int):
-    post = await find_post(post_id)
-    if not post:
-        raise HTTPException(status_code=404, detail="Post not found")
-
-    query = post_table.delete().where(post_table.c.id==post_id)
-    await database.execute(query)
-    return {"status": "deleted"}
-
-
-
-
+    await db_delete_post(post_id=post_id)
 
 
 @router.put("/comment")
 async def update_comment(comment:Comment):
-    comment_id = comment.id
-    query = comment_table.update().values(comment.model_dump(exclude="id")).where(comment_table.c.id==comment_id)
+    post_id = comment.post_id
+    comment_id = comment.comment_id
+    comment_text = comment.body
     try:
-        await database.execute(query)
+        await db_update_comment(comment_id,comment_text,post_id)
     except Exception:
-        raise HTTPException(status_code=404,detail=f"comment with comment_id:{comment_id} don't exist")
-    return {"status":"comment updated","id":comment_id}
+        raise HTTPException(status_code=404,detail="comment with comment_id:{comment_id},post_id:{post_id} and comment:{comment_text} don't exist")

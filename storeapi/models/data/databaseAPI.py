@@ -35,7 +35,10 @@ async def create_comment(post_id:int,comment_text:str):
         comment_sql = "INSERT INTO comments(comment_text,post_id) VALUES(?,?)"
         post_id_sql = "SELECT post_id FROM posts where post_id=?"
         cursor.execute(post_id_sql,(post_id,))
-        (db_post_id,) = cursor.fetchone() # unpack post_id since cursor.fetchone() returns (post_id,)
+        try:
+            (db_post_id,) = cursor.fetchone() # unpack post_id since cursor.fetchone() returns (post_id,)
+        except Exception:
+            db_post_id = None
         if db_post_id == post_id:
             cursor.execute(comment_sql,(comment_text,post_id))
             comment_id = cursor.lastrowid
