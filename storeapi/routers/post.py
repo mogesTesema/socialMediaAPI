@@ -5,6 +5,7 @@ from storeapi.models.post import (UserPost,
                                   CommentIn,
                                   UserPostWithComments)
 from storeapi.database import database,post_table,comment_table
+from sqlalchemy import select
                                             
 
 
@@ -25,7 +26,7 @@ async def root():
 
 
 async def find_post(post_id:int):
-    query = post_table.select(post_table.c.id).where(post_table.c.id == post_id)
+    query = select(post_table.c.id).where(post_table.c.id == post_id)
     return await database.fetch_one(query=query)
 
 
