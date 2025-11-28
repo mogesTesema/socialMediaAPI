@@ -1673,3 +1673,117 @@ SELECT posts.id, posts.body
 FROM posts 
 WHERE posts.id = :id_1
 127.0.0.1:33610 - "GET /post/2 HTTP/1.1" 200
+Shutting down
+Waiting for application shutdown.
+🔌 Disconnecting database...
+Application shutdown complete.
+Finished server process [27023]
+Started server process [34983]
+Waiting for application startup.
+📡 Connecting database...
+Application startup complete.
+Shutting down
+Waiting for application shutdown.
+🔌 Disconnecting database...
+Application shutdown complete.
+Finished server process [34983]
+Started server process [37007]
+Waiting for application startup.
+📡 Connecting database...
+Application startup complete.
+Shutting down
+Waiting for application shutdown.
+🔌 Disconnecting database...
+Application shutdown complete.
+Finished server process [37007]
+Started server process [37980]
+Waiting for application startup.
+📡 Connecting database...
+Application startup complete.
+Shutting down
+Waiting for application shutdown.
+🔌 Disconnecting database...
+Application shutdown complete.
+Finished server process [37980]
+Started server process [38229]
+Waiting for application startup.
+📡 Connecting database...
+Application startup complete.
+Shutting down
+Waiting for application shutdown.
+🔌 Disconnecting database...
+Application shutdown complete.
+Finished server process [38229]
+Started server process [38345]
+Waiting for application startup.
+📡 Connecting database...
+Application startup complete.
+Shutting down
+Waiting for application shutdown.
+🔌 Disconnecting database...
+Application shutdown complete.
+Finished server process [38345]
+Started server process [38424]
+Waiting for application startup.
+📡 Connecting database...
+Application startup complete.
+Shutting down
+Waiting for application shutdown.
+🔌 Disconnecting database...
+Application shutdown complete.
+Finished server process [38424]
+Started server process [38781]
+Waiting for application startup.
+📡 Connecting database...
+Application startup complete.
+Shutting down
+Waiting for application shutdown.
+🔌 Disconnecting database...
+Application shutdown complete.
+Finished server process [38781]
+Started server process [41077]
+Waiting for application startup.
+📡 Connecting database...
+Application startup complete.
+Shutting down
+Waiting for application shutdown.
+🔌 Disconnecting database...
+Application shutdown complete.
+Finished server process [41077]
+Started server process [41261]
+Waiting for application startup.
+📡 Connecting database...
+Application startup complete.
+Shutting down
+Waiting for application shutdown.
+🔌 Disconnecting database...
+Application shutdown complete.
+Finished server process [41261]
+Started server process [41482]
+Waiting for application startup.
+📡 Connecting database...
+Application startup complete.
+geting user post with id {post_id}
+SELECT posts.id, posts.body 
+FROM posts 
+WHERE posts.id = :id_1
+127.0.0.1:43026 - "GET /post/2 HTTP/1.1" 200
+geting user post with id {post_id}
+SELECT posts.id, posts.body 
+FROM posts 
+WHERE posts.id = :id_1
+127.0.0.1:50628 - "GET /post/2 HTTP/1.1" 200
+Shutting down
+Waiting for application shutdown.
+🔌 Disconnecting database...
+Application shutdown complete.
+Finished server process [41482]
+Started server process [43011]
+Waiting for application startup.
+📡 Connecting database...
+Application startup complete.
+Shutting down
+Waiting for application shutdown.
+🔌 Disconnecting database...
+Application shutdown complete.
+Finished server process [43011]

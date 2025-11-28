@@ -1,5 +1,23 @@
 from logging.config import dictConfig
 from storeapi.config import DevConfig, config
+import logging
+
+
+def obfuscated(email: str, obfuscated_length: int) -> str:
+    chars = email[:obfuscated_length]
+    first, last = email.split("@")
+    return chars + "*" * (len(first) - obfuscated_length) + last
+
+
+class EmailObfuscationFilter(logging.Filter):
+    def __init__(self, name: str = "", obfuscated_length: int = 2) -> None:
+        super().__init__(name)
+        self.obfuscated_length = obfuscated_length
+
+    def filter(self, record: logging.LogRecord) -> bool:
+        if "email" in record.__dict__:
+            record.email = obfuscated(record.email, self.obfuscated_length)
+        return True
 
 
 def configure_logging() -> None:
@@ -13,6 +31,10 @@ def configure_logging() -> None:
                     "uuid_length": 8 if isinstance(config, DevConfig) else 32,
                     "default_value": "-",
                 },
+                "email_obfuscation": {
+                    "()": EmailObfuscationFilter,
+                    "obfuscated_length": 2 if isinstance(config, DevConfig) else 0,
+                },
             },
             "formatters": {
                 "console": {
@@ -24,7 +46,7 @@ def configure_logging() -> None:
                     "class": "logging.Formatter",
                     "datefmt": "%Y-%m-%dT%H:%M:%S",
                     "json_format": [
-                        "(correlation_id)",  # Custom field (needs to be available on the LogRecord)
+                        "(correlation_id)",
                         "asctime",
                         "msecs",
                         "levelname",
@@ -39,7 +61,7 @@ def configure_logging() -> None:
                     "class": "rich.logging.RichHandler",
                     "level": "DEBUG",
                     "formatter": "console",
-                    "filters": ["correlation_id"],
+                    "filters": ["correlation_id", "email_obfuscation"],
                 },
                 "rotating_file": {
                     "class": "logging.handlers.RotatingFileHandler",
@@ -49,7 +71,7 @@ def configure_logging() -> None:
                     "maxBytes": 2024 * 2024 * 2024,  # 1GB
                     "backupCount": 5,
                     "encoding": "utf8",
-                    "filters": ["correlation_id"],
+                    "filters": ["correlation_id", "email_obfuscation"],
                 },
             },
             "loggers": {
