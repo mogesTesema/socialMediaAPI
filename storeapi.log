@@ -609,3 +609,811 @@ FROM posts
 WHERE posts.id = :id_1
 2025-11-28T13:53:18.493Z | ERROR    | storeapi:52 - HTTPException:-url:http://localhost:8000/post/222, method:DELETE, status_code: 404, detail:Post not found
 2025-11-28T13:53:18.504Z | INFO     | uvicorn.access:476 - 127.0.0.1:58736 - "DELETE /post/222 HTTP/1.1" 404
+2025-11-28T14:34:01.801Z | INFO     | uvicorn.error:264 - Shutting down
+2025-11-28T14:34:01.917Z | INFO     | uvicorn.error:67 - Waiting for application shutdown.
+2025-11-28T14:34:01.933Z | INFO     | storeapi:33 - system shutdown,🔌 Disconnecting database...
+2025-11-28T14:34:01.957Z | INFO     | uvicorn.error:76 - Application shutdown complete.
+2025-11-28T14:34:01.977Z | INFO     | uvicorn.error:94 - Finished server process [16216]
+2025-11-28T14:35:42.159Z | INFO     | uvicorn.error:84 - Started server process [22495]
+2025-11-28T14:35:42.164Z | INFO     | uvicorn.error:48 - Waiting for application startup.
+2025-11-28T14:35:42.166Z | INFO     | storeapi:20 - 📡 Connecting database...
+2025-11-28T14:35:42.168Z | INFO     | uvicorn.error:62 - Application startup complete.
+2025-11-28T14:39:12.811Z | INFO     | uvicorn.error:264 - Shutting down
+2025-11-28T14:39:12.915Z | INFO     | uvicorn.error:67 - Waiting for application shutdown.
+2025-11-28T14:39:12.925Z | INFO     | storeapi:33 - system shutdown,🔌 Disconnecting database...
+2025-11-28T14:39:12.940Z | INFO     | uvicorn.error:76 - Application shutdown complete.
+2025-11-28T14:39:12.954Z | INFO     | uvicorn.error:94 - Finished server process [22495]
+2025-11-28T14:39:14.190Z | INFO     | uvicorn.error:84 - Started server process [22893]
+2025-11-28T14:39:14.195Z | INFO     | uvicorn.error:48 - Waiting for application startup.
+2025-11-28T14:39:14.198Z | INFO     | storeapi:21 - 📡 Connecting database...
+2025-11-28T14:39:14.201Z | INFO     | uvicorn.error:62 - Application startup complete.
+2025-11-28T14:39:33.187Z | INFO     | uvicorn.error:264 - Shutting down
+2025-11-28T14:39:33.290Z | INFO     | uvicorn.error:67 - Waiting for application shutdown.
+2025-11-28T14:39:33.296Z | INFO     | storeapi:34 - system shutdown,🔌 Disconnecting database...
+2025-11-28T14:39:33.308Z | INFO     | uvicorn.error:76 - Application shutdown complete.
+2025-11-28T14:39:33.322Z | INFO     | uvicorn.error:94 - Finished server process [22893]
+2025-11-28T14:39:34.577Z | INFO     | uvicorn.error:84 - Started server process [22994]
+2025-11-28T14:39:34.584Z | INFO     | uvicorn.error:48 - Waiting for application startup.
+2025-11-28T14:39:34.586Z | INFO     | storeapi:21 - 📡 Connecting database...
+2025-11-28T14:39:34.589Z | INFO     | uvicorn.error:62 - Application startup complete.
+2025-11-28T14:39:42.824Z | INFO     | uvicorn.error:264 - Shutting down
+2025-11-28T14:39:42.928Z | INFO     | uvicorn.error:67 - Waiting for application shutdown.
+2025-11-28T14:39:42.937Z | INFO     | storeapi:34 - system shutdown,🔌 Disconnecting database...
+2025-11-28T14:39:42.954Z | INFO     | uvicorn.error:76 - Application shutdown complete.
+2025-11-28T14:39:42.968Z | INFO     | uvicorn.error:94 - Finished server process [22994]
+2025-11-28T14:39:44.167Z | INFO     | uvicorn.error:84 - Started server process [23068]
+2025-11-28T14:39:44.172Z | INFO     | uvicorn.error:48 - Waiting for application startup.
+2025-11-28T14:39:44.176Z | INFO     | storeapi:21 - 📡 Connecting database...
+2025-11-28T14:39:44.178Z | INFO     | uvicorn.error:62 - Application startup complete.
+2025-11-28T14:39:51.008Z | INFO     | uvicorn.error:264 - Shutting down
+2025-11-28T14:39:51.113Z | INFO     | uvicorn.error:67 - Waiting for application shutdown.
+2025-11-28T14:39:51.115Z | INFO     | storeapi:34 - system shutdown,🔌 Disconnecting database...
+2025-11-28T14:39:51.118Z | INFO     | uvicorn.error:76 - Application shutdown complete.
+2025-11-28T14:39:51.121Z | INFO     | uvicorn.error:94 - Finished server process [23068]
+2025-11-28T14:39:52.337Z | INFO     | uvicorn.error:84 - Started server process [23140]
+2025-11-28T14:39:52.342Z | INFO     | uvicorn.error:48 - Waiting for application startup.
+2025-11-28T14:39:52.345Z | INFO     | storeapi:21 - 📡 Connecting database...
+2025-11-28T14:39:52.349Z | INFO     | uvicorn.error:62 - Application startup complete.
+2025-11-28T14:39:59.422Z | INFO     | storeapi.routers.post:145 - Deleting post with id 222
+2025-11-28T14:39:59.474Z | INFO     | uvicorn.access:476 - 127.0.0.1:47848 - "DELETE /post/222 HTTP/1.1" 500
+2025-11-28T14:39:59.477Z | ERROR    | uvicorn.error:414 - Exception in ASGI application
+Traceback (most recent call last):
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/uvicorn/protocols/http/httptools_impl.py", line 409, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self.scope, self.receive, self.send
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/uvicorn/middleware/proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/fastapi/applications.py", line 1134, in __call__
+    await super().__call__(scope, receive, send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/applications.py", line 107, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/fastapi/routing.py", line 125, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/fastapi/routing.py", line 111, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/fastapi/routing.py", line 391, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/fastapi/routing.py", line 290, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/moges/Full-Stack-ML/Coding-House/complete-python-course-bootcamp-codes/socialMediaAPI/storeapi/routers/post.py", line 146, in delete_post
+    post = await find_post(post_id)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/moges/Full-Stack-ML/Coding-House/complete-python-course-bootcamp-codes/socialMediaAPI/storeapi/routers/post.py", line 30, in find_post
+    logger.info(f"Finding post with id {post_id.getg}")
+                                        ^^^^^^^^^^^^
+AttributeError: 'int' object has no attribute 'getg'
+2025-11-28T14:40:36.221Z | INFO     | uvicorn.error:264 - Shutting down
+2025-11-28T14:40:36.336Z | INFO     | uvicorn.error:67 - Waiting for application shutdown.
+2025-11-28T14:40:36.340Z | INFO     | storeapi:34 - system shutdown,🔌 Disconnecting database...
+2025-11-28T14:40:36.346Z | INFO     | uvicorn.error:76 - Application shutdown complete.
+2025-11-28T14:40:36.351Z | INFO     | uvicorn.error:94 - Finished server process [23140]
+2025-11-28T14:40:38.137Z | INFO     | uvicorn.error:84 - Started server process [23340]
+2025-11-28T14:40:38.142Z | INFO     | uvicorn.error:48 - Waiting for application startup.
+2025-11-28T14:40:38.146Z | INFO     | storeapi:21 - 📡 Connecting database...
+2025-11-28T14:40:38.148Z | INFO     | uvicorn.error:62 - Application startup complete.
+2025-11-28T14:40:39.364Z | INFO     | storeapi.routers.post:145 - Deleting post with id 222
+2025-11-28T14:40:39.386Z | INFO     | uvicorn.access:476 - 127.0.0.1:40700 - "DELETE /post/222 HTTP/1.1" 500
+2025-11-28T14:40:39.390Z | ERROR    | uvicorn.error:414 - Exception in ASGI application
+Traceback (most recent call last):
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/uvicorn/protocols/http/httptools_impl.py", line 409, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self.scope, self.receive, self.send
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/uvicorn/middleware/proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/fastapi/applications.py", line 1134, in __call__
+    await super().__call__(scope, receive, send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/applications.py", line 107, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/fastapi/routing.py", line 125, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/fastapi/routing.py", line 111, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/fastapi/routing.py", line 391, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/fastapi/routing.py", line 290, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/moges/Full-Stack-ML/Coding-House/complete-python-course-bootcamp-codes/socialMediaAPI/storeapi/routers/post.py", line 146, in delete_post
+    post = await find_post(post_id)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/moges/Full-Stack-ML/Coding-House/complete-python-course-bootcamp-codes/socialMediaAPI/storeapi/routers/post.py", line 30, in find_post
+    logger.info(f"Finding post with id {post_id.getg}")
+                                        ^^^^^^^^^^^^
+AttributeError: 'int' object has no attribute 'getg'
+2025-11-28T14:41:40.245Z | INFO     | uvicorn.error:264 - Shutting down
+2025-11-28T14:41:40.360Z | INFO     | uvicorn.error:67 - Waiting for application shutdown.
+2025-11-28T14:41:40.364Z | INFO     | storeapi:34 - system shutdown,🔌 Disconnecting database...
+2025-11-28T14:41:40.367Z | INFO     | uvicorn.error:76 - Application shutdown complete.
+2025-11-28T14:41:40.370Z | INFO     | uvicorn.error:94 - Finished server process [23340]
+2025-11-28T14:41:53.063Z | INFO     | uvicorn.error:84 - Started server process [23575]
+2025-11-28T14:41:53.068Z | INFO     | uvicorn.error:48 - Waiting for application startup.
+2025-11-28T14:41:53.071Z | INFO     | storeapi:21 - 📡 Connecting database...
+2025-11-28T14:41:53.075Z | INFO     | uvicorn.error:62 - Application startup complete.
+2025-11-28T14:41:57.722Z | INFO     | storeapi.routers.post:145 - Deleting post with id 222
+2025-11-28T14:41:57.783Z | INFO     | uvicorn.access:476 - 127.0.0.1:40626 - "DELETE /post/222 HTTP/1.1" 500
+2025-11-28T14:41:57.790Z | ERROR    | uvicorn.error:414 - Exception in ASGI application
+Traceback (most recent call last):
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/uvicorn/protocols/http/httptools_impl.py", line 409, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self.scope, self.receive, self.send
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/uvicorn/middleware/proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/fastapi/applications.py", line 1134, in __call__
+    await super().__call__(scope, receive, send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/applications.py", line 107, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/fastapi/routing.py", line 125, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/fastapi/routing.py", line 111, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/fastapi/routing.py", line 391, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/fastapi/routing.py", line 290, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/moges/Full-Stack-ML/Coding-House/complete-python-course-bootcamp-codes/socialMediaAPI/storeapi/routers/post.py", line 146, in delete_post
+    post = await find_post(post_id)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/moges/Full-Stack-ML/Coding-House/complete-python-course-bootcamp-codes/socialMediaAPI/storeapi/routers/post.py", line 30, in find_post
+    logger.info(f"Finding post with id {post_id.getg}")
+                                        ^^^^^^^^^^^^
+AttributeError: 'int' object has no attribute 'getg'
+2025-11-28T14:44:33.155Z | INFO     | uvicorn.error:264 - Shutting down
+2025-11-28T14:44:33.260Z | INFO     | uvicorn.error:67 - Waiting for application shutdown.
+2025-11-28T14:44:33.263Z | INFO     | storeapi:34 - system shutdown,🔌 Disconnecting database...
+2025-11-28T14:44:33.265Z | INFO     | uvicorn.error:76 - Application shutdown complete.
+2025-11-28T14:44:33.267Z | INFO     | uvicorn.error:94 - Finished server process [23575]
+2025-11-28T14:44:34.652Z | INFO     | uvicorn.error:84 - Started server process [23952]
+2025-11-28T14:44:34.657Z | INFO     | uvicorn.error:48 - Waiting for application startup.
+2025-11-28T14:44:34.660Z | INFO     | storeapi:21 - 📡 Connecting database...
+2025-11-28T14:44:34.662Z | INFO     | uvicorn.error:62 - Application startup complete.
+2025-11-28T14:44:37.599Z | INFO     | storeapi.routers.post:145 - Deleting post with id 222
+2025-11-28T14:44:37.615Z | INFO     | uvicorn.access:476 - 127.0.0.1:51336 - "DELETE /post/222 HTTP/1.1" 500
+2025-11-28T14:44:37.618Z | ERROR    | uvicorn.error:414 - Exception in ASGI application
+Traceback (most recent call last):
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/uvicorn/protocols/http/httptools_impl.py", line 409, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self.scope, self.receive, self.send
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/uvicorn/middleware/proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/fastapi/applications.py", line 1134, in __call__
+    await super().__call__(scope, receive, send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/applications.py", line 107, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/fastapi/routing.py", line 125, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/fastapi/routing.py", line 111, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/fastapi/routing.py", line 391, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/fastapi/routing.py", line 290, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/moges/Full-Stack-ML/Coding-House/complete-python-course-bootcamp-codes/socialMediaAPI/storeapi/routers/post.py", line 146, in delete_post
+    post = await find_post(post_id)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/moges/Full-Stack-ML/Coding-House/complete-python-course-bootcamp-codes/socialMediaAPI/storeapi/routers/post.py", line 30, in find_post
+    logger.info(f"Finding post with id {post_id.getg}")
+                                        ^^^^^^^^^^^^
+AttributeError: 'int' object has no attribute 'getg'
+2025-11-28T14:47:44.682Z | INFO     | uvicorn.error:264 - Shutting down
+2025-11-28T14:47:44.791Z | INFO     | uvicorn.error:67 - Waiting for application shutdown.
+2025-11-28T14:47:44.794Z | INFO     | storeapi:34 - system shutdown,🔌 Disconnecting database...
+2025-11-28T14:47:44.796Z | INFO     | uvicorn.error:76 - Application shutdown complete.
+2025-11-28T14:47:44.798Z | INFO     | uvicorn.error:94 - Finished server process [23952]
+2025-11-28T14:48:39.289Z | INFO     | uvicorn.error:84 - Started server process [24654]
+2025-11-28T14:48:39.298Z | INFO     | uvicorn.error:48 - Waiting for application startup.
+2025-11-28T14:48:39.302Z | INFO     | storeapi:21 - 📡 Connecting database...
+2025-11-28T14:48:39.306Z | INFO     | uvicorn.error:62 - Application startup complete.
+2025-11-28T14:48:50.982Z | INFO     | storeapi.routers.post:145 - Deleting post with id 222
+2025-11-28T14:48:50.998Z | INFO     | storeapi.routers.post:30 - Finding post with id 222
+2025-11-28T14:48:51.052Z | INFO     | uvicorn.access:476 - 127.0.0.1:39256 - "DELETE /post/222 HTTP/1.1" 500
+2025-11-28T14:48:51.059Z | ERROR    | uvicorn.error:414 - Exception in ASGI application
+Traceback (most recent call last):
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/uvicorn/protocols/http/httptools_impl.py", line 409, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self.scope, self.receive, self.send
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/uvicorn/middleware/proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/fastapi/applications.py", line 1134, in __call__
+    await super().__call__(scope, receive, send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/applications.py", line 107, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/fastapi/routing.py", line 125, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/fastapi/routing.py", line 111, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/fastapi/routing.py", line 391, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/fastapi/routing.py", line 290, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/moges/Full-Stack-ML/Coding-House/complete-python-course-bootcamp-codes/socialMediaAPI/storeapi/routers/post.py", line 146, in delete_post
+    post = await find_post(post_id)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/moges/Full-Stack-ML/Coding-House/complete-python-course-bootcamp-codes/socialMediaAPI/storeapi/routers/post.py", line 31, in find_post
+    query = select(post_table.c.id).where(post_table.c.id == post_id.get)
+                                                             ^^^^^^^^^^^
+AttributeError: 'int' object has no attribute 'get'
+2025-11-28T14:53:38.754Z | INFO     | uvicorn.error:264 - Shutting down
+2025-11-28T14:53:38.860Z | INFO     | uvicorn.error:67 - Waiting for application shutdown.
+2025-11-28T14:53:38.863Z | INFO     | storeapi:34 - system shutdown,🔌 Disconnecting database...
+2025-11-28T14:53:38.866Z | INFO     | uvicorn.error:76 - Application shutdown complete.
+2025-11-28T14:53:38.870Z | INFO     | uvicorn.error:94 - Finished server process [24654]
+2025-11-28T14:53:40.437Z | INFO     | uvicorn.error:84 - Started server process [25615]
+2025-11-28T14:53:40.446Z | INFO     | uvicorn.error:48 - Waiting for application startup.
+2025-11-28T14:53:40.449Z | INFO     | storeapi:21 - 📡 Connecting database...
+2025-11-28T14:53:40.452Z | INFO     | uvicorn.error:62 - Application startup complete.
+2025-11-28T14:53:46.481Z | INFO     | uvicorn.error:264 - Shutting down
+2025-11-28T14:53:46.586Z | INFO     | uvicorn.error:67 - Waiting for application shutdown.
+2025-11-28T14:53:46.589Z | INFO     | storeapi:34 - system shutdown,🔌 Disconnecting database...
+2025-11-28T14:53:46.592Z | INFO     | uvicorn.error:76 - Application shutdown complete.
+2025-11-28T14:53:46.594Z | INFO     | uvicorn.error:94 - Finished server process [25615]
+2025-11-28T14:53:47.899Z | INFO     | uvicorn.error:84 - Started server process [25690]
+2025-11-28T14:53:47.904Z | INFO     | uvicorn.error:48 - Waiting for application startup.
+2025-11-28T14:53:47.907Z | INFO     | storeapi:21 - 📡 Connecting database...
+2025-11-28T14:53:47.909Z | INFO     | uvicorn.error:62 - Application startup complete.
+2025-11-28T14:54:01.659Z | INFO     | uvicorn.access:476 - 127.0.0.1:37606 - "POST /post/222 HTTP/1.1" 405
+2025-11-28T14:54:09.740Z | INFO     | storeapi.routers.post:43 - creating user post with details: body='logging critical information such as database connection is crutial to control what is going on in the system and to understand how the system behave in production'
+2025-11-28T14:54:09.767Z | INFO     | uvicorn.access:476 - 127.0.0.1:47408 - "POST /post HTTP/1.1" 500
+2025-11-28T14:54:09.770Z | ERROR    | uvicorn.error:414 - Exception in ASGI application
+Traceback (most recent call last):
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/uvicorn/protocols/http/httptools_impl.py", line 409, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self.scope, self.receive, self.send
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/uvicorn/middleware/proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/fastapi/applications.py", line 1134, in __call__
+    await super().__call__(scope, receive, send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/applications.py", line 107, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/fastapi/routing.py", line 125, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/fastapi/routing.py", line 111, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/fastapi/routing.py", line 391, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/fastapi/routing.py", line 290, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/moges/Full-Stack-ML/Coding-House/complete-python-course-bootcamp-codes/socialMediaAPI/storeapi/routers/post.py", line 44, in create_post
+    data = post.model_dump().gie
+           ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'dict' object has no attribute 'gie'
+2025-11-28T15:02:41.608Z | INFO     | uvicorn.error:264 - Shutting down
+2025-11-28T15:02:41.712Z | INFO     | uvicorn.error:67 - Waiting for application shutdown.
+2025-11-28T15:02:41.714Z | INFO     | storeapi:34 - system shutdown,🔌 Disconnecting database...
+2025-11-28T15:02:41.716Z | INFO     | uvicorn.error:76 - Application shutdown complete.
+2025-11-28T15:02:41.718Z | INFO     | uvicorn.error:94 - Finished server process [25690]
+2025-11-28T15:02:43.119Z | INFO     | uvicorn.error:84 - Started server process [26749]
+2025-11-28T15:02:43.127Z | INFO     | uvicorn.error:48 - Waiting for application startup.
+2025-11-28T15:02:43.130Z | INFO     | storeapi:21 - 📡 Connecting database...
+2025-11-28T15:02:43.132Z | INFO     | uvicorn.error:62 - Application startup complete.
+2025-11-28T15:02:46.882Z | INFO     | storeapi.routers.post:43 - creating user post with details: body='logging critical information such as database connection is crutial to control what is going on in the system and to understand how the system behave in production'
+2025-11-28T15:02:46.896Z | ERROR    | storeapi:58 - Exception:= url:http://localhost:8000/post, method:POST, exception:something goes wrong
+Traceback (most recent call last):
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/fastapi/routing.py", line 125, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/fastapi/routing.py", line 111, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/fastapi/routing.py", line 391, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/fastapi/routing.py", line 290, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/moges/Full-Stack-ML/Coding-House/complete-python-course-bootcamp-codes/socialMediaAPI/storeapi/routers/post.py", line 44, in create_post
+    data = post.model_dump().gie
+           ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'dict' object has no attribute 'gie'
+2025-11-28T15:02:46.943Z | ERROR    | uvicorn.error:414 - Exception in ASGI application
+Traceback (most recent call last):
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/fastapi/routing.py", line 125, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/fastapi/routing.py", line 111, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/fastapi/routing.py", line 391, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/fastapi/routing.py", line 290, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/moges/Full-Stack-ML/Coding-House/complete-python-course-bootcamp-codes/socialMediaAPI/storeapi/routers/post.py", line 44, in create_post
+    data = post.model_dump().gie
+           ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'dict' object has no attribute 'gie'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/uvicorn/protocols/http/httptools_impl.py", line 409, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self.scope, self.receive, self.send
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/uvicorn/middleware/proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/fastapi/applications.py", line 1134, in __call__
+    await super().__call__(scope, receive, send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/applications.py", line 107, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/middleware/errors.py", line 176, in __call__
+    response = await self.handler(request, exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/moges/Full-Stack-ML/Coding-House/complete-python-course-bootcamp-codes/socialMediaAPI/storeapi/main.py", line 59, in general_exception_handle_logging
+    return await JSONResponse(status_code=500,content={"detail":"Internal Server Error New Yederesebign"})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: object JSONResponse can't be used in 'await' expression
+2025-11-28T15:02:46.987Z | INFO     | uvicorn.access:476 - 127.0.0.1:44226 - "POST /post HTTP/1.1" 500
+2025-11-28T15:03:27.873Z | INFO     | uvicorn.error:264 - Shutting down
+2025-11-28T15:03:27.987Z | INFO     | uvicorn.error:67 - Waiting for application shutdown.
+2025-11-28T15:03:27.990Z | INFO     | storeapi:34 - system shutdown,🔌 Disconnecting database...
+2025-11-28T15:03:27.994Z | INFO     | uvicorn.error:76 - Application shutdown complete.
+2025-11-28T15:03:27.998Z | INFO     | uvicorn.error:94 - Finished server process [26749]
+2025-11-28T15:03:44.372Z | INFO     | uvicorn.error:84 - Started server process [27042]
+2025-11-28T15:03:44.378Z | INFO     | uvicorn.error:48 - Waiting for application startup.
+2025-11-28T15:03:44.381Z | INFO     | storeapi:21 - 📡 Connecting database...
+2025-11-28T15:03:44.383Z | INFO     | uvicorn.error:62 - Application startup complete.
+2025-11-28T15:03:51.879Z | INFO     | storeapi.routers.post:43 - creating user post with details: body='logging critical information such as database connection is crutial to control what is going on in the system and to understand how the system behave in production'
+2025-11-28T15:03:51.898Z | ERROR    | storeapi:58 - Exception:= url:http://localhost:8000/post, method:POST, exception:something goes wrong
+Traceback (most recent call last):
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/fastapi/routing.py", line 125, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/fastapi/routing.py", line 111, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/fastapi/routing.py", line 391, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/fastapi/routing.py", line 290, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/moges/Full-Stack-ML/Coding-House/complete-python-course-bootcamp-codes/socialMediaAPI/storeapi/routers/post.py", line 44, in create_post
+    data = post.model_dump().gie
+           ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'dict' object has no attribute 'gie'
+2025-11-28T15:03:51.956Z | ERROR    | uvicorn.error:414 - Exception in ASGI application
+Traceback (most recent call last):
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/fastapi/routing.py", line 125, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/fastapi/routing.py", line 111, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/fastapi/routing.py", line 391, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/fastapi/routing.py", line 290, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/moges/Full-Stack-ML/Coding-House/complete-python-course-bootcamp-codes/socialMediaAPI/storeapi/routers/post.py", line 44, in create_post
+    data = post.model_dump().gie
+           ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'dict' object has no attribute 'gie'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/uvicorn/protocols/http/httptools_impl.py", line 409, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self.scope, self.receive, self.send
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/uvicorn/middleware/proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/fastapi/applications.py", line 1134, in __call__
+    await super().__call__(scope, receive, send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/applications.py", line 107, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/middleware/errors.py", line 176, in __call__
+    response = await self.handler(request, exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/moges/Full-Stack-ML/Coding-House/complete-python-course-bootcamp-codes/socialMediaAPI/storeapi/main.py", line 59, in general_exception_handle_logging
+    return await JSONResponse(status_code=500,content={"detail":"Internal Server Error New Yederesebign"})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: object JSONResponse can't be used in 'await' expression
+2025-11-28T15:03:52.007Z | INFO     | uvicorn.access:476 - 127.0.0.1:53078 - "POST /post HTTP/1.1" 500
+2025-11-28T15:04:35.426Z | INFO     | uvicorn.error:264 - Shutting down
+2025-11-28T15:04:35.530Z | INFO     | uvicorn.error:67 - Waiting for application shutdown.
+2025-11-28T15:04:35.535Z | INFO     | storeapi:34 - system shutdown,🔌 Disconnecting database...
+2025-11-28T15:04:35.539Z | INFO     | uvicorn.error:76 - Application shutdown complete.
+2025-11-28T15:04:35.543Z | INFO     | uvicorn.error:94 - Finished server process [27042]
+2025-11-28T15:04:37.187Z | INFO     | uvicorn.error:84 - Started server process [27235]
+2025-11-28T15:04:37.191Z | INFO     | uvicorn.error:48 - Waiting for application startup.
+2025-11-28T15:04:37.194Z | INFO     | storeapi:21 - 📡 Connecting database...
+2025-11-28T15:04:37.196Z | INFO     | uvicorn.error:62 - Application startup complete.
+2025-11-28T15:05:12.081Z | INFO     | storeapi.routers.post:43 - creating user post with details: body='logging critical information such as database connection is crutial to control what is going on in the system and to understand how the system behave in production'
+2025-11-28T15:05:12.105Z | ERROR    | storeapi:58 - Exception:= url:http://localhost:8000/post, method:POST, exception:something goes wrong
+Traceback (most recent call last):
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/fastapi/routing.py", line 125, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/fastapi/routing.py", line 111, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/fastapi/routing.py", line 391, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/fastapi/routing.py", line 290, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/moges/Full-Stack-ML/Coding-House/complete-python-course-bootcamp-codes/socialMediaAPI/storeapi/routers/post.py", line 44, in create_post
+    data = post.model_dump().gie
+           ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'dict' object has no attribute 'gie'
+2025-11-28T15:05:12.175Z | INFO     | uvicorn.access:476 - 127.0.0.1:43056 - "POST /post HTTP/1.1" 500
+2025-11-28T15:05:12.179Z | ERROR    | uvicorn.error:414 - Exception in ASGI application
+Traceback (most recent call last):
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/uvicorn/protocols/http/httptools_impl.py", line 409, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self.scope, self.receive, self.send
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/uvicorn/middleware/proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/fastapi/applications.py", line 1134, in __call__
+    await super().__call__(scope, receive, send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/applications.py", line 107, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/fastapi/routing.py", line 125, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/fastapi/routing.py", line 111, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/fastapi/routing.py", line 391, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/fastapi/routing.py", line 290, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/moges/Full-Stack-ML/Coding-House/complete-python-course-bootcamp-codes/socialMediaAPI/storeapi/routers/post.py", line 44, in create_post
+    data = post.model_dump().gie
+           ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'dict' object has no attribute 'gie'
+2025-11-28T15:10:30.215Z | INFO     | uvicorn.error:264 - Shutting down
+2025-11-28T15:10:30.322Z | INFO     | uvicorn.error:67 - Waiting for application shutdown.
+2025-11-28T15:10:30.324Z | INFO     | storeapi:34 - system shutdown,🔌 Disconnecting database...
+2025-11-28T15:10:30.329Z | INFO     | uvicorn.error:76 - Application shutdown complete.
+2025-11-28T15:10:30.332Z | INFO     | uvicorn.error:94 - Finished server process [27235]

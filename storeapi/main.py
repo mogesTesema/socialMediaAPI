@@ -1,4 +1,5 @@
-from fastapi import FastAPI,HTTPException
+from fastapi import FastAPI,HTTPException,Request
+from fastapi.responses import JSONResponse
 from fastapi.exception_handlers import http_exception_handler
 from contextlib import asynccontextmanager
 from storeapi.routers.post import router as post_router
@@ -42,12 +43,17 @@ async def lifespan(app: FastAPI):
     
 
     
-app = FastAPI(debug=True,lifespan=lifespan)
+app = FastAPI(debug=False,lifespan=lifespan)
 app.include_router(post_router)
 app.include_router(upload_router)
 app.include_router(videochat_router)
 
 @app.exception_handler(HTTPException)
-async def http_exception_handle_logging(request,exc):
+async def http_exception_handle_logging(request:Request, exc:HTTPException):
     logger.error(f"HTTPException:-url:{request.url}, method:{request.method}, status_code: {exc.status_code}, detail:{exc.detail}")
     return await http_exception_handler(request=request,exc=exc)
+
+@app.exception_handler(Exception)
+async def general_exception_handle_logging(request:Request,exc:Exception):
+    logger.exception(f"Exception:= url:{request.url}, method:{request.method}, exception:something goes wrong")
+    return JSONResponse(status_code=500,content={"detail":"Internal Server Error New Yederesebign"})
