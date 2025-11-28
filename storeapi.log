@@ -1417,3 +1417,136 @@ AttributeError: 'dict' object has no attribute 'gie'
 2025-11-28T15:10:30.324Z | INFO     | storeapi:34 - system shutdown,🔌 Disconnecting database...
 2025-11-28T15:10:30.329Z | INFO     | uvicorn.error:76 - Application shutdown complete.
 2025-11-28T15:10:30.332Z | INFO     | uvicorn.error:94 - Finished server process [27235]
+(-) 2025-11-28T19:% M:53.294Z | INFO     | uvicorn.error:84 - Started server process [7469]
+(-) 2025-11-28T19:% M:53.323Z | INFO     | uvicorn.error:48 - Waiting for application startup.
+(-) 2025-11-28T19:% M:53.326Z | INFO     | storeapi:22 - 📡 Connecting database...
+(-) 2025-11-28T19:% M:53.328Z | INFO     | uvicorn.error:62 - Application startup complete.
+(bc91e5fe65654d0794e4e59acc194d13) 2025-11-28T19:% M:39.908Z | INFO     | storeapi.routers.post:43 - creating user post with details: body='logging critical information such as database connection is crutial to control what is going on in the system and to understand how the system behave in production'
+(bc91e5fe65654d0794e4e59acc194d13) 2025-11-28T19:% M:39.911Z | DEBUG    | storeapi.routers.post:46 - INSERT INTO posts (body) VALUES (:body)
+(bc91e5fe65654d0794e4e59acc194d13) 2025-11-28T19:% M:40.016Z | INFO     | uvicorn.access:476 - 127.0.0.1:48750 - "POST /post HTTP/1.1" 200
+(-) 2025-11-28T19:% M:06.087Z | INFO     | uvicorn.error:264 - Shutting down
+(-) 2025-11-28T19:% M:06.194Z | INFO     | uvicorn.error:67 - Waiting for application shutdown.
+(-) 2025-11-28T19:% M:06.198Z | INFO     | storeapi:32 - 🔌 Disconnecting database...
+(-) 2025-11-28T19:% M:06.202Z | INFO     | uvicorn.error:76 - Application shutdown complete.
+(-) 2025-11-28T19:% M:06.208Z | INFO     | uvicorn.error:94 - Finished server process [7469]
+(-) 2025-11-28T19:% M:37.974Z | INFO     | uvicorn.error:84 - Started server process [8188]
+(-) 2025-11-28T19:% M:37.978Z | INFO     | uvicorn.error:48 - Waiting for application startup.
+(-) 2025-11-28T19:% M:37.981Z | INFO     | storeapi:22 - 📡 Connecting database...
+(-) 2025-11-28T19:% M:37.983Z | INFO     | uvicorn.error:62 - Application startup complete.
+(3a665905) 2025-11-28T19:% M:21.232Z | INFO     | storeapi.routers.post:43 - creating user post with details: body='logging critical information such as database connection is crutial to control what is going on in the system and to understand how the system behave in production'
+(3a665905) 2025-11-28T19:% M:21.239Z | DEBUG    | storeapi.routers.post:46 - INSERT INTO posts (body) VALUES (:body)
+(3a665905) 2025-11-28T19:% M:21.325Z | INFO     | uvicorn.access:476 - 127.0.0.1:58674 - "POST /post HTTP/1.1" 200
+(ed59bacd) 2025-11-28T19:% M:24.995Z | INFO     | storeapi.routers.post:43 - creating user post with details: body='logging critical information such as database connection is crutial to control what is going on in the system and to understand how the system behave in production'
+(ed59bacd) 2025-11-28T19:% M:24.999Z | DEBUG    | storeapi.routers.post:46 - INSERT INTO posts (body) VALUES (:body)
+(ed59bacd) 2025-11-28T19:% M:25.059Z | INFO     | uvicorn.access:476 - 127.0.0.1:58682 - "POST /post HTTP/1.1" 200
+(73815257) 2025-11-28T19:% M:25.166Z | INFO     | storeapi.routers.post:43 - creating user post with details: body='logging critical information such as database connection is crutial to control what is going on in the system and to understand how the system behave in production'
+(73815257) 2025-11-28T19:% M:25.169Z | DEBUG    | storeapi.routers.post:46 - INSERT INTO posts (body) VALUES (:body)
+(73815257) 2025-11-28T19:% M:25.314Z | INFO     | uvicorn.access:476 - 127.0.0.1:58686 - "POST /post HTTP/1.1" 200
+(d0cb3545) 2025-11-28T19:% M:25.394Z | INFO     | storeapi.routers.post:43 - creating user post with details: body='logging critical information such as database connection is crutial to control what is going on in the system and to understand how the system behave in production'
+(d0cb3545) 2025-11-28T19:% M:25.399Z | DEBUG    | storeapi.routers.post:46 - INSERT INTO posts (body) VALUES (:body)
+(d0cb3545) 2025-11-28T19:% M:25.533Z | INFO     | uvicorn.access:476 - 127.0.0.1:58698 - "POST /post HTTP/1.1" 200
+(1a8e847b) 2025-11-28T19:% M:27.552Z | INFO     | storeapi.routers.post:43 - creating user post with details: body='logging critical information such as database connection is crutial to control what is going on in the system and to understand how the system behave in production'
+(1a8e847b) 2025-11-28T19:% M:27.559Z | DEBUG    | storeapi.routers.post:46 - INSERT INTO posts (body) VALUES (:body)
+(1a8e847b) 2025-11-28T19:% M:27.669Z | INFO     | uvicorn.access:476 - 127.0.0.1:58710 - "POST /post HTTP/1.1" 200
+(f00e8feb) 2025-11-28T19:% M:27.713Z | INFO     | storeapi.routers.post:43 - creating user post with details: body='logging critical information such as database connection is crutial to control what is going on in the system and to understand how the system behave in production'
+(f00e8feb) 2025-11-28T19:% M:27.720Z | DEBUG    | storeapi.routers.post:46 - INSERT INTO posts (body) VALUES (:body)
+(f00e8feb) 2025-11-28T19:% M:27.854Z | INFO     | uvicorn.access:476 - 127.0.0.1:58726 - "POST /post HTTP/1.1" 200
+(99744b33) 2025-11-28T19:% M:28.119Z | INFO     | storeapi.routers.post:43 - creating user post with details: body='logging critical information such as database connection is crutial to control what is going on in the system and to understand how the system behave in production'
+(99744b33) 2025-11-28T19:% M:28.125Z | DEBUG    | storeapi.routers.post:46 - INSERT INTO posts (body) VALUES (:body)
+(99744b33) 2025-11-28T19:% M:28.236Z | INFO     | uvicorn.access:476 - 127.0.0.1:58742 - "POST /post HTTP/1.1" 200
+(50ec9f9d) 2025-11-28T19:% M:28.324Z | INFO     | storeapi.routers.post:43 - creating user post with details: body='logging critical information such as database connection is crutial to control what is going on in the system and to understand how the system behave in production'
+(50ec9f9d) 2025-11-28T19:% M:28.329Z | DEBUG    | storeapi.routers.post:46 - INSERT INTO posts (body) VALUES (:body)
+(50ec9f9d) 2025-11-28T19:% M:28.447Z | INFO     | uvicorn.access:476 - 127.0.0.1:58744 - "POST /post HTTP/1.1" 200
+(1854d481) 2025-11-28T19:% M:28.582Z | INFO     | storeapi.routers.post:43 - creating user post with details: body='logging critical information such as database connection is crutial to control what is going on in the system and to understand how the system behave in production'
+(1854d481) 2025-11-28T19:% M:28.589Z | DEBUG    | storeapi.routers.post:46 - INSERT INTO posts (body) VALUES (:body)
+(1854d481) 2025-11-28T19:% M:28.714Z | INFO     | uvicorn.access:476 - 127.0.0.1:58752 - "POST /post HTTP/1.1" 200
+(bb948362) 2025-11-28T19:% M:28.794Z | INFO     | storeapi.routers.post:43 - creating user post with details: body='logging critical information such as database connection is crutial to control what is going on in the system and to understand how the system behave in production'
+(bb948362) 2025-11-28T19:% M:28.798Z | DEBUG    | storeapi.routers.post:46 - INSERT INTO posts (body) VALUES (:body)
+(bb948362) 2025-11-28T19:% M:28.913Z | INFO     | uvicorn.access:476 - 127.0.0.1:58760 - "POST /post HTTP/1.1" 200
+(a820ce56) 2025-11-28T19:% M:29.151Z | INFO     | storeapi.routers.post:43 - creating user post with details: body='logging critical information such as database connection is crutial to control what is going on in the system and to understand how the system behave in production'
+(a820ce56) 2025-11-28T19:% M:29.169Z | DEBUG    | storeapi.routers.post:46 - INSERT INTO posts (body) VALUES (:body)
+(a820ce56) 2025-11-28T19:% M:29.303Z | INFO     | uvicorn.access:476 - 127.0.0.1:58776 - "POST /post HTTP/1.1" 200
+(d8ea018f) 2025-11-28T19:% M:29.506Z | INFO     | storeapi.routers.post:43 - creating user post with details: body='logging critical information such as database connection is crutial to control what is going on in the system and to understand how the system behave in production'
+(d8ea018f) 2025-11-28T19:% M:29.522Z | DEBUG    | storeapi.routers.post:46 - INSERT INTO posts (body) VALUES (:body)
+(d8ea018f) 2025-11-28T19:% M:29.660Z | INFO     | uvicorn.access:476 - 127.0.0.1:58788 - "POST /post HTTP/1.1" 200
+(826fc966) 2025-11-28T19:% M:29.886Z | INFO     | storeapi.routers.post:43 - creating user post with details: body='logging critical information such as database connection is crutial to control what is going on in the system and to understand how the system behave in production'
+(826fc966) 2025-11-28T19:% M:29.908Z | DEBUG    | storeapi.routers.post:46 - INSERT INTO posts (body) VALUES (:body)
+(826fc966) 2025-11-28T19:% M:30.065Z | INFO     | uvicorn.access:476 - 127.0.0.1:58790 - "POST /post HTTP/1.1" 200
+(fff1b9c0) 2025-11-28T19:% M:30.268Z | INFO     | storeapi.routers.post:43 - creating user post with details: body='logging critical information such as database connection is crutial to control what is going on in the system and to understand how the system behave in production'
+(fff1b9c0) 2025-11-28T19:% M:30.285Z | DEBUG    | storeapi.routers.post:46 - INSERT INTO posts (body) VALUES (:body)
+(fff1b9c0) 2025-11-28T19:% M:30.425Z | INFO     | uvicorn.access:476 - 127.0.0.1:58794 - "POST /post HTTP/1.1" 200
+(a1402b5a) 2025-11-28T19:% M:30.534Z | INFO     | storeapi.routers.post:43 - creating user post with details: body='logging critical information such as database connection is crutial to control what is going on in the system and to understand how the system behave in production'
+(a1402b5a) 2025-11-28T19:% M:30.539Z | DEBUG    | storeapi.routers.post:46 - INSERT INTO posts (body) VALUES (:body)
+(a1402b5a) 2025-11-28T19:% M:30.676Z | INFO     | uvicorn.access:476 - 127.0.0.1:44930 - "POST /post HTTP/1.1" 200
+(4dfc4b64) 2025-11-28T19:% M:30.848Z | INFO     | storeapi.routers.post:43 - creating user post with details: body='logging critical information such as database connection is crutial to control what is going on in the system and to understand how the system behave in production'
+(4dfc4b64) 2025-11-28T19:% M:30.863Z | DEBUG    | storeapi.routers.post:46 - INSERT INTO posts (body) VALUES (:body)
+(4dfc4b64) 2025-11-28T19:% M:30.991Z | INFO     | uvicorn.access:476 - 127.0.0.1:44946 - "POST /post HTTP/1.1" 200
+(b489a9e2) 2025-11-28T20:% M:21.250Z | INFO     | storeapi.routers.post:83 - geting user post with id {post_id}
+(b489a9e2) 2025-11-28T20:% M:21.257Z | DEBUG    | storeapi.routers.post:85 - SELECT posts.id, posts.body 
+FROM posts 
+WHERE posts.id = :id_1
+(b489a9e2) 2025-11-28T20:% M:21.270Z | INFO     | uvicorn.access:476 - 127.0.0.1:48414 - "GET /post/39 HTTP/1.1" 200
+(378a9efe) 2025-11-28T20:% M:35.939Z | INFO     | storeapi.routers.post:83 - geting user post with id {post_id}
+(378a9efe) 2025-11-28T20:% M:35.959Z | DEBUG    | storeapi.routers.post:85 - SELECT posts.id, posts.body 
+FROM posts 
+WHERE posts.id = :id_1
+(378a9efe) 2025-11-28T20:% M:35.990Z | INFO     | uvicorn.access:476 - 127.0.0.1:47760 - "GET /post/39 HTTP/1.1" 200
+(a04791a9) 2025-11-28T20:% M:36.133Z | INFO     | storeapi.routers.post:83 - geting user post with id {post_id}
+(a04791a9) 2025-11-28T20:% M:36.136Z | DEBUG    | storeapi.routers.post:85 - SELECT posts.id, posts.body 
+FROM posts 
+WHERE posts.id = :id_1
+(a04791a9) 2025-11-28T20:% M:36.144Z | INFO     | uvicorn.access:476 - 127.0.0.1:47770 - "GET /post/39 HTTP/1.1" 200
+(c9d6ae10) 2025-11-28T20:% M:36.390Z | INFO     | storeapi.routers.post:83 - geting user post with id {post_id}
+(c9d6ae10) 2025-11-28T20:% M:36.397Z | DEBUG    | storeapi.routers.post:85 - SELECT posts.id, posts.body 
+FROM posts 
+WHERE posts.id = :id_1
+(c9d6ae10) 2025-11-28T20:% M:36.410Z | INFO     | uvicorn.access:476 - 127.0.0.1:47786 - "GET /post/39 HTTP/1.1" 200
+(fab50279) 2025-11-28T20:% M:36.648Z | INFO     | storeapi.routers.post:83 - geting user post with id {post_id}
+(fab50279) 2025-11-28T20:% M:36.655Z | DEBUG    | storeapi.routers.post:85 - SELECT posts.id, posts.body 
+FROM posts 
+WHERE posts.id = :id_1
+(fab50279) 2025-11-28T20:% M:36.664Z | INFO     | uvicorn.access:476 - 127.0.0.1:47796 - "GET /post/39 HTTP/1.1" 200
+(01c6ab01) 2025-11-28T20:% M:36.758Z | INFO     | storeapi.routers.post:83 - geting user post with id {post_id}
+(01c6ab01) 2025-11-28T20:% M:36.762Z | DEBUG    | storeapi.routers.post:85 - SELECT posts.id, posts.body 
+FROM posts 
+WHERE posts.id = :id_1
+(01c6ab01) 2025-11-28T20:% M:36.768Z | INFO     | uvicorn.access:476 - 127.0.0.1:47802 - "GET /post/39 HTTP/1.1" 200
+(35ad320f) 2025-11-28T20:% M:36.942Z | INFO     | storeapi.routers.post:83 - geting user post with id {post_id}
+(35ad320f) 2025-11-28T20:% M:36.945Z | DEBUG    | storeapi.routers.post:85 - SELECT posts.id, posts.body 
+FROM posts 
+WHERE posts.id = :id_1
+(35ad320f) 2025-11-28T20:% M:36.953Z | INFO     | uvicorn.access:476 - 127.0.0.1:47806 - "GET /post/39 HTTP/1.1" 200
+(6d015160) 2025-11-28T20:% M:37.149Z | INFO     | storeapi.routers.post:83 - geting user post with id {post_id}
+(6d015160) 2025-11-28T20:% M:37.152Z | DEBUG    | storeapi.routers.post:85 - SELECT posts.id, posts.body 
+FROM posts 
+WHERE posts.id = :id_1
+(6d015160) 2025-11-28T20:% M:37.161Z | INFO     | uvicorn.access:476 - 127.0.0.1:47814 - "GET /post/39 HTTP/1.1" 200
+(b0d70507) 2025-11-28T20:% M:37.374Z | INFO     | storeapi.routers.post:83 - geting user post with id {post_id}
+(b0d70507) 2025-11-28T20:% M:37.383Z | DEBUG    | storeapi.routers.post:85 - SELECT posts.id, posts.body 
+FROM posts 
+WHERE posts.id = :id_1
+(b0d70507) 2025-11-28T20:% M:37.407Z | INFO     | uvicorn.access:476 - 127.0.0.1:47818 - "GET /post/39 HTTP/1.1" 200
+(bbf9f372) 2025-11-28T20:% M:37.588Z | INFO     | storeapi.routers.post:83 - geting user post with id {post_id}
+(bbf9f372) 2025-11-28T20:% M:37.595Z | DEBUG    | storeapi.routers.post:85 - SELECT posts.id, posts.body 
+FROM posts 
+WHERE posts.id = :id_1
+(bbf9f372) 2025-11-28T20:% M:37.604Z | INFO     | uvicorn.access:476 - 127.0.0.1:47822 - "GET /post/39 HTTP/1.1" 200
+(cc28f4ad) 2025-11-28T20:% M:37.764Z | INFO     | storeapi.routers.post:83 - geting user post with id {post_id}
+(cc28f4ad) 2025-11-28T20:% M:37.768Z | DEBUG    | storeapi.routers.post:85 - SELECT posts.id, posts.body 
+FROM posts 
+WHERE posts.id = :id_1
+(cc28f4ad) 2025-11-28T20:% M:37.778Z | INFO     | uvicorn.access:476 - 127.0.0.1:47832 - "GET /post/39 HTTP/1.1" 200
+(0abd2d62) 2025-11-28T20:% M:37.945Z | INFO     | storeapi.routers.post:83 - geting user post with id {post_id}
+(0abd2d62) 2025-11-28T20:% M:37.948Z | DEBUG    | storeapi.routers.post:85 - SELECT posts.id, posts.body 
+FROM posts 
+WHERE posts.id = :id_1
+(0abd2d62) 2025-11-28T20:% M:37.957Z | INFO     | uvicorn.access:476 - 127.0.0.1:47836 - "GET /post/39 HTTP/1.1" 200
+(-) 2025-11-28T20:% M:22.099Z | INFO     | uvicorn.error:264 - Shutting down
+(-) 2025-11-28T20:% M:22.202Z | INFO     | uvicorn.error:67 - Waiting for application shutdown.
+(-) 2025-11-28T20:% M:22.208Z | INFO     | storeapi:32 - 🔌 Disconnecting database...
+(-) 2025-11-28T20:% M:22.215Z | INFO     | uvicorn.error:76 - Application shutdown complete.
+(-) 2025-11-28T20:% M:22.223Z | INFO     | uvicorn.error:94 - Finished server process [8188]
+(-) 2025-11-28T20:% M:23.263Z | INFO     | uvicorn.error:84 - Started server process [9555]
+(-) 2025-11-28T20:% M:23.267Z | INFO     | uvicorn.error:48 - Waiting for application startup.
+(-) 2025-11-28T20:% M:23.270Z | INFO     | storeapi:22 - 📡 Connecting database...
+(-) 2025-11-28T20:% M:23.272Z | INFO     | uvicorn.error:62 - Application startup complete.

@@ -9,10 +9,10 @@ def configure_logging() -> None:
             "disable_existing_loggers": False,
             "filters": {
                 "correlation_id": {
-                    "()": "asgi_correlation_id.filters.CorrelationIdFilter",
+                    "()": "asgi_correlation_id.CorrelationIdFilter",
                     "uuid_length": 8 if isinstance(config, DevConfig) else 32,
-                    "default": "-",
-                }
+                    "default_value": "-",
+                },
             },
             "formatters": {
                 "console": {

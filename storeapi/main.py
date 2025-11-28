@@ -1,6 +1,4 @@
 from storeapi.logging_config import configure_logging
-
-import logging
 from fastapi import FastAPI, HTTPException, Request
 from asgi_correlation_id import CorrelationIdMiddleware
 from fastapi.responses import JSONResponse
@@ -10,6 +8,7 @@ from storeapi.routers.post import router as post_router
 from storeapi.fileuploads.fileuploaderouters import router as upload_router
 from storeapi.videochats.videochatrouter import router as videochat_router
 from storeapi.database import database
+import logging
 
 
 # 1️⃣ Configure logging first
