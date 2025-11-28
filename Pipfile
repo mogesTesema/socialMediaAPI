@@ -14,6 +14,7 @@ databases = {extras = ["aiosqlite"], version = "*"}
 python-dotenv = "*"
 pydantic-settings = "*"
 rich = "*"
+asgi-correlation-id = "*"
 
 [dev-packages]
 pytest = "*"
