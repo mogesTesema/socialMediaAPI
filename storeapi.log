@@ -123,3 +123,259 @@ NameError: name 'selects' is not defined
 2025-11-28T03:15:36.998Z | INFO     | uvicorn.access:476 - 127.0.0.1:44658 - "DELETE /post/4 HTTP/1.1" 404
 2025-11-28T10:06:07.991Z | INFO     | storeapi.main:18 - hello loger
 2025-11-28T10:06:08.013Z | INFO     | uvicorn.error:62 - Application startup complete.
+2025-11-28T10:18:06.825Z | INFO     | uvicorn.error:264 - Shutting down
+2025-11-28T10:18:06.928Z | INFO     | uvicorn.error:67 - Waiting for application shutdown.
+2025-11-28T10:18:06.934Z | INFO     | uvicorn.error:76 - Application shutdown complete.
+2025-11-28T10:18:06.939Z | INFO     | uvicorn.error:94 - Finished server process [8827]
+2025-11-28T10:18:08.605Z | INFO     | storeapi.main:19 - hello loger
+2025-11-28T10:18:08.615Z | INFO     | uvicorn.error:62 - Application startup complete.
+2025-11-28T10:18:13.440Z | INFO     | uvicorn.error:264 - Shutting down
+2025-11-28T10:18:13.550Z | INFO     | uvicorn.error:67 - Waiting for application shutdown.
+2025-11-28T10:18:13.553Z | INFO     | uvicorn.error:76 - Application shutdown complete.
+2025-11-28T10:18:13.556Z | INFO     | uvicorn.error:94 - Finished server process [11163]
+2025-11-28T10:18:26.514Z | INFO     | storeapi.main:19 - hello loger
+2025-11-28T10:18:26.520Z | INFO     | uvicorn.error:62 - Application startup complete.
+2025-11-28T10:22:21.358Z | INFO     | uvicorn.error:264 - Shutting down
+2025-11-28T10:22:21.462Z | INFO     | uvicorn.error:67 - Waiting for application shutdown.
+2025-11-28T10:22:21.465Z | INFO     | uvicorn.error:76 - Application shutdown complete.
+2025-11-28T10:22:21.467Z | INFO     | uvicorn.error:94 - Finished server process [11334]
+2025-11-28T10:22:22.922Z | INFO     | storeapi.main:19 - hello loger
+2025-11-28T10:22:22.929Z | INFO     | uvicorn.error:62 - Application startup complete.
+2025-11-28T10:35:09.037Z | INFO     | uvicorn.access:476 - 127.0.0.1:35698 - "DELETE /post/4 HTTP/1.1" 404
+2025-11-28T10:35:20.103Z | INFO     | uvicorn.access:476 - 127.0.0.1:43474 - "DELETE /post/4 HTTP/1.1" 404
+2025-11-28T10:36:02.415Z | DEBUG    | storeapi.routers.post:93 - SELECT posts.id, posts.body 
+FROM posts
+2025-11-28T10:36:02.454Z | INFO     | uvicorn.access:476 - 127.0.0.1:55658 - "GET /posts HTTP/1.1" 200
+2025-11-28T10:36:43.202Z | DEBUG    | storeapi.routers.post:93 - SELECT posts.id, posts.body 
+FROM posts
+2025-11-28T10:36:43.223Z | INFO     | uvicorn.access:476 - 127.0.0.1:58410 - "GET /posts HTTP/1.1" 200
+2025-11-28T10:36:43.350Z | DEBUG    | storeapi.routers.post:93 - SELECT posts.id, posts.body 
+FROM posts
+2025-11-28T10:36:43.362Z | INFO     | uvicorn.access:476 - 127.0.0.1:58424 - "GET /posts HTTP/1.1" 200
+2025-11-28T10:36:43.556Z | DEBUG    | storeapi.routers.post:93 - SELECT posts.id, posts.body 
+FROM posts
+2025-11-28T10:36:43.574Z | INFO     | uvicorn.access:476 - 127.0.0.1:58432 - "GET /posts HTTP/1.1" 200
+2025-11-28T10:36:43.724Z | DEBUG    | storeapi.routers.post:93 - SELECT posts.id, posts.body 
+FROM posts
+2025-11-28T10:36:43.740Z | INFO     | uvicorn.access:476 - 127.0.0.1:58440 - "GET /posts HTTP/1.1" 200
+2025-11-28T10:36:43.906Z | DEBUG    | storeapi.routers.post:93 - SELECT posts.id, posts.body 
+FROM posts
+2025-11-28T10:36:43.914Z | INFO     | uvicorn.access:476 - 127.0.0.1:58450 - "GET /posts HTTP/1.1" 200
+2025-11-28T10:36:44.111Z | DEBUG    | storeapi.routers.post:93 - SELECT posts.id, posts.body 
+FROM posts
+2025-11-28T10:36:44.144Z | INFO     | uvicorn.access:476 - 127.0.0.1:60420 - "GET /posts HTTP/1.1" 200
+2025-11-28T10:36:44.256Z | DEBUG    | storeapi.routers.post:93 - SELECT posts.id, posts.body 
+FROM posts
+2025-11-28T10:36:44.268Z | INFO     | uvicorn.access:476 - 127.0.0.1:60422 - "GET /posts HTTP/1.1" 200
+2025-11-28T10:36:44.483Z | DEBUG    | storeapi.routers.post:93 - SELECT posts.id, posts.body 
+FROM posts
+2025-11-28T10:36:44.516Z | INFO     | uvicorn.access:476 - 127.0.0.1:60430 - "GET /posts HTTP/1.1" 200
+2025-11-28T10:36:44.640Z | DEBUG    | storeapi.routers.post:93 - SELECT posts.id, posts.body 
+FROM posts
+2025-11-28T10:36:44.650Z | INFO     | uvicorn.access:476 - 127.0.0.1:60440 - "GET /posts HTTP/1.1" 200
+2025-11-28T10:36:44.845Z | DEBUG    | storeapi.routers.post:93 - SELECT posts.id, posts.body 
+FROM posts
+2025-11-28T10:36:44.885Z | INFO     | uvicorn.access:476 - 127.0.0.1:60454 - "GET /posts HTTP/1.1" 200
+2025-11-28T10:36:44.987Z | DEBUG    | storeapi.routers.post:93 - SELECT posts.id, posts.body 
+FROM posts
+2025-11-28T10:36:44.994Z | INFO     | uvicorn.access:476 - 127.0.0.1:60462 - "GET /posts HTTP/1.1" 200
+2025-11-28T10:36:45.580Z | DEBUG    | storeapi.routers.post:93 - SELECT posts.id, posts.body 
+FROM posts
+2025-11-28T10:36:45.622Z | INFO     | uvicorn.access:476 - 127.0.0.1:60474 - "GET /posts HTTP/1.1" 200
+2025-11-28T10:36:45.952Z | DEBUG    | storeapi.routers.post:93 - SELECT posts.id, posts.body 
+FROM posts
+2025-11-28T10:36:45.975Z | INFO     | uvicorn.access:476 - 127.0.0.1:60478 - "GET /posts HTTP/1.1" 200
+2025-11-28T10:36:46.120Z | DEBUG    | storeapi.routers.post:93 - SELECT posts.id, posts.body 
+FROM posts
+2025-11-28T10:36:46.128Z | INFO     | uvicorn.access:476 - 127.0.0.1:60490 - "GET /posts HTTP/1.1" 200
+2025-11-28T10:36:46.338Z | DEBUG    | storeapi.routers.post:93 - SELECT posts.id, posts.body 
+FROM posts
+2025-11-28T10:36:46.371Z | INFO     | uvicorn.access:476 - 127.0.0.1:60506 - "GET /posts HTTP/1.1" 200
+2025-11-28T10:36:46.488Z | DEBUG    | storeapi.routers.post:93 - SELECT posts.id, posts.body 
+FROM posts
+2025-11-28T10:36:46.494Z | INFO     | uvicorn.access:476 - 127.0.0.1:60510 - "GET /posts HTTP/1.1" 200
+2025-11-28T10:36:46.710Z | DEBUG    | storeapi.routers.post:93 - SELECT posts.id, posts.body 
+FROM posts
+2025-11-28T10:36:46.745Z | INFO     | uvicorn.access:476 - 127.0.0.1:60522 - "GET /posts HTTP/1.1" 200
+2025-11-28T10:36:46.860Z | DEBUG    | storeapi.routers.post:93 - SELECT posts.id, posts.body 
+FROM posts
+2025-11-28T10:36:46.871Z | INFO     | uvicorn.access:476 - 127.0.0.1:60526 - "GET /posts HTTP/1.1" 200
+2025-11-28T10:36:47.052Z | DEBUG    | storeapi.routers.post:93 - SELECT posts.id, posts.body 
+FROM posts
+2025-11-28T10:36:47.082Z | INFO     | uvicorn.access:476 - 127.0.0.1:60542 - "GET /posts HTTP/1.1" 200
+2025-11-28T10:36:47.259Z | DEBUG    | storeapi.routers.post:93 - SELECT posts.id, posts.body 
+FROM posts
+2025-11-28T10:36:47.275Z | INFO     | uvicorn.access:476 - 127.0.0.1:60556 - "GET /posts HTTP/1.1" 200
+2025-11-28T10:36:47.500Z | DEBUG    | storeapi.routers.post:93 - SELECT posts.id, posts.body 
+FROM posts
+2025-11-28T10:36:47.535Z | INFO     | uvicorn.access:476 - 127.0.0.1:60568 - "GET /posts HTTP/1.1" 200
+2025-11-28T10:36:47.675Z | DEBUG    | storeapi.routers.post:93 - SELECT posts.id, posts.body 
+FROM posts
+2025-11-28T10:36:47.684Z | INFO     | uvicorn.access:476 - 127.0.0.1:60582 - "GET /posts HTTP/1.1" 200
+2025-11-28T10:36:47.861Z | DEBUG    | storeapi.routers.post:93 - SELECT posts.id, posts.body 
+FROM posts
+2025-11-28T10:36:47.881Z | INFO     | uvicorn.access:476 - 127.0.0.1:60586 - "GET /posts HTTP/1.1" 200
+2025-11-28T10:36:48.037Z | DEBUG    | storeapi.routers.post:93 - SELECT posts.id, posts.body 
+FROM posts
+2025-11-28T10:36:48.046Z | INFO     | uvicorn.access:476 - 127.0.0.1:60602 - "GET /posts HTTP/1.1" 200
+2025-11-28T10:36:56.087Z | INFO     | uvicorn.access:476 - 127.0.0.1:46528 - "GET /post/1/comments HTTP/1.1" 200
+2025-11-28T10:37:13.068Z | INFO     | uvicorn.access:476 - 127.0.0.1:34784 - "GET /post/1/comments HTTP/1.1" 200
+2025-11-28T10:37:13.275Z | INFO     | uvicorn.access:476 - 127.0.0.1:34792 - "GET /post/1/comments HTTP/1.1" 200
+2025-11-28T10:37:13.403Z | INFO     | uvicorn.access:476 - 127.0.0.1:34806 - "GET /post/1/comments HTTP/1.1" 200
+2025-11-28T10:37:13.625Z | INFO     | uvicorn.access:476 - 127.0.0.1:34816 - "GET /post/1/comments HTTP/1.1" 200
+2025-11-28T10:37:13.838Z | INFO     | uvicorn.access:476 - 127.0.0.1:34832 - "GET /post/1/comments HTTP/1.1" 200
+2025-11-28T10:37:13.958Z | INFO     | uvicorn.access:476 - 127.0.0.1:34836 - "GET /post/1/comments HTTP/1.1" 200
+2025-11-28T10:37:14.195Z | INFO     | uvicorn.access:476 - 127.0.0.1:58182 - "GET /post/1/comments HTTP/1.1" 200
+2025-11-28T10:37:14.374Z | INFO     | uvicorn.access:476 - 127.0.0.1:58194 - "GET /post/1/comments HTTP/1.1" 200
+2025-11-28T10:37:14.521Z | INFO     | uvicorn.access:476 - 127.0.0.1:58200 - "GET /post/1/comments HTTP/1.1" 200
+2025-11-28T10:37:14.768Z | INFO     | uvicorn.access:476 - 127.0.0.1:58202 - "GET /post/1/comments HTTP/1.1" 200
+2025-11-28T10:37:14.902Z | INFO     | uvicorn.access:476 - 127.0.0.1:58216 - "GET /post/1/comments HTTP/1.1" 200
+2025-11-28T10:37:15.127Z | INFO     | uvicorn.access:476 - 127.0.0.1:58232 - "GET /post/1/comments HTTP/1.1" 200
+2025-11-28T10:39:01.522Z | INFO     | uvicorn.error:264 - Shutting down
+2025-11-28T10:39:01.625Z | INFO     | uvicorn.error:67 - Waiting for application shutdown.
+2025-11-28T10:39:01.632Z | INFO     | uvicorn.error:76 - Application shutdown complete.
+2025-11-28T10:39:01.641Z | INFO     | uvicorn.error:94 - Finished server process [11847]
+2025-11-28T10:39:03.279Z | INFO     | storeapi.main:19 - hello loger
+2025-11-28T10:39:03.286Z | INFO     | uvicorn.error:62 - Application startup complete.
+2025-11-28T10:39:05.928Z | DEBUG    | storeapi.routers.post:110 - SELECT comments.id, comments.body, comments.post_id 
+FROM comments 
+WHERE comments.post_id = :post_id_1
+2025-11-28T10:39:05.948Z | INFO     | uvicorn.access:476 - 127.0.0.1:35136 - "GET /post/1/comments HTTP/1.1" 200
+2025-11-28T10:44:47.980Z | INFO     | uvicorn.error:264 - Shutting down
+2025-11-28T10:44:48.082Z | INFO     | uvicorn.error:67 - Waiting for application shutdown.
+2025-11-28T10:44:48.088Z | INFO     | uvicorn.error:76 - Application shutdown complete.
+2025-11-28T10:44:48.092Z | INFO     | uvicorn.error:94 - Finished server process [13487]
+2025-11-28T10:44:49.508Z | INFO     | storeapi.main:19 - hello loger
+2025-11-28T10:44:49.514Z | INFO     | uvicorn.error:62 - Application startup complete.
+2025-11-28T10:45:09.307Z | INFO     | uvicorn.error:264 - Shutting down
+2025-11-28T10:45:09.410Z | INFO     | uvicorn.error:67 - Waiting for application shutdown.
+2025-11-28T10:45:09.415Z | INFO     | uvicorn.error:76 - Application shutdown complete.
+2025-11-28T10:45:09.422Z | INFO     | uvicorn.error:94 - Finished server process [13796]
+2025-11-28T10:45:10.756Z | INFO     | storeapi.main:19 - hello loger
+2025-11-28T10:45:10.762Z | INFO     | uvicorn.error:62 - Application startup complete.
+2025-11-28T10:45:24.985Z | INFO     | uvicorn.access:476 - 127.0.0.1:56644 - "GET /post HTTP/1.1" 405
+2025-11-28T10:45:34.445Z | INFO     | uvicorn.access:476 - 127.0.0.1:38224 - "GET /post/1 HTTP/1.1" 200
+2025-11-28T10:47:54.427Z | INFO     | uvicorn.error:264 - Shutting down
+2025-11-28T10:47:54.532Z | INFO     | uvicorn.error:67 - Waiting for application shutdown.
+2025-11-28T10:47:54.536Z | INFO     | uvicorn.error:76 - Application shutdown complete.
+2025-11-28T10:47:54.538Z | INFO     | uvicorn.error:94 - Finished server process [13880]
+2025-11-28T10:47:55.762Z | INFO     | storeapi.main:19 - hello loger
+2025-11-28T10:47:55.768Z | INFO     | uvicorn.error:62 - Application startup complete.
+2025-11-28T10:48:06.417Z | DEBUG    | storeapi.routers.post:95 - SELECT posts.id, posts.body 
+FROM posts
+2025-11-28T10:48:06.467Z | INFO     | uvicorn.access:476 - 127.0.0.1:33676 - "GET /posts HTTP/1.1" 200
+2025-11-28T10:48:36.592Z | INFO     | storeapi.routers.post:137 - Deleting post with id 22
+2025-11-28T10:48:36.597Z | INFO     | storeapi.routers.post:30 - Finding post with id 22
+2025-11-28T10:48:36.604Z | DEBUG    | storeapi.routers.post:32 - SELECT posts.id 
+FROM posts 
+WHERE posts.id = :id_1
+2025-11-28T10:48:36.617Z | DEBUG    | storeapi.routers.post:143 - DELETE FROM posts WHERE posts.id = :id_1
+2025-11-28T10:48:36.700Z | INFO     | uvicorn.access:476 - 127.0.0.1:56604 - "DELETE /post/22 HTTP/1.1" 200
+2025-11-28T10:51:52.190Z | INFO     | storeapi.routers.post:137 - Deleting post with id 0
+2025-11-28T10:51:52.207Z | INFO     | storeapi.routers.post:30 - Finding post with id 0
+2025-11-28T10:51:52.226Z | DEBUG    | storeapi.routers.post:32 - SELECT posts.id 
+FROM posts 
+WHERE posts.id = :id_1
+2025-11-28T10:51:52.254Z | INFO     | uvicorn.access:476 - 127.0.0.1:33992 - "DELETE /post/0 HTTP/1.1" 404
+2025-11-28T10:55:23.113Z | INFO     | uvicorn.error:264 - Shutting down
+2025-11-28T10:55:23.227Z | INFO     | uvicorn.error:67 - Waiting for application shutdown.
+2025-11-28T10:55:23.240Z | INFO     | uvicorn.error:76 - Application shutdown complete.
+2025-11-28T10:55:23.246Z | INFO     | uvicorn.error:94 - Finished server process [14110]
+2025-11-28T10:55:24.953Z | INFO     | storeapi.main:19 - hello loger
+2025-11-28T10:55:24.961Z | INFO     | uvicorn.error:62 - Application startup complete.
+2025-11-28T10:55:26.940Z | INFO     | storeapi.routers.post:137 - Deleting post with id 0
+2025-11-28T10:55:26.946Z | INFO     | storeapi.routers.post:30 - Finding post with id 0
+2025-11-28T10:55:26.950Z | DEBUG    | storeapi.routers.post:32 - SELECT posts.id 
+FROM posts 
+WHERE posts.id = :id_1
+2025-11-28T10:55:26.960Z | ERROR    | storeapi.routers.post:140 - Post with post id 0 don't exist in the database
+2025-11-28T10:55:26.968Z | INFO     | uvicorn.access:476 - 127.0.0.1:44940 - "DELETE /post/0 HTTP/1.1" 404
+2025-11-28T11:01:54.483Z | INFO     | uvicorn.error:264 - Shutting down
+2025-11-28T11:01:54.588Z | INFO     | uvicorn.error:67 - Waiting for application shutdown.
+2025-11-28T11:01:54.592Z | INFO     | uvicorn.error:76 - Application shutdown complete.
+2025-11-28T11:01:54.595Z | INFO     | uvicorn.error:94 - Finished server process [14824]
+2025-11-28T11:01:56.087Z | INFO     | storeapi.main:19 - hello loger
+2025-11-28T11:01:56.099Z | INFO     | uvicorn.error:62 - Application startup complete.
+2025-11-28T11:03:06.014Z | INFO     | uvicorn.error:264 - Shutting down
+2025-11-28T11:03:06.119Z | INFO     | uvicorn.error:67 - Waiting for application shutdown.
+2025-11-28T11:03:06.121Z | INFO     | uvicorn.error:76 - Application shutdown complete.
+2025-11-28T11:03:06.123Z | INFO     | uvicorn.error:94 - Finished server process [15550]
+2025-11-28T11:03:07.632Z | INFO     | storeapi.main:19 - hello loger
+2025-11-28T11:03:07.645Z | INFO     | uvicorn.error:62 - Application startup complete.
+2025-11-28T11:05:21.127Z | INFO     | uvicorn.error:264 - Shutting down
+2025-11-28T11:05:21.230Z | INFO     | uvicorn.error:67 - Waiting for application shutdown.
+2025-11-28T11:05:21.232Z | INFO     | uvicorn.error:76 - Application shutdown complete.
+2025-11-28T11:05:21.234Z | INFO     | uvicorn.error:94 - Finished server process [15718]
+2025-11-28T11:05:22.708Z | INFO     | storeapi.main:19 - hello loger
+2025-11-28T11:05:22.719Z | INFO     | uvicorn.error:62 - Application startup complete.
+2025-11-28T11:07:55.227Z | INFO     | uvicorn.error:264 - Shutting down
+2025-11-28T11:07:55.331Z | INFO     | uvicorn.error:67 - Waiting for application shutdown.
+2025-11-28T11:07:55.337Z | INFO     | uvicorn.error:76 - Application shutdown complete.
+2025-11-28T11:07:55.344Z | INFO     | uvicorn.error:94 - Finished server process [16007]
+2025-11-28T11:07:56.768Z | INFO     | storeapi.main:22 - hello loger
+2025-11-28T11:07:56.776Z | INFO     | uvicorn.error:62 - Application startup complete.
+2025-11-28T11:10:10.908Z | INFO     | uvicorn.error:264 - Shutting down
+2025-11-28T11:10:11.013Z | INFO     | uvicorn.error:67 - Waiting for application shutdown.
+2025-11-28T11:10:11.018Z | INFO     | uvicorn.error:76 - Application shutdown complete.
+2025-11-28T11:10:11.023Z | INFO     | uvicorn.error:94 - Finished server process [16302]
+2025-11-28T11:10:12.633Z | INFO     | storeapi.main:22 - hello loger
+2025-11-28T11:10:12.645Z | INFO     | uvicorn.error:62 - Application startup complete.
+2025-11-28T11:11:16.351Z | INFO     | uvicorn.error:264 - Shutting down
+2025-11-28T11:11:16.456Z | INFO     | uvicorn.error:67 - Waiting for application shutdown.
+2025-11-28T11:11:16.466Z | INFO     | storeapi.main:28 - system shutdown,🔌 Disconnecting database...
+2025-11-28T11:11:16.480Z | INFO     | uvicorn.error:76 - Application shutdown complete.
+2025-11-28T11:11:16.496Z | INFO     | uvicorn.error:94 - Finished server process [16570]
+2025-11-28T11:11:17.957Z | INFO     | storeapi.main:18 - hello loger
+2025-11-28T11:11:17.963Z | INFO     | uvicorn.error:62 - Application startup complete.
+2025-11-28T11:11:30.430Z | INFO     | uvicorn.error:264 - Shutting down
+2025-11-28T11:11:30.534Z | INFO     | uvicorn.error:67 - Waiting for application shutdown.
+2025-11-28T11:11:30.536Z | INFO     | uvicorn.error:76 - Application shutdown complete.
+2025-11-28T11:11:30.539Z | INFO     | uvicorn.error:94 - Finished server process [16754]
+2025-11-28T11:12:23.093Z | INFO     | storeapi.main:18 - hello loger
+2025-11-28T11:12:23.098Z | INFO     | uvicorn.error:62 - Application startup complete.
+2025-11-28T11:12:35.606Z | INFO     | storeapi.routers.post:147 - Deleting post with id 0
+2025-11-28T11:12:35.615Z | INFO     | storeapi.routers.post:30 - Finding post with id 0
+2025-11-28T11:12:35.622Z | DEBUG    | storeapi.routers.post:32 - SELECT posts.id 
+FROM posts 
+WHERE posts.id = :id_1
+2025-11-28T11:12:35.646Z | ERROR    | storeapi.routers.post:150 - Post with post id 0 don't exist in the database
+2025-11-28T11:12:35.657Z | INFO     | uvicorn.access:476 - 127.0.0.1:53076 - "DELETE /post/0 HTTP/1.1" 404
+2025-11-28T11:12:45.065Z | INFO     | storeapi.routers.post:147 - Deleting post with id 1
+2025-11-28T11:12:45.077Z | INFO     | storeapi.routers.post:30 - Finding post with id 1
+2025-11-28T11:12:45.094Z | DEBUG    | storeapi.routers.post:32 - SELECT posts.id 
+FROM posts 
+WHERE posts.id = :id_1
+2025-11-28T11:12:45.115Z | DEBUG    | storeapi.routers.post:154 - DELETE FROM posts WHERE posts.id = :id_1
+2025-11-28T11:12:45.200Z | INFO     | uvicorn.access:476 - 127.0.0.1:43738 - "DELETE /post/1 HTTP/1.1" 200
+2025-11-28T11:14:08.402Z | INFO     | storeapi.routers.post:43 - creating user post with details: body='logging critical information such as database connection is crutial to control what is going on in the system and to understand how the system behave in production'
+2025-11-28T11:14:08.429Z | DEBUG    | storeapi.routers.post:46 - INSERT INTO posts (body) VALUES (:body)
+2025-11-28T11:14:08.536Z | INFO     | uvicorn.access:476 - 127.0.0.1:56752 - "POST /post HTTP/1.1" 200
+2025-11-28T11:14:16.027Z | INFO     | storeapi.routers.post:85 - geting user post with id {post_id}
+2025-11-28T11:14:16.043Z | DEBUG    | storeapi.routers.post:87 - SELECT posts.id, posts.body 
+FROM posts 
+WHERE posts.id = :id_1
+2025-11-28T11:14:16.068Z | INFO     | uvicorn.access:476 - 127.0.0.1:46602 - "GET /post/22 HTTP/1.1" 200
+2025-11-28T11:15:00.217Z | INFO     | uvicorn.error:264 - Shutting down
+2025-11-28T11:15:00.322Z | INFO     | uvicorn.error:67 - Waiting for application shutdown.
+2025-11-28T11:15:00.329Z | INFO     | uvicorn.error:76 - Application shutdown complete.
+2025-11-28T11:15:00.332Z | INFO     | uvicorn.error:94 - Finished server process [17222]
+2025-11-28T11:15:51.696Z | INFO     | storeapi.main:18 - hello loger
+2025-11-28T11:15:51.706Z | INFO     | uvicorn.error:62 - Application startup complete.
+2025-11-28T11:16:02.574Z | INFO     | uvicorn.error:264 - Shutting down
+2025-11-28T11:16:02.687Z | INFO     | uvicorn.error:67 - Waiting for application shutdown.
+2025-11-28T11:16:02.694Z | INFO     | uvicorn.error:76 - Application shutdown complete.
+2025-11-28T11:16:02.699Z | INFO     | uvicorn.error:94 - Finished server process [17919]
+2025-11-28T12:18:18.128Z | INFO     | uvicorn.error:84 - Started server process [31038]
+2025-11-28T12:18:18.136Z | INFO     | uvicorn.error:48 - Waiting for application startup.
+2025-11-28T12:18:18.140Z | INFO     | storeapi:19 - 📡 Connecting database...
+2025-11-28T12:18:18.144Z | INFO     | uvicorn.error:62 - Application startup complete.
+2025-11-28T12:18:30.085Z | INFO     | storeapi.routers.post:85 - geting user post with id {post_id}
+2025-11-28T12:18:30.088Z | DEBUG    | storeapi.routers.post:87 - SELECT posts.id, posts.body 
+FROM posts 
+WHERE posts.id = :id_1
+2025-11-28T12:18:30.097Z | INFO     | uvicorn.access:476 - 127.0.0.1:44248 - "GET /post/22 HTTP/1.1" 200
+2025-11-28T12:18:36.737Z | INFO     | uvicorn.error:264 - Shutting down
+2025-11-28T12:18:36.840Z | INFO     | uvicorn.error:67 - Waiting for application shutdown.
+2025-11-28T12:18:36.842Z | INFO     | storeapi:32 - system shutdown,🔌 Disconnecting database...
+2025-11-28T12:18:36.845Z | INFO     | uvicorn.error:76 - Application shutdown complete.
+2025-11-28T12:18:36.847Z | INFO     | uvicorn.error:94 - Finished server process [31038]

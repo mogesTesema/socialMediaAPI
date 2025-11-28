@@ -7,21 +7,38 @@ from storeapi.database import database
 from storeapi.logging_config import configure_logging
 import logging
 
-logger = logging.getLogger(__name__)
+
+
+configure_logging() # configuring logging before system start up
+logger = logging.getLogger("storeapi")
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     # ---- SETUP (start server) ----
-    print("📡 Connecting database...")
-    await database.connect()
-    configure_logging()
-    logger.info("hello loger")
+    try:
+        logger.info("📡 Connecting database...")
+        await database.connect()
+    except Exception as e:
+        logger.critical(f"failed connecting to database:{e}")
+        # for handler in logger.handlers:
+        #     handler.flush()
+        logging.shutdown()
+        raise
 
     yield  # ⛔ Pause here — FastAPI runs routes now
 
     # ---- TEARDOWN (stop server) ----
-    print("🔌 Disconnecting database...")
-    await database.disconnect()
+    try:
+        logger.info("system shutdown,🔌 Disconnecting database...")
+        await database.disconnect()
+    except Exception:
+        logger.critical("unable to disconnect database connection:{e}")
+        # for handler in logger.handlers:
+        #     handler.flush()
+        logging.shutdown()
+        raise
+
+    
 
     
 app = FastAPI(debug=True,lifespan=lifespan)
