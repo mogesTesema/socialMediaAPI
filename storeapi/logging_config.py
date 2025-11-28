@@ -16,14 +16,22 @@ def configure_logging() -> None:
             },
             "formatters": {
                 "console": {
-                    "class": "logging.Formatter",
+                    "class": "pythonjsonlogger.json.JsonFormatter",
                     "datefmt": "%Y-%m-%dT%H:%M:%S",
                     "format": "(%(correlation_id)s) %(name)s:%(lineno)d - %(message)s",
                 },
                 "file": {
                     "class": "logging.Formatter",
-                    "datefmt": "%Y-%m-%dT%H:% M:%S",
-                    "format": "(%(correlation_id)s) %(asctime)s.%(msecs)03dZ | %(levelname)-8s | %(name)s:%(lineno)d - %(message)s",
+                    "datefmt": "%Y-%m-%dT%H:%M:%S",
+                    "json_format": [
+                        "(correlation_id)",  # Custom field (needs to be available on the LogRecord)
+                        "asctime",
+                        "msecs",
+                        "levelname",
+                        "name",
+                        "lineno",
+                        "message",
+                    ],
                 },
             },
             "handlers": {
@@ -38,7 +46,7 @@ def configure_logging() -> None:
                     "level": "DEBUG",
                     "formatter": "file",
                     "filename": "storeapi.log",
-                    "maxBytes": 2024 * 2024,  # 1GB
+                    "maxBytes": 2024 * 2024 * 2024,  # 1GB
                     "backupCount": 5,
                     "encoding": "utf8",
                     "filters": ["correlation_id"],

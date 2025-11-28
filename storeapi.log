@@ -1550,3 +1550,126 @@ WHERE posts.id = :id_1
 (-) 2025-11-28T20:% M:23.267Z | INFO     | uvicorn.error:48 - Waiting for application startup.
 (-) 2025-11-28T20:% M:23.270Z | INFO     | storeapi:22 - 📡 Connecting database...
 (-) 2025-11-28T20:% M:23.272Z | INFO     | uvicorn.error:62 - Application startup complete.
+(-) 2025-11-28T20:% M:24.750Z | INFO     | uvicorn.error:264 - Shutting down
+(-) 2025-11-28T20:% M:24.857Z | INFO     | uvicorn.error:67 - Waiting for application shutdown.
+(-) 2025-11-28T20:% M:24.860Z | INFO     | storeapi:32 - 🔌 Disconnecting database...
+(-) 2025-11-28T20:% M:24.863Z | INFO     | uvicorn.error:76 - Application shutdown complete.
+(-) 2025-11-28T20:% M:24.869Z | INFO     | uvicorn.error:94 - Finished server process [9555]
+(-) 2025-11-28T20:42:16.124Z | INFO     | uvicorn.error:84 - Started server process [16478]
+(-) 2025-11-28T20:42:16.128Z | INFO     | uvicorn.error:48 - Waiting for application startup.
+(-) 2025-11-28T20:42:16.131Z | INFO     | storeapi:22 - 📡 Connecting database...
+(-) 2025-11-28T20:42:16.133Z | INFO     | uvicorn.error:62 - Application startup complete.
+(-) 2025-11-28T20:42:40.550Z | INFO     | uvicorn.error:264 - Shutting down
+(-) 2025-11-28T20:42:40.656Z | INFO     | uvicorn.error:67 - Waiting for application shutdown.
+(-) 2025-11-28T20:42:40.663Z | INFO     | storeapi:32 - 🔌 Disconnecting database...
+(-) 2025-11-28T20:42:40.668Z | INFO     | uvicorn.error:76 - Application shutdown complete.
+(-) 2025-11-28T20:42:40.673Z | INFO     | uvicorn.error:94 - Finished server process [16478]
+(-) 2025-11-28T20:42:42.332Z | INFO     | uvicorn.error:84 - Started server process [16593]
+(-) 2025-11-28T20:42:42.339Z | INFO     | uvicorn.error:48 - Waiting for application startup.
+(-) 2025-11-28T20:42:42.344Z | INFO     | storeapi:22 - 📡 Connecting database...
+(-) 2025-11-28T20:42:42.351Z | INFO     | uvicorn.error:62 - Application startup complete.
+(-) 2025-11-28T20:45:11.862Z | INFO     | uvicorn.error:264 - Shutting down
+(-) 2025-11-28T20:45:11.982Z | INFO     | uvicorn.error:67 - Waiting for application shutdown.
+(-) 2025-11-28T20:45:11.991Z | INFO     | storeapi:32 - 🔌 Disconnecting database...
+(-) 2025-11-28T20:45:12.001Z | INFO     | uvicorn.error:76 - Application shutdown complete.
+(-) 2025-11-28T20:45:12.007Z | INFO     | uvicorn.error:94 - Finished server process [16593]
+2025-11-28T21:09:25 122.0 INFO - uvicorn.error 84 Started server process [23365]
+2025-11-28T21:09:25 127.0 INFO - uvicorn.error 48 Waiting for application startup.
+2025-11-28T21:09:25 131.0 INFO - storeapi 22 📡 Connecting database...
+2025-11-28T21:09:25 134.0 INFO - uvicorn.error 62 Application startup complete.
+2025-11-28T21:09:43 719.0 INFO - uvicorn.error 264 Shutting down
+2025-11-28T21:09:43 822.0 INFO - uvicorn.error 67 Waiting for application shutdown.
+2025-11-28T21:09:43 825.0 INFO - storeapi 32 🔌 Disconnecting database...
+2025-11-28T21:09:43 828.0 INFO - uvicorn.error 76 Application shutdown complete.
+2025-11-28T21:09:43 830.0 INFO - uvicorn.error 94 Finished server process [23365]
+2025-11-28T21:23:22 516.0 INFO - uvicorn.error 84 Started server process [25632]
+2025-11-28T21:23:22 523.0 INFO - uvicorn.error 48 Waiting for application startup.
+2025-11-28T21:23:22 527.0 INFO - storeapi 22 📡 Connecting database...
+2025-11-28T21:23:22 532.0 INFO - uvicorn.error 62 Application startup complete.
+2025-11-28T21:23:46 452.0 INFO - uvicorn.error 264 Shutting down
+2025-11-28T21:23:46 559.0 INFO - uvicorn.error 67 Waiting for application shutdown.
+2025-11-28T21:23:46 562.0 INFO - storeapi 32 🔌 Disconnecting database...
+2025-11-28T21:23:46 566.0 INFO - uvicorn.error 76 Application shutdown complete.
+2025-11-28T21:23:46 571.0 INFO - uvicorn.error 94 Finished server process [25632]
+2025-11-28T21:24:19 172.0 INFO - uvicorn.error 84 Started server process [26017]
+2025-11-28T21:24:19 178.0 INFO - uvicorn.error 48 Waiting for application startup.
+2025-11-28T21:24:19 182.0 INFO - storeapi 22 📡 Connecting database...
+2025-11-28T21:24:19 186.0 INFO - uvicorn.error 62 Application startup complete.
+2025-11-28T21:24:53 717.0 INFO 765e41ec storeapi.routers.post 83 geting user post with id {post_id}
+2025-11-28T21:24:53 722.0 DEBUG 765e41ec storeapi.routers.post 85 SELECT posts.id, posts.body 
+FROM posts 
+WHERE posts.id = :id_1
+2025-11-28T21:24:53 733.0 INFO 765e41ec uvicorn.access 476 127.0.0.1:60264 - "GET /post/39 HTTP/1.1" 200
+2025-11-28T21:24:55 910.0 INFO 23987a20 storeapi.routers.post 83 geting user post with id {post_id}
+2025-11-28T21:24:55 914.0 DEBUG 23987a20 storeapi.routers.post 85 SELECT posts.id, posts.body 
+FROM posts 
+WHERE posts.id = :id_1
+2025-11-28T21:24:55 922.0 INFO 23987a20 uvicorn.access 476 127.0.0.1:60270 - "GET /post/39 HTTP/1.1" 200
+2025-11-28T21:28:40 513.0 INFO - uvicorn.error 264 Shutting down
+2025-11-28T21:28:40 619.0 INFO - uvicorn.error 67 Waiting for application shutdown.
+2025-11-28T21:28:40 626.0 INFO - storeapi 32 🔌 Disconnecting database...
+2025-11-28T21:28:40 630.0 INFO - uvicorn.error 76 Application shutdown complete.
+2025-11-28T21:28:40 638.0 INFO - uvicorn.error 94 Finished server process [26017]
+Started server process [26662]
+Waiting for application startup.
+📡 Connecting database...
+Application startup complete.
+Shutting down
+Waiting for application shutdown.
+🔌 Disconnecting database...
+Application shutdown complete.
+Finished server process [26662]
+Started server process [26749]
+Waiting for application startup.
+📡 Connecting database...
+Application startup complete.
+geting user post with id {post_id}
+SELECT posts.id, posts.body 
+FROM posts 
+WHERE posts.id = :id_1
+127.0.0.1:56050 - "GET /post/39 HTTP/1.1" 200
+geting user post with id {post_id}
+SELECT posts.id, posts.body 
+FROM posts 
+WHERE posts.id = :id_1
+127.0.0.1:56052 - "GET /post/39 HTTP/1.1" 200
+geting user post with id {post_id}
+SELECT posts.id, posts.body 
+FROM posts 
+WHERE posts.id = :id_1
+127.0.0.1:56066 - "GET /post/39 HTTP/1.1" 200
+geting user post with id {post_id}
+SELECT posts.id, posts.body 
+FROM posts 
+WHERE posts.id = :id_1
+127.0.0.1:41182 - "GET /post/39 HTTP/1.1" 200
+geting user post with id {post_id}
+SELECT posts.id, posts.body 
+FROM posts 
+WHERE posts.id = :id_1
+127.0.0.1:41188 - "GET /post/39 HTTP/1.1" 200
+geting user post with id {post_id}
+SELECT posts.id, posts.body 
+FROM posts 
+WHERE posts.id = :id_1
+HTTPException:-url:http://localhost:8000/post/3, method:GET, status_code:404, detail:post with post_id:3 doesn't exist
+127.0.0.1:41200 - "GET /post/3 HTTP/1.1" 404
+geting user post with id {post_id}
+SELECT posts.id, posts.body 
+FROM posts 
+WHERE posts.id = :id_1
+127.0.0.1:34462 - "GET /post/2 HTTP/1.1" 200
+Shutting down
+Waiting for application shutdown.
+🔌 Disconnecting database...
+Application shutdown complete.
+Finished server process [26749]
+Started server process [27023]
+Waiting for application startup.
+📡 Connecting database...
+Application startup complete.
+geting user post with id {post_id}
+SELECT posts.id, posts.body 
+FROM posts 
+WHERE posts.id = :id_1
+127.0.0.1:33610 - "GET /post/2 HTTP/1.1" 200
