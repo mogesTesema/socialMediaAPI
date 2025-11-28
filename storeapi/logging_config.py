@@ -35,6 +35,12 @@ def configure_logging()->None:
                 }
             },
             "loggers":{
+                "":{
+                    "handlers":["rotating_file"],
+                    "level":"INFO",
+                    "propagate":True
+
+                },
                 "uvicorn":{
                     "handlers":["default","rotating_file"],
                     "level":"INFO"

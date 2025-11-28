@@ -1,0 +1,125 @@
+2025-11-28T02:34:56.040Z | INFO     | storeapi.main:18 - hello loger
+2025-11-28T02:42:25.066Z | INFO     | storeapi.main:18 - hello loger
+2025-11-28T02:42:25.075Z | INFO     | uvicorn.error:62 - Application startup complete.
+2025-11-28T02:43:08.308Z | INFO     | uvicorn.error:264 - Shutting down
+2025-11-28T02:43:08.412Z | INFO     | uvicorn.error:67 - Waiting for application shutdown.
+2025-11-28T02:43:08.414Z | INFO     | uvicorn.error:76 - Application shutdown complete.
+2025-11-28T02:43:08.417Z | INFO     | uvicorn.error:94 - Finished server process [22375]
+2025-11-28T02:43:38.772Z | INFO     | storeapi.main:18 - hello loger
+2025-11-28T02:43:38.778Z | INFO     | uvicorn.error:62 - Application startup complete.
+2025-11-28T02:45:42.493Z | INFO     | uvicorn.access:476 - 127.0.0.1:43232 - "POST /post HTTP/1.1" 200
+2025-11-28T02:45:51.947Z | INFO     | uvicorn.access:476 - 127.0.0.1:45976 - "POST /post HTTP/1.1" 200
+2025-11-28T02:45:52.136Z | INFO     | uvicorn.access:476 - 127.0.0.1:45990 - "POST /post HTTP/1.1" 200
+2025-11-28T02:45:52.347Z | INFO     | uvicorn.access:476 - 127.0.0.1:45994 - "POST /post HTTP/1.1" 200
+2025-11-28T02:45:52.580Z | INFO     | uvicorn.access:476 - 127.0.0.1:46008 - "POST /post HTTP/1.1" 200
+2025-11-28T02:45:52.803Z | INFO     | uvicorn.access:476 - 127.0.0.1:46022 - "POST /post HTTP/1.1" 200
+2025-11-28T02:45:53.091Z | INFO     | uvicorn.access:476 - 127.0.0.1:46028 - "POST /post HTTP/1.1" 200
+2025-11-28T02:45:53.302Z | INFO     | uvicorn.access:476 - 127.0.0.1:46032 - "POST /post HTTP/1.1" 200
+2025-11-28T02:45:53.502Z | INFO     | uvicorn.access:476 - 127.0.0.1:46036 - "POST /post HTTP/1.1" 200
+2025-11-28T02:45:53.715Z | INFO     | uvicorn.access:476 - 127.0.0.1:46048 - "POST /post HTTP/1.1" 200
+2025-11-28T02:45:53.946Z | INFO     | uvicorn.access:476 - 127.0.0.1:46052 - "POST /post HTTP/1.1" 200
+2025-11-28T02:45:54.159Z | INFO     | uvicorn.access:476 - 127.0.0.1:46054 - "POST /post HTTP/1.1" 200
+2025-11-28T02:45:54.415Z | INFO     | uvicorn.access:476 - 127.0.0.1:46070 - "POST /post HTTP/1.1" 200
+2025-11-28T02:45:54.702Z | INFO     | uvicorn.access:476 - 127.0.0.1:46086 - "POST /post HTTP/1.1" 200
+2025-11-28T02:45:54.904Z | INFO     | uvicorn.access:476 - 127.0.0.1:46100 - "POST /post HTTP/1.1" 200
+2025-11-28T02:45:55.147Z | INFO     | uvicorn.access:476 - 127.0.0.1:46116 - "POST /post HTTP/1.1" 200
+2025-11-28T02:45:55.960Z | INFO     | uvicorn.access:476 - 127.0.0.1:46122 - "POST /post HTTP/1.1" 200
+2025-11-28T02:45:56.203Z | INFO     | uvicorn.access:476 - 127.0.0.1:46130 - "POST /post HTTP/1.1" 200
+2025-11-28T02:45:56.492Z | INFO     | uvicorn.access:476 - 127.0.0.1:46140 - "POST /post HTTP/1.1" 200
+2025-11-28T02:45:56.739Z | INFO     | uvicorn.access:476 - 127.0.0.1:46142 - "POST /post HTTP/1.1" 200
+2025-11-28T02:45:56.969Z | INFO     | uvicorn.access:476 - 127.0.0.1:46146 - "POST /post HTTP/1.1" 200
+2025-11-28T02:46:08.712Z | INFO     | uvicorn.access:476 - 127.0.0.1:37998 - "POST /comment HTTP/1.1" 422
+2025-11-28T02:47:19.796Z | INFO     | uvicorn.access:476 - 127.0.0.1:48958 - "POST /comment HTTP/1.1" 200
+2025-11-28T02:47:35.449Z | INFO     | uvicorn.access:476 - 127.0.0.1:52442 - "GET /post/2/comments HTTP/1.1" 200
+2025-11-28T03:13:01.738Z | INFO     | uvicorn.error:264 - Shutting down
+2025-11-28T03:13:01.841Z | INFO     | uvicorn.error:67 - Waiting for application shutdown.
+2025-11-28T03:13:01.848Z | INFO     | uvicorn.error:76 - Application shutdown complete.
+2025-11-28T03:13:01.859Z | INFO     | uvicorn.error:94 - Finished server process [22743]
+2025-11-28T03:13:03.637Z | INFO     | storeapi.main:18 - hello loger
+2025-11-28T03:13:03.643Z | INFO     | uvicorn.error:62 - Application startup complete.
+2025-11-28T03:13:27.667Z | INFO     | uvicorn.access:476 - 127.0.0.1:57494 - "GET /post/2/comments HTTP/1.1" 200
+2025-11-28T03:13:35.395Z | INFO     | uvicorn.access:476 - 127.0.0.1:45786 - "GET /post/2 HTTP/1.1" 200
+2025-11-28T03:14:00.104Z | INFO     | uvicorn.error:264 - Shutting down
+2025-11-28T03:14:00.206Z | INFO     | uvicorn.error:67 - Waiting for application shutdown.
+2025-11-28T03:14:00.212Z | INFO     | uvicorn.error:76 - Application shutdown complete.
+2025-11-28T03:14:00.216Z | INFO     | uvicorn.error:94 - Finished server process [25882]
+2025-11-28T03:14:01.590Z | INFO     | storeapi.main:18 - hello loger
+2025-11-28T03:14:01.595Z | INFO     | uvicorn.error:62 - Application startup complete.
+2025-11-28T03:14:08.098Z | INFO     | uvicorn.access:476 - 127.0.0.1:52852 - "GET /post/2 HTTP/1.1" 200
+2025-11-28T03:14:10.162Z | INFO     | uvicorn.access:476 - 127.0.0.1:52864 - "GET /post/2 HTTP/1.1" 200
+2025-11-28T03:14:31.862Z | INFO     | uvicorn.access:476 - 127.0.0.1:41542 - "DELETE /post/2 HTTP/1.1" 500
+2025-11-28T03:14:31.868Z | ERROR    | uvicorn.error:414 - Exception in ASGI application
+Traceback (most recent call last):
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/uvicorn/protocols/http/httptools_impl.py", line 409, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self.scope, self.receive, self.send
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/uvicorn/middleware/proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/fastapi/applications.py", line 1134, in __call__
+    await super().__call__(scope, receive, send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/applications.py", line 107, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/fastapi/routing.py", line 125, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/fastapi/routing.py", line 111, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/fastapi/routing.py", line 391, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/fastapi/routing.py", line 290, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/moges/Full-Stack-ML/Coding-House/complete-python-course-bootcamp-codes/socialMediaAPI/storeapi/routers/post.py", line 131, in delete_post
+    post = await find_post(post_id)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/moges/Full-Stack-ML/Coding-House/complete-python-course-bootcamp-codes/socialMediaAPI/storeapi/routers/post.py", line 28, in find_post
+    query = selects(post_table.c.id).where(post_table.c.id == post_id)
+            ^^^^^^^
+NameError: name 'selects' is not defined
+2025-11-28T03:14:44.176Z | INFO     | uvicorn.error:264 - Shutting down
+2025-11-28T03:14:44.278Z | INFO     | uvicorn.error:67 - Waiting for application shutdown.
+2025-11-28T03:14:44.282Z | INFO     | uvicorn.error:76 - Application shutdown complete.
+2025-11-28T03:14:44.285Z | INFO     | uvicorn.error:94 - Finished server process [26118]
+2025-11-28T03:14:45.710Z | INFO     | storeapi.main:18 - hello loger
+2025-11-28T03:14:45.717Z | INFO     | uvicorn.error:62 - Application startup complete.
+2025-11-28T03:15:17.064Z | INFO     | uvicorn.access:476 - 127.0.0.1:46530 - "DELETE /post/3 HTTP/1.1" 200
+2025-11-28T03:15:24.663Z | INFO     | uvicorn.access:476 - 127.0.0.1:52312 - "DELETE /post/4 HTTP/1.1" 200
+2025-11-28T03:15:28.693Z | INFO     | uvicorn.access:476 - 127.0.0.1:52328 - "DELETE /post/4 HTTP/1.1" 404
+2025-11-28T03:15:36.236Z | INFO     | uvicorn.access:476 - 127.0.0.1:44614 - "DELETE /post/4 HTTP/1.1" 404
+2025-11-28T03:15:36.398Z | INFO     | uvicorn.access:476 - 127.0.0.1:44616 - "DELETE /post/4 HTTP/1.1" 404
+2025-11-28T03:15:36.621Z | INFO     | uvicorn.access:476 - 127.0.0.1:44628 - "DELETE /post/4 HTTP/1.1" 404
+2025-11-28T03:15:36.796Z | INFO     | uvicorn.access:476 - 127.0.0.1:44642 - "DELETE /post/4 HTTP/1.1" 404
+2025-11-28T03:15:36.998Z | INFO     | uvicorn.access:476 - 127.0.0.1:44658 - "DELETE /post/4 HTTP/1.1" 404
+2025-11-28T10:06:07.991Z | INFO     | storeapi.main:18 - hello loger
+2025-11-28T10:06:08.013Z | INFO     | uvicorn.error:62 - Application startup complete.
