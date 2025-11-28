@@ -379,3 +379,233 @@ WHERE posts.id = :id_1
 2025-11-28T12:18:36.842Z | INFO     | storeapi:32 - system shutdown,🔌 Disconnecting database...
 2025-11-28T12:18:36.845Z | INFO     | uvicorn.error:76 - Application shutdown complete.
 2025-11-28T12:18:36.847Z | INFO     | uvicorn.error:94 - Finished server process [31038]
+2025-11-28T13:03:56.859Z | INFO     | uvicorn.error:84 - Started server process [5904]
+2025-11-28T13:03:56.920Z | INFO     | uvicorn.error:48 - Waiting for application startup.
+2025-11-28T13:03:56.923Z | INFO     | storeapi:19 - 📡 Connecting database...
+2025-11-28T13:03:56.927Z | INFO     | uvicorn.error:62 - Application startup complete.
+2025-11-28T13:04:34.714Z | INFO     | uvicorn.error:264 - Shutting down
+2025-11-28T13:04:34.824Z | INFO     | uvicorn.error:67 - Waiting for application shutdown.
+2025-11-28T13:04:34.828Z | INFO     | storeapi:32 - system shutdown,🔌 Disconnecting database...
+2025-11-28T13:04:34.831Z | INFO     | uvicorn.error:76 - Application shutdown complete.
+2025-11-28T13:04:34.835Z | INFO     | uvicorn.error:94 - Finished server process [5904]
+2025-11-28T13:05:29.899Z | INFO     | uvicorn.error:84 - Started server process [6221]
+2025-11-28T13:05:29.904Z | INFO     | uvicorn.error:48 - Waiting for application startup.
+2025-11-28T13:05:29.906Z | INFO     | storeapi:19 - 📡 Connecting database...
+2025-11-28T13:05:29.909Z | INFO     | uvicorn.error:62 - Application startup complete.
+2025-11-28T13:05:42.175Z | INFO     | uvicorn.error:264 - Shutting down
+2025-11-28T13:05:42.297Z | INFO     | uvicorn.error:67 - Waiting for application shutdown.
+2025-11-28T13:05:42.302Z | INFO     | storeapi:32 - system shutdown,🔌 Disconnecting database...
+2025-11-28T13:05:42.307Z | INFO     | uvicorn.error:76 - Application shutdown complete.
+2025-11-28T13:05:42.311Z | INFO     | uvicorn.error:94 - Finished server process [6221]
+2025-11-28T13:10:40.312Z | INFO     | uvicorn.error:84 - Started server process [10773]
+2025-11-28T13:10:40.317Z | INFO     | uvicorn.error:48 - Waiting for application startup.
+2025-11-28T13:10:40.319Z | INFO     | storeapi:19 - 📡 Connecting database...
+2025-11-28T13:10:40.321Z | INFO     | uvicorn.error:62 - Application startup complete.
+2025-11-28T13:24:42.259Z | INFO     | uvicorn.error:264 - Shutting down
+2025-11-28T13:24:42.362Z | INFO     | uvicorn.error:67 - Waiting for application shutdown.
+2025-11-28T13:24:42.364Z | INFO     | storeapi:32 - system shutdown,🔌 Disconnecting database...
+2025-11-28T13:24:42.367Z | INFO     | uvicorn.error:76 - Application shutdown complete.
+2025-11-28T13:24:42.369Z | INFO     | uvicorn.error:94 - Finished server process [10773]
+2025-11-28T13:24:43.718Z | INFO     | uvicorn.error:84 - Started server process [12420]
+2025-11-28T13:24:43.726Z | INFO     | uvicorn.error:48 - Waiting for application startup.
+2025-11-28T13:24:43.730Z | INFO     | storeapi:19 - 📡 Connecting database...
+2025-11-28T13:24:43.733Z | INFO     | uvicorn.error:62 - Application startup complete.
+2025-11-28T13:29:20.515Z | INFO     | uvicorn.error:264 - Shutting down
+2025-11-28T13:29:20.617Z | INFO     | uvicorn.error:67 - Waiting for application shutdown.
+2025-11-28T13:29:20.620Z | INFO     | storeapi:32 - system shutdown,🔌 Disconnecting database...
+2025-11-28T13:29:20.622Z | INFO     | uvicorn.error:76 - Application shutdown complete.
+2025-11-28T13:29:20.625Z | INFO     | uvicorn.error:94 - Finished server process [12420]
+2025-11-28T13:29:21.938Z | INFO     | uvicorn.error:84 - Started server process [12912]
+2025-11-28T13:29:21.949Z | INFO     | uvicorn.error:48 - Waiting for application startup.
+2025-11-28T13:29:21.952Z | INFO     | storeapi:20 - 📡 Connecting database...
+2025-11-28T13:29:21.954Z | INFO     | uvicorn.error:62 - Application startup complete.
+2025-11-28T13:33:41.671Z | INFO     | uvicorn.error:264 - Shutting down
+2025-11-28T13:33:41.778Z | INFO     | uvicorn.error:67 - Waiting for application shutdown.
+2025-11-28T13:33:41.780Z | INFO     | storeapi:33 - system shutdown,🔌 Disconnecting database...
+2025-11-28T13:33:41.784Z | INFO     | uvicorn.error:76 - Application shutdown complete.
+2025-11-28T13:33:41.786Z | INFO     | uvicorn.error:94 - Finished server process [12912]
+2025-11-28T13:33:43.059Z | INFO     | uvicorn.error:84 - Started server process [13417]
+2025-11-28T13:33:43.064Z | INFO     | uvicorn.error:48 - Waiting for application startup.
+2025-11-28T13:33:43.068Z | INFO     | storeapi:20 - 📡 Connecting database...
+2025-11-28T13:33:43.073Z | INFO     | uvicorn.error:62 - Application startup complete.
+2025-11-28T13:33:51.689Z | INFO     | storeapi.routers.post:85 - geting user post with id {post_id}
+2025-11-28T13:33:51.693Z | DEBUG    | storeapi.routers.post:87 - SELECT posts.id, posts.body 
+FROM posts 
+WHERE posts.id = :id_1
+2025-11-28T13:33:51.700Z | INFO     | uvicorn.access:476 - 127.0.0.1:52932 - "GET /post/22 HTTP/1.1" 200
+2025-11-28T13:33:57.322Z | INFO     | storeapi.routers.post:85 - geting user post with id {post_id}
+2025-11-28T13:33:57.340Z | DEBUG    | storeapi.routers.post:87 - SELECT posts.id, posts.body 
+FROM posts 
+WHERE posts.id = :id_1
+2025-11-28T13:33:57.421Z | INFO     | uvicorn.access:476 - 127.0.0.1:52936 - "GET /post/222 HTTP/1.1" 500
+2025-11-28T13:33:57.425Z | ERROR    | uvicorn.error:414 - Exception in ASGI application
+Traceback (most recent call last):
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/fastapi/routing.py", line 111, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/fastapi/routing.py", line 391, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/fastapi/routing.py", line 290, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/moges/Full-Stack-ML/Coding-House/complete-python-course-bootcamp-codes/socialMediaAPI/storeapi/routers/post.py", line 92, in get_post
+    raise HTTPException(status_code=404,detail=f"post with post_id:{post_id} doesn't exist")
+fastapi.exceptions.HTTPException: 404: post with post_id:222 doesn't exist
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/uvicorn/protocols/http/httptools_impl.py", line 409, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self.scope, self.receive, self.send
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/uvicorn/middleware/proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/fastapi/applications.py", line 1134, in __call__
+    await super().__call__(scope, receive, send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/applications.py", line 107, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/fastapi/routing.py", line 125, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/home/moges/snap/code/214/.local/share/virtualenvs/socialMediaAPI-IVZhd2fi/lib/python3.13/site-packages/starlette/_exception_handler.py", line 59, in wrapped_app
+    response = await handler(conn, exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/moges/Full-Stack-ML/Coding-House/complete-python-course-bootcamp-codes/socialMediaAPI/storeapi/main.py", line 52, in http_exception_handle_logging
+    logger.error(f"HTTPException: {exc.status_code}{exc.detial}")
+                                                    ^^^^^^^^^^
+AttributeError: 'HTTPException' object has no attribute 'detial'. Did you mean: 'detail'?
+2025-11-28T13:35:36.525Z | INFO     | uvicorn.error:264 - Shutting down
+2025-11-28T13:35:36.628Z | INFO     | uvicorn.error:67 - Waiting for application shutdown.
+2025-11-28T13:35:36.632Z | INFO     | storeapi:33 - system shutdown,🔌 Disconnecting database...
+2025-11-28T13:35:36.635Z | INFO     | uvicorn.error:76 - Application shutdown complete.
+2025-11-28T13:35:36.638Z | INFO     | uvicorn.error:94 - Finished server process [13417]
+2025-11-28T13:35:37.897Z | INFO     | uvicorn.error:84 - Started server process [13804]
+2025-11-28T13:35:37.904Z | INFO     | uvicorn.error:48 - Waiting for application startup.
+2025-11-28T13:35:37.907Z | INFO     | storeapi:20 - 📡 Connecting database...
+2025-11-28T13:35:37.910Z | INFO     | uvicorn.error:62 - Application startup complete.
+2025-11-28T13:35:45.390Z | INFO     | storeapi.routers.post:85 - geting user post with id {post_id}
+2025-11-28T13:35:45.410Z | DEBUG    | storeapi.routers.post:87 - SELECT posts.id, posts.body 
+FROM posts 
+WHERE posts.id = :id_1
+2025-11-28T13:35:45.443Z | ERROR    | storeapi:52 - HTTPException: 404post with post_id:222 doesn't exist
+2025-11-28T13:35:45.451Z | INFO     | uvicorn.access:476 - 127.0.0.1:41204 - "GET /post/222 HTTP/1.1" 404
+2025-11-28T13:37:12.598Z | INFO     | uvicorn.error:264 - Shutting down
+2025-11-28T13:37:12.701Z | INFO     | uvicorn.error:67 - Waiting for application shutdown.
+2025-11-28T13:37:12.705Z | INFO     | storeapi:33 - system shutdown,🔌 Disconnecting database...
+2025-11-28T13:37:12.708Z | INFO     | uvicorn.error:76 - Application shutdown complete.
+2025-11-28T13:37:12.712Z | INFO     | uvicorn.error:94 - Finished server process [13804]
+2025-11-28T13:37:14.306Z | INFO     | uvicorn.error:84 - Started server process [14046]
+2025-11-28T13:37:14.313Z | INFO     | uvicorn.error:48 - Waiting for application startup.
+2025-11-28T13:37:14.319Z | INFO     | storeapi:20 - 📡 Connecting database...
+2025-11-28T13:37:14.323Z | INFO     | uvicorn.error:62 - Application startup complete.
+2025-11-28T13:37:16.053Z | INFO     | storeapi.routers.post:85 - geting user post with id {post_id}
+2025-11-28T13:37:16.067Z | DEBUG    | storeapi.routers.post:87 - SELECT posts.id, posts.body 
+FROM posts 
+WHERE posts.id = :id_1
+2025-11-28T13:37:16.093Z | ERROR    | storeapi.routers.post:92 - post_with post_id:222 yelem!
+2025-11-28T13:37:16.099Z | ERROR    | storeapi:52 - HTTPException: 404post with post_id:222 doesn't exist
+2025-11-28T13:37:16.105Z | INFO     | uvicorn.access:476 - 127.0.0.1:47020 - "GET /post/222 HTTP/1.1" 404
+2025-11-28T13:37:55.231Z | INFO     | uvicorn.access:476 - 127.0.0.1:47850 - "POST /post/222 HTTP/1.1" 405
+2025-11-28T13:38:09.907Z | INFO     | uvicorn.access:476 - 127.0.0.1:50382 - "PATCH /post/222 HTTP/1.1" 405
+2025-11-28T13:38:22.669Z | INFO     | storeapi.routers.post:148 - Deleting post with id 222
+2025-11-28T13:38:22.683Z | INFO     | storeapi.routers.post:30 - Finding post with id 222
+2025-11-28T13:38:22.702Z | DEBUG    | storeapi.routers.post:32 - SELECT posts.id 
+FROM posts 
+WHERE posts.id = :id_1
+2025-11-28T13:38:22.729Z | ERROR    | storeapi.routers.post:151 - Post with post id 222 don't exist in the database
+2025-11-28T13:38:22.736Z | ERROR    | storeapi:52 - HTTPException: 404Post not found
+2025-11-28T13:38:22.743Z | INFO     | uvicorn.access:476 - 127.0.0.1:40222 - "DELETE /post/222 HTTP/1.1" 404
+2025-11-28T13:47:01.640Z | INFO     | uvicorn.error:264 - Shutting down
+2025-11-28T13:47:01.753Z | INFO     | uvicorn.error:67 - Waiting for application shutdown.
+2025-11-28T13:47:01.757Z | INFO     | storeapi:33 - system shutdown,🔌 Disconnecting database...
+2025-11-28T13:47:01.761Z | INFO     | uvicorn.error:76 - Application shutdown complete.
+2025-11-28T13:47:01.766Z | INFO     | uvicorn.error:94 - Finished server process [14046]
+2025-11-28T13:47:03.281Z | INFO     | uvicorn.error:84 - Started server process [15179]
+2025-11-28T13:47:03.288Z | INFO     | uvicorn.error:48 - Waiting for application startup.
+2025-11-28T13:47:03.290Z | INFO     | storeapi:20 - 📡 Connecting database...
+2025-11-28T13:47:03.292Z | INFO     | uvicorn.error:62 - Application startup complete.
+2025-11-28T13:48:12.302Z | INFO     | uvicorn.error:264 - Shutting down
+2025-11-28T13:48:12.407Z | INFO     | uvicorn.error:67 - Waiting for application shutdown.
+2025-11-28T13:48:12.410Z | INFO     | storeapi:33 - system shutdown,🔌 Disconnecting database...
+2025-11-28T13:48:12.412Z | INFO     | uvicorn.error:76 - Application shutdown complete.
+2025-11-28T13:48:12.414Z | INFO     | uvicorn.error:94 - Finished server process [15179]
+2025-11-28T13:48:46.582Z | INFO     | uvicorn.error:84 - Started server process [15534]
+2025-11-28T13:48:46.587Z | INFO     | uvicorn.error:48 - Waiting for application startup.
+2025-11-28T13:48:46.590Z | INFO     | storeapi:20 - 📡 Connecting database...
+2025-11-28T13:48:46.591Z | INFO     | uvicorn.error:62 - Application startup complete.
+2025-11-28T13:51:43.043Z | INFO     | uvicorn.error:264 - Shutting down
+2025-11-28T13:51:43.149Z | INFO     | uvicorn.error:67 - Waiting for application shutdown.
+2025-11-28T13:51:43.151Z | INFO     | storeapi:33 - system shutdown,🔌 Disconnecting database...
+2025-11-28T13:51:43.154Z | INFO     | uvicorn.error:76 - Application shutdown complete.
+2025-11-28T13:51:43.156Z | INFO     | uvicorn.error:94 - Finished server process [15534]
+2025-11-28T13:51:44.711Z | INFO     | uvicorn.error:84 - Started server process [15947]
+2025-11-28T13:51:44.728Z | INFO     | uvicorn.error:48 - Waiting for application startup.
+2025-11-28T13:51:44.731Z | INFO     | storeapi:20 - 📡 Connecting database...
+2025-11-28T13:51:44.735Z | INFO     | uvicorn.error:62 - Application startup complete.
+2025-11-28T13:51:45.926Z | INFO     | storeapi.routers.post:145 - Deleting post with id 222
+2025-11-28T13:51:45.930Z | INFO     | storeapi.routers.post:30 - Finding post with id 222
+2025-11-28T13:51:45.934Z | DEBUG    | storeapi.routers.post:32 - SELECT posts.id 
+FROM posts 
+WHERE posts.id = :id_1
+2025-11-28T13:51:45.945Z | ERROR    | storeapi:52 - HTTPException:-url:http://localhost:8000/post/222,method:DELETE status code:404Post not found
+2025-11-28T13:51:45.956Z | INFO     | uvicorn.access:476 - 127.0.0.1:49430 - "DELETE /post/222 HTTP/1.1" 404
+2025-11-28T13:52:35.479Z | INFO     | uvicorn.error:264 - Shutting down
+2025-11-28T13:52:35.591Z | INFO     | uvicorn.error:67 - Waiting for application shutdown.
+2025-11-28T13:52:35.595Z | INFO     | storeapi:33 - system shutdown,🔌 Disconnecting database...
+2025-11-28T13:52:35.602Z | INFO     | uvicorn.error:76 - Application shutdown complete.
+2025-11-28T13:52:35.607Z | INFO     | uvicorn.error:94 - Finished server process [15947]
+2025-11-28T13:52:37.269Z | INFO     | uvicorn.error:84 - Started server process [16093]
+2025-11-28T13:52:37.287Z | INFO     | uvicorn.error:48 - Waiting for application startup.
+2025-11-28T13:52:37.293Z | INFO     | storeapi:20 - 📡 Connecting database...
+2025-11-28T13:52:37.297Z | INFO     | uvicorn.error:62 - Application startup complete.
+2025-11-28T13:52:38.508Z | INFO     | storeapi.routers.post:145 - Deleting post with id 222
+2025-11-28T13:52:38.518Z | INFO     | storeapi.routers.post:30 - Finding post with id 222
+2025-11-28T13:52:38.536Z | DEBUG    | storeapi.routers.post:32 - SELECT posts.id 
+FROM posts 
+WHERE posts.id = :id_1
+2025-11-28T13:52:38.555Z | ERROR    | storeapi:52 - HTTPException:-url:http://localhost:8000/post/222,method:DELETE, status_code:404, detail:Post not found
+2025-11-28T13:52:38.560Z | INFO     | uvicorn.access:476 - 127.0.0.1:36038 - "DELETE /post/222 HTTP/1.1" 404
+2025-11-28T13:53:15.885Z | INFO     | uvicorn.error:264 - Shutting down
+2025-11-28T13:53:16.000Z | INFO     | uvicorn.error:67 - Waiting for application shutdown.
+2025-11-28T13:53:16.004Z | INFO     | storeapi:33 - system shutdown,🔌 Disconnecting database...
+2025-11-28T13:53:16.008Z | INFO     | uvicorn.error:76 - Application shutdown complete.
+2025-11-28T13:53:16.014Z | INFO     | uvicorn.error:94 - Finished server process [16093]
+2025-11-28T13:53:17.741Z | INFO     | uvicorn.error:84 - Started server process [16216]
+2025-11-28T13:53:17.748Z | INFO     | uvicorn.error:48 - Waiting for application startup.
+2025-11-28T13:53:17.751Z | INFO     | storeapi:20 - 📡 Connecting database...
+2025-11-28T13:53:17.753Z | INFO     | uvicorn.error:62 - Application startup complete.
+2025-11-28T13:53:18.439Z | INFO     | storeapi.routers.post:145 - Deleting post with id 222
+2025-11-28T13:53:18.447Z | INFO     | storeapi.routers.post:30 - Finding post with id 222
+2025-11-28T13:53:18.457Z | DEBUG    | storeapi.routers.post:32 - SELECT posts.id 
+FROM posts 
+WHERE posts.id = :id_1
+2025-11-28T13:53:18.493Z | ERROR    | storeapi:52 - HTTPException:-url:http://localhost:8000/post/222, method:DELETE, status_code: 404, detail:Post not found
+2025-11-28T13:53:18.504Z | INFO     | uvicorn.access:476 - 127.0.0.1:58736 - "DELETE /post/222 HTTP/1.1" 404

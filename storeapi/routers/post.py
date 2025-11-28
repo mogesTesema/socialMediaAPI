@@ -47,7 +47,6 @@ async def create_post(post: UserPostIn):
     try:   
         post_id = await database.execute(query=query)
     except Exception:
-        logger.error("can't execute database query:{query}")
         raise HTTPException(status_code=500,detail="internal server error due to database crash")
     new_post = {**data, "id": post_id}
     return new_post
@@ -70,7 +69,6 @@ async def comment_post(comment:CommentIn):
     try:
         comment_id = await database.execute(query)
     except Exception as e:
-        logger.error(f"fail to execute database query:{query},error_message:{e}")
         raise HTTPException(status_code=500,detail=f"internal server error, database crash\n{str(e)}")
 
     unique_comment = {**comment,"id":comment_id}
@@ -147,7 +145,6 @@ async def delete_post(post_id:int):
     logger.info(f"Deleting post with id {post_id}")
     post = await find_post(post_id)
     if not post:
-        logger.error(f"Post with post id {post_id} don't exist in the database")
         raise HTTPException(status_code=404, detail="Post not found")
 
     query = post_table.delete().where(post_table.c.id==post_id)
