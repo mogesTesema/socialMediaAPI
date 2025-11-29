@@ -69,9 +69,10 @@ def configure_logging() -> None:
                 "logtail": {
                     "class": "logtail.handler.LogtailHandler",
                     "level": "DEBUG",
-                    "formatter": "console",
+                    "formatter": "file",
                     "filters": ["correlation_id", "email_obfuscation"],
                     "source_token": config.LOGTAIL_SOURCE_TOKEN,
+                    "host": config.LOGTAIL_HOST,
                 },
             },
             "loggers": {

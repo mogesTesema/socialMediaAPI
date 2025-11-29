@@ -11,6 +11,7 @@ class BaseConfig(BaseSettings):
 class GlobalConfig(BaseConfig):
     DATABASE_URL: Optional[str] = None
     DB_FORCE_ROLL_BACK: bool = False
+    LOGTAIL_HOST: Optional[str] = None
     LOGTAIL_SOURCE_TOKEN: Optional[str] = None
 
 
