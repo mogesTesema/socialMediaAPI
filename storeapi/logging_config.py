@@ -47,15 +47,6 @@ def configure_logging() -> None:
                     "class": "pythonjsonlogger.json.JsonFormatter",
                     "datefmt": "%Y-%m-%dT%H:%M:%S",
                     "format": "%(correlation_id)s %(asctime)s %(msecs)s %(levelname)s %(name)s %(lineno)d %(message)s",
-                    # "json_format": [
-                    #     "correlation_id",
-                    #     "asctime",
-                    #     "msecs",
-                    #     "levelname",
-                    #     "name",
-                    #     "lineno",
-                    #     "message",
-                    # ],
                 },
             },
             "handlers": {
@@ -76,10 +67,10 @@ def configure_logging() -> None:
                     "filters": ["correlation_id", "email_obfuscation"],
                 },
                 "logtail": {
-                    "class": "logtail.LogtailHandler",
+                    "class": "logtail.handler.LogtailHandler",
                     "level": "DEBUG",
                     "formatter": "console",
-                    "filters": ["correlation_id", "email_abfuscation"],
+                    "filters": ["correlation_id", "email_obfuscation"],
                     "source_token": config.LOGTAIL_SOURCE_TOKEN,
                 },
             },
@@ -89,27 +80,10 @@ def configure_logging() -> None:
                 "databases": {"handlers": ["default"], "level": "WARNING"},
                 "aiosqlite": {"handlers": ["default"], "level": "CRITICAL"},
                 "storeapi": {
-                    "handlers": ["default", "rotating_file"],
+                    "handlers": ["default", "rotating_file", "logtail"],
                     "level": "DEBUG" if isinstance(config, DevConfig) else "INFO",
                     "propagate": False,
                 },
             },
         }
     )
-
-    # LOGTAIL_ENDPOINT = "https://s1610174.eu-nbg-2.betterstackdata.com/v1/logs"
-    # LOGTAIL_TOKEN = (
-    #     "qpz5esoELmagLzkXcHtyTDCe"  # keep secret in env vars in real deployment!
-    # )
-    # service_name = "storeapi"  # use same SERVICE_NAME you set in OTel if any
-
-    # bs_handler = BetterStackHandler(
-    #     endpoint=LOGTAIL_ENDPOINT,
-    #     source_token=LOGTAIL_TOKEN,
-    #     service_name=service_name,
-    # )
-    # # Optionally set the formatter (uses jsonformatter internally)
-    # bs_handler.setFormatter(logging.Formatter("%(message)s"))
-    # # Add filter instances identical to rotated_file/default if you want
-    # # For example, to use your existing filters, get them from loggers or create new ones
-    # logging.getLogger().addHandler(bs_handler)
