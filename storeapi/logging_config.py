@@ -1,6 +1,7 @@
 from logging.config import dictConfig
 from storeapi.config import DevConfig, config
 import logging
+# from storeapi.logtail_handler import BetterStackHandler
 
 
 def obfuscated(email: str, obfuscated_length: int) -> str:
@@ -74,6 +75,13 @@ def configure_logging() -> None:
                     "encoding": "utf8",
                     "filters": ["correlation_id", "email_obfuscation"],
                 },
+                "logtail": {
+                    "class": "logtail.LogtailHandler",
+                    "level": "DEBUG",
+                    "formatter": "console",
+                    "filters": ["correlation_id", "email_abfuscation"],
+                    "source_token": config.LOGTAIL_SOURCE_TOKEN,
+                },
             },
             "loggers": {
                 "": {"handlers": ["rotating_file"], "level": "INFO", "propagate": True},
@@ -88,3 +96,20 @@ def configure_logging() -> None:
             },
         }
     )
+
+    # LOGTAIL_ENDPOINT = "https://s1610174.eu-nbg-2.betterstackdata.com/v1/logs"
+    # LOGTAIL_TOKEN = (
+    #     "qpz5esoELmagLzkXcHtyTDCe"  # keep secret in env vars in real deployment!
+    # )
+    # service_name = "storeapi"  # use same SERVICE_NAME you set in OTel if any
+
+    # bs_handler = BetterStackHandler(
+    #     endpoint=LOGTAIL_ENDPOINT,
+    #     source_token=LOGTAIL_TOKEN,
+    #     service_name=service_name,
+    # )
+    # # Optionally set the formatter (uses jsonformatter internally)
+    # bs_handler.setFormatter(logging.Formatter("%(message)s"))
+    # # Add filter instances identical to rotated_file/default if you want
+    # # For example, to use your existing filters, get them from loggers or create new ones
+    # logging.getLogger().addHandler(bs_handler)

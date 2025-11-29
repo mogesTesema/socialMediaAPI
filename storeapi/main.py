@@ -8,9 +8,11 @@ from storeapi.routers.post import router as post_router
 from storeapi.fileuploads.fileuploaderouters import router as upload_router
 from storeapi.videochats.videochatrouter import router as videochat_router
 from storeapi.database import database
+
+# from storeapi.logtail_storage_config import test
 import logging
 
-
+# print(f"logtail test:{test}")
 # 1️⃣ Configure logging first
 configure_logging()
 logger = logging.getLogger("storeapi")

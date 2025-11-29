@@ -15,7 +15,10 @@ python-dotenv = "*"
 pydantic-settings = "*"
 rich = "*"
 asgi-correlation-id = "*"
+opentelemetry-exporter-otlp-proto-http = "*"
 python-json-logger = "*"
+requests = "*"
+logtail-python = "*"
 
 [dev-packages]
 pytest = "*"
