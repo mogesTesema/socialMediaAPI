@@ -7,6 +7,7 @@ from contextlib import asynccontextmanager
 from storeapi.routers.post import router as post_router
 from storeapi.fileuploads.fileuploaderouters import router as upload_router
 from storeapi.videochats.videochatrouter import router as videochat_router
+from storeapi.routers.user import router as user_router
 from storeapi.database import database
 
 # from storeapi.logtail_storage_config import test
@@ -49,6 +50,7 @@ app.add_middleware(CorrelationIdMiddleware)
 app.include_router(post_router)
 app.include_router(upload_router)
 app.include_router(videochat_router)
+app.include_router(user_router)
 
 
 # 5️⃣ Exception Handlers
