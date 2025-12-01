@@ -3055,3 +3055,69 @@ Finished server process [43011]
 {"correlation_id": "-", "asctime": "2025-12-01T16:13:16", "msecs": 302.0, "levelname": "INFO", "name": "storeapi", "lineno": 35, "message": "\ud83d\udd0c Disconnecting database..."}
 {"correlation_id": "-", "asctime": "2025-12-01T16:13:16", "msecs": 304.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 76, "message": "Application shutdown complete."}
 {"correlation_id": "-", "asctime": "2025-12-01T16:13:16", "msecs": 308.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 94, "message": "Finished server process [69203]", "color_message": "Finished server process [\u001b[36m%d\u001b[0m]"}
+{"correlation_id": "-", "asctime": "2025-12-01T19:44:31", "msecs": 385.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 84, "message": "Started server process [11144]", "color_message": "Started server process [\u001b[36m%d\u001b[0m]"}
+{"correlation_id": "-", "asctime": "2025-12-01T19:44:31", "msecs": 434.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 48, "message": "Waiting for application startup."}
+{"correlation_id": "-", "asctime": "2025-12-01T19:44:31", "msecs": 438.0, "levelname": "INFO", "name": "storeapi", "lineno": 26, "message": "\ud83d\udce1 Connecting database..."}
+{"correlation_id": "-", "asctime": "2025-12-01T19:44:31", "msecs": 443.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 62, "message": "Application startup complete."}
+{"correlation_id": "5c04aff7", "asctime": "2025-12-01T19:45:01", "msecs": 188.0, "levelname": "INFO", "name": "uvicorn.access", "lineno": 476, "message": "127.0.0.1:40804 - \"POST /test1 HTTP/1.1\" 405"}
+{"correlation_id": "c97849cb", "asctime": "2025-12-01T19:45:24", "msecs": 454.0, "levelname": "INFO", "name": "uvicorn.access", "lineno": 476, "message": "127.0.0.1:55570 - \"GET /test1 HTTP/1.1\" 200"}
+{"correlation_id": "cb791270", "asctime": "2025-12-01T19:45:44", "msecs": 390.0, "levelname": "INFO", "name": "uvicorn.access", "lineno": 476, "message": "127.0.0.1:44584 - \"GET /test1 HTTP/1.1\" 200"}
+{"correlation_id": "3d8d94ea", "asctime": "2025-12-01T19:46:02", "msecs": 423.0, "levelname": "INFO", "name": "uvicorn.access", "lineno": 476, "message": "127.0.0.1:34532 - \"GET / HTTP/1.1\" 200"}
+{"correlation_id": "4278992f", "asctime": "2025-12-01T19:46:06", "msecs": 327.0, "levelname": "INFO", "name": "uvicorn.access", "lineno": 476, "message": "127.0.0.1:34532 - \"GET /favicon.ico HTTP/1.1\" 404"}
+{"correlation_id": "ab6ecbbf", "asctime": "2025-12-01T19:46:14", "msecs": 97.0, "levelname": "INFO", "name": "uvicorn.access", "lineno": 476, "message": "127.0.0.1:52830 - \"GET /docs HTTP/1.1\" 200"}
+{"correlation_id": "2971580c", "asctime": "2025-12-01T19:46:15", "msecs": 431.0, "levelname": "INFO", "name": "uvicorn.access", "lineno": 476, "message": "127.0.0.1:52830 - \"GET /openapi.json HTTP/1.1\" 200"}
+{"correlation_id": "526793de", "asctime": "2025-12-01T19:46:56", "msecs": 849.0, "levelname": "INFO", "name": "uvicorn.access", "lineno": 476, "message": "127.0.0.1:52840 - \"GET /test1 HTTP/1.1\" 200"}
+{"correlation_id": "5f19bd7d", "asctime": "2025-12-01T19:47:08", "msecs": 124.0, "levelname": "INFO", "name": "uvicorn.access", "lineno": 476, "message": "127.0.0.1:55684 - \"GET /test2 HTTP/1.1\" 200"}
+{"correlation_id": "fb80b0fc", "asctime": "2025-12-01T19:47:34", "msecs": 981.0, "levelname": "INFO", "name": "uvicorn.access", "lineno": 476, "message": "127.0.0.1:53086 - \"GET /test1 HTTP/1.1\" 200"}
+{"correlation_id": "4d88342d", "asctime": "2025-12-01T19:47:35", "msecs": 2.0, "levelname": "INFO", "name": "uvicorn.access", "lineno": 476, "message": "127.0.0.1:39718 - \"GET /test2 HTTP/1.1\" 200"}
+{"correlation_id": "-", "asctime": "2025-12-01T19:48:41", "msecs": 391.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 264, "message": "Shutting down"}
+{"correlation_id": "-", "asctime": "2025-12-01T19:48:41", "msecs": 497.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 67, "message": "Waiting for application shutdown."}
+{"correlation_id": "-", "asctime": "2025-12-01T19:48:41", "msecs": 507.0, "levelname": "INFO", "name": "storeapi", "lineno": 36, "message": "\ud83d\udd0c Disconnecting database..."}
+{"correlation_id": "-", "asctime": "2025-12-01T19:48:41", "msecs": 526.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 76, "message": "Application shutdown complete."}
+{"correlation_id": "-", "asctime": "2025-12-01T19:48:41", "msecs": 538.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 94, "message": "Finished server process [11144]", "color_message": "Finished server process [\u001b[36m%d\u001b[0m]"}
+{"correlation_id": "-", "asctime": "2025-12-01T19:48:43", "msecs": 25.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 84, "message": "Started server process [11907]", "color_message": "Started server process [\u001b[36m%d\u001b[0m]"}
+{"correlation_id": "-", "asctime": "2025-12-01T19:48:43", "msecs": 30.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 48, "message": "Waiting for application startup."}
+{"correlation_id": "-", "asctime": "2025-12-01T19:48:43", "msecs": 33.0, "levelname": "INFO", "name": "storeapi", "lineno": 26, "message": "\ud83d\udce1 Connecting database..."}
+{"correlation_id": "-", "asctime": "2025-12-01T19:48:43", "msecs": 36.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 62, "message": "Application startup complete."}
+{"correlation_id": "79b825ba", "asctime": "2025-12-01T19:49:00", "msecs": 326.0, "levelname": "INFO", "name": "uvicorn.access", "lineno": 476, "message": "127.0.0.1:37854 - \"GET /test1 HTTP/1.1\" 200"}
+{"correlation_id": "7c6d6c5a", "asctime": "2025-12-01T19:49:18", "msecs": 921.0, "levelname": "INFO", "name": "uvicorn.access", "lineno": 476, "message": "127.0.0.1:46884 - \"GET /test1 HTTP/1.1\" 200"}
+{"correlation_id": "62f87f19", "asctime": "2025-12-01T19:49:28", "msecs": 937.0, "levelname": "INFO", "name": "uvicorn.access", "lineno": 476, "message": "127.0.0.1:46894 - \"GET /test2 HTTP/1.1\" 200"}
+{"correlation_id": "ef5f249f", "asctime": "2025-12-01T19:49:49", "msecs": 894.0, "levelname": "INFO", "name": "uvicorn.access", "lineno": 476, "message": "127.0.0.1:34312 - \"GET /test1 HTTP/1.1\" 200"}
+{"correlation_id": "4b3b1498", "asctime": "2025-12-01T19:49:49", "msecs": 903.0, "levelname": "INFO", "name": "uvicorn.access", "lineno": 476, "message": "127.0.0.1:34306 - \"GET /test2 HTTP/1.1\" 200"}
+{"correlation_id": "ada27f38", "asctime": "2025-12-01T19:51:24", "msecs": 393.0, "levelname": "INFO", "name": "uvicorn.access", "lineno": 476, "message": "127.0.0.1:44568 - \"GET /test1 HTTP/1.1\" 200"}
+{"correlation_id": "d2153da9", "asctime": "2025-12-01T19:51:34", "msecs": 405.0, "levelname": "INFO", "name": "uvicorn.access", "lineno": 476, "message": "127.0.0.1:41586 - \"GET /test2 HTTP/1.1\" 200"}
+{"correlation_id": "889a204d", "asctime": "2025-12-01T19:51:53", "msecs": 85.0, "levelname": "INFO", "name": "uvicorn.access", "lineno": 476, "message": "127.0.0.1:52336 - \"GET /test1 HTTP/1.1\" 200"}
+{"correlation_id": "be998a52", "asctime": "2025-12-01T19:51:53", "msecs": 90.0, "levelname": "INFO", "name": "uvicorn.access", "lineno": 476, "message": "127.0.0.1:52324 - \"GET /test2 HTTP/1.1\" 200"}
+{"correlation_id": "405515f7", "asctime": "2025-12-01T19:52:18", "msecs": 693.0, "levelname": "INFO", "name": "uvicorn.access", "lineno": 476, "message": "127.0.0.1:59258 - \"GET /test1 HTTP/1.1\" 200"}
+{"correlation_id": "3ea0c1d8", "asctime": "2025-12-01T19:52:28", "msecs": 758.0, "levelname": "INFO", "name": "uvicorn.access", "lineno": 476, "message": "127.0.0.1:59268 - \"GET /test3 HTTP/1.1\" 200"}
+{"correlation_id": "65bc2c44", "asctime": "2025-12-01T19:52:55", "msecs": 439.0, "levelname": "INFO", "name": "storeapi.routers.post", "lineno": 100, "message": "getting all posts up to 50 recent posts"}
+{"correlation_id": "65bc2c44", "asctime": "2025-12-01T19:52:55", "msecs": 446.0, "levelname": "DEBUG", "name": "storeapi.routers.post", "lineno": 102, "message": "SELECT posts.id, posts.body \nFROM posts"}
+{"correlation_id": "65bc2c44", "asctime": "2025-12-01T19:52:55", "msecs": 454.0, "levelname": "DEBUG", "name": "storeapi.routers.post", "lineno": 103, "message": "SELECT posts.id, posts.body \nFROM posts"}
+{"correlation_id": "65bc2c44", "asctime": "2025-12-01T19:52:55", "msecs": 495.0, "levelname": "INFO", "name": "uvicorn.access", "lineno": 476, "message": "127.0.0.1:60040 - \"GET /posts HTTP/1.1\" 200"}
+{"correlation_id": "34355f9e", "asctime": "2025-12-01T19:53:24", "msecs": 14.0, "levelname": "INFO", "name": "uvicorn.access", "lineno": 476, "message": "127.0.0.1:47972 - \"GET /test1 HTTP/1.1\" 200"}
+{"correlation_id": "c9533ea0", "asctime": "2025-12-01T19:53:34", "msecs": 35.0, "levelname": "INFO", "name": "uvicorn.access", "lineno": 476, "message": "127.0.0.1:52180 - \"GET /test3 HTTP/1.1\" 200"}
+{"correlation_id": "-", "asctime": "2025-12-01T19:53:51", "msecs": 551.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 264, "message": "Shutting down"}
+{"correlation_id": "-", "asctime": "2025-12-01T19:53:51", "msecs": 656.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 67, "message": "Waiting for application shutdown."}
+{"correlation_id": "-", "asctime": "2025-12-01T19:53:51", "msecs": 660.0, "levelname": "INFO", "name": "storeapi", "lineno": 36, "message": "\ud83d\udd0c Disconnecting database..."}
+{"correlation_id": "-", "asctime": "2025-12-01T19:53:51", "msecs": 665.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 76, "message": "Application shutdown complete."}
+{"correlation_id": "-", "asctime": "2025-12-01T19:53:51", "msecs": 670.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 94, "message": "Finished server process [11907]", "color_message": "Finished server process [\u001b[36m%d\u001b[0m]"}
+{"correlation_id": "-", "asctime": "2025-12-01T19:53:53", "msecs": 85.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 84, "message": "Started server process [13079]", "color_message": "Started server process [\u001b[36m%d\u001b[0m]"}
+{"correlation_id": "-", "asctime": "2025-12-01T19:53:53", "msecs": 91.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 48, "message": "Waiting for application startup."}
+{"correlation_id": "-", "asctime": "2025-12-01T19:53:53", "msecs": 94.0, "levelname": "INFO", "name": "storeapi", "lineno": 26, "message": "\ud83d\udce1 Connecting database..."}
+{"correlation_id": "-", "asctime": "2025-12-01T19:53:53", "msecs": 99.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 62, "message": "Application startup complete."}
+{"correlation_id": "a0b81e36", "asctime": "2025-12-01T19:54:10", "msecs": 689.0, "levelname": "INFO", "name": "uvicorn.access", "lineno": 476, "message": "127.0.0.1:56468 - \"GET /test1 HTTP/1.1\" 200"}
+{"correlation_id": "3b46ea2d", "asctime": "2025-12-01T19:54:10", "msecs": 695.0, "levelname": "INFO", "name": "uvicorn.access", "lineno": 476, "message": "127.0.0.1:56460 - \"GET /test3 HTTP/1.1\" 200"}
+{"correlation_id": "a3d22b0d", "asctime": "2025-12-01T19:55:04", "msecs": 640.0, "levelname": "INFO", "name": "uvicorn.access", "lineno": 476, "message": "127.0.0.1:48274 - \"GET /test1 HTTP/1.1\" 200"}
+{"correlation_id": "5daf8bb4", "asctime": "2025-12-01T19:55:14", "msecs": 654.0, "levelname": "INFO", "name": "uvicorn.access", "lineno": 476, "message": "127.0.0.1:57474 - \"GET /test3 HTTP/1.1\" 200"}
+{"correlation_id": "23a70d0f", "asctime": "2025-12-01T19:55:48", "msecs": 918.0, "levelname": "INFO", "name": "uvicorn.access", "lineno": 476, "message": "127.0.0.1:59528 - \"GET /test1 HTTP/1.1\" 200"}
+{"correlation_id": "fd6d514c", "asctime": "2025-12-01T19:55:48", "msecs": 922.0, "levelname": "INFO", "name": "uvicorn.access", "lineno": 476, "message": "127.0.0.1:43912 - \"GET /test3 HTTP/1.1\" 200"}
+{"correlation_id": "d91bdd91", "asctime": "2025-12-01T19:56:07", "msecs": 352.0, "levelname": "INFO", "name": "uvicorn.access", "lineno": 476, "message": "127.0.0.1:40426 - \"GET /test1 HTTP/1.1\" 200"}
+{"correlation_id": "328dcd58", "asctime": "2025-12-01T19:56:17", "msecs": 367.0, "levelname": "INFO", "name": "uvicorn.access", "lineno": 476, "message": "127.0.0.1:40432 - \"GET /test3 HTTP/1.1\" 200"}
+{"correlation_id": "f3938524", "asctime": "2025-12-01T19:56:46", "msecs": 655.0, "levelname": "INFO", "name": "uvicorn.access", "lineno": 476, "message": "127.0.0.1:42600 - \"GET /test3 HTTP/1.1\" 200"}
+{"correlation_id": "831cf6c3", "asctime": "2025-12-01T19:56:49", "msecs": 370.0, "levelname": "INFO", "name": "uvicorn.access", "lineno": 476, "message": "127.0.0.1:42636 - \"GET /test2 HTTP/1.1\" 200"}
+{"correlation_id": "2b4554fd", "asctime": "2025-12-01T19:57:13", "msecs": 586.0, "levelname": "INFO", "name": "uvicorn.access", "lineno": 476, "message": "127.0.0.1:49028 - \"GET /test1 HTTP/1.1\" 200"}
+{"correlation_id": "c5ea80cc", "asctime": "2025-12-01T19:57:13", "msecs": 596.0, "levelname": "INFO", "name": "uvicorn.access", "lineno": 476, "message": "127.0.0.1:49014 - \"GET /test2 HTTP/1.1\" 200"}
+{"correlation_id": "afce4487", "asctime": "2025-12-01T19:57:13", "msecs": 627.0, "levelname": "INFO", "name": "uvicorn.access", "lineno": 476, "message": "127.0.0.1:60230 - \"GET /test3 HTTP/1.1\" 200"}
+{"correlation_id": "6e9f3581", "asctime": "2025-12-01T19:58:22", "msecs": 517.0, "levelname": "INFO", "name": "uvicorn.access", "lineno": 476, "message": "127.0.0.1:34786 - \"GET /test1 HTTP/1.1\" 200"}
+{"correlation_id": "91dc0d0c", "asctime": "2025-12-01T19:58:22", "msecs": 525.0, "levelname": "INFO", "name": "uvicorn.access", "lineno": 476, "message": "127.0.0.1:34764 - \"GET /test2 HTTP/1.1\" 200"}
+{"correlation_id": "0a34b84b", "asctime": "2025-12-01T19:58:22", "msecs": 538.0, "levelname": "INFO", "name": "uvicorn.access", "lineno": 476, "message": "127.0.0.1:34776 - \"GET /test3 HTTP/1.1\" 200"}

@@ -15,11 +15,15 @@ password_hasher = PasswordHasher()
 
 def create_access_token(email: str):
     logger.debug("creating access token", extra={"email": email})
-    expire = datetime.datetime.now(datetime.UTC) + datetime.timedelta(minutes=30)
+    expire = datetime.datetime.now(tz=datetime.UTC) + datetime.timedelta(minutes=30)
     jwt_data = {"sub": email, "exp": expire}
     encoded_jwt = jwt.encode(payload=jwt_data, key=SECRETE_KEY, algorithm=ALGORITHM)
 
     return encoded_jwt
+
+
+def decrpypt_access_token(access_token: str):
+    return jwt.decode(access_token)
 
 
 async def get_password_hash(password: str) -> str:
