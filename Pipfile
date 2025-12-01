@@ -19,6 +19,8 @@ python-json-logger = "*"
 requests = "*"
 logtail-python = "*"
 sniffio = "*"
+pyjwt = "*"
+passlib = {extras = ["bcrypt"], version = "*"}
 
 [dev-packages]
 pytest = "*"
