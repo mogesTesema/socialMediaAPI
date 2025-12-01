@@ -20,7 +20,7 @@ requests = "*"
 logtail-python = "*"
 sniffio = "*"
 pyjwt = "*"
-passlib = {extras = ["bcrypt"], version = "*"}
+argon2-cffi = "*"
 
 [dev-packages]
 pytest = "*"

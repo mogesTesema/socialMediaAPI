@@ -1,7 +1,8 @@
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, HTTPException, status
 from storeapi.models.user import User, UserIn
 from storeapi.database import user_table, database
-from storeapi.security.get_user import get_user
+from storeapi.security.get_user import get_user, get_password_hash, verify_password
+
 import logging
 
 logger = logging.getLogger(__name__)
@@ -10,8 +11,12 @@ router = APIRouter()
 
 
 @router.post("/register", status_code=201)
-async def register(user: UserIn, response_model=User):
-    password = user.password
+async def register(user: UserIn):
+    password = await get_password_hash(user.password)
+    print("\n" * 5)
+    print(
+        f"hashed_password:{password} original_password:{user.password} for user:{user}"
+    )
     email = user.email
     user_exist = await get_user(email)
     if user_exist:
@@ -26,3 +31,18 @@ async def register(user: UserIn, response_model=User):
     logger.debug(user_query)
 
     return {"status": "user registered"}
+
+
+@router.get("/profile", response_model=User)
+async def get_profile(user: UserIn):
+    password = user.password
+    db_user = await get_user(user.email)
+    is_authed = await verify_password(
+        plain_password=password, hashed_password=db_user.password
+    )
+    if is_authed:
+        return User(db_user)
+    else:
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED, detail="invalid password or email"
+        )
