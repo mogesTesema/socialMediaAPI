@@ -6,7 +6,11 @@ import logging
 
 def obfuscated(email: str, obfuscated_length: int) -> str:
     chars = email[:obfuscated_length]
-    first, last = email.split("@")
+
+    if "@" in email:
+        first, last = email.split("@")
+    else:
+        first, last = "endietneh", "tenahin"
     return chars + "*" * (len(first) - obfuscated_length) + last
 
 

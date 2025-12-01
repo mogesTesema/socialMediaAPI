@@ -1,7 +1,12 @@
 from fastapi import APIRouter, HTTPException, status
 from storeapi.models.user import User, UserIn
 from storeapi.database import user_table, database
-from storeapi.security.get_user import get_user, get_password_hash, verify_password
+from storeapi.security.get_user import (
+    get_user,
+    get_password_hash,
+    verify_password,
+    create_access_token,
+)
 
 import logging
 
@@ -29,8 +34,9 @@ async def register(user: UserIn):
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"database crash:{e}")
     logger.debug(user_query)
+    access_token = create_access_token(email)
 
-    return {"status": "user registered"}
+    return {"status": "user registered", "token": access_token}
 
 
 @router.get("/profile", response_model=User)
