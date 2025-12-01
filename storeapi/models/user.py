@@ -8,3 +8,7 @@ class User(BaseModel):
 
 class UserIn(User):
     password: str
+
+
+class Token(BaseModel):
+    token: str

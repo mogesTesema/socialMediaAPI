@@ -2,22 +2,25 @@ from pydantic import BaseModel
 
 
 class UserPostIn(BaseModel):
-    body:str
+    body: str
+
 
 class UserPost(UserPostIn):
-    id:int
+    id: int
+
 
 class CommentIn(BaseModel):
-    body:str
-    post_id:int
+    body: str
+    post_id: int
+
 
 class Comment(CommentIn):
-    id:int
+    id: int
+
 
 class UserPostWithComments(BaseModel):
     post: UserPost
-    comment:list[Comment]
-
+    comment: list[Comment]
 
     """
     user_post has:-
