@@ -1,14 +1,17 @@
-from fastapi import APIRouter, HTTPException, Depends
+from fastapi import APIRouter, HTTPException, Depends, status
 from storeapi.models.user import User
 from storeapi.security.get_user import get_current_user
+from storeapi.utilits.formatted_printer import print_better as better_print  # noqa
 from storeapi.models.post import (
     UserPost,
     UserPostIn,
     Comment,
     CommentIn,
     UserPostWithComments,
+    PostLikeIn,
+    PostLike,
 )
-from storeapi.database import database, post_table, comment_table
+from storeapi.database import database, post_table, comment_table, like_table
 from sqlalchemy import select
 import logging
 from typing import Annotated
@@ -165,3 +168,22 @@ async def update_comment(comment: Comment):
             status_code=404, detail=f"comment with comment_id:{comment_id} don't exist"
         )
     return {"status": "comment updated", "id": comment_id}
+
+
+@router.post("/like", status_code=status.HTTP_201_CREATED, response_model=PostLike)
+async def like_post(
+    postlike: PostLikeIn, liker: Annotated[User, Depends(get_current_user)]
+):
+    logger.debug("Liking post")
+    post = await find_post(postlike.post_id)
+    if not post:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND, detail="post not found"
+        )
+    data = {**postlike.model_dump(), "user_id": liker.id}
+    like_query = like_table.insert().values(data)
+    logger.debug(like_query)
+
+    result = await database.execute(like_query)
+
+    return {"id": result, "post_id": postlike.post_id, "user_id": liker.id}

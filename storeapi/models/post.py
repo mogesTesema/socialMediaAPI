@@ -25,6 +25,15 @@ class UserPostWithComments(BaseModel):
     post: UserPost
     comment: list[Comment]
 
+
+class PostLikeIn(BaseModel):
+    post_id: int
+
+
+class PostLike(PostLikeIn):
+    user_id: int
+    id: int
+
     """
     user_post has:-
         body: string
