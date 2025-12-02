@@ -1,5 +1,6 @@
 import sqlalchemy
 from fastapi import HTTPException, status
+from fastapi.security import OAuth2PasswordBearer
 from argon2 import PasswordHasher
 from storeapi.database import user_table, database
 import logging
@@ -12,6 +13,7 @@ logger = logging.getLogger(__name__)
 
 SECRETE_KEY = "6152bf528fa1f07a8c42b24fda7e82e4"
 ALGORITHM = "HS256"
+oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
 password_hasher = PasswordHasher()
 
 credentials_exception = HTTPException(
@@ -67,7 +69,7 @@ async def authenticate_user(email: str, password: str):
 
 async def get_current_user(token: str):
     try:
-        payload = jwt.decode(jwt=token, key=SECRETE_KEY, algorithms=ALGORITHM)
+        payload = jwt.decode(jwt=token, key=SECRETE_KEY, algorithms=[ALGORITHM])
 
         email = payload.get("sub")
         if not email:
