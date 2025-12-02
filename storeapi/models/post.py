@@ -4,7 +4,7 @@ from typing import Optional  # noqa
 
 class UserPostIn(BaseModel):
     body: str
-    token: Optional[str] = None
+    user_id: int = None
 
 
 class UserPost(UserPostIn):
@@ -14,7 +14,7 @@ class UserPost(UserPostIn):
 class CommentIn(BaseModel):
     body: str
     post_id: int
-    token: Optional[str] = None
+    user_id: int = None
 
 
 class Comment(CommentIn):

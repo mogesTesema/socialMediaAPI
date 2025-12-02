@@ -1,5 +1,5 @@
 import sqlalchemy
-from fastapi import HTTPException, status
+from fastapi import Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordBearer
 from argon2 import PasswordHasher
 from storeapi.database import user_table, database
@@ -7,6 +7,7 @@ import logging
 from jwt import ExpiredSignatureError, PyJWTError
 import jwt
 import datetime
+from typing import Annotated
 
 logger = logging.getLogger(__name__)
 
@@ -67,7 +68,7 @@ async def authenticate_user(email: str, password: str):
     return user
 
 
-async def get_current_user(token: str):
+async def get_current_user(token: Annotated[str, Depends(oauth2_scheme)]):
     try:
         payload = jwt.decode(jwt=token, key=SECRETE_KEY, algorithms=[ALGORITHM])
 

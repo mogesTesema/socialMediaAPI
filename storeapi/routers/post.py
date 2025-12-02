@@ -1,6 +1,6 @@
-from fastapi import APIRouter, HTTPException, Request
+from fastapi import APIRouter, HTTPException, Depends
 from storeapi.models.user import User
-from storeapi.security.get_user import get_current_user, oauth2_scheme
+from storeapi.security.get_user import get_current_user
 from storeapi.models.post import (
     UserPost,
     UserPostIn,
@@ -11,6 +11,7 @@ from storeapi.models.post import (
 from storeapi.database import database, post_table, comment_table
 from sqlalchemy import select
 import logging
+from typing import Annotated
 
 
 router = APIRouter()
@@ -31,13 +32,16 @@ async def find_post(post_id: int):
 
 
 @router.post("/post", response_model=UserPost)
-async def create_post(post: UserPostIn, request: Request):
+async def create_post(
+    post: UserPostIn, current_user: Annotated[User, Depends(get_current_user)]
+):
     """
     this post endpoint is going to insert posts into database from clients post request
     """
     logger.info(f"creating user post with details: {post}")
-    current_user: User = await get_current_user(await oauth2_scheme(request=request))  # noqa
-    data = post.model_dump()
+    # noqa
+    data = {**post.model_dump(), "user_id": current_user.id}
+    logger.debug(data)
     query = post_table.insert().values(data)
     logger.debug(query)
     try:
@@ -51,16 +55,17 @@ async def create_post(post: UserPostIn, request: Request):
 
 
 @router.post("/comment", response_model=Comment)
-async def comment_post(comment: CommentIn, request: Request):
+async def comment_post(
+    comment: CommentIn, current_user: Annotated[User, Depends(get_current_user)]
+):
     """
     this endpoint is ganna insert comment into database
     """
-    current_user: User = await get_current_user(await oauth2_scheme(request=request))
     logger.info(f"creating comment with details:{comment}")
     post = await find_post(comment.post_id)
     if not post:
         raise HTTPException(status_code=404, detail="post doesn't exist")
-    comment = comment.model_dump()
+    comment = {**comment.model_dump(), "user_id": current_user.id}
     query = comment_table.insert().values(comment)
     logger.debug(query)
     try:
