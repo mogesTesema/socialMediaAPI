@@ -59,9 +59,6 @@ async def authenticate_user(email: str, password: str):
     user = await get_user(email=email)
     if not user:
         raise credentials_exception
-    print("\n" * 10)
-    print(f"user_password:{user.password, user.email}")
-    print("\n" * 10)
     if not verify_password(plain_password=password, hashed_password=user.password):
         raise credentials_exception
 

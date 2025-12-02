@@ -19,10 +19,7 @@ router = APIRouter()
 @router.post("/register", status_code=201)
 async def register(user: UserIn):
     password = await get_password_hash(user.password)
-    print("\n" * 5)
-    print(
-        f"hashed_password:{password} original_password:{user.password} for user:{user}"
-    )
+
     email = user.email
     user_exist = await get_user(email)
     if user_exist:
@@ -50,6 +47,6 @@ async def get_profile(user: UserIn):
 
 @router.get("/myemail")
 async def get_email(token: Token):
-    user = get_current_user(token.token)
+    user = await get_current_user(token.token)
 
     return user
