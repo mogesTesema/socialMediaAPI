@@ -10,6 +10,7 @@ from storeapi.models.post import (
     PostLikeIn,
     PostLike,
     UserPostWithLike,
+    UserPostWithComments,
 )
 from storeapi.database import database, post_table, comment_table, like_table
 from sqlalchemy import select
@@ -111,12 +112,19 @@ class PostSorting(str, Enum):
 
 
 @router.get("/posts", response_model=list[UserPostWithLike])
-async def get_posts():
+async def get_posts(sorting: PostSorting = PostSorting.new):
     """
     this endpoint gonna retrive data from database and then send those retrieved data back to client
     """
     logger.info("getting all posts up to 50 recent posts")
-    query = select_liked_post.order_by(sqlalchemy.desc("likes"))
+    if sorting == PostSorting.new:
+        query = select_liked_post.order_by(sqlalchemy.desc(post_table.c.id))
+
+    elif sorting == PostSorting.old:
+        query = select_liked_post.order_by(sqlalchemy.asc(post_table.c.id))
+
+    else:
+        query = select_liked_post.order_by(sqlalchemy.desc("likes"))
     logger.debug(query)
     logger.debug(query)
     try:
@@ -126,7 +134,7 @@ async def get_posts():
     return all_posts
 
 
-@router.get("/post/{post_id}/comments")
+@router.get("/post/{post_id}/comments", response_model=UserPostWithComments)
 async def get_post_with_comments(post_id: int):
     """
     this endpoint is unique, it combines post and comment property that leads to foreign relation between those tables
@@ -151,7 +159,12 @@ async def get_post_with_comments(post_id: int):
     if not post_detail:
         raise HTTPException(status_code=404, detail="Post not found")
     all_comments = [Comment(**c) for c in all_comments]
-    post_detail = {"id": post_id, "user_id": post_detail.user_id, "likes": 0}
+    post_detail = {
+        "id": post_id,
+        "user_id": post_detail.user_id,
+        "body": post_detail.body,
+        "likes": 0,
+    }
 
     return {"post": post_detail, "comment": all_comments}
 
