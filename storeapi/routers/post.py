@@ -7,19 +7,27 @@ from storeapi.models.post import (
     UserPostIn,
     Comment,
     CommentIn,
-    UserPostWithComments,
     PostLikeIn,
     PostLike,
+    UserPostWithLike,
 )
 from storeapi.database import database, post_table, comment_table, like_table
 from sqlalchemy import select
+import sqlalchemy
 import logging
 from typing import Annotated
+from enum import Enum
 
 
 router = APIRouter()
 
 logger = logging.getLogger(__name__)
+
+select_liked_post = (
+    sqlalchemy.select(post_table, sqlalchemy.func.count(like_table.c.id).label("likes"))
+    .select_from(post_table.outerjoin(like_table))
+    .group_by(post_table.c.id)
+)
 
 
 @router.get("/")
@@ -96,13 +104,19 @@ async def get_post(post_id: int):
         )
 
 
-@router.get("/posts", response_model=list[UserPost])
+class PostSorting(str, Enum):
+    new = "new"
+    old = "old"
+    most_liked = "likes"
+
+
+@router.get("/posts", response_model=list[UserPostWithLike])
 async def get_posts():
     """
     this endpoint gonna retrive data from database and then send those retrieved data back to client
     """
     logger.info("getting all posts up to 50 recent posts")
-    query = post_table.select()
+    query = select_liked_post.order_by(sqlalchemy.desc("likes"))
     logger.debug(query)
     logger.debug(query)
     try:
@@ -112,32 +126,34 @@ async def get_posts():
     return all_posts
 
 
-@router.get("/post/{post_id}/comments", response_model=UserPostWithComments)
+@router.get("/post/{post_id}/comments")
 async def get_post_with_comments(post_id: int):
     """
     this endpoint is unique, it combines post and comment property that leads to foreign relation between those tables
     """
     query = comment_table.select().where(comment_table.c.post_id == post_id)
     logger.debug(query)
+
     try:
         all_comments = await database.fetch_all(query)
 
     except Exception:
         raise HTTPException(status_code=404)
+
+    post_query = select_liked_post.where(post_table.c.id == post_id)
     try:
-        post_detail = await database.fetch_one(
-            post_table.select().where(post_table.c.id == post_id)
-        )
+        post_detail = await database.fetch_one(post_query)
     except Exception:
         raise HTTPException(
             status_code=500,
-            detail="inernal server error due to database crash when fetching post_text",
+            detail="intrnal server error due to database crash when fetching post_text",
         )
     if not post_detail:
         raise HTTPException(status_code=404, detail="Post not found")
     all_comments = [Comment(**c) for c in all_comments]
+    post_detail = {"id": post_id, "user_id": post_detail.user_id, "likes": 0}
 
-    return {"post": UserPost(**post_detail), "comment": all_comments}
+    return {"post": post_detail, "comment": all_comments}
 
 
 @router.delete("/post/{post_id}")
