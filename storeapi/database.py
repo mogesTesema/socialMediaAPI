@@ -10,6 +10,18 @@ user_table = sqlalchemy.Table(
     sqlalchemy.Column("id", sqlalchemy.Integer, primary_key=True),
     sqlalchemy.Column("email", sqlalchemy.String, nullable=False, unique=True),
     sqlalchemy.Column("password", sqlalchemy.String, nullable=False),
+    sqlalchemy.Column("confirmed", sqlalchemy.Boolean, default=False),
+    sqlalchemy.Column("refresh_token", sqlalchemy.String),
+)
+
+refresh_token = sqlalchemy.Table(
+    "refreshtoken",
+    metadata,
+    sqlalchemy.Column("refresh_id", sqlalchemy.String, unique=True, nullable=False),
+    sqlalchemy.Column("expires_at", sqlalchemy.DateTime, nullable=False),
+    sqlalchemy.Column("created_at", sqlalchemy.DateTime, nullable=False),
+    sqlalchemy.Column("user_id", sqlalchemy.ForeignKey("users.id"), nullable=False),
+    sqlalchemy.Column("is_revoked", sqlalchemy.Boolean, default=True),
 )
 
 post_table = sqlalchemy.Table(

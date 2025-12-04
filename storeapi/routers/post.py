@@ -1,6 +1,6 @@
 from fastapi import APIRouter, HTTPException, Depends, status
 from storeapi.models.user import User
-from storeapi.security.get_user import get_current_user
+from storeapi.security.user_security import get_current_user
 from storeapi.utilits.formatted_printer import print_better as better_print  # noqa
 from storeapi.models.post import (
     UserPost,
