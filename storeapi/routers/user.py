@@ -1,6 +1,8 @@
 from fastapi import APIRouter, HTTPException, Request
 from storeapi.models.user import UserIn, Token
 from storeapi.database import user_table, database
+from storeapi.email.verify_email import send_verfication_email
+from storeapi.utilits.formatted_printer import print_better
 from storeapi.security.user_security import (
     get_user,
     get_password_hash,
@@ -35,13 +37,16 @@ async def register(user: UserIn, request: Request):
         raise HTTPException(status_code=500, detail=f"database crash:{e}")
     logger.debug(user_query)
     access_token = create_access_token(email)
-
+    confirm_token = create_confirm_token(user.email)
+    verify_url = request.url_for("confirm_email", token=confirm_token)
+    sending_email = await send_verfication_email(
+        to=user.email, token=confirm_token, verify_url=verify_url
+    )
+    print_better(obj="email confirmation response", message=sending_email)
+    logger.debug(sending_email)
     return {
         "status": "user registered. please confirm your email",
         "token:": access_token,
-        "confirmation_url": request.url_for(
-            "confirm_email", token=create_confirm_token(user.email)
-        ),
     }
 
 
