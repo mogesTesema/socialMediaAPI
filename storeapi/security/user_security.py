@@ -80,7 +80,7 @@ def get_subject_token_type(token: str, type: Literal["access", "confirmation"]) 
     if token_type != type or token_type is None:
         raise create_credentials_exception(
             status_code=status.HTTP_406_NOT_ACCEPTABLE,
-            detail="token has incorrect type, expected: {token_type}",
+            detail=f"token has incorrect type, expected: {token_type}",
         )
     if not email:
         raise create_credentials_exception(detail="Token is missing 'sub' field")
@@ -111,10 +111,16 @@ async def get_user(email: str):
 async def authenticate_user(email: str, password: str):
     logger.debug("Authenticaling user", extra={"email": email})
     user = await get_user(email=email)
+
     if not user:
         raise create_credentials_exception(detail="invalid email or password")
     if not verify_password(plain_password=password, hashed_password=user.password):
         raise create_credentials_exception("invalid email or password")
+
+    if not user.confirmed:
+        raise create_credentials_exception(
+            status_code=status.HTTP_401_UNAUTHORIZED, detail="email is not confirmed"
+        )
 
     return user
 

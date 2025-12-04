@@ -38,6 +38,7 @@ async def register(user: UserIn, request: Request):
 
     return {
         "status": "user registered. please confirm your email",
+        "token:": access_token,
         "confirmation_url": request.url_for(
             "confirm_email", token=create_confirm_token(user.email)
         ),
