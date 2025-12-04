@@ -3,6 +3,7 @@ from fastapi import Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordBearer
 from argon2 import PasswordHasher
 from storeapi.database import user_table, database
+from storeapi.utilits.formatted_printer import print_better
 import logging
 from jwt import ExpiredSignatureError, PyJWTError
 import jwt
@@ -135,3 +136,11 @@ async def get_current_user(token: Annotated[str, Depends(oauth2_scheme)]):
             status_code=status.HTTP_404_NOT_FOUND,
         )
     return user
+
+
+async def is_confirmed(email: str) -> bool:
+    user = await get_user(email)
+    print_better(obj="is email confirmedfor user?", message=user)
+    print_better(obj="check confirmation:", message=user.confirmed)
+
+    return user.confirmed == True

@@ -20,14 +20,14 @@ router = APIRouter()
 
 @router.post("/register", status_code=201)
 async def register(user: UserIn, request: Request):
-    hashed_password = await get_password_hash(user.password)
-
     email = user.email
     user_exist = await get_user(email)
     if user_exist:
         raise HTTPException(
             status_code=409, detail="user already exist,conflict with exsisting info"
         )
+
+    hashed_password = await get_password_hash(user.password)
     user_query = user_table.insert().values(email=email, password=hashed_password)
     try:
         await database.execute(user_query)
