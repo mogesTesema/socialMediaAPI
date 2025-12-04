@@ -11,7 +11,6 @@ user_table = sqlalchemy.Table(
     sqlalchemy.Column("email", sqlalchemy.String, nullable=False, unique=True),
     sqlalchemy.Column("password", sqlalchemy.String, nullable=False),
     sqlalchemy.Column("confirmed", sqlalchemy.Boolean, default=False),
-    sqlalchemy.Column("refresh_token", sqlalchemy.String),
 )
 
 refresh_token = sqlalchemy.Table(

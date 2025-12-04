@@ -32,7 +32,7 @@ def access_token_expire_minutes() -> int:
 
 
 def confirm_token_expire_minutes() -> int:
-    return 5
+    return 1440
 
 
 def create_access_token(email: str):
