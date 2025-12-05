@@ -14,13 +14,17 @@ user_table = sqlalchemy.Table(
 )
 
 refresh_token = sqlalchemy.Table(
-    "refreshtoken",
+    "refreshtokens",
     metadata,
-    sqlalchemy.Column("refresh_id", sqlalchemy.String, unique=True, nullable=False),
-    sqlalchemy.Column("expires_at", sqlalchemy.DateTime, nullable=False),
-    sqlalchemy.Column("created_at", sqlalchemy.DateTime, nullable=False),
+    sqlalchemy.Column(
+        "id", sqlalchemy.String, primary_key=True, nullable=False, unique=True
+    ),
+    sqlalchemy.Column(
+        "token_id", sqlalchemy.Integer, primary_key=True, unique=True, nullable=False
+    ),
     sqlalchemy.Column("user_id", sqlalchemy.ForeignKey("users.id"), nullable=False),
-    sqlalchemy.Column("is_revoked", sqlalchemy.Boolean, default=True),
+    sqlalchemy.Column("revoked", sqlalchemy.Boolean, default=False),
+    sqlalchemy.Column("token_hash", sqlalchemy.String, nullable=False),
 )
 
 post_table = sqlalchemy.Table(
