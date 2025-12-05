@@ -2,7 +2,7 @@ import sqlalchemy
 from fastapi import Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordBearer
 from argon2 import PasswordHasher
-from storeapi.database import user_table, database
+from storeapi.database import user_table, database, refreshtoken_table
 from storeapi.utilits.formatted_printer import print_better
 import logging
 from jwt import ExpiredSignatureError, PyJWTError
@@ -14,6 +14,8 @@ logger = logging.getLogger(__name__)
 
 
 SECRETE_KEY = "6152bf528fa1f07a8c42b24fda7e82e4"
+REFRESH_TOKEN_SECRET_KEY = "e744c3764715c1136bd6092424bfd260d71f421ebd13cd8f"
+REFRESH_TOKEN_ALGORITHM = "HS512"
 ALGORITHM = "HS256"
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
 password_hasher = PasswordHasher()
@@ -33,7 +35,11 @@ def access_token_expire_minutes() -> int:
 
 
 def confirm_token_expire_minutes() -> int:
-    return 1440
+    return 15
+
+
+def refresh_token_expire_days() -> int:
+    return 30
 
 
 def create_access_token(email: str):
@@ -60,6 +66,24 @@ def create_confirm_token(email: str):
     )
 
     return encoded_confirm_token
+
+
+def create_refresh_token(email: str, jti: str):
+    expire_date = datetime.datetime.now(tz=datetime.UTC) + datetime.timedelta(
+        days=refresh_token_expire_days()
+    )
+    refresh_payload = {"sub": email, "jti": jti, "exp": expire_date, "type": "refresh"}
+
+    refresh_token = jwt.encode(
+        payload=refresh_payload,
+        key=REFRESH_TOKEN_SECRET_KEY,
+        algorithm=REFRESH_TOKEN_ALGORITHM,
+    )
+    return refresh_token
+
+
+def validate_refresh_token():
+    pass
 
 
 def get_subject_token_type(token: str, type: Literal["access", "confirmation"]) -> str:
@@ -144,3 +168,51 @@ async def is_confirmed(email: str) -> bool:
     print_better(obj="check confirmation:", message=user.confirmed)
 
     return user.confirmed == True
+
+
+async def refresh_token_rotation(refresh_token: str):
+    try:
+        refresh_payload = jwt.decode(
+            jwt=refresh_token,
+            key=REFRESH_TOKEN_SECRET_KEY,
+            algorithms=[REFRESH_TOKEN_ALGORITHM],
+        )
+    except ExpiredSignatureError as e:
+        raise create_credentials_exception(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail=f"your refresh token has been expired please login using password and email:{e}",
+        )
+    except PyJWTError:
+        raise create_credentials_exception(
+            status_code=status.HTTP_401_UNAUTHORIZED, detail="wrong refresh token"
+        )
+
+    type = refresh_payload["type"]
+    if type != "refresh":
+        raise create_credentials_exception(
+            status_code=status.HTTP_406_NOT_ACCEPTABLE,
+            detail=f"wrong refresh token type:{type}",
+        )
+    refresh_id = refresh_payload["jti"]
+    jti_query = sqlalchemy.select(refreshtoken_table).where(
+        refreshtoken_table.c.jti == refresh_id
+    )
+
+    token_content = await database.fetch_one(jti_query)
+
+    hashed_token = token_content.hashed_token
+    user_email = token_content.user_email
+
+    if not verify_password(refresh_token, hashed_token):
+        raise create_credentials_exception(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="wrong refresh token,please use correct token or login with your email and password",
+        )
+
+    new_access_token = create_access_token(email=user_email)
+    new_refresh_token = create_refresh_token(email=user_email, jti=refresh_id)
+
+    return {
+        "new_access_token": new_access_token,
+        "new_refresh_token": new_refresh_token,
+    }

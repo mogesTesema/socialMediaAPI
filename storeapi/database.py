@@ -13,18 +13,20 @@ user_table = sqlalchemy.Table(
     sqlalchemy.Column("confirmed", sqlalchemy.Boolean, default=False),
 )
 
-refresh_token = sqlalchemy.Table(
+refreshtoken_table = sqlalchemy.Table(
     "refreshtokens",
     metadata,
     sqlalchemy.Column(
-        "id", sqlalchemy.String, primary_key=True, nullable=False, unique=True
+        "id", sqlalchemy.Integer, primary_key=True, nullable=False, unique=True
     ),
     sqlalchemy.Column(
-        "token_id", sqlalchemy.Integer, primary_key=True, unique=True, nullable=False
+        "jti", sqlalchemy.String, primary_key=True, unique=True, nullable=False
     ),
-    sqlalchemy.Column("user_id", sqlalchemy.ForeignKey("users.id"), nullable=False),
+    sqlalchemy.Column(
+        "user_email", sqlalchemy.ForeignKey("users.email"), nullable=False
+    ),
     sqlalchemy.Column("revoked", sqlalchemy.Boolean, default=False),
-    sqlalchemy.Column("token_hash", sqlalchemy.String, nullable=False),
+    sqlalchemy.Column("hashed_token", sqlalchemy.String, nullable=False),
 )
 
 post_table = sqlalchemy.Table(

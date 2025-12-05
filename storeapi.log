@@ -6728,3 +6728,426 @@ Finished server process [43011]
 {"correlation_id": "-", "asctime": "2025-12-05T10:12:33", "msecs": 637.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 48, "message": "Waiting for application startup."}
 {"correlation_id": "-", "asctime": "2025-12-05T10:12:33", "msecs": 641.0, "levelname": "INFO", "name": "storeapi", "lineno": 26, "message": "\ud83d\udce1 Connecting database..."}
 {"correlation_id": "-", "asctime": "2025-12-05T10:12:33", "msecs": 644.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 62, "message": "Application startup complete."}
+{"correlation_id": "-", "asctime": "2025-12-05T10:18:06", "msecs": 843.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 264, "message": "Shutting down"}
+{"correlation_id": "-", "asctime": "2025-12-05T10:18:06", "msecs": 950.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 67, "message": "Waiting for application shutdown."}
+{"correlation_id": "-", "asctime": "2025-12-05T10:18:06", "msecs": 954.0, "levelname": "INFO", "name": "storeapi", "lineno": 36, "message": "\ud83d\udd0c Disconnecting database..."}
+{"correlation_id": "-", "asctime": "2025-12-05T10:18:06", "msecs": 959.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 76, "message": "Application shutdown complete."}
+{"correlation_id": "-", "asctime": "2025-12-05T10:18:06", "msecs": 966.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 94, "message": "Finished server process [21416]", "color_message": "Finished server process [\u001b[36m%d\u001b[0m]"}
+{"correlation_id": "-", "asctime": "2025-12-05T10:18:10", "msecs": 854.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 84, "message": "Started server process [23113]", "color_message": "Started server process [\u001b[36m%d\u001b[0m]"}
+{"correlation_id": "-", "asctime": "2025-12-05T10:18:10", "msecs": 862.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 48, "message": "Waiting for application startup."}
+{"correlation_id": "-", "asctime": "2025-12-05T10:18:10", "msecs": 865.0, "levelname": "INFO", "name": "storeapi", "lineno": 26, "message": "\ud83d\udce1 Connecting database..."}
+{"correlation_id": "-", "asctime": "2025-12-05T10:18:10", "msecs": 868.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 62, "message": "Application startup complete."}
+{"correlation_id": "-", "asctime": "2025-12-05T10:25:11", "msecs": 806.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 264, "message": "Shutting down"}
+{"correlation_id": "-", "asctime": "2025-12-05T10:25:11", "msecs": 911.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 67, "message": "Waiting for application shutdown."}
+{"correlation_id": "-", "asctime": "2025-12-05T10:25:11", "msecs": 915.0, "levelname": "INFO", "name": "storeapi", "lineno": 36, "message": "\ud83d\udd0c Disconnecting database..."}
+{"correlation_id": "-", "asctime": "2025-12-05T10:25:11", "msecs": 920.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 76, "message": "Application shutdown complete."}
+{"correlation_id": "-", "asctime": "2025-12-05T10:25:11", "msecs": 924.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 94, "message": "Finished server process [23113]", "color_message": "Finished server process [\u001b[36m%d\u001b[0m]"}
+{"correlation_id": "-", "asctime": "2025-12-05T10:25:13", "msecs": 685.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 84, "message": "Started server process [23859]", "color_message": "Started server process [\u001b[36m%d\u001b[0m]"}
+{"correlation_id": "-", "asctime": "2025-12-05T10:25:13", "msecs": 690.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 48, "message": "Waiting for application startup."}
+{"correlation_id": "-", "asctime": "2025-12-05T10:25:13", "msecs": 695.0, "levelname": "INFO", "name": "storeapi", "lineno": 26, "message": "\ud83d\udce1 Connecting database..."}
+{"correlation_id": "-", "asctime": "2025-12-05T10:25:13", "msecs": 699.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 62, "message": "Application startup complete."}
+{"correlation_id": "-", "asctime": "2025-12-05T10:25:22", "msecs": 239.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 264, "message": "Shutting down"}
+{"correlation_id": "-", "asctime": "2025-12-05T10:25:22", "msecs": 347.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 67, "message": "Waiting for application shutdown."}
+{"correlation_id": "-", "asctime": "2025-12-05T10:25:22", "msecs": 355.0, "levelname": "INFO", "name": "storeapi", "lineno": 36, "message": "\ud83d\udd0c Disconnecting database..."}
+{"correlation_id": "-", "asctime": "2025-12-05T10:25:22", "msecs": 365.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 76, "message": "Application shutdown complete."}
+{"correlation_id": "-", "asctime": "2025-12-05T10:25:22", "msecs": 374.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 94, "message": "Finished server process [23859]", "color_message": "Finished server process [\u001b[36m%d\u001b[0m]"}
+{"correlation_id": "-", "asctime": "2025-12-05T10:25:24", "msecs": 20.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 84, "message": "Started server process [23970]", "color_message": "Started server process [\u001b[36m%d\u001b[0m]"}
+{"correlation_id": "-", "asctime": "2025-12-05T10:25:24", "msecs": 28.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 48, "message": "Waiting for application startup."}
+{"correlation_id": "-", "asctime": "2025-12-05T10:25:24", "msecs": 32.0, "levelname": "INFO", "name": "storeapi", "lineno": 26, "message": "\ud83d\udce1 Connecting database..."}
+{"correlation_id": "-", "asctime": "2025-12-05T10:25:24", "msecs": 37.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 62, "message": "Application startup complete."}
+{"correlation_id": "-", "asctime": "2025-12-05T10:29:34", "msecs": 337.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 264, "message": "Shutting down"}
+{"correlation_id": "-", "asctime": "2025-12-05T10:29:34", "msecs": 441.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 67, "message": "Waiting for application shutdown."}
+{"correlation_id": "-", "asctime": "2025-12-05T10:29:34", "msecs": 444.0, "levelname": "INFO", "name": "storeapi", "lineno": 36, "message": "\ud83d\udd0c Disconnecting database..."}
+{"correlation_id": "-", "asctime": "2025-12-05T10:29:34", "msecs": 447.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 76, "message": "Application shutdown complete."}
+{"correlation_id": "-", "asctime": "2025-12-05T10:29:34", "msecs": 449.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 94, "message": "Finished server process [23970]", "color_message": "Finished server process [\u001b[36m%d\u001b[0m]"}
+{"correlation_id": "-", "asctime": "2025-12-05T10:29:36", "msecs": 60.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 84, "message": "Started server process [24441]", "color_message": "Started server process [\u001b[36m%d\u001b[0m]"}
+{"correlation_id": "-", "asctime": "2025-12-05T10:29:36", "msecs": 65.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 48, "message": "Waiting for application startup."}
+{"correlation_id": "-", "asctime": "2025-12-05T10:29:36", "msecs": 69.0, "levelname": "INFO", "name": "storeapi", "lineno": 26, "message": "\ud83d\udce1 Connecting database..."}
+{"correlation_id": "-", "asctime": "2025-12-05T10:29:36", "msecs": 73.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 62, "message": "Application startup complete."}
+{"correlation_id": "-", "asctime": "2025-12-05T10:34:11", "msecs": 830.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 264, "message": "Shutting down"}
+{"correlation_id": "-", "asctime": "2025-12-05T10:34:11", "msecs": 937.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 67, "message": "Waiting for application shutdown."}
+{"correlation_id": "-", "asctime": "2025-12-05T10:34:11", "msecs": 939.0, "levelname": "INFO", "name": "storeapi", "lineno": 36, "message": "\ud83d\udd0c Disconnecting database..."}
+{"correlation_id": "-", "asctime": "2025-12-05T10:34:11", "msecs": 942.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 76, "message": "Application shutdown complete."}
+{"correlation_id": "-", "asctime": "2025-12-05T10:34:11", "msecs": 946.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 94, "message": "Finished server process [24441]", "color_message": "Finished server process [\u001b[36m%d\u001b[0m]"}
+{"correlation_id": "-", "asctime": "2025-12-05T10:35:00", "msecs": 49.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 84, "message": "Started server process [25078]", "color_message": "Started server process [\u001b[36m%d\u001b[0m]"}
+{"correlation_id": "-", "asctime": "2025-12-05T10:35:00", "msecs": 56.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 48, "message": "Waiting for application startup."}
+{"correlation_id": "-", "asctime": "2025-12-05T10:35:00", "msecs": 60.0, "levelname": "INFO", "name": "storeapi", "lineno": 26, "message": "\ud83d\udce1 Connecting database..."}
+{"correlation_id": "-", "asctime": "2025-12-05T10:35:00", "msecs": 65.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 62, "message": "Application startup complete."}
+{"correlation_id": "-", "asctime": "2025-12-05T10:36:42", "msecs": 436.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 264, "message": "Shutting down"}
+{"correlation_id": "-", "asctime": "2025-12-05T10:36:42", "msecs": 541.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 67, "message": "Waiting for application shutdown."}
+{"correlation_id": "-", "asctime": "2025-12-05T10:36:42", "msecs": 551.0, "levelname": "INFO", "name": "storeapi", "lineno": 36, "message": "\ud83d\udd0c Disconnecting database..."}
+{"correlation_id": "-", "asctime": "2025-12-05T10:36:42", "msecs": 556.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 76, "message": "Application shutdown complete."}
+{"correlation_id": "-", "asctime": "2025-12-05T10:36:42", "msecs": 560.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 94, "message": "Finished server process [25078]", "color_message": "Finished server process [\u001b[36m%d\u001b[0m]"}
+{"correlation_id": "-", "asctime": "2025-12-05T10:36:44", "msecs": 507.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 84, "message": "Started server process [25341]", "color_message": "Started server process [\u001b[36m%d\u001b[0m]"}
+{"correlation_id": "-", "asctime": "2025-12-05T10:36:44", "msecs": 514.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 48, "message": "Waiting for application startup."}
+{"correlation_id": "-", "asctime": "2025-12-05T10:36:44", "msecs": 518.0, "levelname": "INFO", "name": "storeapi", "lineno": 26, "message": "\ud83d\udce1 Connecting database..."}
+{"correlation_id": "-", "asctime": "2025-12-05T10:36:44", "msecs": 521.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 62, "message": "Application startup complete."}
+{"correlation_id": "-", "asctime": "2025-12-05T10:44:37", "msecs": 108.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 264, "message": "Shutting down"}
+{"correlation_id": "-", "asctime": "2025-12-05T10:44:37", "msecs": 212.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 67, "message": "Waiting for application shutdown."}
+{"correlation_id": "-", "asctime": "2025-12-05T10:44:37", "msecs": 214.0, "levelname": "INFO", "name": "storeapi", "lineno": 36, "message": "\ud83d\udd0c Disconnecting database..."}
+{"correlation_id": "-", "asctime": "2025-12-05T10:44:37", "msecs": 217.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 76, "message": "Application shutdown complete."}
+{"correlation_id": "-", "asctime": "2025-12-05T10:44:37", "msecs": 219.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 94, "message": "Finished server process [25341]", "color_message": "Finished server process [\u001b[36m%d\u001b[0m]"}
+{"correlation_id": "-", "asctime": "2025-12-05T10:44:39", "msecs": 82.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 84, "message": "Started server process [26114]", "color_message": "Started server process [\u001b[36m%d\u001b[0m]"}
+{"correlation_id": "-", "asctime": "2025-12-05T10:44:39", "msecs": 90.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 48, "message": "Waiting for application startup."}
+{"correlation_id": "-", "asctime": "2025-12-05T10:44:39", "msecs": 93.0, "levelname": "INFO", "name": "storeapi", "lineno": 26, "message": "\ud83d\udce1 Connecting database..."}
+{"correlation_id": "-", "asctime": "2025-12-05T10:44:39", "msecs": 97.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 62, "message": "Application startup complete."}
+{"correlation_id": "-", "asctime": "2025-12-05T10:48:01", "msecs": 440.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 264, "message": "Shutting down"}
+{"correlation_id": "-", "asctime": "2025-12-05T10:48:01", "msecs": 548.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 67, "message": "Waiting for application shutdown."}
+{"correlation_id": "-", "asctime": "2025-12-05T10:48:01", "msecs": 573.0, "levelname": "INFO", "name": "storeapi", "lineno": 36, "message": "\ud83d\udd0c Disconnecting database..."}
+{"correlation_id": "-", "asctime": "2025-12-05T10:48:01", "msecs": 598.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 76, "message": "Application shutdown complete."}
+{"correlation_id": "-", "asctime": "2025-12-05T10:48:01", "msecs": 616.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 94, "message": "Finished server process [26114]", "color_message": "Finished server process [\u001b[36m%d\u001b[0m]"}
+{"correlation_id": "-", "asctime": "2025-12-05T10:48:03", "msecs": 671.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 84, "message": "Started server process [26519]", "color_message": "Started server process [\u001b[36m%d\u001b[0m]"}
+{"correlation_id": "-", "asctime": "2025-12-05T10:48:03", "msecs": 677.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 48, "message": "Waiting for application startup."}
+{"correlation_id": "-", "asctime": "2025-12-05T10:48:03", "msecs": 681.0, "levelname": "INFO", "name": "storeapi", "lineno": 26, "message": "\ud83d\udce1 Connecting database..."}
+{"correlation_id": "-", "asctime": "2025-12-05T10:48:03", "msecs": 686.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 62, "message": "Application startup complete."}
+{"correlation_id": "-", "asctime": "2025-12-05T10:48:11", "msecs": 726.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 264, "message": "Shutting down"}
+{"correlation_id": "-", "asctime": "2025-12-05T10:48:11", "msecs": 832.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 67, "message": "Waiting for application shutdown."}
+{"correlation_id": "-", "asctime": "2025-12-05T10:48:11", "msecs": 836.0, "levelname": "INFO", "name": "storeapi", "lineno": 36, "message": "\ud83d\udd0c Disconnecting database..."}
+{"correlation_id": "-", "asctime": "2025-12-05T10:48:11", "msecs": 840.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 76, "message": "Application shutdown complete."}
+{"correlation_id": "-", "asctime": "2025-12-05T10:48:11", "msecs": 843.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 94, "message": "Finished server process [26519]", "color_message": "Finished server process [\u001b[36m%d\u001b[0m]"}
+{"correlation_id": "-", "asctime": "2025-12-05T10:48:13", "msecs": 378.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 84, "message": "Started server process [26608]", "color_message": "Started server process [\u001b[36m%d\u001b[0m]"}
+{"correlation_id": "-", "asctime": "2025-12-05T10:48:13", "msecs": 386.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 48, "message": "Waiting for application startup."}
+{"correlation_id": "-", "asctime": "2025-12-05T10:48:13", "msecs": 389.0, "levelname": "INFO", "name": "storeapi", "lineno": 26, "message": "\ud83d\udce1 Connecting database..."}
+{"correlation_id": "-", "asctime": "2025-12-05T10:48:13", "msecs": 393.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 62, "message": "Application startup complete."}
+{"correlation_id": "-", "asctime": "2025-12-05T10:52:13", "msecs": 851.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 264, "message": "Shutting down"}
+{"correlation_id": "-", "asctime": "2025-12-05T10:52:13", "msecs": 957.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 67, "message": "Waiting for application shutdown."}
+{"correlation_id": "-", "asctime": "2025-12-05T10:52:13", "msecs": 963.0, "levelname": "INFO", "name": "storeapi", "lineno": 36, "message": "\ud83d\udd0c Disconnecting database..."}
+{"correlation_id": "-", "asctime": "2025-12-05T10:52:13", "msecs": 970.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 76, "message": "Application shutdown complete."}
+{"correlation_id": "-", "asctime": "2025-12-05T10:52:13", "msecs": 973.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 94, "message": "Finished server process [26608]", "color_message": "Finished server process [\u001b[36m%d\u001b[0m]"}
+{"correlation_id": "-", "asctime": "2025-12-05T10:52:15", "msecs": 838.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 84, "message": "Started server process [27096]", "color_message": "Started server process [\u001b[36m%d\u001b[0m]"}
+{"correlation_id": "-", "asctime": "2025-12-05T10:52:15", "msecs": 844.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 48, "message": "Waiting for application startup."}
+{"correlation_id": "-", "asctime": "2025-12-05T10:52:15", "msecs": 848.0, "levelname": "INFO", "name": "storeapi", "lineno": 26, "message": "\ud83d\udce1 Connecting database..."}
+{"correlation_id": "-", "asctime": "2025-12-05T10:52:15", "msecs": 854.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 62, "message": "Application startup complete."}
+{"correlation_id": "-", "asctime": "2025-12-05T10:54:28", "msecs": 158.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 264, "message": "Shutting down"}
+{"correlation_id": "-", "asctime": "2025-12-05T10:54:28", "msecs": 266.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 67, "message": "Waiting for application shutdown."}
+{"correlation_id": "-", "asctime": "2025-12-05T10:54:28", "msecs": 279.0, "levelname": "INFO", "name": "storeapi", "lineno": 36, "message": "\ud83d\udd0c Disconnecting database..."}
+{"correlation_id": "-", "asctime": "2025-12-05T10:54:28", "msecs": 285.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 76, "message": "Application shutdown complete."}
+{"correlation_id": "-", "asctime": "2025-12-05T10:54:28", "msecs": 296.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 94, "message": "Finished server process [27096]", "color_message": "Finished server process [\u001b[36m%d\u001b[0m]"}
+{"correlation_id": "-", "asctime": "2025-12-05T10:54:30", "msecs": 256.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 84, "message": "Started server process [27367]", "color_message": "Started server process [\u001b[36m%d\u001b[0m]"}
+{"correlation_id": "-", "asctime": "2025-12-05T10:54:30", "msecs": 264.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 48, "message": "Waiting for application startup."}
+{"correlation_id": "-", "asctime": "2025-12-05T10:54:30", "msecs": 267.0, "levelname": "INFO", "name": "storeapi", "lineno": 26, "message": "\ud83d\udce1 Connecting database..."}
+{"correlation_id": "-", "asctime": "2025-12-05T10:54:30", "msecs": 270.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 62, "message": "Application startup complete."}
+{"correlation_id": "-", "asctime": "2025-12-05T10:54:52", "msecs": 166.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 264, "message": "Shutting down"}
+{"correlation_id": "-", "asctime": "2025-12-05T10:54:52", "msecs": 273.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 67, "message": "Waiting for application shutdown."}
+{"correlation_id": "-", "asctime": "2025-12-05T10:54:52", "msecs": 276.0, "levelname": "INFO", "name": "storeapi", "lineno": 36, "message": "\ud83d\udd0c Disconnecting database..."}
+{"correlation_id": "-", "asctime": "2025-12-05T10:54:52", "msecs": 279.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 76, "message": "Application shutdown complete."}
+{"correlation_id": "-", "asctime": "2025-12-05T10:54:52", "msecs": 281.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 94, "message": "Finished server process [27367]", "color_message": "Finished server process [\u001b[36m%d\u001b[0m]"}
+{"correlation_id": "-", "asctime": "2025-12-05T10:54:54", "msecs": 60.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 84, "message": "Started server process [27477]", "color_message": "Started server process [\u001b[36m%d\u001b[0m]"}
+{"correlation_id": "-", "asctime": "2025-12-05T10:54:54", "msecs": 65.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 48, "message": "Waiting for application startup."}
+{"correlation_id": "-", "asctime": "2025-12-05T10:54:54", "msecs": 69.0, "levelname": "INFO", "name": "storeapi", "lineno": 26, "message": "\ud83d\udce1 Connecting database..."}
+{"correlation_id": "-", "asctime": "2025-12-05T10:54:54", "msecs": 74.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 62, "message": "Application startup complete."}
+{"correlation_id": "-", "asctime": "2025-12-05T10:58:59", "msecs": 269.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 264, "message": "Shutting down"}
+{"correlation_id": "-", "asctime": "2025-12-05T10:58:59", "msecs": 374.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 67, "message": "Waiting for application shutdown."}
+{"correlation_id": "-", "asctime": "2025-12-05T10:58:59", "msecs": 377.0, "levelname": "INFO", "name": "storeapi", "lineno": 36, "message": "\ud83d\udd0c Disconnecting database..."}
+{"correlation_id": "-", "asctime": "2025-12-05T10:58:59", "msecs": 381.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 76, "message": "Application shutdown complete."}
+{"correlation_id": "-", "asctime": "2025-12-05T10:58:59", "msecs": 386.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 94, "message": "Finished server process [27477]", "color_message": "Finished server process [\u001b[36m%d\u001b[0m]"}
+{"correlation_id": "-", "asctime": "2025-12-05T10:59:00", "msecs": 883.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 84, "message": "Started server process [27951]", "color_message": "Started server process [\u001b[36m%d\u001b[0m]"}
+{"correlation_id": "-", "asctime": "2025-12-05T10:59:00", "msecs": 890.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 48, "message": "Waiting for application startup."}
+{"correlation_id": "-", "asctime": "2025-12-05T10:59:00", "msecs": 893.0, "levelname": "INFO", "name": "storeapi", "lineno": 26, "message": "\ud83d\udce1 Connecting database..."}
+{"correlation_id": "-", "asctime": "2025-12-05T10:59:00", "msecs": 898.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 62, "message": "Application startup complete."}
+{"correlation_id": "-", "asctime": "2025-12-05T11:00:41", "msecs": 623.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 264, "message": "Shutting down"}
+{"correlation_id": "-", "asctime": "2025-12-05T11:00:41", "msecs": 727.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 67, "message": "Waiting for application shutdown."}
+{"correlation_id": "-", "asctime": "2025-12-05T11:00:41", "msecs": 730.0, "levelname": "INFO", "name": "storeapi", "lineno": 36, "message": "\ud83d\udd0c Disconnecting database..."}
+{"correlation_id": "-", "asctime": "2025-12-05T11:00:41", "msecs": 733.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 76, "message": "Application shutdown complete."}
+{"correlation_id": "-", "asctime": "2025-12-05T11:00:41", "msecs": 736.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 94, "message": "Finished server process [27951]", "color_message": "Finished server process [\u001b[36m%d\u001b[0m]"}
+{"correlation_id": "-", "asctime": "2025-12-05T11:00:43", "msecs": 141.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 84, "message": "Started server process [28213]", "color_message": "Started server process [\u001b[36m%d\u001b[0m]"}
+{"correlation_id": "-", "asctime": "2025-12-05T11:00:43", "msecs": 148.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 48, "message": "Waiting for application startup."}
+{"correlation_id": "-", "asctime": "2025-12-05T11:00:43", "msecs": 152.0, "levelname": "INFO", "name": "storeapi", "lineno": 26, "message": "\ud83d\udce1 Connecting database..."}
+{"correlation_id": "-", "asctime": "2025-12-05T11:00:43", "msecs": 156.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 62, "message": "Application startup complete."}
+{"correlation_id": "-", "asctime": "2025-12-05T11:25:22", "msecs": 18.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 264, "message": "Shutting down"}
+{"correlation_id": "-", "asctime": "2025-12-05T11:25:22", "msecs": 122.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 67, "message": "Waiting for application shutdown."}
+{"correlation_id": "-", "asctime": "2025-12-05T11:25:22", "msecs": 126.0, "levelname": "INFO", "name": "storeapi", "lineno": 36, "message": "\ud83d\udd0c Disconnecting database..."}
+{"correlation_id": "-", "asctime": "2025-12-05T11:25:22", "msecs": 131.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 76, "message": "Application shutdown complete."}
+{"correlation_id": "-", "asctime": "2025-12-05T11:25:22", "msecs": 135.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 94, "message": "Finished server process [28213]", "color_message": "Finished server process [\u001b[36m%d\u001b[0m]"}
+{"correlation_id": "-", "asctime": "2025-12-05T11:25:24", "msecs": 191.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 84, "message": "Started server process [30467]", "color_message": "Started server process [\u001b[36m%d\u001b[0m]"}
+{"correlation_id": "-", "asctime": "2025-12-05T11:25:24", "msecs": 202.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 48, "message": "Waiting for application startup."}
+{"correlation_id": "-", "asctime": "2025-12-05T11:25:24", "msecs": 207.0, "levelname": "INFO", "name": "storeapi", "lineno": 26, "message": "\ud83d\udce1 Connecting database..."}
+{"correlation_id": "-", "asctime": "2025-12-05T11:25:24", "msecs": 212.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 62, "message": "Application startup complete."}
+{"correlation_id": "-", "asctime": "2025-12-05T11:27:01", "msecs": 389.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 264, "message": "Shutting down"}
+{"correlation_id": "-", "asctime": "2025-12-05T11:27:01", "msecs": 498.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 67, "message": "Waiting for application shutdown."}
+{"correlation_id": "-", "asctime": "2025-12-05T11:27:01", "msecs": 505.0, "levelname": "INFO", "name": "storeapi", "lineno": 36, "message": "\ud83d\udd0c Disconnecting database..."}
+{"correlation_id": "-", "asctime": "2025-12-05T11:27:01", "msecs": 513.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 76, "message": "Application shutdown complete."}
+{"correlation_id": "-", "asctime": "2025-12-05T11:27:01", "msecs": 528.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 94, "message": "Finished server process [30467]", "color_message": "Finished server process [\u001b[36m%d\u001b[0m]"}
+{"correlation_id": "-", "asctime": "2025-12-05T11:27:03", "msecs": 308.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 84, "message": "Started server process [30686]", "color_message": "Started server process [\u001b[36m%d\u001b[0m]"}
+{"correlation_id": "-", "asctime": "2025-12-05T11:27:03", "msecs": 313.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 48, "message": "Waiting for application startup."}
+{"correlation_id": "-", "asctime": "2025-12-05T11:27:03", "msecs": 317.0, "levelname": "INFO", "name": "storeapi", "lineno": 26, "message": "\ud83d\udce1 Connecting database..."}
+{"correlation_id": "-", "asctime": "2025-12-05T11:27:03", "msecs": 322.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 62, "message": "Application startup complete."}
+{"correlation_id": "-", "asctime": "2025-12-05T11:27:39", "msecs": 878.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 264, "message": "Shutting down"}
+{"correlation_id": "-", "asctime": "2025-12-05T11:27:39", "msecs": 981.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 67, "message": "Waiting for application shutdown."}
+{"correlation_id": "-", "asctime": "2025-12-05T11:27:39", "msecs": 984.0, "levelname": "INFO", "name": "storeapi", "lineno": 36, "message": "\ud83d\udd0c Disconnecting database..."}
+{"correlation_id": "-", "asctime": "2025-12-05T11:27:39", "msecs": 986.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 76, "message": "Application shutdown complete."}
+{"correlation_id": "-", "asctime": "2025-12-05T11:27:39", "msecs": 988.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 94, "message": "Finished server process [30686]", "color_message": "Finished server process [\u001b[36m%d\u001b[0m]"}
+{"correlation_id": "-", "asctime": "2025-12-05T11:27:41", "msecs": 338.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 84, "message": "Started server process [30810]", "color_message": "Started server process [\u001b[36m%d\u001b[0m]"}
+{"correlation_id": "-", "asctime": "2025-12-05T11:27:41", "msecs": 346.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 48, "message": "Waiting for application startup."}
+{"correlation_id": "-", "asctime": "2025-12-05T11:27:41", "msecs": 349.0, "levelname": "INFO", "name": "storeapi", "lineno": 26, "message": "\ud83d\udce1 Connecting database..."}
+{"correlation_id": "-", "asctime": "2025-12-05T11:27:41", "msecs": 352.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 62, "message": "Application startup complete."}
+{"correlation_id": "-", "asctime": "2025-12-05T11:32:29", "msecs": 690.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 264, "message": "Shutting down"}
+{"correlation_id": "-", "asctime": "2025-12-05T11:32:29", "msecs": 804.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 67, "message": "Waiting for application shutdown."}
+{"correlation_id": "-", "asctime": "2025-12-05T11:32:29", "msecs": 809.0, "levelname": "INFO", "name": "storeapi", "lineno": 36, "message": "\ud83d\udd0c Disconnecting database..."}
+{"correlation_id": "-", "asctime": "2025-12-05T11:32:29", "msecs": 812.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 76, "message": "Application shutdown complete."}
+{"correlation_id": "-", "asctime": "2025-12-05T11:32:29", "msecs": 814.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 94, "message": "Finished server process [30810]", "color_message": "Finished server process [\u001b[36m%d\u001b[0m]"}
+{"correlation_id": "-", "asctime": "2025-12-05T11:32:31", "msecs": 228.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 84, "message": "Started server process [31368]", "color_message": "Started server process [\u001b[36m%d\u001b[0m]"}
+{"correlation_id": "-", "asctime": "2025-12-05T11:32:31", "msecs": 235.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 48, "message": "Waiting for application startup."}
+{"correlation_id": "-", "asctime": "2025-12-05T11:32:31", "msecs": 239.0, "levelname": "INFO", "name": "storeapi", "lineno": 26, "message": "\ud83d\udce1 Connecting database..."}
+{"correlation_id": "-", "asctime": "2025-12-05T11:32:31", "msecs": 244.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 62, "message": "Application startup complete."}
+{"correlation_id": "-", "asctime": "2025-12-05T11:34:37", "msecs": 821.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 264, "message": "Shutting down"}
+{"correlation_id": "-", "asctime": "2025-12-05T11:34:37", "msecs": 926.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 67, "message": "Waiting for application shutdown."}
+{"correlation_id": "-", "asctime": "2025-12-05T11:34:37", "msecs": 930.0, "levelname": "INFO", "name": "storeapi", "lineno": 36, "message": "\ud83d\udd0c Disconnecting database..."}
+{"correlation_id": "-", "asctime": "2025-12-05T11:34:37", "msecs": 935.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 76, "message": "Application shutdown complete."}
+{"correlation_id": "-", "asctime": "2025-12-05T11:34:37", "msecs": 939.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 94, "message": "Finished server process [31368]", "color_message": "Finished server process [\u001b[36m%d\u001b[0m]"}
+{"correlation_id": "-", "asctime": "2025-12-05T11:34:39", "msecs": 602.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 84, "message": "Started server process [31623]", "color_message": "Started server process [\u001b[36m%d\u001b[0m]"}
+{"correlation_id": "-", "asctime": "2025-12-05T11:34:39", "msecs": 607.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 48, "message": "Waiting for application startup."}
+{"correlation_id": "-", "asctime": "2025-12-05T11:34:39", "msecs": 610.0, "levelname": "INFO", "name": "storeapi", "lineno": 26, "message": "\ud83d\udce1 Connecting database..."}
+{"correlation_id": "-", "asctime": "2025-12-05T11:34:39", "msecs": 614.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 62, "message": "Application startup complete."}
+{"correlation_id": "-", "asctime": "2025-12-05T11:36:03", "msecs": 697.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 264, "message": "Shutting down"}
+{"correlation_id": "-", "asctime": "2025-12-05T11:36:03", "msecs": 806.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 67, "message": "Waiting for application shutdown."}
+{"correlation_id": "-", "asctime": "2025-12-05T11:36:03", "msecs": 810.0, "levelname": "INFO", "name": "storeapi", "lineno": 36, "message": "\ud83d\udd0c Disconnecting database..."}
+{"correlation_id": "-", "asctime": "2025-12-05T11:36:03", "msecs": 818.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 76, "message": "Application shutdown complete."}
+{"correlation_id": "-", "asctime": "2025-12-05T11:36:03", "msecs": 822.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 94, "message": "Finished server process [31623]", "color_message": "Finished server process [\u001b[36m%d\u001b[0m]"}
+{"correlation_id": "-", "asctime": "2025-12-05T11:36:05", "msecs": 331.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 84, "message": "Started server process [31852]", "color_message": "Started server process [\u001b[36m%d\u001b[0m]"}
+{"correlation_id": "-", "asctime": "2025-12-05T11:36:05", "msecs": 336.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 48, "message": "Waiting for application startup."}
+{"correlation_id": "-", "asctime": "2025-12-05T11:36:05", "msecs": 341.0, "levelname": "INFO", "name": "storeapi", "lineno": 26, "message": "\ud83d\udce1 Connecting database..."}
+{"correlation_id": "-", "asctime": "2025-12-05T11:36:05", "msecs": 345.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 62, "message": "Application startup complete."}
+{"correlation_id": "-", "asctime": "2025-12-05T11:38:51", "msecs": 611.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 264, "message": "Shutting down"}
+{"correlation_id": "-", "asctime": "2025-12-05T11:38:51", "msecs": 718.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 67, "message": "Waiting for application shutdown."}
+{"correlation_id": "-", "asctime": "2025-12-05T11:38:51", "msecs": 724.0, "levelname": "INFO", "name": "storeapi", "lineno": 36, "message": "\ud83d\udd0c Disconnecting database..."}
+{"correlation_id": "-", "asctime": "2025-12-05T11:38:51", "msecs": 729.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 76, "message": "Application shutdown complete."}
+{"correlation_id": "-", "asctime": "2025-12-05T11:38:51", "msecs": 733.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 94, "message": "Finished server process [31852]", "color_message": "Finished server process [\u001b[36m%d\u001b[0m]"}
+{"correlation_id": "-", "asctime": "2025-12-05T11:38:53", "msecs": 264.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 84, "message": "Started server process [32174]", "color_message": "Started server process [\u001b[36m%d\u001b[0m]"}
+{"correlation_id": "-", "asctime": "2025-12-05T11:38:53", "msecs": 271.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 48, "message": "Waiting for application startup."}
+{"correlation_id": "-", "asctime": "2025-12-05T11:38:53", "msecs": 275.0, "levelname": "INFO", "name": "storeapi", "lineno": 26, "message": "\ud83d\udce1 Connecting database..."}
+{"correlation_id": "-", "asctime": "2025-12-05T11:38:53", "msecs": 279.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 62, "message": "Application startup complete."}
+{"correlation_id": "-", "asctime": "2025-12-05T11:42:15", "msecs": 492.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 264, "message": "Shutting down"}
+{"correlation_id": "-", "asctime": "2025-12-05T11:42:15", "msecs": 598.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 67, "message": "Waiting for application shutdown."}
+{"correlation_id": "-", "asctime": "2025-12-05T11:42:15", "msecs": 601.0, "levelname": "INFO", "name": "storeapi", "lineno": 36, "message": "\ud83d\udd0c Disconnecting database..."}
+{"correlation_id": "-", "asctime": "2025-12-05T11:42:15", "msecs": 608.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 76, "message": "Application shutdown complete."}
+{"correlation_id": "-", "asctime": "2025-12-05T11:42:15", "msecs": 613.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 94, "message": "Finished server process [32174]", "color_message": "Finished server process [\u001b[36m%d\u001b[0m]"}
+{"correlation_id": "-", "asctime": "2025-12-05T11:42:17", "msecs": 257.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 84, "message": "Started server process [32572]", "color_message": "Started server process [\u001b[36m%d\u001b[0m]"}
+{"correlation_id": "-", "asctime": "2025-12-05T11:42:17", "msecs": 263.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 48, "message": "Waiting for application startup."}
+{"correlation_id": "-", "asctime": "2025-12-05T11:42:17", "msecs": 265.0, "levelname": "INFO", "name": "storeapi", "lineno": 26, "message": "\ud83d\udce1 Connecting database..."}
+{"correlation_id": "-", "asctime": "2025-12-05T11:42:17", "msecs": 268.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 62, "message": "Application startup complete."}
+{"correlation_id": "-", "asctime": "2025-12-05T11:43:16", "msecs": 227.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 264, "message": "Shutting down"}
+{"correlation_id": "-", "asctime": "2025-12-05T11:43:16", "msecs": 340.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 67, "message": "Waiting for application shutdown."}
+{"correlation_id": "-", "asctime": "2025-12-05T11:43:16", "msecs": 344.0, "levelname": "INFO", "name": "storeapi", "lineno": 36, "message": "\ud83d\udd0c Disconnecting database..."}
+{"correlation_id": "-", "asctime": "2025-12-05T11:43:16", "msecs": 347.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 76, "message": "Application shutdown complete."}
+{"correlation_id": "-", "asctime": "2025-12-05T11:43:16", "msecs": 349.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 94, "message": "Finished server process [32572]", "color_message": "Finished server process [\u001b[36m%d\u001b[0m]"}
+{"correlation_id": "-", "asctime": "2025-12-05T11:43:17", "msecs": 994.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 84, "message": "Started server process [32725]", "color_message": "Started server process [\u001b[36m%d\u001b[0m]"}
+{"correlation_id": "-", "asctime": "2025-12-05T11:43:18", "msecs": 3.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 48, "message": "Waiting for application startup."}
+{"correlation_id": "-", "asctime": "2025-12-05T11:43:18", "msecs": 7.0, "levelname": "INFO", "name": "storeapi", "lineno": 26, "message": "\ud83d\udce1 Connecting database..."}
+{"correlation_id": "-", "asctime": "2025-12-05T11:43:18", "msecs": 12.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 62, "message": "Application startup complete."}
+{"correlation_id": "-", "asctime": "2025-12-05T11:48:33", "msecs": 370.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 264, "message": "Shutting down"}
+{"correlation_id": "-", "asctime": "2025-12-05T11:48:33", "msecs": 475.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 67, "message": "Waiting for application shutdown."}
+{"correlation_id": "-", "asctime": "2025-12-05T11:48:33", "msecs": 480.0, "levelname": "INFO", "name": "storeapi", "lineno": 36, "message": "\ud83d\udd0c Disconnecting database..."}
+{"correlation_id": "-", "asctime": "2025-12-05T11:48:33", "msecs": 483.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 76, "message": "Application shutdown complete."}
+{"correlation_id": "-", "asctime": "2025-12-05T11:48:33", "msecs": 487.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 94, "message": "Finished server process [32725]", "color_message": "Finished server process [\u001b[36m%d\u001b[0m]"}
+{"correlation_id": "-", "asctime": "2025-12-05T11:48:40", "msecs": 600.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 84, "message": "Started server process [33323]", "color_message": "Started server process [\u001b[36m%d\u001b[0m]"}
+{"correlation_id": "-", "asctime": "2025-12-05T11:48:40", "msecs": 605.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 48, "message": "Waiting for application startup."}
+{"correlation_id": "-", "asctime": "2025-12-05T11:48:40", "msecs": 607.0, "levelname": "INFO", "name": "storeapi", "lineno": 26, "message": "\ud83d\udce1 Connecting database..."}
+{"correlation_id": "-", "asctime": "2025-12-05T11:48:40", "msecs": 610.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 62, "message": "Application startup complete."}
+{"correlation_id": "-", "asctime": "2025-12-05T11:50:39", "msecs": 64.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 264, "message": "Shutting down"}
+{"correlation_id": "-", "asctime": "2025-12-05T11:50:39", "msecs": 171.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 67, "message": "Waiting for application shutdown."}
+{"correlation_id": "-", "asctime": "2025-12-05T11:50:39", "msecs": 174.0, "levelname": "INFO", "name": "storeapi", "lineno": 36, "message": "\ud83d\udd0c Disconnecting database..."}
+{"correlation_id": "-", "asctime": "2025-12-05T11:50:39", "msecs": 178.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 76, "message": "Application shutdown complete."}
+{"correlation_id": "-", "asctime": "2025-12-05T11:50:39", "msecs": 183.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 94, "message": "Finished server process [33323]", "color_message": "Finished server process [\u001b[36m%d\u001b[0m]"}
+{"correlation_id": "-", "asctime": "2025-12-05T11:50:40", "msecs": 779.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 84, "message": "Started server process [33596]", "color_message": "Started server process [\u001b[36m%d\u001b[0m]"}
+{"correlation_id": "-", "asctime": "2025-12-05T11:50:40", "msecs": 788.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 48, "message": "Waiting for application startup."}
+{"correlation_id": "-", "asctime": "2025-12-05T11:50:40", "msecs": 794.0, "levelname": "INFO", "name": "storeapi", "lineno": 26, "message": "\ud83d\udce1 Connecting database..."}
+{"correlation_id": "-", "asctime": "2025-12-05T11:50:40", "msecs": 803.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 62, "message": "Application startup complete."}
+{"correlation_id": "-", "asctime": "2025-12-05T11:55:38", "msecs": 151.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 264, "message": "Shutting down"}
+{"correlation_id": "-", "asctime": "2025-12-05T11:55:38", "msecs": 257.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 67, "message": "Waiting for application shutdown."}
+{"correlation_id": "-", "asctime": "2025-12-05T11:55:38", "msecs": 263.0, "levelname": "INFO", "name": "storeapi", "lineno": 36, "message": "\ud83d\udd0c Disconnecting database..."}
+{"correlation_id": "-", "asctime": "2025-12-05T11:55:38", "msecs": 269.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 76, "message": "Application shutdown complete."}
+{"correlation_id": "-", "asctime": "2025-12-05T11:55:38", "msecs": 272.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 94, "message": "Finished server process [33596]", "color_message": "Finished server process [\u001b[36m%d\u001b[0m]"}
+{"correlation_id": "-", "asctime": "2025-12-05T11:55:39", "msecs": 976.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 84, "message": "Started server process [34051]", "color_message": "Started server process [\u001b[36m%d\u001b[0m]"}
+{"correlation_id": "-", "asctime": "2025-12-05T11:55:39", "msecs": 981.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 48, "message": "Waiting for application startup."}
+{"correlation_id": "-", "asctime": "2025-12-05T11:55:39", "msecs": 984.0, "levelname": "INFO", "name": "storeapi", "lineno": 26, "message": "\ud83d\udce1 Connecting database..."}
+{"correlation_id": "-", "asctime": "2025-12-05T11:55:39", "msecs": 987.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 62, "message": "Application startup complete."}
+{"correlation_id": "-", "asctime": "2025-12-05T11:57:25", "msecs": 934.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 264, "message": "Shutting down"}
+{"correlation_id": "-", "asctime": "2025-12-05T11:57:26", "msecs": 39.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 67, "message": "Waiting for application shutdown."}
+{"correlation_id": "-", "asctime": "2025-12-05T11:57:26", "msecs": 48.0, "levelname": "INFO", "name": "storeapi", "lineno": 36, "message": "\ud83d\udd0c Disconnecting database..."}
+{"correlation_id": "-", "asctime": "2025-12-05T11:57:26", "msecs": 60.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 76, "message": "Application shutdown complete."}
+{"correlation_id": "-", "asctime": "2025-12-05T11:57:26", "msecs": 65.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 94, "message": "Finished server process [34051]", "color_message": "Finished server process [\u001b[36m%d\u001b[0m]"}
+{"correlation_id": "-", "asctime": "2025-12-05T11:57:27", "msecs": 677.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 84, "message": "Started server process [34177]", "color_message": "Started server process [\u001b[36m%d\u001b[0m]"}
+{"correlation_id": "-", "asctime": "2025-12-05T11:57:27", "msecs": 683.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 48, "message": "Waiting for application startup."}
+{"correlation_id": "-", "asctime": "2025-12-05T11:57:27", "msecs": 686.0, "levelname": "INFO", "name": "storeapi", "lineno": 26, "message": "\ud83d\udce1 Connecting database..."}
+{"correlation_id": "-", "asctime": "2025-12-05T11:57:27", "msecs": 690.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 62, "message": "Application startup complete."}
+{"correlation_id": "-", "asctime": "2025-12-05T12:47:03", "msecs": 221.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 264, "message": "Shutting down"}
+{"correlation_id": "-", "asctime": "2025-12-05T12:47:03", "msecs": 330.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 67, "message": "Waiting for application shutdown."}
+{"correlation_id": "-", "asctime": "2025-12-05T12:47:03", "msecs": 334.0, "levelname": "INFO", "name": "storeapi", "lineno": 36, "message": "\ud83d\udd0c Disconnecting database..."}
+{"correlation_id": "-", "asctime": "2025-12-05T12:47:03", "msecs": 337.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 76, "message": "Application shutdown complete."}
+{"correlation_id": "-", "asctime": "2025-12-05T12:47:03", "msecs": 343.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 94, "message": "Finished server process [34177]", "color_message": "Finished server process [\u001b[36m%d\u001b[0m]"}
+{"correlation_id": "-", "asctime": "2025-12-05T12:47:04", "msecs": 960.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 84, "message": "Started server process [37125]", "color_message": "Started server process [\u001b[36m%d\u001b[0m]"}
+{"correlation_id": "-", "asctime": "2025-12-05T12:47:04", "msecs": 964.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 48, "message": "Waiting for application startup."}
+{"correlation_id": "-", "asctime": "2025-12-05T12:47:04", "msecs": 968.0, "levelname": "INFO", "name": "storeapi", "lineno": 26, "message": "\ud83d\udce1 Connecting database..."}
+{"correlation_id": "-", "asctime": "2025-12-05T12:47:04", "msecs": 970.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 62, "message": "Application startup complete."}
+{"correlation_id": "-", "asctime": "2025-12-05T12:50:21", "msecs": 573.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 264, "message": "Shutting down"}
+{"correlation_id": "-", "asctime": "2025-12-05T12:50:21", "msecs": 679.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 67, "message": "Waiting for application shutdown."}
+{"correlation_id": "-", "asctime": "2025-12-05T12:50:21", "msecs": 682.0, "levelname": "INFO", "name": "storeapi", "lineno": 36, "message": "\ud83d\udd0c Disconnecting database..."}
+{"correlation_id": "-", "asctime": "2025-12-05T12:50:21", "msecs": 686.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 76, "message": "Application shutdown complete."}
+{"correlation_id": "-", "asctime": "2025-12-05T12:50:21", "msecs": 690.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 94, "message": "Finished server process [37125]", "color_message": "Finished server process [\u001b[36m%d\u001b[0m]"}
+{"correlation_id": "-", "asctime": "2025-12-05T12:50:23", "msecs": 272.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 84, "message": "Started server process [37541]", "color_message": "Started server process [\u001b[36m%d\u001b[0m]"}
+{"correlation_id": "-", "asctime": "2025-12-05T12:50:23", "msecs": 279.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 48, "message": "Waiting for application startup."}
+{"correlation_id": "-", "asctime": "2025-12-05T12:50:23", "msecs": 283.0, "levelname": "INFO", "name": "storeapi", "lineno": 26, "message": "\ud83d\udce1 Connecting database..."}
+{"correlation_id": "-", "asctime": "2025-12-05T12:50:23", "msecs": 286.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 62, "message": "Application startup complete."}
+{"correlation_id": "-", "asctime": "2025-12-05T12:52:34", "msecs": 689.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 264, "message": "Shutting down"}
+{"correlation_id": "-", "asctime": "2025-12-05T12:52:34", "msecs": 793.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 67, "message": "Waiting for application shutdown."}
+{"correlation_id": "-", "asctime": "2025-12-05T12:52:34", "msecs": 798.0, "levelname": "INFO", "name": "storeapi", "lineno": 36, "message": "\ud83d\udd0c Disconnecting database..."}
+{"correlation_id": "-", "asctime": "2025-12-05T12:52:34", "msecs": 805.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 76, "message": "Application shutdown complete."}
+{"correlation_id": "-", "asctime": "2025-12-05T12:52:34", "msecs": 812.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 94, "message": "Finished server process [37541]", "color_message": "Finished server process [\u001b[36m%d\u001b[0m]"}
+{"correlation_id": "-", "asctime": "2025-12-05T12:52:36", "msecs": 287.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 84, "message": "Started server process [37798]", "color_message": "Started server process [\u001b[36m%d\u001b[0m]"}
+{"correlation_id": "-", "asctime": "2025-12-05T12:52:36", "msecs": 294.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 48, "message": "Waiting for application startup."}
+{"correlation_id": "-", "asctime": "2025-12-05T12:52:36", "msecs": 297.0, "levelname": "INFO", "name": "storeapi", "lineno": 26, "message": "\ud83d\udce1 Connecting database..."}
+{"correlation_id": "-", "asctime": "2025-12-05T12:52:36", "msecs": 301.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 62, "message": "Application startup complete."}
+{"correlation_id": "-", "asctime": "2025-12-05T12:57:42", "msecs": 504.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 264, "message": "Shutting down"}
+{"correlation_id": "-", "asctime": "2025-12-05T12:57:42", "msecs": 607.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 67, "message": "Waiting for application shutdown."}
+{"correlation_id": "-", "asctime": "2025-12-05T12:57:42", "msecs": 612.0, "levelname": "INFO", "name": "storeapi", "lineno": 36, "message": "\ud83d\udd0c Disconnecting database..."}
+{"correlation_id": "-", "asctime": "2025-12-05T12:57:42", "msecs": 616.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 76, "message": "Application shutdown complete."}
+{"correlation_id": "-", "asctime": "2025-12-05T12:57:42", "msecs": 619.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 94, "message": "Finished server process [37798]", "color_message": "Finished server process [\u001b[36m%d\u001b[0m]"}
+{"correlation_id": "-", "asctime": "2025-12-05T12:57:44", "msecs": 249.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 84, "message": "Started server process [38375]", "color_message": "Started server process [\u001b[36m%d\u001b[0m]"}
+{"correlation_id": "-", "asctime": "2025-12-05T12:57:44", "msecs": 254.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 48, "message": "Waiting for application startup."}
+{"correlation_id": "-", "asctime": "2025-12-05T12:57:44", "msecs": 257.0, "levelname": "INFO", "name": "storeapi", "lineno": 26, "message": "\ud83d\udce1 Connecting database..."}
+{"correlation_id": "-", "asctime": "2025-12-05T12:57:44", "msecs": 261.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 62, "message": "Application startup complete."}
+{"correlation_id": "-", "asctime": "2025-12-05T13:11:46", "msecs": 268.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 264, "message": "Shutting down"}
+{"correlation_id": "-", "asctime": "2025-12-05T13:11:46", "msecs": 378.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 67, "message": "Waiting for application shutdown."}
+{"correlation_id": "-", "asctime": "2025-12-05T13:11:46", "msecs": 386.0, "levelname": "INFO", "name": "storeapi", "lineno": 36, "message": "\ud83d\udd0c Disconnecting database..."}
+{"correlation_id": "-", "asctime": "2025-12-05T13:11:46", "msecs": 396.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 76, "message": "Application shutdown complete."}
+{"correlation_id": "-", "asctime": "2025-12-05T13:11:46", "msecs": 399.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 94, "message": "Finished server process [38375]", "color_message": "Finished server process [\u001b[36m%d\u001b[0m]"}
+{"correlation_id": "-", "asctime": "2025-12-05T13:11:48", "msecs": 29.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 84, "message": "Started server process [39724]", "color_message": "Started server process [\u001b[36m%d\u001b[0m]"}
+{"correlation_id": "-", "asctime": "2025-12-05T13:11:48", "msecs": 33.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 48, "message": "Waiting for application startup."}
+{"correlation_id": "-", "asctime": "2025-12-05T13:11:48", "msecs": 37.0, "levelname": "INFO", "name": "storeapi", "lineno": 26, "message": "\ud83d\udce1 Connecting database..."}
+{"correlation_id": "-", "asctime": "2025-12-05T13:11:48", "msecs": 41.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 62, "message": "Application startup complete."}
+{"correlation_id": "-", "asctime": "2025-12-05T13:16:59", "msecs": 595.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 264, "message": "Shutting down"}
+{"correlation_id": "-", "asctime": "2025-12-05T13:16:59", "msecs": 700.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 67, "message": "Waiting for application shutdown."}
+{"correlation_id": "-", "asctime": "2025-12-05T13:16:59", "msecs": 704.0, "levelname": "INFO", "name": "storeapi", "lineno": 36, "message": "\ud83d\udd0c Disconnecting database..."}
+{"correlation_id": "-", "asctime": "2025-12-05T13:16:59", "msecs": 709.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 76, "message": "Application shutdown complete."}
+{"correlation_id": "-", "asctime": "2025-12-05T13:16:59", "msecs": 712.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 94, "message": "Finished server process [39724]", "color_message": "Finished server process [\u001b[36m%d\u001b[0m]"}
+{"correlation_id": "-", "asctime": "2025-12-05T13:17:01", "msecs": 329.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 84, "message": "Started server process [40284]", "color_message": "Started server process [\u001b[36m%d\u001b[0m]"}
+{"correlation_id": "-", "asctime": "2025-12-05T13:17:01", "msecs": 335.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 48, "message": "Waiting for application startup."}
+{"correlation_id": "-", "asctime": "2025-12-05T13:17:01", "msecs": 339.0, "levelname": "INFO", "name": "storeapi", "lineno": 26, "message": "\ud83d\udce1 Connecting database..."}
+{"correlation_id": "-", "asctime": "2025-12-05T13:17:01", "msecs": 342.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 62, "message": "Application startup complete."}
+{"correlation_id": "-", "asctime": "2025-12-05T13:20:18", "msecs": 632.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 264, "message": "Shutting down"}
+{"correlation_id": "-", "asctime": "2025-12-05T13:20:18", "msecs": 740.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 67, "message": "Waiting for application shutdown."}
+{"correlation_id": "-", "asctime": "2025-12-05T13:20:18", "msecs": 751.0, "levelname": "INFO", "name": "storeapi", "lineno": 36, "message": "\ud83d\udd0c Disconnecting database..."}
+{"correlation_id": "-", "asctime": "2025-12-05T13:20:18", "msecs": 756.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 76, "message": "Application shutdown complete."}
+{"correlation_id": "-", "asctime": "2025-12-05T13:20:18", "msecs": 763.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 94, "message": "Finished server process [40284]", "color_message": "Finished server process [\u001b[36m%d\u001b[0m]"}
+{"correlation_id": "-", "asctime": "2025-12-05T13:20:20", "msecs": 447.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 84, "message": "Started server process [40500]", "color_message": "Started server process [\u001b[36m%d\u001b[0m]"}
+{"correlation_id": "-", "asctime": "2025-12-05T13:20:20", "msecs": 452.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 48, "message": "Waiting for application startup."}
+{"correlation_id": "-", "asctime": "2025-12-05T13:20:20", "msecs": 455.0, "levelname": "INFO", "name": "storeapi", "lineno": 26, "message": "\ud83d\udce1 Connecting database..."}
+{"correlation_id": "-", "asctime": "2025-12-05T13:20:20", "msecs": 459.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 62, "message": "Application startup complete."}
+{"correlation_id": "-", "asctime": "2025-12-05T13:22:17", "msecs": 109.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 264, "message": "Shutting down"}
+{"correlation_id": "-", "asctime": "2025-12-05T13:22:17", "msecs": 212.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 67, "message": "Waiting for application shutdown."}
+{"correlation_id": "-", "asctime": "2025-12-05T13:22:17", "msecs": 215.0, "levelname": "INFO", "name": "storeapi", "lineno": 36, "message": "\ud83d\udd0c Disconnecting database..."}
+{"correlation_id": "-", "asctime": "2025-12-05T13:22:17", "msecs": 218.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 76, "message": "Application shutdown complete."}
+{"correlation_id": "-", "asctime": "2025-12-05T13:22:17", "msecs": 220.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 94, "message": "Finished server process [40500]", "color_message": "Finished server process [\u001b[36m%d\u001b[0m]"}
+{"correlation_id": "-", "asctime": "2025-12-05T13:22:18", "msecs": 646.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 84, "message": "Started server process [40648]", "color_message": "Started server process [\u001b[36m%d\u001b[0m]"}
+{"correlation_id": "-", "asctime": "2025-12-05T13:22:18", "msecs": 653.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 48, "message": "Waiting for application startup."}
+{"correlation_id": "-", "asctime": "2025-12-05T13:22:18", "msecs": 656.0, "levelname": "INFO", "name": "storeapi", "lineno": 26, "message": "\ud83d\udce1 Connecting database..."}
+{"correlation_id": "-", "asctime": "2025-12-05T13:22:18", "msecs": 660.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 62, "message": "Application startup complete."}
+{"correlation_id": "-", "asctime": "2025-12-05T13:22:49", "msecs": 793.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 264, "message": "Shutting down"}
+{"correlation_id": "-", "asctime": "2025-12-05T13:22:49", "msecs": 904.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 67, "message": "Waiting for application shutdown."}
+{"correlation_id": "-", "asctime": "2025-12-05T13:22:49", "msecs": 908.0, "levelname": "INFO", "name": "storeapi", "lineno": 36, "message": "\ud83d\udd0c Disconnecting database..."}
+{"correlation_id": "-", "asctime": "2025-12-05T13:22:49", "msecs": 913.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 76, "message": "Application shutdown complete."}
+{"correlation_id": "-", "asctime": "2025-12-05T13:22:49", "msecs": 917.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 94, "message": "Finished server process [40648]", "color_message": "Finished server process [\u001b[36m%d\u001b[0m]"}
+{"correlation_id": "-", "asctime": "2025-12-05T13:22:51", "msecs": 668.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 84, "message": "Started server process [40733]", "color_message": "Started server process [\u001b[36m%d\u001b[0m]"}
+{"correlation_id": "-", "asctime": "2025-12-05T13:22:51", "msecs": 679.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 48, "message": "Waiting for application startup."}
+{"correlation_id": "-", "asctime": "2025-12-05T13:22:51", "msecs": 684.0, "levelname": "INFO", "name": "storeapi", "lineno": 26, "message": "\ud83d\udce1 Connecting database..."}
+{"correlation_id": "-", "asctime": "2025-12-05T13:22:51", "msecs": 690.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 62, "message": "Application startup complete."}
+{"correlation_id": "-", "asctime": "2025-12-05T13:23:53", "msecs": 265.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 264, "message": "Shutting down"}
+{"correlation_id": "-", "asctime": "2025-12-05T13:23:53", "msecs": 372.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 67, "message": "Waiting for application shutdown."}
+{"correlation_id": "-", "asctime": "2025-12-05T13:23:53", "msecs": 374.0, "levelname": "INFO", "name": "storeapi", "lineno": 36, "message": "\ud83d\udd0c Disconnecting database..."}
+{"correlation_id": "-", "asctime": "2025-12-05T13:23:53", "msecs": 377.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 76, "message": "Application shutdown complete."}
+{"correlation_id": "-", "asctime": "2025-12-05T13:23:53", "msecs": 379.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 94, "message": "Finished server process [40733]", "color_message": "Finished server process [\u001b[36m%d\u001b[0m]"}
+{"correlation_id": "-", "asctime": "2025-12-05T13:23:54", "msecs": 789.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 84, "message": "Started server process [40830]", "color_message": "Started server process [\u001b[36m%d\u001b[0m]"}
+{"correlation_id": "-", "asctime": "2025-12-05T13:23:54", "msecs": 795.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 48, "message": "Waiting for application startup."}
+{"correlation_id": "-", "asctime": "2025-12-05T13:23:54", "msecs": 799.0, "levelname": "INFO", "name": "storeapi", "lineno": 26, "message": "\ud83d\udce1 Connecting database..."}
+{"correlation_id": "-", "asctime": "2025-12-05T13:23:54", "msecs": 803.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 62, "message": "Application startup complete."}
+{"correlation_id": "-", "asctime": "2025-12-05T13:24:16", "msecs": 807.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 264, "message": "Shutting down"}
+{"correlation_id": "-", "asctime": "2025-12-05T13:24:16", "msecs": 915.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 67, "message": "Waiting for application shutdown."}
+{"correlation_id": "-", "asctime": "2025-12-05T13:24:16", "msecs": 925.0, "levelname": "INFO", "name": "storeapi", "lineno": 36, "message": "\ud83d\udd0c Disconnecting database..."}
+{"correlation_id": "-", "asctime": "2025-12-05T13:24:16", "msecs": 943.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 76, "message": "Application shutdown complete."}
+{"correlation_id": "-", "asctime": "2025-12-05T13:24:16", "msecs": 953.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 94, "message": "Finished server process [40830]", "color_message": "Finished server process [\u001b[36m%d\u001b[0m]"}
+{"correlation_id": "-", "asctime": "2025-12-05T13:24:18", "msecs": 918.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 84, "message": "Started server process [40908]", "color_message": "Started server process [\u001b[36m%d\u001b[0m]"}
+{"correlation_id": "-", "asctime": "2025-12-05T13:24:18", "msecs": 923.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 48, "message": "Waiting for application startup."}
+{"correlation_id": "-", "asctime": "2025-12-05T13:24:18", "msecs": 926.0, "levelname": "INFO", "name": "storeapi", "lineno": 26, "message": "\ud83d\udce1 Connecting database..."}
+{"correlation_id": "-", "asctime": "2025-12-05T13:24:18", "msecs": 929.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 62, "message": "Application startup complete."}
+{"correlation_id": "-", "asctime": "2025-12-05T13:24:26", "msecs": 562.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 264, "message": "Shutting down"}
+{"correlation_id": "-", "asctime": "2025-12-05T13:24:26", "msecs": 667.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 67, "message": "Waiting for application shutdown."}
+{"correlation_id": "-", "asctime": "2025-12-05T13:24:26", "msecs": 670.0, "levelname": "INFO", "name": "storeapi", "lineno": 36, "message": "\ud83d\udd0c Disconnecting database..."}
+{"correlation_id": "-", "asctime": "2025-12-05T13:24:26", "msecs": 672.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 76, "message": "Application shutdown complete."}
+{"correlation_id": "-", "asctime": "2025-12-05T13:24:26", "msecs": 674.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 94, "message": "Finished server process [40908]", "color_message": "Finished server process [\u001b[36m%d\u001b[0m]"}
+{"correlation_id": "-", "asctime": "2025-12-05T13:24:27", "msecs": 978.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 84, "message": "Started server process [40980]", "color_message": "Started server process [\u001b[36m%d\u001b[0m]"}
+{"correlation_id": "-", "asctime": "2025-12-05T13:24:27", "msecs": 983.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 48, "message": "Waiting for application startup."}
+{"correlation_id": "-", "asctime": "2025-12-05T13:24:27", "msecs": 986.0, "levelname": "INFO", "name": "storeapi", "lineno": 26, "message": "\ud83d\udce1 Connecting database..."}
+{"correlation_id": "-", "asctime": "2025-12-05T13:24:27", "msecs": 989.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 62, "message": "Application startup complete."}
+{"correlation_id": "-", "asctime": "2025-12-05T13:24:57", "msecs": 218.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 264, "message": "Shutting down"}
+{"correlation_id": "-", "asctime": "2025-12-05T13:24:57", "msecs": 321.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 67, "message": "Waiting for application shutdown."}
+{"correlation_id": "-", "asctime": "2025-12-05T13:24:57", "msecs": 323.0, "levelname": "INFO", "name": "storeapi", "lineno": 36, "message": "\ud83d\udd0c Disconnecting database..."}
+{"correlation_id": "-", "asctime": "2025-12-05T13:24:57", "msecs": 326.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 76, "message": "Application shutdown complete."}
+{"correlation_id": "-", "asctime": "2025-12-05T13:24:57", "msecs": 328.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 94, "message": "Finished server process [40980]", "color_message": "Finished server process [\u001b[36m%d\u001b[0m]"}
+{"correlation_id": "-", "asctime": "2025-12-05T13:24:58", "msecs": 684.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 84, "message": "Started server process [41057]", "color_message": "Started server process [\u001b[36m%d\u001b[0m]"}
+{"correlation_id": "-", "asctime": "2025-12-05T13:24:58", "msecs": 689.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 48, "message": "Waiting for application startup."}
+{"correlation_id": "-", "asctime": "2025-12-05T13:24:58", "msecs": 691.0, "levelname": "INFO", "name": "storeapi", "lineno": 26, "message": "\ud83d\udce1 Connecting database..."}
+{"correlation_id": "-", "asctime": "2025-12-05T13:24:58", "msecs": 696.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 62, "message": "Application startup complete."}
+{"correlation_id": "-", "asctime": "2025-12-05T13:29:37", "msecs": 340.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 264, "message": "Shutting down"}
+{"correlation_id": "-", "asctime": "2025-12-05T13:29:37", "msecs": 446.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 67, "message": "Waiting for application shutdown."}
+{"correlation_id": "-", "asctime": "2025-12-05T13:29:37", "msecs": 452.0, "levelname": "INFO", "name": "storeapi", "lineno": 36, "message": "\ud83d\udd0c Disconnecting database..."}
+{"correlation_id": "-", "asctime": "2025-12-05T13:29:37", "msecs": 457.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 76, "message": "Application shutdown complete."}
+{"correlation_id": "-", "asctime": "2025-12-05T13:29:37", "msecs": 460.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 94, "message": "Finished server process [41057]", "color_message": "Finished server process [\u001b[36m%d\u001b[0m]"}
+{"correlation_id": "-", "asctime": "2025-12-05T13:29:39", "msecs": 164.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 84, "message": "Started server process [41273]", "color_message": "Started server process [\u001b[36m%d\u001b[0m]"}
+{"correlation_id": "-", "asctime": "2025-12-05T13:29:39", "msecs": 169.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 48, "message": "Waiting for application startup."}
+{"correlation_id": "-", "asctime": "2025-12-05T13:29:39", "msecs": 172.0, "levelname": "INFO", "name": "storeapi", "lineno": 26, "message": "\ud83d\udce1 Connecting database..."}
+{"correlation_id": "-", "asctime": "2025-12-05T13:29:39", "msecs": 175.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 62, "message": "Application startup complete."}
+{"correlation_id": "-", "asctime": "2025-12-05T13:31:06", "msecs": 980.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 264, "message": "Shutting down"}
+{"correlation_id": "-", "asctime": "2025-12-05T13:31:07", "msecs": 84.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 67, "message": "Waiting for application shutdown."}
+{"correlation_id": "-", "asctime": "2025-12-05T13:31:07", "msecs": 87.0, "levelname": "INFO", "name": "storeapi", "lineno": 36, "message": "\ud83d\udd0c Disconnecting database..."}
+{"correlation_id": "-", "asctime": "2025-12-05T13:31:07", "msecs": 91.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 76, "message": "Application shutdown complete."}
+{"correlation_id": "-", "asctime": "2025-12-05T13:31:07", "msecs": 94.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 94, "message": "Finished server process [41273]", "color_message": "Finished server process [\u001b[36m%d\u001b[0m]"}
+{"correlation_id": "-", "asctime": "2025-12-05T13:31:08", "msecs": 667.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 84, "message": "Started server process [41428]", "color_message": "Started server process [\u001b[36m%d\u001b[0m]"}
+{"correlation_id": "-", "asctime": "2025-12-05T13:31:08", "msecs": 674.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 48, "message": "Waiting for application startup."}
+{"correlation_id": "-", "asctime": "2025-12-05T13:31:08", "msecs": 678.0, "levelname": "INFO", "name": "storeapi", "lineno": 26, "message": "\ud83d\udce1 Connecting database..."}
+{"correlation_id": "-", "asctime": "2025-12-05T13:31:08", "msecs": 683.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 62, "message": "Application startup complete."}
+{"correlation_id": "-", "asctime": "2025-12-05T13:31:22", "msecs": 652.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 264, "message": "Shutting down"}
+{"correlation_id": "-", "asctime": "2025-12-05T13:31:22", "msecs": 755.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 67, "message": "Waiting for application shutdown."}
+{"correlation_id": "-", "asctime": "2025-12-05T13:31:22", "msecs": 760.0, "levelname": "INFO", "name": "storeapi", "lineno": 36, "message": "\ud83d\udd0c Disconnecting database..."}
+{"correlation_id": "-", "asctime": "2025-12-05T13:31:22", "msecs": 764.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 76, "message": "Application shutdown complete."}
+{"correlation_id": "-", "asctime": "2025-12-05T13:31:22", "msecs": 768.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 94, "message": "Finished server process [41428]", "color_message": "Finished server process [\u001b[36m%d\u001b[0m]"}
+{"correlation_id": "-", "asctime": "2025-12-05T13:31:24", "msecs": 339.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 84, "message": "Started server process [41511]", "color_message": "Started server process [\u001b[36m%d\u001b[0m]"}
+{"correlation_id": "-", "asctime": "2025-12-05T13:31:24", "msecs": 348.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 48, "message": "Waiting for application startup."}
+{"correlation_id": "-", "asctime": "2025-12-05T13:31:24", "msecs": 352.0, "levelname": "INFO", "name": "storeapi", "lineno": 26, "message": "\ud83d\udce1 Connecting database..."}
+{"correlation_id": "-", "asctime": "2025-12-05T13:31:24", "msecs": 356.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 62, "message": "Application startup complete."}
+{"correlation_id": "-", "asctime": "2025-12-05T13:34:38", "msecs": 250.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 264, "message": "Shutting down"}
+{"correlation_id": "-", "asctime": "2025-12-05T13:34:38", "msecs": 362.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 67, "message": "Waiting for application shutdown."}
+{"correlation_id": "-", "asctime": "2025-12-05T13:34:38", "msecs": 368.0, "levelname": "INFO", "name": "storeapi", "lineno": 36, "message": "\ud83d\udd0c Disconnecting database..."}
+{"correlation_id": "-", "asctime": "2025-12-05T13:34:38", "msecs": 375.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 76, "message": "Application shutdown complete."}
+{"correlation_id": "-", "asctime": "2025-12-05T13:34:38", "msecs": 381.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 94, "message": "Finished server process [41511]", "color_message": "Finished server process [\u001b[36m%d\u001b[0m]"}
+{"correlation_id": "-", "asctime": "2025-12-05T13:34:40", "msecs": 408.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 84, "message": "Started server process [41662]", "color_message": "Started server process [\u001b[36m%d\u001b[0m]"}
+{"correlation_id": "-", "asctime": "2025-12-05T13:34:40", "msecs": 413.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 48, "message": "Waiting for application startup."}
+{"correlation_id": "-", "asctime": "2025-12-05T13:34:40", "msecs": 416.0, "levelname": "INFO", "name": "storeapi", "lineno": 26, "message": "\ud83d\udce1 Connecting database..."}
+{"correlation_id": "-", "asctime": "2025-12-05T13:34:40", "msecs": 419.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 62, "message": "Application startup complete."}
+{"correlation_id": "-", "asctime": "2025-12-05T13:36:01", "msecs": 900.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 264, "message": "Shutting down"}
+{"correlation_id": "-", "asctime": "2025-12-05T13:36:02", "msecs": 5.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 67, "message": "Waiting for application shutdown."}
+{"correlation_id": "-", "asctime": "2025-12-05T13:36:02", "msecs": 11.0, "levelname": "INFO", "name": "storeapi", "lineno": 36, "message": "\ud83d\udd0c Disconnecting database..."}
+{"correlation_id": "-", "asctime": "2025-12-05T13:36:02", "msecs": 15.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 76, "message": "Application shutdown complete."}
+{"correlation_id": "-", "asctime": "2025-12-05T13:36:02", "msecs": 19.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 94, "message": "Finished server process [41662]", "color_message": "Finished server process [\u001b[36m%d\u001b[0m]"}
+{"correlation_id": "-", "asctime": "2025-12-05T13:36:03", "msecs": 593.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 84, "message": "Started server process [41798]", "color_message": "Started server process [\u001b[36m%d\u001b[0m]"}
+{"correlation_id": "-", "asctime": "2025-12-05T13:36:03", "msecs": 598.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 48, "message": "Waiting for application startup."}
+{"correlation_id": "-", "asctime": "2025-12-05T13:36:03", "msecs": 601.0, "levelname": "INFO", "name": "storeapi", "lineno": 26, "message": "\ud83d\udce1 Connecting database..."}
+{"correlation_id": "-", "asctime": "2025-12-05T13:36:03", "msecs": 605.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 62, "message": "Application startup complete."}
+{"correlation_id": "-", "asctime": "2025-12-05T13:41:23", "msecs": 486.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 264, "message": "Shutting down"}
+{"correlation_id": "-", "asctime": "2025-12-05T13:41:23", "msecs": 593.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 67, "message": "Waiting for application shutdown."}
+{"correlation_id": "-", "asctime": "2025-12-05T13:41:23", "msecs": 596.0, "levelname": "INFO", "name": "storeapi", "lineno": 36, "message": "\ud83d\udd0c Disconnecting database..."}
+{"correlation_id": "-", "asctime": "2025-12-05T13:41:23", "msecs": 598.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 76, "message": "Application shutdown complete."}
+{"correlation_id": "-", "asctime": "2025-12-05T13:41:23", "msecs": 600.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 94, "message": "Finished server process [41798]", "color_message": "Finished server process [\u001b[36m%d\u001b[0m]"}
+{"correlation_id": "-", "asctime": "2025-12-05T13:41:25", "msecs": 4.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 84, "message": "Started server process [42047]", "color_message": "Started server process [\u001b[36m%d\u001b[0m]"}
+{"correlation_id": "-", "asctime": "2025-12-05T13:41:25", "msecs": 11.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 48, "message": "Waiting for application startup."}
+{"correlation_id": "-", "asctime": "2025-12-05T13:41:25", "msecs": 14.0, "levelname": "INFO", "name": "storeapi", "lineno": 26, "message": "\ud83d\udce1 Connecting database..."}
+{"correlation_id": "-", "asctime": "2025-12-05T13:41:25", "msecs": 17.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 62, "message": "Application startup complete."}
+{"correlation_id": "-", "asctime": "2025-12-05T13:46:12", "msecs": 45.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 264, "message": "Shutting down"}
+{"correlation_id": "-", "asctime": "2025-12-05T13:46:12", "msecs": 149.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 67, "message": "Waiting for application shutdown."}
+{"correlation_id": "-", "asctime": "2025-12-05T13:46:12", "msecs": 151.0, "levelname": "INFO", "name": "storeapi", "lineno": 36, "message": "\ud83d\udd0c Disconnecting database..."}
+{"correlation_id": "-", "asctime": "2025-12-05T13:46:12", "msecs": 154.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 76, "message": "Application shutdown complete."}
+{"correlation_id": "-", "asctime": "2025-12-05T13:46:12", "msecs": 157.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 94, "message": "Finished server process [42047]", "color_message": "Finished server process [\u001b[36m%d\u001b[0m]"}
+{"correlation_id": "-", "asctime": "2025-12-05T13:46:13", "msecs": 726.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 84, "message": "Started server process [42281]", "color_message": "Started server process [\u001b[36m%d\u001b[0m]"}
+{"correlation_id": "-", "asctime": "2025-12-05T13:46:13", "msecs": 731.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 48, "message": "Waiting for application startup."}
+{"correlation_id": "-", "asctime": "2025-12-05T13:46:13", "msecs": 736.0, "levelname": "INFO", "name": "storeapi", "lineno": 26, "message": "\ud83d\udce1 Connecting database..."}
+{"correlation_id": "-", "asctime": "2025-12-05T13:46:13", "msecs": 740.0, "levelname": "INFO", "name": "uvicorn.error", "lineno": 62, "message": "Application startup complete."}

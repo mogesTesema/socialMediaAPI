@@ -1,6 +1,6 @@
-from fastapi import APIRouter, HTTPException, Request, BackgroundTasks
+from fastapi import APIRouter, HTTPException, Request, BackgroundTasks, Response, status
 from storeapi.models.user import UserIn, Token
-from storeapi.database import user_table, database
+from storeapi.database import user_table, database, refreshtoken_table
 from storeapi.email.verify_email import send_verfication_email
 from storeapi.security.user_security import (
     get_user,
@@ -10,9 +10,12 @@ from storeapi.security.user_security import (
     get_current_user,
     get_subject_token_type,
     create_confirm_token,
+    create_refresh_token,
+    refresh_token_rotation,
 )
 
 import logging
+import uuid
 
 logger = logging.getLogger(__name__)
 
@@ -20,7 +23,9 @@ router = APIRouter()
 
 
 @router.post("/register", status_code=201)
-async def register(user: UserIn, background_task: BackgroundTasks, request: Request):
+async def register(
+    user: UserIn, background_task: BackgroundTasks, request: Request, response: Response
+):
     email = user.email
     user_exist = await get_user(email)
     if user_exist:
@@ -38,9 +43,24 @@ async def register(user: UserIn, background_task: BackgroundTasks, request: Requ
     logger.debug(user_query)
 
     access_token = create_access_token(email)
-    confirm_token = create_confirm_token(user.email)
-    verify_url = request.url_for("confirm_email", token=confirm_token)
+    confirm_token = create_confirm_token(email)
+    refresh_id = str(uuid.uuid4())
+    refresh_token = create_refresh_token(email=email, jti=refresh_id)
+    hashed_refresh_token = get_password_hash(refresh_token)
 
+    refresh_query = refreshtoken_table.insert().values(
+        jti=refresh_id, user_email=user.email, hashed_token=hashed_refresh_token
+    )
+    try:
+        await database.execute(refresh_query)
+
+    except Exception as e:
+        raise HTTPException(
+            status_code=500,
+            detail=f"Internal server Error,unable to sotre refresh token to databse:{e}",
+        )
+
+    verify_url = request.url_for("confirm_email", token=confirm_token)
     background_task.add_task(
         send_verfication_email,
         to=user.email,
@@ -48,9 +68,19 @@ async def register(user: UserIn, background_task: BackgroundTasks, request: Requ
         verify_url=verify_url,
     )
 
+    response.set_cookie(
+        key="refresh_token",
+        value=refresh_token,
+        max_age=60 * 60 * 24 * 30,
+        path="/auth/refresh",
+        secure=True,
+        httponly=True,
+        samesite="strict",
+    )
+
     return {
         "status": "user registered. please confirm your email",
-        "token:": access_token,
+        "access token:": access_token,
     }
 
 
@@ -81,3 +111,28 @@ async def confirm_email(token: str):
     await database.execute(confirm_query)
 
     return {"detail": "user has been confirmed"}
+
+
+@router.post("/auth/refresh")
+async def refresh_token(response: Response, refresh_token: str | None = None):
+    if not refresh_token:
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="there is no refresh token, please login agian to get new one",
+        )
+
+    refresh_token_detail = await refresh_token_rotation(refresh_token)  # noqa
+    new_access_token = refresh_token_detail["new_access_token"]
+    new_refresh_token = refresh_token_detail["new_refresh_token"]
+
+    response.set_cookie(
+        key="refresh",
+        value=new_refresh_token,
+        max_age=60 * 60 * 24 * 30,
+        path="/auth/refresh",
+        secure=True,
+        httponly=True,
+        samesite="strict",
+    )
+
+    return {"status": "secessfully refreshed", "access token": new_access_token}
