@@ -38,6 +38,21 @@ class SecurityKeys(BaseConfig):
     model_config = SettingsConfigDict(env_file=".env", extra="ignore")
 
 
+class FileUploadKeys(BaseSettings):
+    B2_KEY_ID: Optional[str] = None
+    B2_APPLICATION_KEY: Optional[str] = None
+    B2_BUCKET_NAME: Optional[str] = None
+    model_config = SettingsConfigDict(env_file=".env", extra="ignore")
+
+
+def get_file_upload_keys():
+    return FileUploadKeys()
+
+
+def get_secrets():
+    return SecurityKeys()
+
+
 @lru_cache()
 def get_config(env_state: str):
     configs = {"dev": DevConfig, "prod": ProdConfig, "test": TestConfig}

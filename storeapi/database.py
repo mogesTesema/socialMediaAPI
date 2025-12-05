@@ -17,9 +17,6 @@ refreshtoken_table = sqlalchemy.Table(
     "refreshtokens",
     metadata,
     sqlalchemy.Column(
-        "id", sqlalchemy.Integer, primary_key=True, nullable=False, unique=True
-    ),
-    sqlalchemy.Column(
         "jti", sqlalchemy.String, primary_key=True, unique=True, nullable=False
     ),
     sqlalchemy.Column(

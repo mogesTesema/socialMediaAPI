@@ -4,7 +4,7 @@ from fastapi.security import OAuth2PasswordBearer
 from argon2 import PasswordHasher  # noqa
 from storeapi.database import user_table, database, refreshtoken_table
 from storeapi.utilits.formatted_printer import print_better
-from storeapi.config import SecurityKeys
+from storeapi.config import get_secrets
 import logging
 from jwt import ExpiredSignatureError, PyJWTError
 import jwt
@@ -12,7 +12,7 @@ import datetime
 from typing import Annotated, Literal
 
 logger = logging.getLogger(__name__)
-secret_keys = SecurityKeys()
+secret_keys = get_secrets()
 
 SECRET_KEY = secret_keys.SECRET_KEY
 ALGORITHM = secret_keys.ALGORITHM
