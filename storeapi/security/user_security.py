@@ -32,7 +32,7 @@ def create_credentials_exception(
 
 
 def access_token_expire_minutes() -> int:
-    return 30
+    return 5
 
 
 def confirm_token_expire_minutes() -> int:
@@ -172,12 +172,14 @@ async def is_confirmed(email: str) -> bool:
 
 
 async def refresh_token_rotation(refresh_token: str):
+    logger.debug(f"token rotation excutting,with token:{refresh_token}")
     try:
         refresh_payload = jwt.decode(
             jwt=refresh_token,
             key=REFRESH_TOKEN_SECRET_KEY,
             algorithms=[REFRESH_TOKEN_ALGORITHM],
         )
+
     except ExpiredSignatureError as e:
         raise create_credentials_exception(
             status_code=status.HTTP_401_UNAUTHORIZED,
@@ -198,6 +200,7 @@ async def refresh_token_rotation(refresh_token: str):
     jti_query = sqlalchemy.select(refreshtoken_table).where(
         refreshtoken_table.c.jti == refresh_id
     )
+    logger.debug(jti_query)
 
     token_content = await database.fetch_one(jti_query)
 
@@ -212,6 +215,20 @@ async def refresh_token_rotation(refresh_token: str):
 
     new_access_token = create_access_token(email=user_email)
     new_refresh_token = create_refresh_token(email=user_email, jti=refresh_id)
+    new_hashed_token = await get_password_hash(new_refresh_token)
+
+    update_token_query = sqlalchemy.update(refreshtoken_table).values(
+        hashed_token=new_hashed_token
+    )
+    logger.debug(update_token_query)
+    try:
+        await database.execute(update_token_query)
+
+    except Exception as e:
+        raise create_credentials_exception(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Unable to update refresh token table in database:{e}",
+        )
 
     return {
         "new_access_token": new_access_token,

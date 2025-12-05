@@ -1,5 +1,13 @@
-from fastapi import APIRouter, HTTPException, Request, BackgroundTasks, Response, status
-from storeapi.models.user import UserIn, Token
+from fastapi import (
+    APIRouter,
+    HTTPException,
+    Request,
+    BackgroundTasks,
+    Response,
+    status,
+    Depends,
+)
+from storeapi.models.user import UserIn, Token, User
 from storeapi.database import user_table, database, refreshtoken_table
 from storeapi.email.verify_email import send_verfication_email
 from storeapi.security.user_security import (
@@ -12,10 +20,12 @@ from storeapi.security.user_security import (
     create_confirm_token,
     create_refresh_token,
     refresh_token_rotation,
+    verify_password,
 )
 
 import logging
 import uuid
+from typing import Annotated
 
 logger = logging.getLogger(__name__)
 
@@ -28,25 +38,42 @@ async def register(
 ):
     email = user.email
     user_exist = await get_user(email)
+    logger.debug("registering user")
     if user_exist:
-        raise HTTPException(
-            status_code=409, detail="user already exist,conflict with exsisting info"
-        )
+        logger.debug("user already exist in database")
+        if user_exist.confirmed:
+            raise HTTPException(
+                status_code=409,
+                detail="user already exist,conflict with exsisting info",
+            )
+        else:
+            hashed_password = await get_password_hash(user.password)
+            update_query = (
+                user_table.update()
+                .where(user_table.c.email == email)
+                .values(password=hashed_password)
+            )
+            try:
+                await database.execute(update_query)
+            except Exception as e:
+                raise HTTPException(
+                    status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+                    detail=f"fail to reregister user:{e}",
+                )
+    else:
+        hashed_password = await get_password_hash(user.password)
+        user_query = user_table.insert().values(email=email, password=hashed_password)
+        logger.debug(user_query)
 
-    hashed_password = await get_password_hash(user.password)
-    user_query = user_table.insert().values(email=email, password=hashed_password)
-    try:
-        await database.execute(user_query)
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=f"database crash:{e}")
-
-    logger.debug(user_query)
-
+        try:
+            await database.execute(user_query)
+        except Exception as e:
+            raise HTTPException(status_code=500, detail=f"database crash:{e}")
     access_token = create_access_token(email)
     confirm_token = create_confirm_token(email)
     refresh_id = str(uuid.uuid4())
     refresh_token = create_refresh_token(email=email, jti=refresh_id)
-    hashed_refresh_token = get_password_hash(refresh_token)
+    hashed_refresh_token = await get_password_hash(refresh_token)
 
     refresh_query = refreshtoken_table.insert().values(
         jti=refresh_id, user_email=user.email, hashed_token=hashed_refresh_token
@@ -84,6 +111,51 @@ async def register(
     }
 
 
+@router.post("/login")
+async def login(user: UserIn, response: Response):
+    user_exist = await get_user(user.email)
+    if not user_exist:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="user don't exist,incorrect passowrd or email",
+        )
+    if not verify_password(user.password, user_exist.password):
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND, detail="incorrect password or email"
+        )
+    access_token = create_access_token(user_exist.email)
+    # confirm_token = create_confirm_token(email)
+    refresh_id = str(uuid.uuid4())
+    refresh_token = create_refresh_token(email=user_exist.email, jti=refresh_id)
+    hashed_refresh_token = await get_password_hash(refresh_token)
+
+    refresh_query = (
+        refreshtoken_table.update()
+        .values(jti=refresh_id, hashed_token=hashed_refresh_token)
+        .where(refreshtoken_table.c.user_email == user_exist.email)
+    )
+    try:
+        await database.execute(refresh_query)
+
+    except Exception as e:
+        raise HTTPException(
+            status_code=500,
+            detail=f"Internal server Error,unable to sotre refresh token to databse:{e}",
+        )
+
+    response.set_cookie(
+        key="refresh_token",
+        value=refresh_token,
+        max_age=60 * 60 * 24 * 30,
+        path="/auth/refresh",
+        secure=True,
+        httponly=True,
+        samesite="strict",
+    )
+
+    return {"status": "seccussfully login", "access token": access_token}
+
+
 @router.get("/token")
 async def get_profile(user: UserIn):
     user = await authenticate_user(email=user.email, password=user.password)
@@ -114,7 +186,10 @@ async def confirm_email(token: str):
 
 
 @router.post("/auth/refresh")
-async def refresh_token(response: Response, refresh_token: str | None = None):
+async def refresh_token(
+    reqeust: Request, response: Response, refresh_token: str | None = None
+):
+    refresh_token = reqeust.cookies.get("refresh_token")
     if not refresh_token:
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
@@ -136,3 +211,39 @@ async def refresh_token(response: Response, refresh_token: str | None = None):
     )
 
     return {"status": "secessfully refreshed", "access token": new_access_token}
+
+
+@router.delete("/delete")
+async def delete_account(current_user: Annotated[User, Depends(get_current_user)]):
+    # first delete user's refresh token
+    logger.debug(f"DELETTING user:{current_user}")
+    delete_refresh_query = refreshtoken_table.delete().where(
+        refreshtoken_table.c.user_email == current_user.email
+    )
+    logger(delete_refresh_query)
+
+    try:
+        await database.execute(delete_refresh_query)
+
+    except Exception as e:
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"unable to delete user's refresh token:{e}",
+        )
+
+    delete_user_query = user_table.delete().where(
+        user_table.c.email == current_user.email
+    )
+
+    logger.debug(delete_user_query)
+
+    try:
+        await database.execute(delete_user_query)
+
+    except Exception:
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"unable to delete user:{e}",
+        )
+
+    return {"status": "seccussfully deleted"}
