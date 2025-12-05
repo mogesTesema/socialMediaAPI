@@ -1,9 +1,10 @@
 import sqlalchemy
 from fastapi import Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordBearer
-from argon2 import PasswordHasher
+from argon2 import PasswordHasher  # noqa
 from storeapi.database import user_table, database, refreshtoken_table
 from storeapi.utilits.formatted_printer import print_better
+from storeapi.config import SecurityKeys
 import logging
 from jwt import ExpiredSignatureError, PyJWTError
 import jwt
@@ -11,12 +12,12 @@ import datetime
 from typing import Annotated, Literal
 
 logger = logging.getLogger(__name__)
+secret_keys = SecurityKeys()
 
-
-SECRETE_KEY = "6152bf528fa1f07a8c42b24fda7e82e4"
-REFRESH_TOKEN_SECRET_KEY = "e744c3764715c1136bd6092424bfd260d71f421ebd13cd8f"
-REFRESH_TOKEN_ALGORITHM = "HS512"
-ALGORITHM = "HS256"
+SECRET_KEY = secret_keys.SECRET_KEY
+ALGORITHM = secret_keys.ALGORITHM
+REFRESH_TOKEN_SECRET_KEY = secret_keys.REFRESH_TOKEN_SECRET_KEY
+REFRESH_TOKEN_ALGORITHM = secret_keys.REFRESH_TOKEN_ALGORITHM
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
 password_hasher = PasswordHasher()
 
@@ -48,7 +49,7 @@ def create_access_token(email: str):
         minutes=access_token_expire_minutes()
     )
     jwt_data = {"sub": email, "exp": expire, "type": "access"}
-    encoded_jwt = jwt.encode(payload=jwt_data, key=SECRETE_KEY, algorithm=ALGORITHM)
+    encoded_jwt = jwt.encode(payload=jwt_data, key=SECRET_KEY, algorithm=ALGORITHM)
 
     return encoded_jwt
 
@@ -62,7 +63,7 @@ def create_confirm_token(email: str):
     jwt_confirm_data = {"sub": email, "exp": confirm_expire, "type": "confirmation"}
 
     encoded_confirm_token = jwt.encode(
-        payload=jwt_confirm_data, key=SECRETE_KEY, algorithm=ALGORITHM
+        payload=jwt_confirm_data, key=SECRET_KEY, algorithm=ALGORITHM
     )
 
     return encoded_confirm_token
@@ -88,7 +89,7 @@ def validate_refresh_token():
 
 def get_subject_token_type(token: str, type: Literal["access", "confirmation"]) -> str:
     try:
-        payload = jwt.decode(jwt=token, key=SECRETE_KEY, algorithms=[ALGORITHM])
+        payload = jwt.decode(jwt=token, key=SECRET_KEY, algorithms=[ALGORITHM])
 
     except ExpiredSignatureError as e:
         raise HTTPException(

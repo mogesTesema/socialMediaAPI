@@ -30,6 +30,14 @@ class TestConfig(GlobalConfig):
     model_config = SettingsConfigDict(env_prefix="TEST_", extra="ignore")
 
 
+class SecurityKeys(BaseConfig):
+    SECRET_KEY: Optional[str] = None
+    ALGORITHM: Optional[str] = None
+    REFRESH_TOKEN_SECRET_KEY: Optional[str] = None
+    REFRESH_TOKEN_ALGORITHM: Optional[str] = None
+    model_config = SettingsConfigDict(env_file=".env", extra="ignore")
+
+
 @lru_cache()
 def get_config(env_state: str):
     configs = {"dev": DevConfig, "prod": ProdConfig, "test": TestConfig}
