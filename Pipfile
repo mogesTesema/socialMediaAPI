@@ -7,8 +7,6 @@ name = "pypi"
 fastapi = "*"
 uvicorn = {extras = ["standard"], version = "*"}
 python-multipart = "*"
-aiofiles = "*"
-b2sdk = "*"
 pytest = "*"
 httpx = "*"
 sqlalchemy = "*"
@@ -23,6 +21,8 @@ logtail-python = "*"
 sniffio = "*"
 pyjwt = "*"
 argon2-cffi = "*"
+aiofiles = "*"
+b2sdk = "*"
 
 [dev-packages]
 pytest = "*"

@@ -16,9 +16,8 @@ user_table = sqlalchemy.Table(
 refreshtoken_table = sqlalchemy.Table(
     "refreshtokens",
     metadata,
-    sqlalchemy.Column(
-        "jti", sqlalchemy.String, primary_key=True, unique=True, nullable=False
-    ),
+    sqlalchemy.Column("id", sqlalchemy.Integer, primary_key=True),
+    sqlalchemy.Column("jti", sqlalchemy.String, nullable=False),
     sqlalchemy.Column(
         "user_email", sqlalchemy.ForeignKey("users.email"), nullable=False
     ),

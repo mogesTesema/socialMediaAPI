@@ -152,6 +152,8 @@ async def authenticate_user(email: str, password: str):
 
 
 async def get_current_user(token: Annotated[str, Depends(oauth2_scheme)]):
+    print_better(obj="delete wediet aleh?", message=token)
+    logger.debug("Getting Current user with access token")
     email = get_subject_token_type(token=token, type="access")
     user = await get_user(email=email)
 

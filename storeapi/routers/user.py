@@ -217,10 +217,15 @@ async def refresh_token(
 async def delete_account(current_user: Annotated[User, Depends(get_current_user)]):
     # first delete user's refresh token
     logger.debug(f"DELETTING user:{current_user}")
+    if not current_user.confirmed:
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="please confirm your email before trying to delete account",
+        )
     delete_refresh_query = refreshtoken_table.delete().where(
         refreshtoken_table.c.user_email == current_user.email
     )
-    logger(delete_refresh_query)
+    logger.debug(delete_refresh_query)
 
     try:
         await database.execute(delete_refresh_query)
@@ -240,7 +245,7 @@ async def delete_account(current_user: Annotated[User, Depends(get_current_user)
     try:
         await database.execute(delete_user_query)
 
-    except Exception:
+    except Exception as e:
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail=f"unable to delete user:{e}",

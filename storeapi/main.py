@@ -6,6 +6,7 @@ from fastapi.exception_handlers import http_exception_handler
 from contextlib import asynccontextmanager
 from storeapi.routers.post import router as post_router
 from storeapi.fileuploads.fileuploaderouters import router as upload_router
+from storeapi.routers.upload import router as b2_upload_router
 from storeapi.videochats.videochatrouter import router as videochat_router
 from storeapi.routers.user import router as user_router
 from storeapi.routers.async_test import test_router
@@ -53,6 +54,7 @@ app.include_router(upload_router)
 app.include_router(videochat_router)
 app.include_router(user_router)
 app.include_router(test_router)
+app.include_router(b2_upload_router)
 
 
 # 5️⃣ Exception Handlers
