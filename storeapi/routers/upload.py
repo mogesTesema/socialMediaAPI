@@ -1,6 +1,7 @@
 import logging
 import tempfile
 import aiofiles
+from anyio import to_thread
 from fastapi import APIRouter, HTTPException, UploadFile, status
 from storeapi.libs.b2 import b2_upload_file
 
@@ -27,7 +28,7 @@ async def upload_file(file: UploadFile, status_code=status.HTTP_201_CREATED):
                 while chunk := await file.read(CHUNK_SIZE):
                     await f.write(chunk)
 
-            file_url = b2_upload_file(local_file=filename, file_name=file.filename)
+            file_url = await to_thread.run_sync(b2_upload_file, filename, file.filename)
             logger.info(f"file is successfully uploaded. it url is:{file_url}")
     except Exception as e:
         raise HTTPException(

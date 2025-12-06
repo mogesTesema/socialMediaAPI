@@ -174,7 +174,7 @@ async def is_confirmed(email: str) -> bool:
 
 
 async def refresh_token_rotation(refresh_token: str):
-    logger.debug(f"token rotation excutting,with token:{refresh_token}")
+    logger.debug("token rotation excutting")
     try:
         refresh_payload = jwt.decode(
             jwt=refresh_token,
@@ -199,15 +199,26 @@ async def refresh_token_rotation(refresh_token: str):
             detail=f"wrong refresh token type:{type}",
         )
     refresh_id = refresh_payload["jti"]
+    logger.critical(refresh_id)
     jti_query = sqlalchemy.select(refreshtoken_table).where(
         refreshtoken_table.c.jti == refresh_id
     )
     logger.debug(jti_query)
 
     token_content = await database.fetch_one(jti_query)
-
-    hashed_token = token_content.hashed_token
-    user_email = token_content.user_email
+    if not token_content:
+        raise create_credentials_exception(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="refresh token no longer in database,please login again",
+        )
+    try:
+        hashed_token = token_content.hashed_token
+        user_email = token_content.user_email
+    except Exception as e:
+        raise create_credentials_exception(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"refreshtoken_table object error: {e}",
+        )
 
     if not verify_password(refresh_token, hashed_token):
         raise create_credentials_exception(
