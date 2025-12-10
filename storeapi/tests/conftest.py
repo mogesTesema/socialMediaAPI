@@ -2,6 +2,7 @@
 Docstring for storeapi.tests.conftest
 this is the core pytest configuration file that has many fixtures which going to be used by any test and test suite
 in this root folder and subfolders. it register all fixture to fixture index lookup table.
+fixture is the magical that abstract all boring stuff in testing
 """
 
 from typing import AsyncGenerator, Generator
