@@ -25,7 +25,7 @@ def client() -> Generator:
     yield TestClient(app=app)
 
 
-@pytest.fixture(autouse=False)
+@pytest.fixture(autouse=True)
 async def db() -> AsyncGenerator:
     post_dict.clear()
     comment_dict.clear()
