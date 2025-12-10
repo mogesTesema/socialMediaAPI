@@ -9,7 +9,7 @@ from storeapi.fileuploads.fileuploaderouters import router as upload_router
 from storeapi.routers.upload import router as b2_upload_router
 from storeapi.videochats.videochatrouter import router as videochat_router
 from storeapi.routers.user import router as user_router
-from storeapi.routers.async_test import test_router
+from storeapi.routers.cuncurrency_async import test_router
 from storeapi.database import database
 
 # from storeapi.logtail_storage_config import test

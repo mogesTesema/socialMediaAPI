@@ -2,10 +2,10 @@ from typing import AsyncGenerator, Generator
 
 import pytest
 from fastapi.testclient import TestClient
-from httpx import AsyncClient
+from httpx import AsyncClient, ASGITransport
 
 from storeapi.main import app
-from storeapi.routers.post import comment_table, post_table
+from storeapi.routers.post import comment_dict, post_dict
 
 
 @pytest.fixture(scope="session")
@@ -13,18 +13,20 @@ def anyio_backend():
     return "asyncio"
 
 
+@pytest.fixture()
 def client() -> Generator:
-    yield TestClient(app=app, base_url="http:127.0.0.1/8000")
+    yield TestClient(app=app)
 
 
-@pytest.fixture(autouse=True)
+@pytest.fixture(autouse=False)
 async def db() -> AsyncGenerator:
-    post_table.clear()
-    comment_table.clear()
+    post_dict.clear()
+    comment_dict.clear()
     yield
 
 
 @pytest.fixture()
 async def async_client(client) -> AsyncGenerator:
-    async with AsyncClient(app=app, base_url=client.base_url) as ac:
+    transport = ASGITransport(app=app)
+    async with AsyncClient(transport=transport, base_url=client.base_url) as ac:
         yield ac

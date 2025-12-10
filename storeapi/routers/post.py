@@ -23,6 +23,8 @@ from enum import Enum
 router = APIRouter()
 
 logger = logging.getLogger(__name__)
+comment_dict = {}
+post_dict = {}
 
 select_liked_post = (
     sqlalchemy.select(post_table, sqlalchemy.func.count(like_table.c.id).label("likes"))
