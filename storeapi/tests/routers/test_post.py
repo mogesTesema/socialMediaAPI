@@ -1,5 +1,3 @@
-from httpx import AsyncClient
-import pytest
 # async def create_post(body:str,async_client:AsyncClient)->dict:
 #     response = await async_client.post("/post",json={"body":body})
 #     return response.json()
@@ -18,6 +16,12 @@ import pytest
 #         )
 #     assert response.status_code == 201
 #     assert {"id":0,"body":body}.items() <= response.json().items()
+
+
+from httpx import AsyncClient
+import pytest
+
+
 async def create_post(body: str, async_client: AsyncClient) -> dict:
     response = await async_client.post("/post", json={"body": body})
     return response.json()
