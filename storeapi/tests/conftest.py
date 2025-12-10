@@ -2,7 +2,11 @@
 Docstring for storeapi.tests.conftest
 this is the core pytest configuration file that has many fixtures which going to be used by any test and test suite
 in this root folder and subfolders. it register all fixture to fixture index lookup table.
-fixture is the magical that abstract all boring stuff in testing
+fixture is the magical that abstract all boring stuff in testing.
+Testing software using testing tools like pytest is pretty hands because use define how it test the software
+with given data and flow, it will test automatically. Just we have to write single command after creating test suites and test cases.
+this nature of testing tool like pytest is incredable great!
+
 """
 
 from typing import AsyncGenerator, Generator
