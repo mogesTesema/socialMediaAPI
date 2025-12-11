@@ -22,8 +22,7 @@ from enum import Enum
 router = APIRouter()
 
 logger = logging.getLogger(__name__)
-comment_dict = {}
-post_dict = {}
+
 
 select_liked_post = (
     sqlalchemy.select(post_table, sqlalchemy.func.count(like_table.c.id).label("likes"))
@@ -44,14 +43,7 @@ async def find_post(post_id: int):
     return await database.fetch_one(query=query)
 
 
-@router.post("/post", status_code=status.HTTP_201_CREATED)
-async def mock_post(body: UserPostIn):
-    index = len(post_dict)
-    post_dict[str(index)] = body.body
-    return {"id": index, "body": body.body}
-
-
-@router.post("/posts", response_model=UserPost)
+@router.post("/post", response_model=UserPost)
 async def create_post(
     post: UserPostIn, current_user: Annotated[User, Depends(get_current_user)]
 ):

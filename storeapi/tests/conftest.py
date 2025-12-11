@@ -14,9 +14,12 @@ from typing import AsyncGenerator, Generator
 import pytest
 from fastapi.testclient import TestClient
 from httpx import AsyncClient, ASGITransport
+import os
+
+os.environ["ENV_STATE"] = "test"  # hacking the env configuration durring testing
 
 from storeapi.main import app
-from storeapi.routers.post import comment_dict, post_dict
+from storeapi.database import database
 
 
 @pytest.fixture(scope="session")
@@ -30,10 +33,10 @@ def client() -> Generator:
 
 
 @pytest.fixture(autouse=True)
-async def db() -> AsyncGenerator:
-    post_dict.clear()
-    comment_dict.clear()
+async def db(anyio_backend) -> AsyncGenerator:
+    await database.connect()
     yield
+    await database.disconnect()
 
 
 @pytest.fixture()
