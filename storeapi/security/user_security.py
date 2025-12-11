@@ -1,13 +1,12 @@
 import sqlalchemy
 from fastapi import Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordBearer
-from argon2 import PasswordHasher  # noqa
+from argon2 import PasswordHasher
 from storeapi.database import user_table, database, refreshtoken_table
-from storeapi.utilits.formatted_printer import print_better
 from storeapi.config import get_secrets
 import logging
-from jwt import ExpiredSignatureError, PyJWTError
 import jwt
+from jwt import ExpiredSignatureError, PyJWTError
 import datetime
 from typing import Annotated, Literal
 
@@ -152,7 +151,6 @@ async def authenticate_user(email: str, password: str):
 
 
 async def get_current_user(token: Annotated[str, Depends(oauth2_scheme)]):
-    print_better(obj="delete wediet aleh?", message=token)
     logger.debug("Getting Current user with access token")
     email = get_subject_token_type(token=token, type="access")
     user = await get_user(email=email)
@@ -167,9 +165,6 @@ async def get_current_user(token: Annotated[str, Depends(oauth2_scheme)]):
 
 async def is_confirmed(email: str) -> bool:
     user = await get_user(email)
-    print_better(obj="is email confirmedfor user?", message=user)
-    print_better(obj="check confirmation:", message=user.confirmed)
-
     return user.confirmed == True
 
 
@@ -199,7 +194,7 @@ async def refresh_token_rotation(refresh_token: str):
             detail=f"wrong refresh token type:{type}",
         )
     refresh_id = refresh_payload["jti"]
-    logger.critical(refresh_id)
+
     jti_query = sqlalchemy.select(refreshtoken_table).where(
         refreshtoken_table.c.jti == refresh_id
     )
