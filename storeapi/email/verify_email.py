@@ -1,10 +1,6 @@
 from storeapi.config import config
 import httpx
 from fastapi import HTTPException
-from storeapi.utilits.formatted_printer import print_better
-
-print_better(obj="brevo api key", message=config.BREVO_API_KEY)
-print_better(obj="brevo sender", message=config.BREVO_SENDER)
 
 
 async def send_verfication_email(to: str, token: str, verify_url: str):
@@ -37,7 +33,7 @@ async def send_verfication_email(to: str, token: str, verify_url: str):
         except httpx.HTTPStatusError as e:
             raise HTTPException(
                 status_code=response.status_code,
-                detail=f"Brevo email varification fial:{e}",
+                detail=f"Brevo email varification failed:{e}",
             )
 
         except Exception:

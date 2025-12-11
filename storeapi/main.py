@@ -12,10 +12,8 @@ from storeapi.routers.user import router as user_router
 from storeapi.routers.cuncurrency_async import test_router
 from storeapi.database import database
 
-# from storeapi.logtail_storage_config import test
 import logging
 
-# print(f"logtail test:{test}")
 # 1️⃣ Configure logging first
 configure_logging()
 logger = logging.getLogger("storeapi")
