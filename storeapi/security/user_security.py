@@ -98,10 +98,7 @@ def get_subject_token_type(token: str, type: Literal["access", "confirmation"]) 
         ) from e
 
     except PyJWTError as e:
-        raise create_credentials_exception(
-            status_code=status.HTTP_407_PROXY_AUTHENTICATION_REQUIRED,
-            detail="invalid token",
-        ) from e
+        raise create_credentials_exception(detail="invalid token") from e
 
     email = payload.get("sub")
     token_type = payload.get("type")
@@ -147,10 +144,10 @@ async def authenticate_user(email: str, password: str):
     ):
         raise create_credentials_exception("invalid email or password")
 
-    # if not user.confirmed:
-    #     raise create_credentials_exception(
-    #         status_code=status.HTTP_401_UNAUTHORIZED, detail="email is not confirmed"
-    #     )
+    if not user.confirmed:
+        raise create_credentials_exception(
+            status_code=status.HTTP_401_UNAUTHORIZED, detail="email is not confirmed"
+        )
 
     return user
 
