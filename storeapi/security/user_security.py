@@ -31,7 +31,7 @@ def create_credentials_exception(
 
 
 def access_token_expire_minutes() -> int:
-    return 5
+    return 30
 
 
 def confirm_token_expire_minutes() -> int:
@@ -139,7 +139,9 @@ async def authenticate_user(email: str, password: str):
 
     if not user:
         raise create_credentials_exception(detail="invalid email or password")
-    if not verify_password(plain_password=password, hashed_password=user.password):
+    if not await verify_password(
+        plain_password=password, hashed_password=user.password
+    ):
         raise create_credentials_exception("invalid email or password")
 
     if not user.confirmed:

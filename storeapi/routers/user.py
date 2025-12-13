@@ -156,7 +156,7 @@ async def login(user: UserIn, response: Response):
     return {"status": "seccussfully login", "access token": access_token}
 
 
-@router.get("/token")
+@router.post("/token")
 async def get_profile(user: UserIn):
     user = await authenticate_user(email=user.email, password=user.password)
     access_token = create_access_token(user.email)
