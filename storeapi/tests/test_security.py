@@ -1,3 +1,7 @@
+"""
+This module is dedicated to test methods in user_security under security package
+"""
+
 import pytest
 from storeapi.security import user_security
 
