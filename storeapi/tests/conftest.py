@@ -14,12 +14,13 @@ from typing import AsyncGenerator, Generator
 import pytest
 from fastapi.testclient import TestClient
 from httpx import AsyncClient, ASGITransport
+
 import os
 
 os.environ["ENV_STATE"] = "test"  # hacking the env configuration durring testing
 
 from storeapi.main import app
-from storeapi.database import database
+from storeapi.database import database, user_table
 
 
 @pytest.fixture(scope="session")
@@ -44,3 +45,12 @@ async def async_client() -> AsyncGenerator:
     transport = ASGITransport(app=app)
     async with AsyncClient(transport=transport, base_url="http://test") as ac:
         yield ac
+
+
+@pytest.fixture()
+async def registered_user(async_client: AsyncClient) -> dict:
+    user_details = {"email": "test@example.com", "password": "1234"}
+    await async_client.post("/register", json=user_details)
+    query = user_table.select().where(user_table.c.email == user_details["email"])
+    user = await database.fetch_one(query)
+    return {**user_details, "id": user.id}
