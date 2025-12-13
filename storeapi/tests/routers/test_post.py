@@ -2,13 +2,11 @@ from httpx import AsyncClient
 import pytest
 
 
-async def create_post(
-    body: str, async_client: AsyncClient, logged_in_token: str
-) -> dict:
-    response = await async_client.post(
+async def create_post(body: str, client: AsyncClient, user_token: str) -> dict:
+    response = await client.post(
         "/post",
         json={"body": body},
-        headers={"Authorization": f"Bearer {logged_in_token}"},
+        headers={"Authorization": f"Bearer {user_token}"},
     )
     return response.json()
 
@@ -20,14 +18,23 @@ async def created_post(async_client: AsyncClient, logged_in_token: str):
 
 
 async def create_comment(
-    body: str, post_id: int, async_client: AsyncClient, logged_in_token: str
+    body: str, post_id: int, client: AsyncClient, user_token: str
 ) -> dict:
-    response = await async_client.post(
+    response = await client.post(
         "/comment",
         json={"body": body, "post_id": post_id},
-        headers={"Authorization": f"Bearer {logged_in_token}"},
+        headers={"Authorization": f"Bearer {user_token}"},
     )
     return response.json()
+
+
+async def like_post(post_id: int, async_client: AsyncClient, logged_in_token: str):
+    response = await async_client.post(
+        "/like",
+        json={"body": "I really like this post", "post_id": post_id},
+        headers={"Authorization": f"Bearer {logged_in_token}"},
+    )
+    return response
 
 
 @pytest.fixture()
@@ -38,8 +45,8 @@ async def created_comment(
     response = await create_comment(
         body=body,
         post_id=created_post["id"],
-        async_client=async_client,
-        logged_in_token=logged_in_token,
+        client=async_client,
+        user_token=logged_in_token,
     )
     return response
 
@@ -55,6 +62,14 @@ async def test_create_post(async_client: AsyncClient, logged_in_token: str):
     )
     assert response.status_code == 200
     assert {"id": 1, "body": body}.items() <= response.json().items()
+
+
+@pytest.mark.anyio
+async def test_like_post(
+    async_client: AsyncClient, logged_in_token: str, created_post: dict
+):
+    liked = await like_post(created_post["id"], async_client, logged_in_token)
+    assert liked.status_code
 
 
 @pytest.mark.anyio
