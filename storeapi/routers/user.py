@@ -41,7 +41,7 @@ async def register(
     logger.debug("registering user")
     if user_exist:
         logger.debug("user already exist in database")
-        if user_exist.confirmed:
+        if True or user_exist.confirmed:
             raise HTTPException(
                 status_code=409,
                 detail="user already exist,conflict with exsisting info",
