@@ -1,6 +1,6 @@
 from fastapi import APIRouter, HTTPException, Depends, status
 from storeapi.models.user import User
-from storeapi.security.user_security import get_current_user
+from storeapi.security.user_security import get_current_user, is_confirmed
 from storeapi.models.post import (
     UserPost,
     UserPostIn,
@@ -52,11 +52,11 @@ async def create_post(
     """
     logger.info(f"creating user post with details: {post}")
     # noqa
-    # if not await is_confirmed(current_user.email):
-    #     raise HTTPException(
-    #         status_code=status.HTTP_401_UNAUTHORIZED,
-    #         detail="your email is not confirmed, please check your spam folder and confirm your email.",
-    #     )
+    if not await is_confirmed(current_user.email):
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="your email is not confirmed, please check your spam folder and confirm your email.",
+        )
     data = {**post.model_dump(), "user_id": current_user.id}
     logger.debug(data)
     query = post_table.insert().values(data)
