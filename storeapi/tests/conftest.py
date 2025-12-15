@@ -14,7 +14,7 @@ from typing import AsyncGenerator, Generator
 import pytest
 from fastapi.testclient import TestClient
 from httpx import AsyncClient, ASGITransport
-
+from storeapi.utilits.formatted_printer import print_better
 import os
 
 os.environ["ENV_STATE"] = "test"  # hacking the env configuration durring testing
@@ -50,7 +50,27 @@ async def async_client() -> AsyncGenerator:
 @pytest.fixture()
 async def registered_user(async_client: AsyncClient) -> dict:
     user_details = {"email": "test@example.com", "password": "1234"}
-    await async_client.post("/register", json=user_details)
+    response = await async_client.post("/register", json=user_details)
     query = user_table.select().where(user_table.c.email == user_details["email"])
+    confirm_query = (
+        user_table.update()
+        .values(confirmed=True)
+        .where(user_table.c.email == user_details["email"])
+    )
+    await database.execute(confirm_query)
     user = await database.fetch_one(query)
+    print_better(obj="registered_user", message=response.json())
     return {**user_details, "id": user.id}
+
+
+@pytest.fixture()
+async def logged_in_token(async_client: AsyncClient, registered_user: dict) -> str:
+    response = await async_client.post(
+        "/token",
+        json={
+            "email": registered_user["email"],
+            "password": registered_user["password"],
+        },
+    )
+
+    return response.json().get("access_token")
