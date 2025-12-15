@@ -12,9 +12,11 @@ this nature of testing tool like pytest is incredable great!
 from typing import AsyncGenerator, Generator
 
 import pytest
+from unittest.mock import Mock, AsyncMock
 from fastapi.testclient import TestClient
-from httpx import AsyncClient, ASGITransport
+from httpx import AsyncClient, ASGITransport, Request, Response
 from storeapi.utilits.formatted_printer import print_better
+
 import os
 
 os.environ["ENV_STATE"] = "test"  # hacking the env configuration durring testing
@@ -80,3 +82,16 @@ async def logged_in_token(async_client: AsyncClient, confirmed_user: dict) -> st
     )
 
     return response.json().get("access_token")
+
+
+@pytest.fixture(autouse=True)
+def mock_httpx_client(mocker):
+    mocked_client = mocker.patch("storeapi.email.verify_email.httpx.AsyncClient")
+    mocked_async_client = Mock()
+    response = Response(
+        status_code=200, json={"message": "email sent"}, request=Request("POST", "//")
+    )
+    mocked_async_client.post = AsyncMock(return_value=response)
+    mocked_client.return_value.__aenter__.return_value = mocked_async_client
+
+    return mocked_async_client
