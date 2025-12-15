@@ -56,6 +56,39 @@ def test_get_subject_for_token_type_expired(mocker):
     assert "Token has expired" <= exe_info.value.detail
 
 
+def test_get_subject_for_token_type_invalid_token():
+    token = "invalid token sgwotiworehiw"
+    with pytest.raises(user_security.HTTPException) as exc_info:
+        user_security.get_subject_token_type(token, "access")
+
+    assert "invalid token" <= exc_info.value.detail
+
+
+def test_get_subject_for_token_type_missing_sub():
+    email = "test@example.com"
+    token = user_security.create_access_token(email)
+
+    payload = jwt.decode(
+        token,
+        key=user_security.SECRET_KEY,
+        algorithms=[user_security.ALGORITHM],
+    )
+    del payload["sub"]
+
+    token = jwt.encode(payload, user_security.SECRET_KEY, user_security.ALGORITHM)
+    with pytest.raises(user_security.HTTPException) as exc_info:
+        user_security.get_subject_token_type(token, "access")
+    assert "Token is missing 'sub' field" <= exc_info.value.detail
+
+
+def test_get_subject_for_token_type_wrong_type():
+    email = "test@example.com"
+    token = user_security.create_confirm_token(email)
+    with pytest.raises(user_security.HTTPException) as exc_info:
+        user_security.get_subject_token_type(token, "access")
+    assert "token has incorrect type, expected: access" == exc_info.value.detail
+
+
 @pytest.mark.anyio
 async def test_password_hashes():
     password = "password"
