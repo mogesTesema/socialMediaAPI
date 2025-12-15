@@ -32,6 +32,30 @@ def test_create_confirm_token():
     ).items()
 
 
+def test_subject_for_token_type_valid_confirmation():
+    email = "test@example.com"
+    token = user_security.create_confirm_token(email)
+    assert email == user_security.get_subject_token_type(token, "confirmation")
+
+
+def test_subject_for_token_type_valid_access():
+    email = "test@example.com"
+    token = user_security.create_access_token(email)
+    assert email == user_security.get_subject_token_type(token, "access")
+
+
+def test_get_subject_for_token_type_expired(mocker):
+    mocker.patch(
+        "storeapi.security.user_security.access_token_expire_minutes", return_value=-1
+    )
+    email = "test@example.com"
+    token = user_security.create_access_token(email)
+    with pytest.raises(user_security.HTTPException) as exe_info:
+        user_security.get_subject_token_type(token, "access")
+
+    assert "Token has expired" <= exe_info.value.detail
+
+
 @pytest.mark.anyio
 async def test_password_hashes():
     password = "password"
