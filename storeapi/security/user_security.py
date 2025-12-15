@@ -108,7 +108,7 @@ def get_subject_token_type(token: str, type: Literal["access", "confirmation"]) 
     if token_type != type or token_type is None:
         raise create_credentials_exception(
             status_code=status.HTTP_406_NOT_ACCEPTABLE,
-            detail=f"token has incorrect type, expected: {token_type}",
+            detail=f"token has incorrect type, expected: {type}",
         )
     if not email:
         raise create_credentials_exception(detail="Token is missing 'sub' field")
