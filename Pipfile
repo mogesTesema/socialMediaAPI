@@ -23,6 +23,7 @@ pyjwt = "*"
 argon2-cffi = "*"
 aiofiles = "*"
 b2sdk = "*"
+pytest-mock = "*"
 
 [dev-packages]
 pytest = "*"
