@@ -4,9 +4,9 @@ import pytest
 from httpx import AsyncClient
 
 
-@pytest.fixture(autouse=True)
+@pytest.fixture()
 def sample_image(fs) -> pathlib.Path:
-    path = (pathlib.Path(__file__).parent / "assets/myfile.png").resolve()
+    path = (pathlib.Path(__file__).parent / "assets" / "myfile.png").resolve()
     fs.create_file(path)
     return path
 
@@ -28,6 +28,7 @@ def aiofiles_mock_open(mocker, fs):
 
         with open(fname, mode) as fin:
             out_fs_mock.write.side_effect = fin.write
+            out_fs_mock.read.side_effect = fin.read
             yield out_fs_mock
 
     mock_open.side_effect = async_file_open
@@ -38,7 +39,7 @@ async def call_upload_endpoint(
     async_client: AsyncClient, token: str, sample_image: pathlib.Path
 ):
     return await async_client.post(
-        "/upload",
+        "/b2upload",
         files={"file": open(sample_image, "rb")},
         headers={"Authorization": f"Bearer {token}"},
     )

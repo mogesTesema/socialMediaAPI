@@ -13,8 +13,8 @@ router = APIRouter()
 CHUNK_SIZE = 1024 * 1024
 
 
-@router.post("/b2upload")
-async def upload_file(file: UploadFile, status_code=status.HTTP_201_CREATED):
+@router.post("/b2upload", status_code=status.HTTP_201_CREATED)
+async def upload_file(file: UploadFile):
     try:
         with tempfile.NamedTemporaryFile() as temp_file:
             filename = temp_file.name
