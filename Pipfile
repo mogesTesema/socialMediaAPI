@@ -24,6 +24,7 @@ argon2-cffi = "*"
 aiofiles = "*"
 b2sdk = "*"
 pytest-mock = "*"
+pyfakefs = "*"
 
 [dev-packages]
 pytest = "*"
