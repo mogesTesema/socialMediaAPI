@@ -67,4 +67,4 @@ async def test_temp_file_removed_after_upload(
 
     assert response.status_code == 201
     created_temp_file = named_temp_file_spy.spy_return
-    assert not os.path.exist(created_temp_file)
+    assert not os.path.exists(created_temp_file.name)
