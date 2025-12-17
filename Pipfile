@@ -5,12 +5,12 @@ name = "pypi"
 
 [packages]
 fastapi = "*"
-uvicorn = {extras = ["standard"], version = "*"}
+uvicorn = {extras = ["standard"] }
 python-multipart = "*"
 pytest = "*"
 httpx = "*"
 sqlalchemy = "*"
-databases = {extras = ["aiosqlite"], version = "*"}
+databases = {extras = ["aiosqlite"] }
 python-dotenv = "*"
 pydantic-settings = "*"
 rich = "*"
@@ -25,6 +25,7 @@ aiofiles = "*"
 b2sdk = "*"
 pytest-mock = "*"
 pyfakefs = "*"
+google-genai = "*"
 
 [dev-packages]
 pytest = "*"

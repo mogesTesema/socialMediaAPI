@@ -1,14 +1,15 @@
 from pydantic import BaseModel
-from typing import Optional  # noqa
+from typing import Optional
 
 
 class UserPostIn(BaseModel):
     body: str
-    user_id: int = None
 
 
 class UserPost(UserPostIn):
     id: int
+    user_id: int = None
+    image_url: Optional[str] = None
 
 
 class UserPostWithLike(UserPost):
