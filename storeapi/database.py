@@ -54,10 +54,11 @@ like_table = sqlalchemy.Table(
     sqlalchemy.Column("post_id", sqlalchemy.ForeignKey("posts.id"), nullable=False),
 )
 
-
+connect_args={"check_same_thread": False} if "sqlite" in config.DATABASE_URL else {}
 engine = sqlalchemy.create_engine(
-    url=DATABASE_URL, connect_args={"check_same_thread": False}
+    url=DATABASE_URL, connect_args=connect_args
 )
-
+db_args = {"min_size":1,"max_size":5} if "postgres" in DATABASE_URL else {}
 metadata.create_all(engine)
-database = databases.Database(DATABASE_URL, force_rollback=config.DB_FORCE_ROLL_BACK)
+database = databases.Database(DATABASE_URL, force_rollback=config.DB_FORCE_ROLL_BACK,**db_args)
+ 
