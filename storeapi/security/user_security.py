@@ -167,7 +167,7 @@ async def get_current_user(token: Annotated[str, Depends(oauth2_scheme)]):
 
 async def is_confirmed(email: str) -> bool:
     user = await get_user(email)
-    return user.confirmed == True
+    return user.confirmed == True #noqa
 
 
 async def refresh_token_rotation(refresh_token: str):

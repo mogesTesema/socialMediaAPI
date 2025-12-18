@@ -14,8 +14,8 @@ from storeapi.database import database
 import sentry_sdk
 from storeapi.config import SecurityKeys
 
-secret_key = SecurityKeys()
 import logging
+secret_key = SecurityKeys()
 
 # 1️⃣ Configure logging first
 configure_logging()

@@ -1,5 +1,5 @@
 import logging
-from functools import lru_cache
+from functools import lru_cache #noqa
 import b2sdk.v2 as b2
 from b2sdk.v2.account_info import InMemoryAccountInfo
 from storeapi.config import get_file_upload_keys
