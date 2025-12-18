@@ -11,12 +11,20 @@ from storeapi.videochats.videochatrouter import router as videochat_router
 from storeapi.routers.user import router as user_router
 from storeapi.routers.cuncurrency_async import test_router
 from storeapi.database import database
+import sentry_sdk
+from storeapi.config import SecurityKeys
 
+secret_key = SecurityKeys()
 import logging
 
 # 1️⃣ Configure logging first
 configure_logging()
 logger = logging.getLogger("storeapi")
+sentry_sdk.init(
+    dsn= secret_key.SENTRY_DSN,
+    # Add data like request headers and IP for users,
+    # see https://docs.sentry.io/platforms/python/data-management/data-collected/ for more info
+    send_default_pii=True)
 
 
 @asynccontextmanager

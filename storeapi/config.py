@@ -36,6 +36,7 @@ class SecurityKeys(BaseConfig):
     ALGORITHM: Optional[str] = None
     REFRESH_TOKEN_SECRET_KEY: Optional[str] = None
     REFRESH_TOKEN_ALGORITHM: Optional[str] = None
+    SENTRY_DSN:Optional[str]=None
     model_config = SettingsConfigDict(env_file=".env", extra="ignore")
 
 

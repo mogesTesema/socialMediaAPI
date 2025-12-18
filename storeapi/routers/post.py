@@ -221,3 +221,8 @@ async def like_post(
     result = await database.execute(like_query)
 
     return {"id": result, "post_id": postlike.post_id, "user_id": liker.id}
+
+@router.get("/sentry-debug")
+async def trigger_error():
+    division_by_zero = 1 / 0
+    return division_by_zero
