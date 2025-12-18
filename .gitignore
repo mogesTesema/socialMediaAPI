@@ -1,4 +1,6 @@
 storeapi.log
 .env
+.venv
 .pytest_cache
 .pytest_version
+*.pyc
