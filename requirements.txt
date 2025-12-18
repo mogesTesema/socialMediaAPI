@@ -5,6 +5,7 @@ python-multipart
 httpx
 sqlalchemy
 databases
+aiosqlite
 python-dotenv
 pydantic-settings
 rich
