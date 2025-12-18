@@ -95,3 +95,9 @@ def mock_httpx_client(mocker):
     mocked_client.return_value.__aenter__.return_value = mocked_async_client
 
     return mocked_async_client
+
+
+
+@pytest.fixture(autouse=True)
+def mock_logtail(mocker):
+    mocker.patch("logtail.handler.LogtailHandler.__init__", return_value=None)
