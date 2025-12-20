@@ -4,3 +4,4 @@ storeapi.log
 .pytest_cache
 .pytest_version
 *.pyc
+testdatabase.db
