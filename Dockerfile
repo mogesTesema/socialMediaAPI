@@ -7,7 +7,7 @@ COPY ./requirements.txt /app/
 RUN pip install -r requirements.txt
 
 
-COPY ./storeapi /app/
+COPY ./storeapi /app/storeapi/
 
 
 EXPOSE 8000
