@@ -10,7 +10,7 @@ from storeapi.routers.upload import router as b2_upload_router
 from storeapi.videochats.videochatrouter import router as videochat_router
 from storeapi.routers.user import router as user_router
 from storeapi.routers.cuncurrency_async import test_router
-from storeapi.database import database
+from storeapi.database import db_connection
 import sentry_sdk
 from storeapi.config import SecurityKeys
 
@@ -29,8 +29,11 @@ sentry_sdk.init(
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
+
     try:
+
         logger.info("📡 Connecting database...")
+        database = db_connection()
         await database.connect()
     except Exception as e:
         logger.critical(f"failed connecting to database:{e}")

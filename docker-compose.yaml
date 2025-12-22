@@ -7,12 +7,13 @@ services:
       - .env
     depends_on:
       - db
+      
 
   db:
     image: postgres:15
     environment:
       POSTGRES_USER: moges
-      POSTGRES_PASSWORD: 2124Ce1a$
+      POSTGRES_PASSWORD: 2124Ce1a
       POSTGRES_DB: socialmedia
     volumes:
       - postgres_data:/var/lib/postgresql/data
