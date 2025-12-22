@@ -8,7 +8,7 @@ from fastapi import (
     Depends,
 )
 from storeapi.models.user import UserIn, Token, User
-from storeapi.database import user_table, database, refreshtoken_table
+from storeapi.database import user_table, db_connection, refreshtoken_table
 from storeapi.email.verify_email import send_verfication_email
 from storeapi.security.user_security import (
     get_user,
@@ -30,7 +30,7 @@ from typing import Annotated
 logger = logging.getLogger(__name__)
 
 router = APIRouter()
-
+database = db_connection()
 
 @router.post("/register", status_code=201)
 async def register(

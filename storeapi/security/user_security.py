@@ -2,7 +2,7 @@ import sqlalchemy
 from fastapi import Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordBearer
 from argon2 import PasswordHasher
-from storeapi.database import user_table, database, refreshtoken_table
+from storeapi.database import user_table, db_connection, refreshtoken_table
 from storeapi.config import get_secrets
 import logging
 import jwt
@@ -12,6 +12,7 @@ from typing import Annotated, Literal
 
 logger = logging.getLogger(__name__)
 secret_keys = get_secrets()
+database = db_connection()
 
 SECRET_KEY = secret_keys.SECRET_KEY
 ALGORITHM = secret_keys.ALGORITHM

@@ -11,7 +11,7 @@ from storeapi.models.post import (
     UserPostWithLike,
     UserPostWithComments,
 )
-from storeapi.database import database, post_table, comment_table, like_table
+from storeapi.database import db_connection, post_table, comment_table, like_table
 from sqlalchemy import select
 import sqlalchemy
 import logging
@@ -22,6 +22,7 @@ from enum import Enum
 router = APIRouter()
 
 logger = logging.getLogger(__name__)
+database = db_connection()
 
 
 select_liked_post = (

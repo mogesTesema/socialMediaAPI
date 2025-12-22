@@ -22,7 +22,9 @@ import os
 os.environ["ENV_STATE"] = "test"  # hacking the env configuration durring testing
 
 from storeapi.main import app
-from storeapi.database import database, user_table
+from storeapi.database import db_connection, user_table
+
+database = db_connection()
 
 
 @pytest.fixture(scope="session")
