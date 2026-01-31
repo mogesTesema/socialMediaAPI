@@ -21,4 +21,7 @@ argon2-cffi
 aiofiles
 b2sdk
 google-genai
+onnxruntime
+numpy
+pillow
 
