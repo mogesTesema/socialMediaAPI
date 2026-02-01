@@ -121,8 +121,13 @@ def predict_food(
 
 	results: List[Tuple[str, float]] = []
 	for idx in indices:
-		label = labels[idx] if labels and idx < len(labels) else str(int(idx))
-		results.append((label, float(output[idx])))
+		idx_int = int(idx)
+		label = (
+			labels[idx_int]
+			if labels and idx_int < len(labels)
+			else str(idx_int)
+		)
+		results.append((label, float(output[idx_int])))
 
 	return results
 

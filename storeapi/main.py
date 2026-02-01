@@ -11,6 +11,7 @@ from storeapi.videochats.videochatrouter import router as videochat_router
 from storeapi.routers.user import router as user_router
 from storeapi.routers.cuncurrency_async import test_router
 from storeapi.database import db_connection
+from storeapi.routers.food_vision import router as food_vision_router
 import sentry_sdk
 from storeapi.config import SecurityKeys
 
@@ -64,6 +65,7 @@ app.include_router(videochat_router)
 app.include_router(user_router)
 app.include_router(test_router)
 app.include_router(b2_upload_router)
+app.include_router(food_vision_router)
 
 
 # 5️⃣ Exception Handlers
