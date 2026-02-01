@@ -54,15 +54,19 @@ like_table = sqlalchemy.Table(
     sqlalchemy.Column("post_id", sqlalchemy.ForeignKey("posts.id"), nullable=False),
 )
 
-connect_args={"check_same_thread": False} if "sqlite" in config.DATABASE_URL else {}
-engine = sqlalchemy.create_engine(
-    url=DATABASE_URL, connect_args=connect_args
+connect_args = {"check_same_thread": False} if "sqlite" in DATABASE_URL else {}
+engine = sqlalchemy.create_engine(url=DATABASE_URL, connect_args=connect_args)
+db_args = {"min_size": 1, "max_size": 5} if "postgres" in DATABASE_URL else {}
+
+# Shared database instance (singleton) for app and tests.
+database = databases.Database(
+    DATABASE_URL,
+    force_rollback=config.DB_FORCE_ROLL_BACK,
+    **db_args,
 )
-db_args = {"min_size":1,"max_size":5} if "postgres" in DATABASE_URL else {} 
+
+
 def db_connection():
-
     metadata.create_all(engine)
-    database = databases.Database(DATABASE_URL, force_rollback=config.DB_FORCE_ROLL_BACK,**db_args)
-
     return database
  

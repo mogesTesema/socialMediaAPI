@@ -40,6 +40,9 @@ def client() -> Generator:
 @pytest.fixture(autouse=True)
 async def db(anyio_backend) -> AsyncGenerator:
     await database.connect()
+    await database.execute(
+        "TRUNCATE TABLE comments, likes, posts, refreshtokens, users RESTART IDENTITY CASCADE;"
+    )
     yield
     await database.disconnect()
 
