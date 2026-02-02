@@ -1,10 +1,8 @@
-import io
 import logging
 
-from fastapi import APIRouter, HTTPException, UploadFile, status
-from PIL import Image
+from fastapi import APIRouter, HTTPException, UploadFile, File, status
 
-from storeapi.food_vision_model.food_prediction import predict_food
+from storeapi.food_vision_model.food_prediction import predict_food, predict_food_batch
 
 logger = logging.getLogger(__name__)
 
@@ -39,29 +37,82 @@ async def predict_food_vision(file: UploadFile):
                 detail="uploaded file is empty",
             )
 
-        try:
-            image = Image.open(io.BytesIO(contents)).convert("RGB")
-        except Exception as exc:
-            raise HTTPException(
-                status_code=status.HTTP_400_BAD_REQUEST,
-                detail=f"invalid image file: {exc}",
-            )
-
-        # Preprocess to 224x224x3, keep 0-255 range (no rescaling).
-        image = image.resize((224, 224))
-
-        predictions = predict_food(image, labels=CLASS_NAMES, top_k=3)
+        predictions = predict_food(contents, labels=CLASS_NAMES, top_k=None)
         return {
             "filename": file.filename,
             "predictions": [
-                {"label": label, "score": score} for label, score in predictions
+                {
+                    "label": label,
+                    "score_percent": round(score * 100.0, 2),
+                }
+                for label, score in predictions
             ],
         }
     except HTTPException:
         raise
+    except ValueError as exc:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail=str(exc),
+        )
     except Exception as exc:
         logger.exception("food vision prediction failed")
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail=f"prediction failed: {exc}",
+        )
+
+
+@router.post("/predict-batch", status_code=status.HTTP_200_OK)
+async def predict_food_vision_batch(files: list[UploadFile] = File(...)):
+    if not files:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST, detail="files are required"
+        )
+
+    if len(files) > 32:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="maximum 32 images allowed per batch",
+        )
+
+    try:
+        images = []
+        for upload in files:
+            contents = await upload.read()
+            if not contents:
+                raise HTTPException(
+                    status_code=status.HTTP_400_BAD_REQUEST,
+                    detail=f"uploaded file is empty: {upload.filename}",
+                )
+
+            images.append(contents)
+
+        predictions = predict_food_batch(images, labels=CLASS_NAMES, top_k=1)
+        results = []
+        for upload, pred in zip(files, predictions):
+            label, score = pred[0]
+            results.append(
+                {
+                    "filename": upload.filename,
+                    "prediction": {
+                        "label": label,
+                        "score_percent": round(score * 100.0, 2),
+                    },
+                }
+            )
+
+        return {"results": results}
+    except HTTPException:
+        raise
+    except ValueError as exc:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail=str(exc),
+        )
+    except Exception as exc:
+        logger.exception("food vision batch prediction failed")
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"batch prediction failed: {exc}",
         )

@@ -5,3 +5,4 @@ storeapi.log
 .pytest_version
 *.pyc
 testdatabase.db
+uploadedfiles/
