@@ -3,6 +3,7 @@ import logging
 from fastapi import APIRouter, HTTPException, UploadFile, File, status
 
 from storeapi.food_vision_model.food_prediction import predict_food, predict_food_batch
+from storeapi.food_vision_model.preprocessing import decode_zip_images
 
 logger = logging.getLogger(__name__)
 
@@ -115,4 +116,51 @@ async def predict_food_vision_batch(files: list[UploadFile] = File(...)):
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail=f"batch prediction failed: {exc}",
+        )
+
+
+@router.post("/predict-zip", status_code=status.HTTP_200_OK)
+async def predict_food_vision_zip(file: UploadFile = File(...)):
+    if not file:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST, detail="file is required"
+        )
+
+    try:
+        contents = await file.read()
+        if not contents:
+            raise HTTPException(
+                status_code=status.HTTP_400_BAD_REQUEST,
+                detail="uploaded file is empty",
+            )
+
+        names, images = decode_zip_images(contents, max_images=32)
+
+        predictions = predict_food_batch(images, labels=CLASS_NAMES, top_k=1)
+        results = []
+        for name, pred in zip(names, predictions):
+            label, score = pred[0]
+            results.append(
+                {
+                    "filename": name,
+                    "prediction": {
+                        "label": label,
+                        "score_percent": round(score * 100.0, 2),
+                    },
+                }
+            )
+
+        return {"results": results}
+    except HTTPException:
+        raise
+    except ValueError as exc:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail=str(exc),
+        )
+    except Exception as exc:
+        logger.exception("food vision zip prediction failed")
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"zip prediction failed: {exc}",
         )

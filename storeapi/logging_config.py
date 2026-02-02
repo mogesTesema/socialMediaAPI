@@ -1,5 +1,5 @@
 from logging.config import dictConfig
-from storeapi.config import DevConfig, config
+from storeapi.config import DevConfig, TestConfig, config
 import logging
 # from storeapi.logtail_handler import BetterStackHandler
 
@@ -26,6 +26,45 @@ class EmailObfuscationFilter(logging.Filter):
 
 
 def configure_logging() -> None:
+    use_logtail = (
+        not isinstance(config, TestConfig)
+        and bool(config.LOGTAIL_SOURCE_TOKEN)
+        and bool(config.LOGTAIL_HOST)
+    )
+
+    handlers = {
+        "default": {
+            "class": "rich.logging.RichHandler",
+            "level": "DEBUG",
+            "formatter": "console",
+            "filters": ["correlation_id", "email_obfuscation"],
+        },
+        "rotating_file": {
+            "class": "logging.handlers.RotatingFileHandler",
+            "level": "DEBUG",
+            "formatter": "file",
+            "filename": "storeapi.log",
+            "maxBytes": 2024 * 2024 * 2024,  # 1GB
+            "backupCount": 5,
+            "encoding": "utf8",
+            "filters": ["correlation_id", "email_obfuscation"],
+        },
+    }
+
+    if use_logtail:
+        handlers["logtail"] = {
+            "class": "logtail.handler.LogtailHandler",
+            "level": "DEBUG",
+            "formatter": "file",
+            "filters": ["correlation_id", "email_obfuscation"],
+            "source_token": config.LOGTAIL_SOURCE_TOKEN,
+            "host": config.LOGTAIL_HOST,
+        }
+
+    storeapi_handlers = ["default", "rotating_file"]
+    if use_logtail:
+        storeapi_handlers.append("logtail")
+
     dictConfig(
         {
             "version": 1,
@@ -53,39 +92,14 @@ def configure_logging() -> None:
                     "format": "%(correlation_id)s %(asctime)s %(msecs)s %(levelname)s %(name)s %(lineno)d %(message)s",
                 },
             },
-            "handlers": {
-                "default": {
-                    "class": "rich.logging.RichHandler",
-                    "level": "DEBUG",
-                    "formatter": "console",
-                    "filters": ["correlation_id", "email_obfuscation"],
-                },
-                "rotating_file": {
-                    "class": "logging.handlers.RotatingFileHandler",
-                    "level": "DEBUG",
-                    "formatter": "file",
-                    "filename": "storeapi.log",
-                    "maxBytes": 2024 * 2024 * 2024,  # 1GB
-                    "backupCount": 5,
-                    "encoding": "utf8",
-                    "filters": ["correlation_id", "email_obfuscation"],
-                },
-                "logtail": {
-                    "class": "logtail.handler.LogtailHandler",
-                    "level": "DEBUG",
-                    "formatter": "file",
-                    "filters": ["correlation_id", "email_obfuscation"],
-                    "source_token": config.LOGTAIL_SOURCE_TOKEN,
-                    "host": config.LOGTAIL_HOST,
-                },
-            },
+            "handlers": handlers,
             "loggers": {
                 "": {"handlers": ["rotating_file"], "level": "INFO", "propagate": True},
                 "uvicorn": {"handlers": ["default", "rotating_file"], "level": "INFO"},
                 "databases": {"handlers": ["default"], "level": "WARNING"},
                 "aiosqlite": {"handlers": ["default"], "level": "CRITICAL"},
                 "storeapi": {
-                    "handlers": ["default", "rotating_file", "logtail"],
+                    "handlers": storeapi_handlers,
                     "level": "DEBUG" if isinstance(config, DevConfig) else "INFO",
                     "propagate": False,
                 },

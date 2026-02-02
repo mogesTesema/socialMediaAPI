@@ -6,3 +6,4 @@ storeapi.log
 *.pyc
 testdatabase.db
 uploadedfiles/
+food_images.zip

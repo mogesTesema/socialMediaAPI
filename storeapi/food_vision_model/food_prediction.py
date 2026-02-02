@@ -4,7 +4,6 @@ Load the ONNX food vision model and provide a prediction helper.
 
 from __future__ import annotations
 
-import io
 from functools import lru_cache
 from pathlib import Path
 from typing import List, Sequence, Tuple, Union
@@ -12,6 +11,7 @@ from typing import List, Sequence, Tuple, Union
 import numpy as np
 import onnxruntime as ort
 from PIL import Image
+from storeapi.food_vision_model.preprocessing import prepare_batch, prepare_image
 
 MODEL_PATH = Path(__file__).with_name("food_vision_model.onnx")
 
@@ -43,70 +43,6 @@ def _onnx_input_dtype(input_type: str) -> np.dtype:
 	return np.float32
 
 
-def _prepare_image(
-	image: Union[str, Path, bytes, Image.Image],
-	input_shape: Sequence[object],
-	input_dtype: np.dtype,
-) -> np.ndarray:
-	if isinstance(image, (str, Path)):
-		try:
-			image = Image.open(image)  # type: ignore[arg-type]
-		except Exception as exc:
-			raise ValueError(f"invalid image file: {exc}") from exc
-	elif isinstance(image, (bytes, bytearray)):
-		try:
-			image = Image.open(io.BytesIO(image))  # type: ignore[arg-type]
-		except Exception as exc:
-			raise ValueError(f"invalid image file: {exc}") from exc
-
-	if not isinstance(image, Image.Image):
-		raise TypeError("image must be a path, bytes, or PIL.Image.Image")
-
-	image = image.convert("RGB")
-
-	if len(input_shape) != 4:
-		raise ValueError(f"Unexpected input shape: {input_shape}")
-
-	shape = [s if isinstance(s, int) else None for s in input_shape]
-	if shape[1] == 3:
-		layout = "NCHW"
-		height = shape[2] or image.height
-		width = shape[3] or image.width
-	else:
-		layout = "NHWC"
-		height = shape[1] or image.height
-		width = shape[2] or image.width
-
-	image = image.resize((int(width), int(height)))
-	array = np.asarray(image)
-
-	# Model expects raw pixel values (no rescaling). Cast to float32 if needed.
-	if np.issubdtype(input_dtype, np.floating):
-		array = array.astype(np.float32)
-	else:
-		array = array.astype(input_dtype)
-
-	if layout == "NCHW":
-		array = np.transpose(array, (2, 0, 1))
-
-	# Always return a batch of 1 for inference.
-	return np.expand_dims(array, axis=0)
-
-
-def _prepare_batch(
-	images: Sequence[Union[str, Path, bytes, Image.Image]],
-	input_shape: Sequence[object],
-	input_dtype: np.dtype,
-) -> np.ndarray:
-	if not images:
-		raise ValueError("images must contain at least one item")
-
-	batch = []
-	for image in images:
-		prepared = _prepare_image(image, input_shape, input_dtype)
-		batch.append(np.squeeze(prepared, axis=0))
-
-	return np.stack(batch, axis=0)
 
 
 def predict_food(
@@ -129,7 +65,7 @@ def predict_food(
 
 	input_shape = input_info.shape
 	input_dtype = _onnx_input_dtype(input_info.type)
-	input_tensor = _prepare_image(image, input_shape, input_dtype)
+	input_tensor = prepare_image(image, input_shape, input_dtype)
 
 	output = session.run([output_info.name], {input_info.name: input_tensor})[0].squeeze()
 	if output.ndim == 0:
@@ -172,7 +108,7 @@ def predict_food_batch(
 
 	input_shape = input_info.shape
 	input_dtype = _onnx_input_dtype(input_info.type)
-	input_tensor = _prepare_batch(images, input_shape, input_dtype)
+	input_tensor = prepare_batch(images, input_shape, input_dtype)
 
 	output = session.run([output_info.name], {input_info.name: input_tensor})[0]
 	if output.ndim == 1:
