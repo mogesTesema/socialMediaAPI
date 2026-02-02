@@ -1,6 +1,7 @@
 import logging
 
 from fastapi import APIRouter, HTTPException, UploadFile, File, status
+from fastapi.concurrency import run_in_threadpool
 
 from storeapi.food_vision_model.food_prediction import predict_food, predict_food_batch
 from storeapi.food_vision_model.preprocessing import decode_zip_images
@@ -38,7 +39,9 @@ async def predict_food_vision(file: UploadFile):
                 detail="uploaded file is empty",
             )
 
-        predictions = predict_food(contents, labels=CLASS_NAMES, top_k=None)
+        predictions = await run_in_threadpool(
+            predict_food, contents, labels=CLASS_NAMES, top_k=None
+        )
         return {
             "filename": file.filename,
             "predictions": [
@@ -89,7 +92,9 @@ async def predict_food_vision_batch(files: list[UploadFile] = File(...)):
 
             images.append(contents)
 
-        predictions = predict_food_batch(images, labels=CLASS_NAMES, top_k=1)
+        predictions = await run_in_threadpool(
+            predict_food_batch, images, labels=CLASS_NAMES, top_k=1
+        )
         results = []
         for upload, pred in zip(files, predictions):
             label, score = pred[0]
@@ -136,7 +141,9 @@ async def predict_food_vision_zip(file: UploadFile = File(...)):
 
         names, images = decode_zip_images(contents, max_images=32)
 
-        predictions = predict_food_batch(images, labels=CLASS_NAMES, top_k=1)
+        predictions = await run_in_threadpool(
+            predict_food_batch, images, labels=CLASS_NAMES, top_k=1
+        )
         results = []
         for name, pred in zip(names, predictions):
             label, score = pred[0]
