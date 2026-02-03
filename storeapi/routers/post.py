@@ -169,18 +169,27 @@ async def get_post_with_comments(post_id: int):
         "id": post_id,
         "user_id": post_detail.user_id,
         "body": post_detail.body,
-        "likes": 0,
+        "likes": post_detail.likes,
     }
 
     return {"post": post_detail, "comment": all_comments}
 
 
 @router.delete("/post/{post_id}")
-async def delete_post(post_id: int):
+async def delete_post(
+    post_id: int, current_user: Annotated[User, Depends(get_current_user)]
+):
     logger.info(f"Deleting post with id {post_id}")
-    post = await find_post(post_id)
+    post = await database.fetch_one(
+        post_table.select().where(post_table.c.id == post_id)
+    )
     if not post:
         raise HTTPException(status_code=404, detail="Post not found")
+    if post.user_id != current_user.id:
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="not allowed to delete this post",
+        )
 
     query = post_table.delete().where(post_table.c.id == post_id)
     logger.debug(query)
@@ -189,11 +198,25 @@ async def delete_post(post_id: int):
 
 
 @router.put("/comment")
-async def update_comment(comment: Comment):
+async def update_comment(
+    comment: Comment, current_user: Annotated[User, Depends(get_current_user)]
+):
     comment_id = comment.id
+    existing = await database.fetch_one(
+        comment_table.select().where(comment_table.c.id == comment_id)
+    )
+    if not existing:
+        raise HTTPException(
+            status_code=404, detail=f"comment with comment_id:{comment_id} don't exist"
+        )
+    if existing.user_id != current_user.id:
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="not allowed to edit this comment",
+        )
     query = (
         comment_table.update()
-        .values(comment.model_dump(exclude="id"))
+        .values(comment.model_dump(exclude={"id", "user_id"}))
         .where(comment_table.c.id == comment_id)
     )
     try:

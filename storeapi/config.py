@@ -26,7 +26,7 @@ class ProdConfig(GlobalConfig):
 
 
 class TestConfig(GlobalConfig):
-    DB_FORCE_ROLL_BACK: bool = True
+    DB_FORCE_ROLL_BACK: bool = False
     model_config = SettingsConfigDict(env_prefix="TEST_", extra="ignore")
 
 
@@ -36,6 +36,7 @@ class SecurityKeys(BaseConfig):
     REFRESH_TOKEN_SECRET_KEY: Optional[str] = None
     REFRESH_TOKEN_ALGORITHM: Optional[str] = None
     SENTRY_DSN:Optional[str]=None
+    SENTRY_SEND_DEFAULT_PII: bool = False
     model_config = SettingsConfigDict(env_file=".env", extra="ignore")
 
 

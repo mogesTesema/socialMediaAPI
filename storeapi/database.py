@@ -67,6 +67,9 @@ database = databases.Database(
 
 
 def db_connection():
-    metadata.create_all(engine)
     return database
+
+
+def init_db() -> None:
+    metadata.create_all(engine)
  

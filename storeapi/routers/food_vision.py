@@ -10,6 +10,10 @@ logger = logging.getLogger(__name__)
 
 router = APIRouter(prefix="/food-vision", tags=["food-vision"])
 
+MAX_UPLOAD_BYTES = 10 * 1024 * 1024
+ALLOWED_IMAGE_TYPES = {"image/png", "image/jpeg", "image/webp"}
+ALLOWED_ZIP_TYPES = {"application/zip", "application/x-zip-compressed"}
+
 CLASS_NAMES = [
     "chicken_curry",
     "chicken_wings",
@@ -30,6 +34,11 @@ async def predict_food_vision(file: UploadFile):
         raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST, detail="file is required"
         )
+    if file.content_type not in ALLOWED_IMAGE_TYPES:
+        raise HTTPException(
+            status_code=status.HTTP_415_UNSUPPORTED_MEDIA_TYPE,
+            detail="unsupported image type",
+        )
 
     try:
         contents = await file.read()
@@ -37,6 +46,11 @@ async def predict_food_vision(file: UploadFile):
             raise HTTPException(
                 status_code=status.HTTP_400_BAD_REQUEST,
                 detail="uploaded file is empty",
+            )
+        if len(contents) > MAX_UPLOAD_BYTES:
+            raise HTTPException(
+                status_code=status.HTTP_413_REQUEST_ENTITY_TOO_LARGE,
+                detail="uploaded file is too large",
             )
 
         predictions = await run_in_threadpool(
@@ -83,11 +97,21 @@ async def predict_food_vision_batch(files: list[UploadFile] = File(...)):
     try:
         images = []
         for upload in files:
+            if upload.content_type not in ALLOWED_IMAGE_TYPES:
+                raise HTTPException(
+                    status_code=status.HTTP_415_UNSUPPORTED_MEDIA_TYPE,
+                    detail=f"unsupported image type: {upload.filename}",
+                )
             contents = await upload.read()
             if not contents:
                 raise HTTPException(
                     status_code=status.HTTP_400_BAD_REQUEST,
                     detail=f"uploaded file is empty: {upload.filename}",
+                )
+            if len(contents) > MAX_UPLOAD_BYTES:
+                raise HTTPException(
+                    status_code=status.HTTP_413_REQUEST_ENTITY_TOO_LARGE,
+                    detail=f"uploaded file is too large: {upload.filename}",
                 )
 
             images.append(contents)
@@ -130,6 +154,11 @@ async def predict_food_vision_zip(file: UploadFile = File(...)):
         raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST, detail="file is required"
         )
+    if file.content_type not in ALLOWED_ZIP_TYPES:
+        raise HTTPException(
+            status_code=status.HTTP_415_UNSUPPORTED_MEDIA_TYPE,
+            detail="unsupported zip type",
+        )
 
     try:
         contents = await file.read()
@@ -137,6 +166,11 @@ async def predict_food_vision_zip(file: UploadFile = File(...)):
             raise HTTPException(
                 status_code=status.HTTP_400_BAD_REQUEST,
                 detail="uploaded file is empty",
+            )
+        if len(contents) > MAX_UPLOAD_BYTES:
+            raise HTTPException(
+                status_code=status.HTTP_413_REQUEST_ENTITY_TOO_LARGE,
+                detail="uploaded file is too large",
             )
 
         names, images = decode_zip_images(contents, max_images=32)

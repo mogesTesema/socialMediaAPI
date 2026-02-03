@@ -1,86 +1,121 @@
 # Social Media API (FastAPI)
 
 ![CI/CD Status](https://github.com/mogesTesema/socialMediaAPI/actions/workflows/build-deploy.yml/badge.svg)
-![Python Version](https://img.shields.io/badge/python-3.9%2B-blue)
+![Python Version](https://img.shields.io/badge/python-3.11%2B-blue)
 ![Framework](https://img.shields.io/badge/framework-FastAPI-green)
 
-A production-grade, high-performance RESTful API built with **FastAPI**. This project is engineered with a focus on **Test-Driven Development (TDD)**, containerization, and automated CI/CD pipelines. It provides a full-featured backend for social media interactions, including secure authentication, post management, and automated user notifications.
+A production-grade REST API built with **FastAPI**. The project emphasizes **TDD**, containerization, and observability, and provides endpoints for authentication, posts, file uploads, food-vision inference, and video streaming.
 
 ---
 
 ## 🚀 Key Features
 
-* **TDD Workflow:** Built using **Pytest**, ensuring every feature is backed by rigorous unit and integration tests.
-* **Email Verification:** Integration with **Mailgun API** for secure user onboarding and verification.
-* **Cloud Monitoring:** Real-time log streaming and observability via **Logtail (Better Stack)**.
-* **Secure Authentication:** OAuth2 with JWT (JSON Web Tokens) and password hashing using Bcrypt.
-* **Database Management:** Robust relational data handling with **PostgreSQL** and **SQLAlchemy** ORM.
-* **Containerization:** Fully Dockerized for seamless deployment and development parity.
-* **CI/CD:** Automated testing and deployment workflows powered by **GitHub Actions**.
+- **Auth & Sessions:** OAuth2 + JWT access tokens with Argon2 password hashing and refresh rotation.
+- **Email Verification:** Brevo email verification workflow.
+- **Posts & Comments:** CRUD posts, comments, and likes.
+- **Food Vision:** ONNX image inference (single, batch, zip).
+- **Uploads:** Local uploads and Backblaze B2 uploads.
+- **Video Streaming:** WebSocket video stream saved via ffmpeg.
+- **Observability:** Structured logging + Sentry + Logtail support.
+- **Containerization:** Docker + Compose for dev/test parity.
 
 ---
 
 ## 🛠 Tech Stack
 
-* **Language:** Python 3.9+
-* **API Framework:** FastAPI
-* **Database:** PostgreSQL
-* **ORM:** SQLAlchemy
-* **Migrations:** Alembic
-* **Testing:** Pytest & Httpx
-* **DevOps:** Docker, Docker Compose, GitHub Actions
-* **Third-Party Services:** Mailgun (Email), Logtail (Monitoring)
+- **Language:** Python 3.11+
+- **API Framework:** FastAPI
+- **Database:** PostgreSQL
+- **DB Layer:** SQLAlchemy Core + `databases`
+- **Testing:** Pytest, Httpx
+- **ML:** ONNX Runtime, PIL
+- **DevOps:** Docker, Docker Compose, GitHub Actions
+- **Third-Party Services:** mailgun (Email), Logtail (Monitoring), Sentry
 
 ---
 
 ## 📦 Installation & Setup
 
 ### 1. Prerequisites
-* [Docker & Docker Compose](https://docs.docker.com/get-docker/)
-* [Python 3.9+](https://www.python.org/downloads/) (if running locally without Docker)
+- [Docker & Docker Compose](https://docs.docker.com/get-docker/)
+- [Python 3.11+](https://www.python.org/downloads/) (if running locally without Docker)
 
 ### 2. Environment Configuration
-Create a `.env` file in the root directory and provide your credentials:
+Create a `.env` file in the root directory (copy `.env.example`) and provide your credentials.
 
 ```env
-# Database Configuration
-DATABASE_HOSTNAME=db
-DATABASE_PORT=5432
-DATABASE_PASSWORD=your_secure_password
-DATABASE_NAME=social_api
-DATABASE_USERNAME=postgres
+ENV_STATE=prod
+
+# Database (compose)
+DB_USER=postgres
+DB_PASSWORD=your_secure_password
+DB_NAME=socialmedia
+
+# Database URLs
+DEV_DATABASE_URL=sqlite:///./devdatabase.db
+PROD_DATABASE_URL=postgresql://user:pass@host:5432/dbname
+TEST_DATABASE_URL=postgresql://user:pass@db:5432/dbname
 
 # Security
-SECRET_KEY=your_secret_key_here
+SECRET_KEY=use_a_64+_byte_random_value
+REFRESH_TOKEN_SECRET_KEY=use_a_64+_byte_random_value
 ALGORITHM=HS256
-ACCESS_TOKEN_EXPIRE_MINUTES=30
+REFRESH_TOKEN_ALGORITHM=HS512
 
-# External Services
-MAILGUN_API_KEY=your_mailgun_api_key
-MAILGUN_DOMAIN=your_mailgun_domain
+# Email (Brevo)
+BREVO_API_KEY=your_brevo_api_key
+BREVO_SENDER=your_verified_sender_email
+
+# Observability
 LOGTAIL_SOURCE_TOKEN=your_logtail_token
+LOGTAIL_HOST=your_logtail_host
+SENTRY_DSN=your_sentry_dsn
+SENTRY_SEND_DEFAULT_PII=false
+
+# Backblaze B2
+B2_KEY_ID=your_b2_key_id
+B2_APPLICATION_KEY=your_b2_application_key
+B2_BUCKET_NAME=your_bucket
 ```
+
 ### 3. Running with Docker (Recommended)
 This will spin up the FastAPI application and the PostgreSQL database container:
 
 ```bash
-docker-compose up --build
+docker compose up --build
 ```
 
 ### Testing (TDD)
 ```bash
-pytest -v -s --disable-warnings
+docker compose run --rm test
 ```
+
 ### API Documentation
-The API comes with built-in, interactive documentation. Once the server is running, navigate to:
+Once the server is running:
 
-Swagger UI: http://localhost:8000/docs
- - Explore and test endpoints directly from the browser.
- - or you can explore [here](https://socialmediaapi-u4id.onrender.com/docs)
+- Swagger UI: http://localhost:8000/docs
+- ReDoc: http://localhost:8000/redoc
 
-ReDoc: http://localhost:8000/redoc
- - Clean, organized technical documentation.
- - or you can use [here](https://socialmediaapi-u4id.onrender.com/reDoc)
+---
+
+## 🚀 Deployment (Render)
+Render’s free plan does not run Docker Compose. Create a Web Service from this repo (Dockerfile), and a separate managed PostgreSQL instance. Then set the env vars above in the Render dashboard (especially `PROD_DATABASE_URL`, `SECRET_KEY`, `REFRESH_TOKEN_SECRET_KEY`, `ALGORITHM`, `REFRESH_TOKEN_ALGORITHM`).
+
+---
+
+## 📁 Project Structure
+
+```
+storeapi/
+	routers/          # API routes
+	models/           # Pydantic models
+	security/         # Auth/JWT helpers
+	food_vision_model/# ONNX model + preprocessing
+	email/            # Brevo email helpers
+	videochats/       # WebSocket video stream
+	libs/             # External service clients
+	tests/            # Pytest suites
+```
 
 
 

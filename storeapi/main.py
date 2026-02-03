@@ -10,7 +10,7 @@ from storeapi.routers.upload import router as b2_upload_router
 from storeapi.videochats.videochatrouter import router as videochat_router
 from storeapi.routers.user import router as user_router
 from storeapi.routers.cuncurrency_async import test_router
-from storeapi.database import db_connection
+from storeapi.database import db_connection, init_db
 from storeapi.routers.food_vision import router as food_vision_router
 import sentry_sdk
 from storeapi.config import SecurityKeys
@@ -25,7 +25,7 @@ sentry_sdk.init(
     dsn= secret_key.SENTRY_DSN,
     # Add data like request headers and IP for users,
     # see https://docs.sentry.io/platforms/python/data-management/data-collected/ for more info
-    send_default_pii=True)
+    send_default_pii=bool(secret_key.SENTRY_SEND_DEFAULT_PII))
 
 
 @asynccontextmanager
@@ -33,7 +33,8 @@ async def lifespan(app: FastAPI):
 
     try:
 
-        logger.info("📡 Connecting database...")
+        logger.info(" Connecting database...")
+        init_db()
         database = db_connection()
         await database.connect()
     except Exception as e:

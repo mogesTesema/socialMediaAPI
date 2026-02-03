@@ -9,7 +9,7 @@ logger = logging.getLogger(__name__)
 b2_key_set = get_file_upload_keys()
 
 
-# @lru_cache()
+@lru_cache()
 def b2_api():
     logger.debug("creating and authorize B2 API")
     info = InMemoryAccountInfo()
@@ -21,7 +21,7 @@ def b2_api():
     return b2_api
 
 
-# @lru_cache()
+@lru_cache()
 def b2_get_bucket(api: b2.B2Api):
     return api.get_bucket_by_name(b2_key_set.B2_BUCKET_NAME)
 

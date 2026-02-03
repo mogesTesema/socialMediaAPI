@@ -1,4 +1,5 @@
 from pydantic import BaseModel
+from pydantic import ConfigDict
 from typing import Optional
 
 
@@ -15,8 +16,7 @@ class UserPost(UserPostIn):
 class UserPostWithLike(UserPost):
     likes: int
 
-    class config:
-        orm_model: True
+    model_config = ConfigDict(from_attributes=True)
 
 
 class CommentIn(BaseModel):

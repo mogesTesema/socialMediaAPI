@@ -41,25 +41,10 @@ async def register(
     logger.debug("registering user")
     if user_exist:
         logger.debug("user already exist in database")
-        if True or user_exist.confirmed:
-            raise HTTPException(
-                status_code=409,
-                detail="user already exist,conflict with exsisting info",
-            )
-        else:
-            hashed_password = await get_password_hash(user.password)
-            update_query = (
-                user_table.update()
-                .where(user_table.c.email == email)
-                .values(password=hashed_password)
-            )
-            try:
-                await database.execute(update_query)
-            except Exception as e:
-                raise HTTPException(
-                    status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
-                    detail=f"fail to reregister user:{e}",
-                )
+        raise HTTPException(
+            status_code=409,
+            detail="user already exist,conflict with exsisting info",
+        )
     else:
         hashed_password = await get_password_hash(user.password)
         user_query = user_table.insert().values(email=email, password=hashed_password)
@@ -119,7 +104,7 @@ async def login(user: UserIn, response: Response):
             status_code=status.HTTP_404_NOT_FOUND,
             detail="user don't exist,incorrect passowrd or email",
         )
-    if not verify_password(user.password, user_exist.password):
+    if not await verify_password(user.password, user_exist.password):
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND, detail="incorrect password or email"
         )
@@ -201,7 +186,7 @@ async def refresh_token(
     new_refresh_token = refresh_token_detail["new_refresh_token"]
 
     response.set_cookie(
-        key="refresh",
+        key="refresh_token",
         value=new_refresh_token,
         max_age=60 * 60 * 24 * 30,
         path="/auth/refresh",

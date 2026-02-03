@@ -1,5 +1,8 @@
-from fastapi import APIRouter, WebSocket
+import logging
+from fastapi import APIRouter, WebSocket, WebSocketDisconnect
 from storeapi.videochats.videostore import start_ffmpeg_writer
+
+logger = logging.getLogger(__name__)
 
 router = APIRouter()
 
@@ -13,11 +16,13 @@ async def video_stream(ws: WebSocket):
         while True:
             chunk = await ws.receive_bytes()
             ffmpeg_proc.stdin.write(chunk)
-
+    except WebSocketDisconnect:
+        pass
     except Exception:
-        ffmpeg_proc.stdin.close()
+        logger.exception("video stream error")
+    finally:
+        if ffmpeg_proc.stdin:
+            ffmpeg_proc.stdin.close()
         ffmpeg_proc.wait()
-
-        await ws.close()
-
-    return {"saved_to": output_path}
+        if ws.client_state.name != "DISCONNECTED":
+            await ws.close()

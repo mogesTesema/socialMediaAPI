@@ -22,7 +22,7 @@ import os
 os.environ["ENV_STATE"] = "test"  # hacking the env configuration durring testing
 
 from storeapi.main import app
-from storeapi.database import db_connection, user_table
+from storeapi.database import db_connection, user_table, init_db
 
 database = db_connection()
 
@@ -40,10 +40,14 @@ def client() -> Generator:
 @pytest.fixture(autouse=True)
 async def db(anyio_backend) -> AsyncGenerator:
     await database.connect()
+    init_db()
     await database.execute(
         "TRUNCATE TABLE comments, likes, posts, refreshtokens, users RESTART IDENTITY CASCADE;"
     )
     yield
+    await database.execute(
+        "TRUNCATE TABLE comments, likes, posts, refreshtokens, users RESTART IDENTITY CASCADE;"
+    )
     await database.disconnect()
 
 

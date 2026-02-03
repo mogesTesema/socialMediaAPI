@@ -26,7 +26,7 @@ def create_credentials_exception(
     detail: str, status_code=status.HTTP_401_UNAUTHORIZED
 ) -> HTTPException:
     return HTTPException(
-        status_code=status.HTTP_401_UNAUTHORIZED,
+        status_code=status_code,
         detail=detail,
     )
 
@@ -83,8 +83,30 @@ def create_refresh_token(email: str, jti: str):
     return refresh_token
 
 
-def validate_refresh_token():
-    pass
+def validate_refresh_token(token: str) -> dict:
+    try:
+        payload = jwt.decode(
+            jwt=token,
+            key=REFRESH_TOKEN_SECRET_KEY,
+            algorithms=[REFRESH_TOKEN_ALGORITHM],
+        )
+    except ExpiredSignatureError as e:
+        raise create_credentials_exception(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="refresh token expired",
+        ) from e
+    except PyJWTError as e:
+        raise create_credentials_exception(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="invalid refresh token",
+        ) from e
+
+    if payload.get("type") != "refresh":
+        raise create_credentials_exception(
+            status_code=status.HTTP_406_NOT_ACCEPTABLE,
+            detail="wrong refresh token type",
+        )
+    return payload
 
 
 def get_subject_token_type(token: str, type: Literal["access", "confirmation"]) -> str:
@@ -114,8 +136,8 @@ def get_subject_token_type(token: str, type: Literal["access", "confirmation"]) 
     return email
 
 
-async def decrpypt_access_token(access_token: str):
-    return jwt.decode(access_token)
+def decrypt_access_token(access_token: str):
+    return jwt.decode(access_token, key=SECRET_KEY, algorithms=[ALGORITHM])
 
 
 async def get_password_hash(password: str) -> str:
@@ -123,7 +145,10 @@ async def get_password_hash(password: str) -> str:
 
 
 async def verify_password(plain_password: str, hashed_password: str) -> bool:
-    return password_hasher.verify(hashed_password, plain_password)
+    try:
+        return password_hasher.verify(hashed_password, plain_password)
+    except Exception:
+        return False
 
 
 async def get_user(email: str):
@@ -218,7 +243,7 @@ async def refresh_token_rotation(refresh_token: str):
             detail=f"refreshtoken_table object error: {e}",
         )
 
-    if not verify_password(refresh_token, hashed_token):
+    if not await verify_password(refresh_token, hashed_token):
         raise create_credentials_exception(
             status_code=status.HTTP_404_NOT_FOUND,
             detail="wrong refresh token,please use correct token or login with your email and password",
@@ -228,8 +253,10 @@ async def refresh_token_rotation(refresh_token: str):
     new_refresh_token = create_refresh_token(email=user_email, jti=refresh_id)
     new_hashed_token = await get_password_hash(new_refresh_token)
 
-    update_token_query = sqlalchemy.update(refreshtoken_table).values(
-        hashed_token=new_hashed_token
+    update_token_query = (
+        sqlalchemy.update(refreshtoken_table)
+        .where(refreshtoken_table.c.jti == refresh_id)
+        .values(hashed_token=new_hashed_token)
     )
     logger.debug(update_token_query)
     try:
