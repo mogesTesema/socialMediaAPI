@@ -25,6 +25,21 @@ from storeapi.main import app
 from storeapi.database import db_connection, user_table, init_db
 
 database = db_connection()
+async def _clear_db() -> None:
+    url = str(database.url)
+    if "sqlite" in url:
+        await database.execute("PRAGMA foreign_keys=OFF;")
+        await database.execute("DELETE FROM comments;")
+        await database.execute("DELETE FROM likes;")
+        await database.execute("DELETE FROM posts;")
+        await database.execute("DELETE FROM refreshtokens;")
+        await database.execute("DELETE FROM users;")
+        await database.execute("DELETE FROM sqlite_sequence;")
+        await database.execute("PRAGMA foreign_keys=ON;")
+    else:
+        await database.execute(
+            "TRUNCATE TABLE comments, likes, posts, refreshtokens, users RESTART IDENTITY CASCADE;"
+        )
 
 
 @pytest.fixture(scope="session")
@@ -41,13 +56,9 @@ def client() -> Generator:
 async def db(anyio_backend) -> AsyncGenerator:
     await database.connect()
     init_db()
-    await database.execute(
-        "TRUNCATE TABLE comments, likes, posts, refreshtokens, users RESTART IDENTITY CASCADE;"
-    )
+    await _clear_db()
     yield
-    await database.execute(
-        "TRUNCATE TABLE comments, likes, posts, refreshtokens, users RESTART IDENTITY CASCADE;"
-    )
+    await _clear_db()
     await database.disconnect()
 
 
