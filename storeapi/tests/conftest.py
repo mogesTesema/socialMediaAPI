@@ -34,7 +34,11 @@ async def _clear_db() -> None:
         await database.execute("DELETE FROM posts;")
         await database.execute("DELETE FROM refreshtokens;")
         await database.execute("DELETE FROM users;")
-        await database.execute("DELETE FROM sqlite_sequence;")
+        seq_exists = await database.fetch_val(
+            "SELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';"
+        )
+        if seq_exists:
+            await database.execute("DELETE FROM sqlite_sequence;")
         await database.execute("PRAGMA foreign_keys=ON;")
     else:
         await database.execute(
