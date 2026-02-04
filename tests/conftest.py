@@ -33,6 +33,7 @@ async def _clear_db() -> None:
         await database.execute("DELETE FROM likes;")
         await database.execute("DELETE FROM posts;")
         await database.execute("DELETE FROM refreshtokens;")
+        await database.execute("DELETE FROM password_reset_tokens;")
         await database.execute("DELETE FROM users;")
         seq_exists = await database.fetch_val(
             "SELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';"
@@ -42,7 +43,7 @@ async def _clear_db() -> None:
         await database.execute("PRAGMA foreign_keys=ON;")
     else:
         await database.execute(
-            "TRUNCATE TABLE comments, likes, posts, refreshtokens, users RESTART IDENTITY CASCADE;"
+            "TRUNCATE TABLE comments, likes, posts, refreshtokens, password_reset_tokens, users RESTART IDENTITY CASCADE;"
         )
 
 

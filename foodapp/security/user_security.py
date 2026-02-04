@@ -2,7 +2,12 @@ import sqlalchemy
 from fastapi import Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordBearer
 from argon2 import PasswordHasher
-from foodapp.db.database import user_table, db_connection, refreshtoken_table
+from foodapp.db.database import (
+    user_table,
+    db_connection,
+    refreshtoken_table,
+    password_reset_table,
+)
 from foodapp.core.config import get_secrets
 import logging
 import jwt
@@ -40,6 +45,10 @@ def confirm_token_expire_minutes() -> int:
 
 
 def refresh_token_expire_days() -> int:
+    return 30
+
+
+def password_reset_token_expire_minutes() -> int:
     return 30
 
 
@@ -83,6 +92,14 @@ def create_refresh_token(email: str, jti: str):
     return refresh_token
 
 
+def create_password_reset_token(email: str, jti: str):
+    expire = datetime.datetime.now(tz=datetime.UTC) + datetime.timedelta(
+        minutes=password_reset_token_expire_minutes()
+    )
+    reset_payload = {"sub": email, "jti": jti, "exp": expire, "type": "password_reset"}
+    return jwt.encode(payload=reset_payload, key=SECRET_KEY, algorithm=ALGORITHM)
+
+
 def validate_refresh_token(token: str) -> dict:
     try:
         payload = jwt.decode(
@@ -109,7 +126,9 @@ def validate_refresh_token(token: str) -> dict:
     return payload
 
 
-def get_subject_token_type(token: str, type: Literal["access", "confirmation"]) -> str:
+def get_subject_token_type(
+    token: str, type: Literal["access", "confirmation", "password_reset"]
+) -> str:
     try:
         payload = jwt.decode(jwt=token, key=SECRET_KEY, algorithms=[ALGORITHM])
 
@@ -134,6 +153,66 @@ def get_subject_token_type(token: str, type: Literal["access", "confirmation"]) 
         raise create_credentials_exception(detail="Token is missing 'sub' field")
 
     return email
+
+
+async def store_password_reset_token(email: str, reset_token: str, jti: str) -> None:
+    hashed_reset_token = await get_password_hash(reset_token)
+    delete_existing = password_reset_table.delete().where(
+        password_reset_table.c.user_email == email
+    )
+    await database.execute(delete_existing)
+    insert_query = password_reset_table.insert().values(
+        jti=jti, user_email=email, hashed_token=hashed_reset_token
+    )
+    await database.execute(insert_query)
+
+
+async def validate_password_reset_token(reset_token: str) -> tuple[str, str]:
+    try:
+        payload = jwt.decode(jwt=reset_token, key=SECRET_KEY, algorithms=[ALGORITHM])
+    except ExpiredSignatureError as e:
+        raise create_credentials_exception(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="password reset token expired",
+        ) from e
+    except PyJWTError as e:
+        raise create_credentials_exception(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="invalid password reset token",
+        ) from e
+
+    email = payload.get("sub")
+    token_type = payload.get("type")
+    jti = payload.get("jti")
+    if token_type != "password_reset":
+        raise create_credentials_exception(
+            status_code=status.HTTP_406_NOT_ACCEPTABLE,
+            detail="wrong password reset token type",
+        )
+    if not email or not jti:
+        raise create_credentials_exception(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="password reset token missing required fields",
+        )
+
+    token_query = sqlalchemy.select(password_reset_table).where(
+        password_reset_table.c.jti == jti,
+        password_reset_table.c.user_email == email,
+    )
+    token_record = await database.fetch_one(token_query)
+    if not token_record:
+        raise create_credentials_exception(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="password reset token not found",
+        )
+
+    if not await verify_password(reset_token, token_record.hashed_token):
+        raise create_credentials_exception(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="invalid password reset token",
+        )
+
+    return email, jti
 
 
 def decrypt_access_token(access_token: str):

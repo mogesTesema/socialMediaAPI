@@ -12,3 +12,12 @@ class UserIn(User):
 
 class Token(BaseModel):
     token: str
+
+
+class PasswordResetRequest(BaseModel):
+    email: str
+
+
+class PasswordResetConfirm(BaseModel):
+    token: str
+    new_password: str

@@ -25,6 +25,17 @@ refreshtoken_table = sqlalchemy.Table(
     sqlalchemy.Column("hashed_token", sqlalchemy.String, nullable=False),
 )
 
+password_reset_table = sqlalchemy.Table(
+    "password_reset_tokens",
+    metadata,
+    sqlalchemy.Column("id", sqlalchemy.Integer, primary_key=True),
+    sqlalchemy.Column("jti", sqlalchemy.String, nullable=False),
+    sqlalchemy.Column(
+        "user_email", sqlalchemy.ForeignKey("users.email"), nullable=False
+    ),
+    sqlalchemy.Column("hashed_token", sqlalchemy.String, nullable=False),
+)
+
 post_table = sqlalchemy.Table(
     "posts",
     metadata,

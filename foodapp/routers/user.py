@@ -7,9 +7,23 @@ from fastapi import (
     status,
     Depends,
 )
-from foodapp.models.user import UserIn, Token, User
-from foodapp.db.database import user_table, db_connection, refreshtoken_table
-from foodapp.integrations.email.verify_email import send_verfication_email
+from foodapp.models.user import (
+    UserIn,
+    Token,
+    User,
+    PasswordResetRequest,
+    PasswordResetConfirm,
+)
+from foodapp.db.database import (
+    user_table,
+    db_connection,
+    refreshtoken_table,
+    password_reset_table,
+)
+from foodapp.integrations.email.verify_email import (
+    send_verfication_email,
+    send_password_reset_email,
+)
 from foodapp.security.user_security import (
     get_user,
     get_password_hash,
@@ -21,6 +35,9 @@ from foodapp.security.user_security import (
     create_refresh_token,
     refresh_token_rotation,
     verify_password,
+    create_password_reset_token,
+    store_password_reset_token,
+    validate_password_reset_token,
 )
 
 import logging
@@ -237,3 +254,53 @@ async def delete_account(current_user: Annotated[User, Depends(get_current_user)
         )
 
     return {"status": "seccussfully deleted"}
+
+
+@router.post("/password/forgot")
+async def forgot_password(
+    payload: PasswordResetRequest,
+    background_task: BackgroundTasks,
+    request: Request,
+):
+    user = await get_user(payload.email)
+    if not user:
+        return {"status": "if the email exists, a reset link has been sent"}
+
+    reset_id = str(uuid.uuid4())
+    reset_token = create_password_reset_token(email=payload.email, jti=reset_id)
+    await store_password_reset_token(payload.email, reset_token, reset_id)
+
+    reset_url = f"{request.base_url}password/reset?token={reset_token}"
+    background_task.add_task(
+        send_password_reset_email,
+        to=payload.email,
+        reset_url=reset_url,
+    )
+
+    return {"status": "if the email exists, a reset link has been sent"}
+
+
+@router.post("/password/reset")
+async def reset_password(payload: PasswordResetConfirm):
+    email, reset_id = await validate_password_reset_token(payload.token)
+
+    hashed_password = await get_password_hash(payload.new_password)
+    update_password_query = (
+        user_table.update().where(user_table.c.email == email).values(
+            password=hashed_password
+        )
+    )
+    await database.execute(update_password_query)
+
+    delete_reset_query = password_reset_table.delete().where(
+        password_reset_table.c.jti == reset_id,
+        password_reset_table.c.user_email == email,
+    )
+    await database.execute(delete_reset_query)
+
+    delete_refresh_query = refreshtoken_table.delete().where(
+        refreshtoken_table.c.user_email == email
+    )
+    await database.execute(delete_refresh_query)
+
+    return {"status": "password reset successfully"}
