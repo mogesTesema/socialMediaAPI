@@ -1,10 +1,10 @@
-# Social Media API (FastAPI)
+# FoodDeals API (FastAPI)
 
-![CI/CD Status](https://github.com/mogesTesema/socialMediaAPI/actions/workflows/build-deploy.yml/badge.svg)
+![CI/CD Status](https://github.com/mogesTesema/FoodDeals/actions/workflows/build-deploy.yml/badge.svg)
 ![Python Version](https://img.shields.io/badge/python-3.11%2B-blue)
 ![Framework](https://img.shields.io/badge/framework-FastAPI-green)
 
-A production-grade REST API built with **FastAPI**. The project emphasizes **TDD**, containerization, and observability, and provides endpoints for authentication, posts, file uploads, food-vision inference, and video streaming.
+A production-grade REST API built with **FastAPI**. The project emphasizes **TDD**, containerization, and observability, and provides endpoints for authentication, food posts, file uploads, food-vision inference, and video streaming.
 
 ---
 
@@ -49,7 +49,7 @@ ENV_STATE=prod
 # Database (compose)
 DB_USER=postgres
 DB_PASSWORD=your_secure_password
-DB_NAME=socialmedia
+DB_NAME=fooddeals
 
 # Database URLs
 DEV_DATABASE_URL=sqlite:///./devdatabase.db
@@ -106,15 +106,17 @@ Render’s free plan does not run Docker Compose. Create a Web Service from this
 ## 📁 Project Structure
 
 ```
-storeapi/
-	routers/          # API routes
-	models/           # Pydantic models
-	security/         # Auth/JWT helpers
-	food_vision_model/# ONNX model + preprocessing
-	email/            # Brevo email helpers
-	videochats/       # WebSocket video stream
-	libs/             # External service clients
-	tests/            # Pytest suites
+foodapp/
+	main.py            # FastAPI app instance
+	core/              # Settings, logging, middleware
+	db/                # DB connection + metadata
+	models/            # Pydantic models
+	routers/           # API routes
+	security/          # Auth/JWT helpers
+	services/          # Business logic
+	integrations/      # Email, storage, vision, genai, etc.
+	utils/             # Shared utilities
+tests/              # Pytest suites
 ```
 
 

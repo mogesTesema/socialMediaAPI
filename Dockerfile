@@ -7,9 +7,9 @@ COPY ./requirements.txt /app/
 RUN pip install -r requirements.txt
 
 
-COPY ./storeapi /app/storeapi/
+COPY ./foodapp /app/foodapp/
 
 
 EXPOSE 8000
 
-CMD ["uvicorn","storeapi.main:app","--host","0.0.0.0","--port","8000"]
+CMD ["uvicorn","foodapp.main:app","--host","0.0.0.0","--port","8000"]

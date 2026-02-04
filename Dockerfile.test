@@ -8,9 +8,10 @@ COPY ./requirements-dev.txt /app/
 RUN pip install --no-cache-dir -r requirements.txt \
     && pip install --no-cache-dir -r requirements-dev.txt
 
-COPY ./storeapi /app/storeapi/
-COPY ./storeapi/food_vision_model/food_vision_model.onnx /app/storeapi/food_vision_model/
+COPY ./foodapp /app/foodapp/
+COPY ./foodapp/integrations/vision/food_vision_model.onnx /app/foodapp/integrations/vision/
+COPY ./tests /app/tests
 
 ENV ENV_STATE=test
 
-CMD ["python", "-m", "pytest", "/app/storeapi/tests"]
+CMD ["python", "-m", "pytest", "/app/tests"]
