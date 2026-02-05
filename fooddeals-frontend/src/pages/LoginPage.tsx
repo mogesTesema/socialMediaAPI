@@ -4,6 +4,7 @@ import { Input } from '../components/Input';
 import { Button } from '../components/Button';
 import { api } from '../lib/api';
 import { useAuth } from '../features/auth/AuthContext';
+import { setAccessToken } from '../lib/auth';
 import { Link, useNavigate } from 'react-router-dom';
 
 export function LoginPage() {
@@ -29,6 +30,7 @@ export function LoginPage() {
     } catch (error) {
       const message = error instanceof Error ? error.message : 'Unable to login';
       setStatus(message);
+      setAccessToken(null);
     } finally {
       setIsLoading(false);
     }

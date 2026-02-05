@@ -8,9 +8,10 @@ import { Button } from '../../components/Button';
 interface PostListProps {
   searchTerm: string;
   prependPosts?: Post[];
+  refreshKey?: number;
 }
 
-export function PostList({ searchTerm, prependPosts = [] }: PostListProps) {
+export function PostList({ searchTerm, prependPosts = [], refreshKey = 0 }: PostListProps) {
   const [posts, setPosts] = useState<Post[]>([]);
   const [sorting, setSorting] = useState<PostSorting>('new');
   const [status, setStatus] = useState<string | null>(null);
@@ -31,14 +32,17 @@ export function PostList({ searchTerm, prependPosts = [] }: PostListProps) {
     return () => {
       isMounted = false;
     };
-  }, [sorting]);
+  }, [sorting, refreshKey]);
 
   const filteredPosts = useMemo(() => {
-    const merged = [...prependPosts, ...posts];
-    if (!searchTerm.trim()) return merged;
+    const merged = sorting === 'new' ? [...prependPosts, ...posts] : posts;
+    const unique = merged.filter(
+      (post, index, array) => array.findIndex((item) => item.id === post.id) === index,
+    );
+    if (!searchTerm.trim()) return unique;
     const term = searchTerm.toLowerCase();
-    return merged.filter((post) => post.body.toLowerCase().includes(term));
-  }, [posts, prependPosts, searchTerm]);
+    return unique.filter((post) => post.body.toLowerCase().includes(term));
+  }, [posts, prependPosts, searchTerm, sorting]);
 
   return (
     <section className="space-y-6">

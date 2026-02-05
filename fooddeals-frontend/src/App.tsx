@@ -6,6 +6,7 @@ import { LoginPage } from './pages/LoginPage';
 import { RegisterPage } from './pages/RegisterPage';
 import { ForgotPasswordPage } from './pages/ForgotPasswordPage';
 import { FoodVisionPage } from './pages/FoodVisionPage';
+import { ResetPasswordPage } from './pages/ResetPasswordPage';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/auth/login" element={<LoginPage />} />
         <Route path="/auth/register" element={<RegisterPage />} />
         <Route path="/auth/forgot" element={<ForgotPasswordPage />} />
+        <Route path="/auth/reset" element={<ResetPasswordPage />} />
       </Routes>
     </AppShell>
   );

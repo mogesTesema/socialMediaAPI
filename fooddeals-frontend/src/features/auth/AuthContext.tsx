@@ -1,4 +1,5 @@
-import { createContext, ReactNode, useContext, useMemo, useState } from 'react';
+import { createContext, ReactNode, useContext, useEffect, useMemo, useState } from 'react';
+import { ACCESS_TOKEN_KEY, TOKEN_EVENT } from '../../lib/config';
 
 interface AuthContextValue {
   accessToken: string | null;
@@ -11,8 +12,6 @@ const AuthContext = createContext<AuthContextValue | undefined>(undefined);
 interface AuthProviderProps {
   children: ReactNode;
 }
-
-const ACCESS_TOKEN_KEY = 'fooddeals_access_token';
 
 export function AuthProvider({ children }: AuthProviderProps) {
   const [accessToken, setAccessTokenState] = useState<string | null>(() =>
@@ -29,10 +28,20 @@ export function AuthProvider({ children }: AuthProviderProps) {
       } else {
         window.localStorage.removeItem(ACCESS_TOKEN_KEY);
       }
+      window.dispatchEvent(new CustomEvent(TOKEN_EVENT, { detail: token }));
     }
   };
 
   const clearSession = () => setAccessToken(null);
+
+  useEffect(() => {
+    const handler = (event: Event) => {
+      const detail = (event as CustomEvent<string | null>).detail ?? null;
+      setAccessTokenState(detail);
+    };
+    window.addEventListener(TOKEN_EVENT, handler as EventListener);
+    return () => window.removeEventListener(TOKEN_EVENT, handler as EventListener);
+  }, []);
 
   const value = useMemo(
     () => ({ accessToken, setAccessToken, clearSession }),

@@ -5,10 +5,8 @@ import type {
   PostSorting,
   PostWithComments,
 } from './types';
-
-const API_BASE_URL =
-  (import.meta.env.VITE_API_BASE_URL as string | undefined) ||
-  'http://localhost:8000';
+import { API_BASE_URL } from './config';
+import { getAccessToken, refreshAccessToken } from './auth';
 
 interface RequestOptions {
   method?: 'GET' | 'POST' | 'PUT' | 'DELETE';
@@ -18,15 +16,26 @@ interface RequestOptions {
 
 async function request<T>(path: string, options: RequestOptions = {}): Promise<T> {
   const { method = 'GET', body, token } = options;
-  const response = await fetch(`${API_BASE_URL}${path}`, {
-    method,
-    headers: {
-      ...(body ? { 'Content-Type': 'application/json' } : {}),
-      ...(token ? { Authorization: `Bearer ${token}` } : {}),
-    },
-    body: body ? JSON.stringify(body) : undefined,
-    credentials: 'include',
-  });
+  const authToken = token ?? getAccessToken();
+  const makeRequest = (access: string | null) =>
+    fetch(`${API_BASE_URL}${path}`, {
+      method,
+      headers: {
+        ...(body ? { 'Content-Type': 'application/json' } : {}),
+        ...(access ? { Authorization: `Bearer ${access}` } : {}),
+      },
+      body: body ? JSON.stringify(body) : undefined,
+      credentials: 'include',
+    });
+
+  let response = await makeRequest(authToken ?? null);
+
+  if (response.status === 401 && !token) {
+    const refreshed = await refreshAccessToken();
+    if (refreshed) {
+      response = await makeRequest(refreshed);
+    }
+  }
 
   if (!response.ok) {
     const errorBody = await response.json().catch(() => ({}));
@@ -95,6 +104,47 @@ export const api = {
       throw new Error(message);
     }
 
-    return response.json() as Promise<{ filename: string; predictions: { label: string; score_percent: number }[] }>;
+    return response.json() as Promise<{
+      filename: string;
+      predictions: { label: string; score_percent: number }[];
+    }>;
+  },
+  predictFoodBatch: async (files: File[]) => {
+    const form = new FormData();
+    files.forEach((file) => form.append('files', file));
+
+    const response = await fetch(`${API_BASE_URL}/food-vision/predict-batch`, {
+      method: 'POST',
+      body: form,
+    });
+
+    if (!response.ok) {
+      const errorBody = await response.json().catch(() => ({}));
+      const message = errorBody?.detail || response.statusText;
+      throw new Error(message);
+    }
+
+    return response.json() as Promise<{
+      results: { filename: string; prediction: { label: string; score_percent: number } }[];
+    }>;
+  },
+  predictFoodZip: async (file: File) => {
+    const form = new FormData();
+    form.append('file', file);
+
+    const response = await fetch(`${API_BASE_URL}/food-vision/predict-zip`, {
+      method: 'POST',
+      body: form,
+    });
+
+    if (!response.ok) {
+      const errorBody = await response.json().catch(() => ({}));
+      const message = errorBody?.detail || response.statusText;
+      throw new Error(message);
+    }
+
+    return response.json() as Promise<{
+      results: { filename: string; prediction: { label: string; score_percent: number } }[];
+    }>;
   },
 };

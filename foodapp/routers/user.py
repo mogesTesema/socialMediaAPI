@@ -39,6 +39,8 @@ from foodapp.security.user_security import (
     store_password_reset_token,
     validate_password_reset_token,
 )
+from foodapp.core.config import config
+from urllib.parse import urlparse
 
 import logging
 import uuid
@@ -270,7 +272,22 @@ async def forgot_password(
     reset_token = create_password_reset_token(email=payload.email, jti=reset_id)
     await store_password_reset_token(payload.email, reset_token, reset_id)
 
-    reset_url = f"{request.base_url}password/reset?token={reset_token}"
+    frontend_base = config.FRONTEND_BASE_URL
+    if not frontend_base:
+        allowlist = [
+            origin.strip()
+            for origin in (config.FRONTEND_BASE_URLS or "").split(",")
+            if origin.strip()
+        ]
+        requested_base = request.headers.get("X-Frontend-Base-Url")
+        if requested_base and allowlist:
+            parsed = urlparse(requested_base)
+            normalized = f"{parsed.scheme}://{parsed.netloc}"
+            if normalized in allowlist:
+                frontend_base = normalized
+
+    frontend_base = frontend_base or "http://localhost:5173"
+    reset_url = f"{frontend_base.rstrip('/')}/auth/reset?token={reset_token}"
     background_task.add_task(
         send_password_reset_email,
         to=payload.email,

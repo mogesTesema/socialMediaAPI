@@ -16,6 +16,8 @@ class GlobalConfig(BaseConfig):
     BREVO_API_KEY: Optional[str] = None
     BREVO_SENDER: Optional[str] = None
     CORS_ORIGINS: Optional[str] = None
+    FRONTEND_BASE_URL: Optional[str] = None
+    FRONTEND_BASE_URLS: Optional[str] = None
 
 
 class DevConfig(GlobalConfig):
