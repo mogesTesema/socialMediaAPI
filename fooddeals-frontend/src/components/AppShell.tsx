@@ -1,5 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import { Container } from './Container';
+import { AnimatedBackground } from './AnimatedBackground';
 import { Badge } from './Badge';
 import { useAuth } from '../features/auth/AuthContext';
 
@@ -17,7 +18,8 @@ export function AppShell({ children }: AppShellProps) {
   const { accessToken, clearSession } = useAuth();
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100">
+    <div className="min-h-screen text-slate-100">
+      <AnimatedBackground />
       <header className="border-b border-slate-900/70">
         <Container>
           <div className="flex flex-wrap items-center justify-between gap-4 py-6">

@@ -17,3 +17,37 @@ body {
 * {
   border-color: #1e293b;
 }
+
+@keyframes floaty {
+  0% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-18px) scale(1.03);
+  }
+  100% {
+    transform: translateY(0px) scale(1);
+  }
+}
+
+.bg-float {
+  animation: floaty 14s ease-in-out infinite;
+}
+
+@keyframes floatY {
+  0% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-16px) scale(1.02);
+  }
+  100% {
+    transform: translateY(0px) scale(1);
+  }
+}
+
+.animated-float {
+  animation-name: floatY;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}

@@ -7,6 +7,7 @@ import type { Post } from '../lib/types';
 export function DashboardPage() {
   const [searchTerm, setSearchTerm] = useState('');
   const [newPosts, setNewPosts] = useState<Post[]>([]);
+  const [refreshKey, setRefreshKey] = useState(0);
 
   return (
     <div className="space-y-8">
@@ -22,7 +23,12 @@ export function DashboardPage() {
       <section className="grid gap-8 lg:grid-cols-[0.7fr_1.3fr]">
         <div className="space-y-6">
           <SearchBar value={searchTerm} onChange={setSearchTerm} />
-          <PostComposer onPostCreated={(post) => setNewPosts((prev) => [post, ...prev])} />
+          <PostComposer
+            onPostCreated={(post) => {
+              setNewPosts((prev) => [post, ...prev]);
+              setRefreshKey((prev) => prev + 1);
+            }}
+          />
           {newPosts.length > 0 && (
             <div className="rounded-3xl border border-slate-800 bg-slate-900/60 p-4 text-xs text-slate-200">
               {newPosts.length} new post{newPosts.length > 1 ? 's' : ''} added this
@@ -31,7 +37,11 @@ export function DashboardPage() {
           )}
         </div>
 
-        <PostList searchTerm={searchTerm} prependPosts={newPosts} />
+        <PostList
+          searchTerm={searchTerm}
+          prependPosts={newPosts}
+          refreshKey={refreshKey}
+        />
       </section>
     </div>
   );
