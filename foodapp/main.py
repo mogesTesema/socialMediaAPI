@@ -1,5 +1,6 @@
 from foodapp.core.logging_config import configure_logging
 from fastapi import FastAPI, HTTPException, Request
+from fastapi.middleware.cors import CORSMiddleware
 from asgi_correlation_id import CorrelationIdMiddleware
 from fastapi.responses import JSONResponse
 from fastapi.exception_handlers import http_exception_handler
@@ -13,7 +14,7 @@ from foodapp.routers.concurrency_async import test_router
 from foodapp.db.database import db_connection, init_db
 from foodapp.routers.food_vision import router as food_vision_router
 import sentry_sdk
-from foodapp.core.config import SecurityKeys
+from foodapp.core.config import SecurityKeys, config
 
 import logging
 secret_key = SecurityKeys()
@@ -58,6 +59,23 @@ app = FastAPI(debug=False, lifespan=lifespan)
 
 # 3️⃣ Add middleware BEFORE routers
 app.add_middleware(CorrelationIdMiddleware)
+
+cors_origins = [
+    "http://localhost:5173",
+    "http://127.0.0.1:5173",
+]
+if config.CORS_ORIGINS:
+    cors_origins.extend(
+        [origin.strip() for origin in config.CORS_ORIGINS.split(",") if origin.strip()]
+    )
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=cors_origins,
+    allow_credentials=True,
+    allow_methods=["*"] ,
+    allow_headers=["*"] ,
+)
 
 # 4️⃣ Routers
 app.include_router(post_router)

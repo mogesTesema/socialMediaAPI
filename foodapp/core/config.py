@@ -15,6 +15,7 @@ class GlobalConfig(BaseConfig):
     LOGTAIL_SOURCE_TOKEN: Optional[str] = None
     BREVO_API_KEY: Optional[str] = None
     BREVO_SENDER: Optional[str] = None
+    CORS_ORIGINS: Optional[str] = None
 
 
 class DevConfig(GlobalConfig):

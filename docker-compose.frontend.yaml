@@ -1,0 +1,13 @@
+services:
+  frontend:
+    container_name: fooddeals-frontend
+    build:
+      context: ./fooddeals-frontend
+      target: base
+    env_file:
+      - ./fooddeals-frontend/.env
+    volumes:
+      - ./fooddeals-frontend:/app
+      - /app/node_modules
+    ports:
+      - "5173:5173"
