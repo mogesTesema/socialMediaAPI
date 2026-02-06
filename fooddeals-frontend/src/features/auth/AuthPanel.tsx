@@ -12,11 +12,13 @@ export function AuthPanel() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [status, setStatus] = useState<string | null>(null);
+  const [statusTone, setStatusTone] = useState<'success' | 'error' | null>(null);
   const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async () => {
     setIsLoading(true);
     setStatus(null);
+    setStatusTone(null);
     try {
       const response =
         mode === 'login'
@@ -26,12 +28,15 @@ export function AuthPanel() {
       if (token) {
         setAccessToken(token);
         setStatus('Access token stored. You are signed in.');
+        setStatusTone('success');
       } else {
         setStatus('Request completed. Check your email for confirmation.');
+        setStatusTone('success');
       }
     } catch (error) {
       const message = error instanceof Error ? error.message : 'Unable to authenticate';
       setStatus(message);
+      setStatusTone('error');
       setAccessToken(null);
     } finally {
       setIsLoading(false);
@@ -43,7 +48,7 @@ export function AuthPanel() {
       <div className="flex items-center justify-between">
         <div>
           <h3 className="text-xl font-semibold text-white">{mode === 'login' ? 'Sign in' : 'Create account'}</h3>
-          <p className="text-sm text-slate-400">
+          <p className="text-sm text-amber-200/70">
             {mode === 'login'
               ? 'Use your credentials to access the API.'
               : 'Register to unlock posting, likes, and comments.'}
@@ -92,7 +97,13 @@ export function AuthPanel() {
       )}
 
       {status && (
-        <div className="rounded-2xl border border-slate-700 bg-slate-900/70 px-4 py-3 text-xs text-slate-200">
+        <div
+          className={`rounded-2xl border px-4 py-3 text-xs ${
+            statusTone === 'success'
+              ? 'border-emerald-500/40 bg-emerald-500/10 text-emerald-200'
+              : 'border-rose-500/40 bg-rose-500/10 text-rose-200'
+          }`}
+        >
           {status}
         </div>
       )}

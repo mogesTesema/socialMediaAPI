@@ -17,26 +17,32 @@ export function ResetPasswordPage() {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [status, setStatus] = useState<string | null>(null);
+  const [statusTone, setStatusTone] = useState<'success' | 'error' | null>(null);
   const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async () => {
     if (!token) {
       setStatus('Reset token is missing.');
+      setStatusTone('error');
       return;
     }
     if (password !== confirmPassword) {
       setStatus('Passwords do not match.');
+      setStatusTone('error');
       return;
     }
     setIsLoading(true);
     setStatus(null);
+    setStatusTone(null);
     try {
       const response = await api.resetPassword(token, password);
       setStatus(response.status ?? 'Password reset successfully. Redirecting...');
+      setStatusTone('success');
       setTimeout(() => navigate('/auth/login'), 1200);
     } catch (error) {
       const message = error instanceof Error ? error.message : 'Unable to reset password';
       setStatus(message);
+      setStatusTone('error');
     } finally {
       setIsLoading(false);
     }
@@ -62,11 +68,17 @@ export function ResetPasswordPage() {
       <Button onClick={handleSubmit} disabled={!password || isLoading}>
         {isLoading ? 'Resetting...' : 'Reset password'}
       </Button>
-      <p className="text-xs text-slate-400">
-        Back to <Link className="text-brand-200" to="/auth/login">Sign in</Link>
+      <p className="text-xs text-amber-200/70">
+        Back to <Link className="text-emerald-200" to="/auth/login">Sign in</Link>
       </p>
       {status && (
-        <div className="rounded-2xl border border-slate-800 bg-slate-950 px-4 py-2 text-xs text-slate-200">
+        <div
+          className={`rounded-2xl border px-4 py-2 text-xs ${
+            statusTone === 'success'
+              ? 'border-emerald-500/40 bg-emerald-500/10 text-emerald-200'
+              : 'border-rose-500/40 bg-rose-500/10 text-rose-200'
+          }`}
+        >
           {status}
         </div>
       )}

@@ -14,7 +14,7 @@ export function DashboardPage() {
       <div className="flex flex-wrap items-center justify-between gap-4">
         <div>
           <h2 className="text-3xl font-semibold text-white">Content dashboard</h2>
-          <p className="text-sm text-slate-400">
+          <p className="text-sm text-amber-200/70">
             Review posts, likes, and comments as they land in FoodDeals.
           </p>
         </div>
@@ -30,7 +30,7 @@ export function DashboardPage() {
             }}
           />
           {newPosts.length > 0 && (
-            <div className="rounded-3xl border border-slate-800 bg-slate-900/60 p-4 text-xs text-slate-200">
+            <div className="rounded-3xl border border-emerald-500/30 bg-emerald-500/10 p-4 text-xs text-emerald-200">
               {newPosts.length} new post{newPosts.length > 1 ? 's' : ''} added this
               session.
             </div>

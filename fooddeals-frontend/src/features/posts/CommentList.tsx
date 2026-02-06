@@ -52,18 +52,18 @@ export function CommentList({ postId }: CommentListProps) {
   };
 
   return (
-    <div className="space-y-3 rounded-2xl border border-slate-800 bg-slate-950/60 p-4">
+    <div className="space-y-3 rounded-2xl border border-rose-500/30 bg-rose-500/5 p-4">
       <div className="flex items-center justify-between">
-        <p className="text-sm font-semibold text-slate-200">Comments</p>
-        <span className="text-xs text-slate-500">{comments.length}</span>
+        <p className="text-sm font-semibold text-amber-100">Comments</p>
+        <span className="text-xs text-amber-200/70">{comments.length}</span>
       </div>
 
       <div className="space-y-3">
         {comments.length === 0 ? (
-          <p className="text-xs text-slate-500">No comments yet.</p>
+          <p className="text-xs text-amber-200/60">No comments yet.</p>
         ) : (
           comments.map((comment) => (
-            <div key={comment.id} className="rounded-xl border border-slate-800 bg-slate-900/40 p-3 text-xs text-slate-200">
+            <div key={comment.id} className="rounded-xl border border-emerald-500/20 bg-emerald-500/10 p-3 text-xs text-slate-100">
               {comment.body}
             </div>
           ))

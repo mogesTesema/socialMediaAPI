@@ -72,7 +72,7 @@ export function PostList({ searchTerm, prependPosts = [], refreshKey = 0 }: Post
 
       <div className="space-y-6">
         {filteredPosts.length === 0 ? (
-          <div className="rounded-3xl border border-slate-800 bg-slate-900/60 p-8 text-sm text-slate-400">
+          <div className="rounded-3xl border border-amber-400/30 bg-amber-500/5 p-8 text-sm text-amber-200/80">
             No posts yet. Once users create posts they will appear here.
           </div>
         ) : (

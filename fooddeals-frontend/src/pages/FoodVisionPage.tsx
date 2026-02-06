@@ -19,6 +19,7 @@ export function FoodVisionPage() {
     { filename: string; prediction: Prediction }[] | null
   >(null);
   const [status, setStatus] = useState<string | null>(null);
+  const [statusTone, setStatusTone] = useState<'success' | 'error' | null>(null);
   const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async () => {
@@ -27,24 +28,32 @@ export function FoodVisionPage() {
     if (mode === 'batch' && files.length === 0) return;
     setIsLoading(true);
     setStatus(null);
+    setStatusTone(null);
     setResults(null);
     setBatchResults(null);
     try {
       if (mode === 'single') {
         const response = await api.predictFood(file as File);
         setResults(response.predictions ?? []);
+        setStatus('Prediction complete.');
+        setStatusTone('success');
       }
       if (mode === 'batch') {
         const response = await api.predictFoodBatch(files);
         setBatchResults(response.results ?? []);
+        setStatus('Batch predictions complete.');
+        setStatusTone('success');
       }
       if (mode === 'zip') {
         const response = await api.predictFoodZip(file as File);
         setBatchResults(response.results ?? []);
+        setStatus('ZIP predictions complete.');
+        setStatusTone('success');
       }
     } catch (error) {
       const message = error instanceof Error ? error.message : 'Prediction failed';
       setStatus(message);
+      setStatusTone('error');
     } finally {
       setIsLoading(false);
     }
@@ -54,12 +63,12 @@ export function FoodVisionPage() {
     <div className="space-y-8">
       <div>
         <h2 className="text-3xl font-semibold text-white">Food vision lab</h2>
-        <p className="text-sm text-slate-400">
+        <p className="text-sm text-amber-200/70">
           Upload a food image and get classification results from the ONNX model.
         </p>
       </div>
 
-      <Card className="space-y-4">
+      <Card className="space-y-4 border-sky-500/30 bg-sky-500/5">
         <div className="flex flex-wrap gap-2">
           {([
             { key: 'single', label: 'Single image' },
@@ -76,13 +85,14 @@ export function FoodVisionPage() {
                 setResults(null);
                 setBatchResults(null);
                 setStatus(null);
+                setStatusTone(null);
               }}
             >
               {item.label}
             </Button>
           ))}
         </div>
-        <p className="text-xs text-slate-400">
+        <p className="text-xs text-amber-200/70">
           {mode === 'single'
             ? 'Single image returns a ranked list of predictions.'
             : mode === 'batch'
@@ -90,7 +100,7 @@ export function FoodVisionPage() {
             : 'ZIP upload returns the top prediction per image (max 32 images).'}
         </p>
         <div>
-          <label className="text-xs uppercase tracking-[0.2em] text-slate-400">
+          <label className="text-xs uppercase tracking-[0.2em] text-amber-200/70">
             {mode === 'zip' ? 'ZIP file' : 'Image'}
           </label>
           {mode === 'batch' ? (
@@ -100,7 +110,7 @@ export function FoodVisionPage() {
                 accept="image/*"
                 multiple
                 aria-label="Batch image upload"
-                className="mt-2 block w-full rounded-2xl border border-slate-800 bg-slate-950 px-4 py-2 text-sm text-slate-100"
+                className="mt-2 block w-full rounded-2xl border border-sky-500/30 bg-emerald-500/10 px-4 py-2 text-sm text-slate-100"
                 onChange={(event) => {
                   const selected = Array.from(event.target.files ?? []);
                   if (selected.length === 0) return;
@@ -109,11 +119,11 @@ export function FoodVisionPage() {
                 }}
               />
               {files.length > 0 && (
-                <div className="grid gap-2 rounded-2xl border border-slate-800 bg-slate-950 p-3 text-xs text-slate-300 sm:grid-cols-2 lg:grid-cols-3">
+                <div className="grid gap-2 rounded-2xl border border-sky-500/20 bg-emerald-500/5 p-3 text-xs text-amber-100/80 sm:grid-cols-2 lg:grid-cols-3">
                   {files.map((item, index) => (
                     <div
                       key={`${item.name}-${index}`}
-                      className="flex items-center justify-between gap-2 rounded-xl border border-slate-800 bg-slate-900/60 px-3 py-2"
+                      className="flex items-center justify-between gap-2 rounded-xl border border-emerald-500/20 bg-emerald-500/10 px-3 py-2"
                     >
                       <span className="truncate">{item.name}</span>
                       <button
@@ -135,7 +145,7 @@ export function FoodVisionPage() {
               type="file"
               accept={mode === 'zip' ? '.zip' : 'image/*'}
               aria-label="Single or zip upload"
-              className="mt-2 block w-full rounded-2xl border border-slate-800 bg-slate-950 px-4 py-2 text-sm text-slate-100"
+              className="mt-2 block w-full rounded-2xl border border-sky-500/30 bg-emerald-500/10 px-4 py-2 text-sm text-slate-100"
               onChange={(event) => setFile(event.target.files?.[0] ?? null)}
             />
           )}
@@ -150,7 +160,13 @@ export function FoodVisionPage() {
           {isLoading ? 'Predicting...' : 'Run prediction'}
         </Button>
         {status && (
-          <div className="rounded-2xl border border-rose-500/40 bg-rose-500/10 px-4 py-2 text-xs text-rose-200">
+          <div
+            className={`rounded-2xl border px-4 py-2 text-xs ${
+              statusTone === 'success'
+                ? 'border-emerald-500/40 bg-emerald-500/10 text-emerald-200'
+                : 'border-rose-500/40 bg-rose-500/10 text-rose-200'
+            }`}
+          >
             {status}
           </div>
         )}
@@ -162,16 +178,16 @@ export function FoodVisionPage() {
             <Card>No predictions returned.</Card>
           ) : (
             results.map((item) => (
-              <Card key={item.label} className="space-y-2">
+              <Card key={item.label} className="space-y-2 border-amber-500/30 bg-amber-500/5">
                 <p className="text-sm font-semibold text-white">{item.label}</p>
-                <p className="text-xs text-slate-400">Score (single image)</p>
-                <div className="h-2 w-full rounded-full bg-slate-800">
+                <p className="text-xs text-amber-200/70">Score (single image)</p>
+                <div className="h-2 w-full rounded-full bg-emerald-900/40">
                   <div
                     className="h-2 rounded-full bg-brand-500"
                     style={{ width: `${item.score_percent}%` }}
                   />
                 </div>
-                <p className="text-xs text-slate-300">{item.score_percent}%</p>
+                <p className="text-xs text-amber-100/80">{item.score_percent}%</p>
               </Card>
             ))
           )}
@@ -180,22 +196,22 @@ export function FoodVisionPage() {
 
       {batchResults && (
         <div className="space-y-4">
-          <p className="text-xs text-slate-400">
+          <p className="text-xs text-amber-200/70">
             {mode === 'zip'
               ? 'Top prediction per image inside the zip.'
               : 'Top prediction per uploaded image.'}
           </p>
           {batchResults.map((item) => (
-            <Card key={item.filename} className="space-y-2">
+            <Card key={item.filename} className="space-y-2 border-teal-500/30 bg-teal-500/5">
               <p className="text-sm font-semibold text-white">{item.filename}</p>
-              <p className="text-xs text-slate-400">Top prediction</p>
-              <div className="h-2 w-full rounded-full bg-slate-800">
+              <p className="text-xs text-amber-200/70">Top prediction</p>
+              <div className="h-2 w-full rounded-full bg-emerald-900/40">
                 <div
                   className="h-2 rounded-full bg-brand-500"
                   style={{ width: `${item.prediction.score_percent}%` }}
                 />
               </div>
-              <p className="text-xs text-slate-300">
+              <p className="text-xs text-amber-100/80">
                 {item.prediction.label} · {item.prediction.score_percent}%
               </p>
             </Card>

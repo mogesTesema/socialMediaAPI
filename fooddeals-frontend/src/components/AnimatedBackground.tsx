@@ -23,8 +23,8 @@ const placements = [
 export function AnimatedBackground() {
   return (
     <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-slate-950 to-slate-900" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(59,130,246,0.15),_transparent_55%)]" />
+      <div className="absolute inset-0 bg-gradient-to-br from-sky-900 via-emerald-900 to-amber-900/70" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(59,130,246,0.2),_transparent_55%)]" />
       {assets.map((src, index) => (
         <div
           key={src}

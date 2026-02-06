@@ -7,7 +7,7 @@
 }
 
 body {
-  background-color: #020617;
+  background-color: #0b2a4a;
   color: #f1f5f9;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -15,7 +15,7 @@ body {
 }
 
 * {
-  border-color: #1e293b;
+  border-color: #1e40af;
 }
 
 @keyframes floaty {

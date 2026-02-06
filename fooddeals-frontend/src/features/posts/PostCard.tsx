@@ -32,12 +32,12 @@ export function PostCard({ post }: PostCardProps) {
   };
 
   return (
-    <Card className="space-y-4">
+    <Card className="space-y-4 border-violet-500/30 bg-violet-500/5">
       <div className="space-y-2">
-        <p className="text-sm text-slate-400">Post #{post.id}</p>
+        <p className="text-sm text-amber-200/70">Post #{post.id}</p>
         <p className="text-base text-white">{post.body}</p>
         {post.image_url && (
-          <div className="overflow-hidden rounded-2xl border border-slate-800">
+          <div className="overflow-hidden rounded-2xl border border-sky-500/30">
             <img
               src={post.image_url}
               alt="Post"

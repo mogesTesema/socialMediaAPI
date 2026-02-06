@@ -9,11 +9,13 @@ export function RegisterPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [status, setStatus] = useState<string | null>(null);
+  const [statusTone, setStatusTone] = useState<'success' | 'error' | null>(null);
   const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async () => {
     setIsLoading(true);
     setStatus(null);
+    setStatusTone(null);
     try {
       const response = await api.register(email, password);
       const token = response['access token'] || response['access token:'] || null;
@@ -22,9 +24,11 @@ export function RegisterPage() {
       } else {
         setStatus('Account created. Please check your email to confirm.');
       }
+      setStatusTone('success');
     } catch (error) {
       const message = error instanceof Error ? error.message : 'Unable to register';
       setStatus(message);
+      setStatusTone('error');
     } finally {
       setIsLoading(false);
     }
@@ -50,11 +54,17 @@ export function RegisterPage() {
       <Button onClick={handleSubmit} disabled={!email || !password || isLoading}>
         {isLoading ? 'Creating...' : 'Create account'}
       </Button>
-      <p className="text-xs text-slate-400">
-        Already have access? <Link className="text-brand-200" to="/auth/login">Sign in</Link>
+      <p className="text-xs text-amber-200/70">
+        Already have access? <Link className="text-emerald-200" to="/auth/login">Sign in</Link>
       </p>
       {status && (
-        <div className="rounded-2xl border border-slate-800 bg-slate-950 px-4 py-2 text-xs text-slate-200">
+        <div
+          className={`rounded-2xl border px-4 py-2 text-xs ${
+            statusTone === 'success'
+              ? 'border-emerald-500/40 bg-emerald-500/10 text-emerald-200'
+              : 'border-rose-500/40 bg-rose-500/10 text-rose-200'
+          }`}
+        >
           {status}
         </div>
       )}
