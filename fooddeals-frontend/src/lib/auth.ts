@@ -37,6 +37,13 @@ if (typeof window !== 'undefined') {
   }) as EventListener);
 }
 
+export function extractAccessToken(response: {
+  ['access token']?: string;
+  ['access token:']?: string;
+}): string | null {
+  return response['access token'] ?? response['access token:'] ?? null;
+}
+
 export async function refreshAccessToken(): Promise<string | null> {
   try {
     const response = await fetch(`${API_BASE_URL}/auth/refresh`, {
