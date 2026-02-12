@@ -2,7 +2,6 @@ import { useEffect, useMemo, useState } from 'react';
 import { api } from '../../lib/api';
 import type { Post, PostSorting } from '../../lib/types';
 import { PostCard } from './PostCard';
-import { SectionHeader } from '../../components/SectionHeader';
 import { Button } from '../../components/Button';
 
 interface PostListProps {

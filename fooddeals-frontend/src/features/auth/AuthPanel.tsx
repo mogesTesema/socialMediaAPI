@@ -4,7 +4,6 @@ import { Button } from '../../components/Button';
 import { Card } from '../../components/Card';
 import { Input } from '../../components/Input';
 import { useAuth } from './AuthContext';
-import { setAccessToken } from '../../lib/auth';
 
 export function AuthPanel() {
   const { accessToken, setAccessToken, clearSession } = useAuth();
