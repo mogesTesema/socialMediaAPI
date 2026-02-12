@@ -81,3 +81,8 @@ export function PostList({ searchTerm, prependPosts = [], refreshKey = 0 }: Post
           </div>
         ) : (
           filteredPosts.map((post) => <PostCard key={post.id} post={post} onDelete={handleDelete} />)
+        )}
+      </div>
+    </section>
+  );
+}
