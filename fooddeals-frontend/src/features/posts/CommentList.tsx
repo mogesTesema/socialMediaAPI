@@ -52,41 +52,44 @@ export function CommentList({ postId }: CommentListProps) {
   };
 
   return (
-    <div className="space-y-3 rounded-2xl border border-rose-500/30 bg-rose-500/5 p-4">
-      <div className="flex items-center justify-between">
-        <p className="text-sm font-semibold text-amber-100">Comments</p>
-        <span className="text-xs text-amber-200/70">{comments.length}</span>
+    <div className="space-y-4 rounded-2xl border border-accent-pink/40 bg-accent-pink/5 p-4 mt-4 backdrop-blur-sm">
+      <div className="flex items-center justify-between border-b border-accent-pink/30 pb-3">
+        <h4 className="font-bold text-accent-pink/90 flex items-center gap-2">
+          <span>💬</span> Comments ({comments.length})
+        </h4>
       </div>
 
-      <div className="space-y-3">
+      <div className="space-y-2 max-h-64 overflow-y-auto">
         {comments.length === 0 ? (
-          <p className="text-xs text-amber-200/60">No comments yet.</p>
+          <p className="text-sm text-slate-400 italic py-4 text-center">Be the first to comment!</p>
         ) : (
           comments.map((comment) => (
-            <div key={comment.id} className="rounded-xl border border-emerald-500/20 bg-emerald-500/10 p-3 text-xs text-slate-100">
-              {comment.body}
+            <div key={comment.id} className="rounded-xl border border-accent-orange/30 bg-accent-orange/5 p-3 text-sm text-slate-100 hover:bg-accent-orange/10 transition-all duration-200">
+              <p className="leading-relaxed">{comment.body}</p>
+              <p className="text-xs text-slate-500 mt-1">Just now</p>
             </div>
           ))
         )}
       </div>
 
-      <div className="space-y-2">
+      <div className="space-y-2 border-t border-accent-pink/30 pt-3">
         <Input
-          label="Add comment"
+          label=""
           value={body}
           onChange={(event) => setBody(event.target.value)}
           disabled={!accessToken}
-          placeholder={accessToken ? 'Write a comment...' : 'Sign in to comment'}
+          placeholder={accessToken ? 'Write a thoughtful comment...' : 'Sign in to comment'}
         />
         <div className="flex items-center gap-2">
           <Button
-            tone="secondary"
+            tone="pink"
             onClick={handleAddComment}
             disabled={!accessToken || !body || isLoading}
+            className="text-xs px-3 py-2 min-h-9"
           >
-            {isLoading ? 'Sending...' : 'Send'}
+            {isLoading ? '⏳ Sending...' : '📤 Comment'}
           </Button>
-          {status && <span className="text-xs text-rose-300">{status}</span>}
+          {status && <span className="text-xs text-accent-pink/70 font-medium">{status}</span>}
         </div>
       </div>
     </div>

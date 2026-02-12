@@ -80,13 +80,13 @@ export function PostComposer({ onPostCreated }: PostComposerProps) {
   }, [status]);
 
   return (
-    <Card className="space-y-4 border-emerald-500/30 bg-emerald-500/5">
-      <div>
-        <h3 className="text-lg font-semibold text-white">Create a post</h3>
-        <p className="text-sm text-amber-200/70">Share the latest food updates.</p>
+    <Card variant="emerald" className="space-y-4 slide-in-up">
+      <div className="border-b border-accent-emerald/30 pb-3">
+        <h3 className="text-xl font-bold bg-gradient-to-r from-accent-emerald to-accent-cyan bg-clip-text text-transparent">✨ Create a Post</h3>
+        <p className="text-sm text-slate-400 mt-1">Share the latest food deals and updates with the community</p>
       </div>
       <Input
-        label="Post"
+        label="What's on your mind?"
         placeholder="Share a deal or dish insight..."
         value={body}
         onChange={(event) => setBody(event.target.value)}
@@ -103,23 +103,23 @@ export function PostComposer({ onPostCreated }: PostComposerProps) {
          </div>
       )}
 
-      <div className="flex flex-wrap items-center gap-3">
-        <Button onClick={handleSubmit} disabled={!canPost || (!body && !imageFile) || isLoading}>
-          {isLoading ? 'Publishing...' : 'Publish'}
+      <div className="flex flex-wrap items-center gap-3 pt-2">
+        <Button tone="primary" onClick={handleSubmit} disabled={!canPost || (!body && !imageFile) || isLoading} className="font-bold">
+          {isLoading ? '⏳ Publishing...' : '🚀 Publish'}
         </Button>
         {!canPost && (
-          <span className="text-xs text-amber-200/60">Sign in to publish posts.</span>
+          <span className="text-xs text-slate-400 italic">Sign in to publish posts.</span>
         )}
       </div>
       {status && (
         <div
-          className={`rounded-2xl border px-4 py-2 text-xs ${
+          className={`rounded-2xl border px-4 py-3 text-xs font-medium slide-in-up ${
             statusTone === 'success'
-              ? 'border-emerald-500/40 bg-emerald-500/10 text-emerald-200'
-              : 'border-rose-500/40 bg-rose-500/10 text-rose-200'
+              ? 'border-accent-emerald/50 bg-accent-emerald/15 text-accent-emerald/90'
+              : 'border-accent-pink/50 bg-accent-pink/15 text-accent-pink/90'
           }`}
         >
-          {status}
+          {statusTone === 'success' ? '✓ ' : '✕ '}{status}
         </div>
       )}
     </Card>

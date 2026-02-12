@@ -1,4 +1,5 @@
 import { Input } from '../../components/Input';
+import { Card } from '../../components/Card';
 
 interface SearchBarProps {
   value: string;
@@ -7,16 +8,20 @@ interface SearchBarProps {
 
 export function SearchBar({ value, onChange }: SearchBarProps) {
   return (
-    <div className="rounded-3xl border border-cyan-400/30 bg-cyan-500/5 p-4">
+    <Card variant="cyan" className="space-y-3">
+      <div className="flex items-center gap-2">
+        <span className="text-2xl">🔍</span>
+        <h3 className="font-bold text-accent-cyan/90">Search Posts</h3>
+      </div>
       <Input
-        label="Search posts"
+        label=""
         placeholder="Search by dish, deal, or ingredient..."
         value={value}
         onChange={(event) => onChange(event.target.value)}
       />
-      <p className="mt-2 text-xs text-amber-200/60">
-        This is a client-side search. Later you can swap in a server-side search endpoint.
+      <p className="text-xs text-slate-400 italic border-t border-accent-cyan/30 pt-3">
+        💡 Client-side search filters posts instantly as you type
       </p>
-    </div>
+    </Card>
   );
 }

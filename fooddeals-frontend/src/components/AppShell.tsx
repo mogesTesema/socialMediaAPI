@@ -19,45 +19,47 @@ export function AppShell({ children }: AppShellProps) {
 
   return (
     <div className="min-h-screen text-slate-100">
-      <header className="border-b border-sky-500/30">
+      <header className="border-b border-slate-700/50 bg-gradient-to-r from-slate-900/80 via-slate-900/70 to-primary-950/70 backdrop-blur-md sticky top-0 z-50">
         <Container>
           <div className="flex flex-wrap items-center justify-between gap-4 py-6">
-            <NavLink to="/" className="flex items-center gap-3 hover:opacity-80 transition">
-              <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-brand-500/15 text-brand-200">
+            <NavLink to="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity duration-300">
+              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-accent-emerald/20 to-accent-cyan/20 text-2xl shadow-[0_8px_16px_-4px_rgba(16,185,129,0.2)]">
                 🍲
               </div>
               <div>
-                <p className="text-sm font-semibold uppercase tracking-[0.3em] text-amber-100">
+                <p className="text-sm font-bold uppercase tracking-[0.3em] bg-gradient-to-r from-accent-emerald to-accent-cyan bg-clip-text text-transparent">
                   FoodDeals
                 </p>
-                <p className="text-xs text-amber-200/70">Operations Console</p>
+                <p className="text-xs text-slate-400">Community Platform</p>
               </div>
             </NavLink>
-            <div className="flex flex-wrap items-center gap-3">
-              <Badge>FastAPI + React</Badge>
-              <Badge className="bg-emerald-500/10 text-emerald-200">Production UI</Badge>
+            <div className="flex flex-wrap items-center gap-2 sm:gap-3">
+              <Badge>React + FastAPI</Badge>
+              <Badge className="bg-accent-cyan/10 text-accent-cyan/90">Modern UI</Badge>
               {accessToken && (
                  <NavLink
                    to="/settings"
-                   className="rounded-full border border-sky-500/30 bg-sky-500/10 px-4 py-2.5 text-xs font-semibold text-sky-100 transition hover:bg-sky-500/20"
+                   className="rounded-full border border-primary-500/40 bg-primary-500/10 px-4 py-2.5 text-xs font-semibold text-primary-100 transition-all duration-300 hover:bg-primary-500/20 hover:border-primary-400"
                  >
                    {user?.email || 'Account'}
                  </NavLink>
               )}
             </div>
           </div>
-          <nav className="flex flex-wrap gap-3 pb-4">
-            {navItems.map((item) => (
+          <nav className="flex flex-wrap gap-2 pb-4">
+            {navItems.map((item, idx) => (
               <NavLink
                 key={item.to}
                 to={item.to}
-                className={({ isActive }) =>
-                  `rounded-full px-4 py-2.5 text-sm font-semibold uppercase tracking-[0.2em] transition ${
+                className={({ isActive }) => {
+                  const colors = ['from-primary-500', 'from-accent-emerald', 'from-accent-purple', 'from-accent-cyan'];
+                  const color = colors[idx % colors.length];
+                  return `rounded-full px-4 py-2.5 text-sm font-semibold uppercase tracking-[0.15em] transition-all duration-300 text-nowrap ${
                     isActive
-                      ? 'bg-brand-500/20 text-brand-200'
-                      : 'border border-sky-500/30 text-slate-200 hover:border-brand-500/40 hover:text-brand-100'
-                  }`
-                }
+                      ? `bg-gradient-to-r ${color} to-accent-cyan/40 text-white shadow-[0_8px_16px_-4px_rgba(0,0,0,0.3)]`
+                      : 'border border-slate-600/50 text-slate-300 hover:border-primary-500/50 hover:bg-slate-700/30 hover:text-slate-100'
+                  }`;
+                }}
               >
                 {item.label}
               </NavLink>
@@ -66,10 +68,10 @@ export function AppShell({ children }: AppShellProps) {
               <NavLink
                 to="/auth/login"
                 className={({ isActive }) =>
-                  `rounded-full px-4 py-2.5 text-sm font-semibold uppercase tracking-[0.2em] transition ${
+                  `rounded-full px-4 py-2.5 text-sm font-semibold uppercase tracking-[0.15em] transition-all duration-300 ${
                     isActive
-                      ? 'bg-emerald-500/20 text-emerald-200'
-                      : 'border border-sky-500/30 text-slate-200 hover:border-emerald-500/40 hover:text-emerald-100'
+                      ? 'bg-gradient-to-r from-accent-emerald to-accent-cyan text-white shadow-[0_8px_16px_-4px_rgba(0,0,0,0.3)]'
+                      : 'border border-slate-600/50 text-slate-300 hover:border-accent-emerald/50 hover:bg-slate-700/30 hover:text-emerald-100'
                   }`
                 }
               >

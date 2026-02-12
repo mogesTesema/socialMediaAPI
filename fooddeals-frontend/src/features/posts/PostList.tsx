@@ -50,37 +50,44 @@ export function PostList({ searchTerm, prependPosts = [], refreshKey = 0 }: Post
 
   return (
     <section className="space-y-6">
-      <SectionHeader
-        title="Content feed"
-        subtitle="Review posts, likes, and comments as they land in FoodDeals."
-        action={
-          <div className="flex flex-wrap items-center gap-2">
-            {(['new', 'old', 'likes'] as PostSorting[]).map((option) => (
-              <Button
-                key={option}
-                tone={sorting === option ? 'primary' : 'secondary'}
-                onClick={() => setSorting(option)}
-              >
-                {option === 'likes' ? 'Most liked' : option === 'new' ? 'Newest' : 'Oldest'}
-              </Button>
-            ))}
-          </div>
-        }
-      />
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-700/50">
+        <div>
+          <h3 className="text-2xl font-bold text-slate-100">Latest Posts</h3>
+          <p className="text-slate-400 text-sm mt-1">Sort and discover content from the community</p>
+        </div>
+        <div className="flex flex-wrap items-center gap-2">
+          {(['new', 'old', 'likes'] as PostSorting[]).map((option) => (
+            <Button
+              key={option}
+              tone={sorting === option ? 'primary' : 'secondary'}
+              onClick={() => setSorting(option)}
+              className="text-xs px-3 py-2 min-h-9"
+            >
+              {option === 'likes' ? '❤️ Most liked' : option === 'new' ? '⏰ Newest' : '📅 Oldest'}
+            </Button>
+          ))}
+        </div>
+      </div>
 
       {status && (
-        <div className="rounded-2xl border border-rose-500/40 bg-rose-500/10 px-4 py-3 text-xs text-rose-200">
-          {status}
+        <div className="rounded-2xl border border-accent-pink/50 bg-accent-pink/10 px-4 py-3 text-xs text-accent-pink/90 font-medium">
+          ✕ {status}
         </div>
       )}
 
-      <div className="space-y-6">
+      <div className="space-y-4">
         {filteredPosts.length === 0 ? (
-          <div className="rounded-3xl border border-amber-400/30 bg-amber-500/5 p-8 text-sm text-amber-200/80">
-            No posts yet. Once users create posts they will appear here.
+          <div className="rounded-3xl border border-slate-600/50 bg-slate-800/40 p-8 text-center">
+            <p className="text-2xl mb-2">📭</p>
+            <p className="text-slate-400">No posts match your search yet.</p>
+            <p className="text-slate-500 text-sm mt-1">Be the first to share something great!</p>
           </div>
         ) : (
-          filteredPosts.map((post) => <PostCard key={post.id} post={post} onDelete={handleDelete} />)
+          filteredPosts.map((post) => (
+            <div key={post.id} className="animate-in fade-in duration-300">
+              <PostCard post={post} onDelete={handleDelete} />
+            </div>
+          ))
         )}
       </div>
     </section>
