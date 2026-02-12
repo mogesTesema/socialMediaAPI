@@ -48,24 +48,29 @@ export function PostCard({ post, onDelete }: PostCardProps) {
   };
 
   return (
-    <Card className="space-y-4 border-violet-500/30 bg-violet-500/5">
+    <Card variant="purple" className="space-y-4 slide-in-up">
       <div className="flex justify-between items-start">
-         <p className="text-sm text-amber-200/70">Post #{post.id}</p>
+         <div className="flex items-center gap-2">
+           <div className="h-8 w-8 rounded-full bg-gradient-to-br from-accent-purple/40 to-accent-pink/40 flex items-center justify-center text-xs font-bold">
+             #{post.id}
+           </div>
+           <p className="text-sm text-slate-400">Post</p>
+         </div>
          {isOwner && (
-            <Button tone="secondary" onClick={handleDelete} className="bg-red-500/10 hover:bg-red-500/20 text-red-200 border-red-500/30">
-               Delete
+            <Button tone="pink" onClick={handleDelete} className="text-xs px-3 py-2 min-h-9">
+               Delete Post
             </Button>
          )}
       </div>
 
-      <div className="space-y-2">
-        <p className="text-base text-white whitespace-pre-wrap">{post.body}</p>
+      <div className="space-y-3">
+        <p className="text-base leading-relaxed text-slate-100 whitespace-pre-wrap font-medium">{post.body}</p>
         {post.image_url && (
-          <div className="overflow-hidden rounded-2xl border border-sky-500/30 mt-2">
+          <div className="overflow-hidden rounded-2xl border border-accent-purple/50 mt-2 shadow-[0_12px_24px_-6px_rgba(167,139,250,0.2)]">
             <img
               src={post.image_url}
               alt="Post attachment"
-              className="h-64 w-full object-cover"
+              className="h-64 w-full object-cover hover:scale-105 transition-transform duration-300"
               onError={(e) => {
                  (e.target as HTMLImageElement).style.display = 'none';
               }}
@@ -74,17 +79,18 @@ export function PostCard({ post, onDelete }: PostCardProps) {
         )}
       </div>
 
-      <div className="flex flex-wrap items-center gap-3 pt-2">
-        <Button tone="secondary" onClick={handleLike}>
+      <div className="flex flex-wrap items-center gap-2 pt-2">
+        <Button tone="emerald" onClick={handleLike} className="text-xs px-3 py-2 min-h-9">
           👍 Like ({likes})
         </Button>
         <Button
-          tone="ghost"
+          tone="cyan"
           onClick={() => setShowComments((prev) => !prev)}
+          className="text-xs px-3 py-2 min-h-9"
         >
-          {showComments ? 'Hide comments' : 'Show comments'}
+          💬 {showComments ? 'Hide' : 'Show'} Comments
         </Button>
-        {status && <span className="text-xs text-rose-300">{status}</span>}
+        {status && <span className="text-xs text-accent-pink/70 font-medium">{status}</span>}
       </div>
 
       {showComments && <CommentList postId={post.id} />}

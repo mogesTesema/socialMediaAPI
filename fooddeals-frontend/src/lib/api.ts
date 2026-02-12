@@ -4,6 +4,7 @@ import type {
   Post,
   PostSorting,
   PostWithComments,
+  UserProfile,
 } from './types';
 import { API_BASE_URL } from './config';
 import { getAccessToken, refreshAccessToken } from './auth';

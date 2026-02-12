@@ -4,50 +4,89 @@
   font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
     sans-serif;
   color-scheme: dark;
+  
+  /* Color tokens */
+  --background: #0f172a;
+  --background-secondary: #1a2847;
+  --foreground: #f1f5f9;
+  --foreground-secondary: #cbd5e1;
+  --border: #334155;
+  
+  /* Primary brand colors - Blue */
+  --primary: #3b82f6;
+  --primary-light: #60a5fa;
+  --primary-dark: #1e40af;
+  
+  /* Accent colors for component separation */
+  --accent-emerald: #10b981;
+  --accent-purple: #a78bfa;
+  --accent-pink: #f472b6;
+  --accent-orange: #f97316;
+  --accent-cyan: #06b6d4;
 }
 
 body {
-  background-color: #0b2a4a;
-  color: #f1f5f9;
+  background-color: var(--background);
+  background-image: 
+    radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(16, 185, 129, 0.08) 0%, transparent 50%);
+  color: var(--foreground);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   min-height: 100vh;
 }
 
 * {
-  border-color: #1e40af;
+  border-color: var(--border);
 }
 
+/* Smooth transitions */
+button, a, input, textarea, select {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Animations */
 @keyframes floaty {
-  0% {
+  0%, 100% {
     transform: translateY(0px) scale(1);
   }
   50% {
-    transform: translateY(-18px) scale(1.03);
+    transform: translateY(-12px) scale(1.02);
   }
-  100% {
-    transform: translateY(0px) scale(1);
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shimmer {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
   }
 }
 
 .bg-float {
-  animation: floaty 14s ease-in-out infinite;
-}
-
-@keyframes floatY {
-  0% {
-    transform: translateY(0px) scale(1);
-  }
-  50% {
-    transform: translateY(-16px) scale(1.02);
-  }
-  100% {
-    transform: translateY(0px) scale(1);
-  }
+  animation: floaty 6s ease-in-out infinite;
 }
 
 .animated-float {
-  animation-name: floatY;
-  animation-iteration-count: infinite;
-  animation-timing-function: ease-in-out;
+  animation: floaty 6s ease-in-out infinite;
+}
+
+.slide-in-up {
+  animation: slideInUp 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.shimmer {
+  animation: shimmer 2s ease-in-out infinite;
 }
