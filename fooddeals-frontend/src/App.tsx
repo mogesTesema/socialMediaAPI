@@ -7,6 +7,8 @@ import { RegisterPage } from './pages/RegisterPage';
 import { ForgotPasswordPage } from './pages/ForgotPasswordPage';
 import { FoodVisionPage } from './pages/FoodVisionPage';
 import { ResetPasswordPage } from './pages/ResetPasswordPage';
+import { SettingsPage } from './pages/SettingsPage';
+import { VideoChatPage } from './pages/VideoChatPage';
 
 function App() {
   return (
@@ -15,6 +17,8 @@ function App() {
         <Route path="/" element={<LandingPage />} />
         <Route path="/dashboard" element={<DashboardPage />} />
         <Route path="/food-vision" element={<FoodVisionPage />} />
+        <Route path="/video-chat" element={<VideoChatPage />} />
+        <Route path="/settings" element={<SettingsPage />} />
         <Route path="/auth/login" element={<LoginPage />} />
         <Route path="/auth/register" element={<RegisterPage />} />
         <Route path="/auth/forgot" element={<ForgotPasswordPage />} />

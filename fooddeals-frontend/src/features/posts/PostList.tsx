@@ -34,6 +34,10 @@ export function PostList({ searchTerm, prependPosts = [], refreshKey = 0 }: Post
     };
   }, [sorting, refreshKey]);
 
+  const handleDelete = (id: number) => {
+    setPosts((prev) => prev.filter((p) => p.id !== id));
+  }
+
   const filteredPosts = useMemo(() => {
     const merged = sorting === 'new' ? [...prependPosts, ...posts] : posts;
     const unique = merged.filter(
@@ -76,9 +80,4 @@ export function PostList({ searchTerm, prependPosts = [], refreshKey = 0 }: Post
             No posts yet. Once users create posts they will appear here.
           </div>
         ) : (
-          filteredPosts.map((post) => <PostCard key={post.id} post={post} />)
-        )}
-      </div>
-    </section>
-  );
-}
+          filteredPosts.map((post) => <PostCard key={post.id} post={post} onDelete={handleDelete} />)

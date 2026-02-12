@@ -57,6 +57,10 @@ export const api = {
       method: 'POST',
       body: { email, password },
     }),
+  getProfile: (token: string) =>
+     // Assuming specific backend endpoint for profile.
+     // In backend user router: @router.get("/myemail") returns user.
+     request<UserProfile>('/myemail', { token }),
   requestPasswordReset: (email: string) =>
     request<{ status: string }>('/password/forgot', {
       method: 'POST',
@@ -69,10 +73,10 @@ export const api = {
     }),
   getPosts: (sorting: PostSorting) =>
     request<Post[]>(`/posts?sorting=${sorting}`),
-  createPost: (token: string, body: string) =>
+  createPost: (token: string, body: string, imageUrl?: string) =>
     request<Post>('/post', {
       method: 'POST',
-      body: { body },
+      body: { body, image_url: imageUrl },
       token,
     }),
   likePost: (token: string, postId: number) =>
@@ -147,4 +151,24 @@ export const api = {
       results: { filename: string; prediction: { label: string; score_percent: number } }[];
     }>;
   },
+  uploadFile: async (file: File) => {
+    const form = new FormData();
+    form.append('file', file);
+    const response = await fetch(`${API_BASE_URL}/upload`, {
+      method: 'POST',
+      body: form,
+    });
+    if (!response.ok) throw new Error('Upload failed');
+    return response.json() as Promise<{ status: string; filename: string }>;
+  },
+  deletePost: (token: string, postId: number) =>
+    request<{ status: string }>(`/post/${postId}`, {
+      method: 'DELETE',
+      token,
+    }),
+  deleteAccount: (token: string) =>
+    request<{ status: string }>('/delete', {
+      method: 'DELETE',
+      token,
+    }),
 };

@@ -2,9 +2,11 @@ import { useEffect, useState } from 'react';
 import { Button } from '../../components/Button';
 import { Card } from '../../components/Card';
 import { Input } from '../../components/Input';
+import { FileUploader } from '../../components/FileUploader';
 import { api } from '../../lib/api';
 import { useAuth } from '../auth/AuthContext';
 import type { Post } from '../../lib/types';
+import { API_BASE_URL } from '../../lib/config';
 
 interface PostComposerProps {
   onPostCreated: (post: Post) => void;
@@ -13,11 +15,16 @@ interface PostComposerProps {
 export function PostComposer({ onPostCreated }: PostComposerProps) {
   const { accessToken } = useAuth();
   const [body, setBody] = useState('');
+  const [imageFile, setImageFile] = useState<File | null>(null);
   const [status, setStatus] = useState<string | null>(null);
   const [statusTone, setStatusTone] = useState<'success' | 'error' | null>(null);
   const [isLoading, setIsLoading] = useState(false);
 
   const canPost = Boolean(accessToken);
+
+  const handleFileSelect = (file: File) => {
+    setImageFile(file);
+  };
 
   const handleSubmit = async () => {
     if (!accessToken) return;
@@ -25,9 +32,33 @@ export function PostComposer({ onPostCreated }: PostComposerProps) {
     setStatus(null);
     setStatusTone(null);
     try {
-      const post = await api.createPost(accessToken, body);
+      let imageUrl: string | undefined;
+
+      if (imageFile) {
+        // First upload the image if one is selected
+        const uploadResult = await api.uploadFile(imageFile);
+        
+        // Construct the full URL for the image.
+        // Assuming current simple local upload returns just filename. 
+        // We'll map it to the static serving path or assume backend provides url.
+        // The backend returns { status: "uploaded", filename: "xyz.jpg" }
+        // We'll need to know where these appear. Usually a static mount or a different router.
+        // For local dev, let's assume valid URL construction or modify backend to return full URL.
+        // For now, let's construct relative to API base if it's served there, or leave it relative.
+        // Since backend doesn't return full URL yet, we store filename.
+        // But PostCard expects image_url. Let's prepend the known static path if we can.
+        // Or store it as provided and let PostCard resolve it.
+        // Actually, let's assume we store what backend returns or link against a static route.
+        // The current backend upload router saves to 'uploadedfiles'. 
+        // We need a static mount in FastAPI to serve these.
+        // Assuming there isn't one yet, we will just store the filename for now.
+        imageUrl = `${API_BASE_URL}/static/${uploadResult.filename}`; // Hypothetical path until we fix backend serving
+      }
+
+      const post = await api.createPost(accessToken, body, imageUrl);
       onPostCreated(post);
       setBody('');
+      setImageFile(null);
       setStatus('Post published.');
       setStatusTone('success');
     } catch (error) {
@@ -61,8 +92,19 @@ export function PostComposer({ onPostCreated }: PostComposerProps) {
         onChange={(event) => setBody(event.target.value)}
         disabled={!canPost}
       />
+      
+      {canPost && (
+         <div className="mb-2">
+            <FileUploader 
+               onFileSelect={handleFileSelect} 
+               label="Attach Image"
+               accept="image/*"
+            />
+         </div>
+      )}
+
       <div className="flex flex-wrap items-center gap-3">
-        <Button onClick={handleSubmit} disabled={!canPost || !body || isLoading}>
+        <Button onClick={handleSubmit} disabled={!canPost || (!body && !imageFile) || isLoading}>
           {isLoading ? 'Publishing...' : 'Publish'}
         </Button>
         {!canPost && (

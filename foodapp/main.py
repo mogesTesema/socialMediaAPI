@@ -19,6 +19,9 @@ from foodapp.core.config import SecurityKeys, config
 import logging
 secret_key = SecurityKeys()
 
+from fastapi.staticfiles import StaticFiles
+import os
+
 # 1️⃣ Configure logging first
 configure_logging()
 logger = logging.getLogger("foodapp")
@@ -76,6 +79,11 @@ app.add_middleware(
     allow_methods=["*"] ,
     allow_headers=["*"] ,
 )
+
+# Mount static files
+static_dir = os.path.join(os.getcwd(), "uploadedfiles")
+os.makedirs(static_dir, exist_ok=True)
+app.mount("/static", StaticFiles(directory=static_dir), name="static")
 
 # 4️⃣ Routers
 app.include_router(post_router)

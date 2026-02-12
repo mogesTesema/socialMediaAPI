@@ -11,17 +11,18 @@ const navItems = [
   { label: 'Home', to: '/' },
   { label: 'Dashboard', to: '/dashboard' },
   { label: 'Food Vision', to: '/food-vision' },
+  { label: 'Live Video', to: '/video-chat' },
 ];
 
 export function AppShell({ children }: AppShellProps) {
-  const { accessToken, clearSession } = useAuth();
+  const { accessToken, user } = useAuth();
 
   return (
     <div className="min-h-screen text-slate-100">
       <header className="border-b border-sky-500/30">
         <Container>
           <div className="flex flex-wrap items-center justify-between gap-4 py-6">
-            <div className="flex items-center gap-3">
+            <NavLink to="/" className="flex items-center gap-3 hover:opacity-80 transition">
               <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-brand-500/15 text-brand-200">
                 🍲
               </div>
@@ -31,17 +32,17 @@ export function AppShell({ children }: AppShellProps) {
                 </p>
                 <p className="text-xs text-amber-200/70">Operations Console</p>
               </div>
-            </div>
+            </NavLink>
             <div className="flex flex-wrap items-center gap-3">
               <Badge>FastAPI + React</Badge>
               <Badge className="bg-emerald-500/10 text-emerald-200">Production UI</Badge>
               {accessToken && (
-                <button
-                  className="rounded-full border border-amber-400/40 bg-amber-500/10 px-4 py-2.5 text-xs font-semibold text-amber-100 transition hover:bg-amber-500/20"
-                  onClick={clearSession}
-                >
-                  Sign out
-                </button>
+                 <NavLink
+                   to="/settings"
+                   className="rounded-full border border-sky-500/30 bg-sky-500/10 px-4 py-2.5 text-xs font-semibold text-sky-100 transition hover:bg-sky-500/20"
+                 >
+                   {user?.email || 'Account'}
+                 </NavLink>
               )}
             </div>
           </div>
